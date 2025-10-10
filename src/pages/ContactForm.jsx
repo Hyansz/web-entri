@@ -91,7 +91,7 @@ export default function Contact() {
             </section>
 
             {/* Form Section */}
-            <section className="w-10/12 mx-auto md:mb-8">
+            <section className="w-10/12 mx-auto md:mb-8 mt-10 md:mt-0">
                 <div className="flex items-center gap-10 flex-col md:flex-row">
                     <div className="xl:w-1/2">
                         <img
@@ -145,14 +145,6 @@ export default function Contact() {
                             ></textarea>
 
                             {/* File Upload */}
-                            {/* <input
-                                type="file"
-                                name="photo"
-                                ref={fileInputRef}
-                                onChange={handleFileChange}
-                                className="w-full p-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                accept="image/*"
-                            /> */}
                             <div className="border-2 border-dashed border-cyan-400 rounded-xl p-5 cursor-pointer hover:bg-cyan-50 transition">
                                 <label
                                     htmlFor="photo"
