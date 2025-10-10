@@ -7,7 +7,7 @@ export default function ProductLab() {
     const limit = 16;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/lab?page=${page}&limit=${limit}`)
+        fetch(`https://web-entri.onrender.com/api/lab?page=${page}&limit=${limit}`)
             .then((res) => res.json())
             .then((data) => {
                 setLab(data.lab);

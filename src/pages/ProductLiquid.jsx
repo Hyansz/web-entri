@@ -7,7 +7,7 @@ export default function ProductLiquid() {
     const limit = 16;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/liquid?page=${page}&limit=${limit}`)
+        fetch(`https://web-entri.onrender.com/api/liquid?page=${page}&limit=${limit}`)
             .then((res) => res.json())
             .then((data) => {
                 setLiquid(data.liquid);

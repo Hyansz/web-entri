@@ -38,7 +38,7 @@ export default function Contact() {
                 data.append("photo", file); // ⬅️ harus sama dengan upload.single("photo")
             }
 
-            const res = await fetch("http://localhost:5000/send-email", {
+            const res = await fetch("https://web-entri.onrender.com/send-email", {
                 method: "POST",
                 body: data,
             });

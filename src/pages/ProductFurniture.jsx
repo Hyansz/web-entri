@@ -7,7 +7,7 @@ export default function ProductFurniture() {
     const limit = 16; 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/furniture?page=${page}&limit=${limit}`)
+        fetch(`https://web-entri.onrender.com/api/furniture?page=${page}&limit=${limit}`)
             .then((res) => res.json())
             .then((data) => {
                 setFurniture(data.furniture);

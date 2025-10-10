@@ -7,7 +7,7 @@ export default function ProductBmhp() {
     const limit = 16;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/bmhp?page=${page}&limit=${limit}`)
+        fetch(`https://web-entri.onrender.com/api/bmhp?page=${page}&limit=${limit}`)
             .then((res) => res.json())
             .then((data) => {
                 setBmhp(data.bmhp);
