@@ -8,7 +8,6 @@ import fs from "fs";
 import { fileURLToPath } from "url";
 
 const app = express();
-const PORT = 5000;
 
 dotenv.config();
 app.use(cors());
