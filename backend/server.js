@@ -547,56 +547,6 @@ app.get("/api/lab", (req, res) => {
     });
 });
 
-// app.post("/send-email", async (req, res) => {
-//     try {
-//         const { name, email, subject, message } = req.body;
-
-//         const data = await resend.emails.send({
-//             from: `onboarding@resend.dev`,
-//             to: [process.env.TARGET_EMAIL],
-//             subject: `📩 New Message from ${name}`,
-//             html: `
-//             <html>
-//                 <head>
-//                 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-//                 </head>
-//                 <body style="margin:0; padding:0; font-family: 'Poppins', Arial, sans-serif; background-color:#f9fafb;">
-//                 <div style="max-width:600px; margin:auto; border:1px solid #e5e7eb; border-radius:10px; overflow:hidden;">
-
-//                     <!-- Header -->
-//                     <div style="background:linear-gradient(135deg,#06b6d4,#3b82f6); padding:20px; color:white;">
-//                     <h2 style="margin:0; font-weight:600;">📬 New Contact Form Submission</h2>
-//                     </div>
-
-//                     <!-- Content -->
-//                     <div style="padding:20px;">
-//                     <p style="margin:5px 0;"><b>Nama:</b> ${name}</p>
-//                     <p style="margin:5px 0;"><b>Email:</b> ${email}</p>
-//                     <p style="margin:5px 0;"><b>Judul:</b> ${subject}</p>
-
-//                     <div style="margin-top:20px; padding:15px; background:#f3f4f6; border-left:4px solid #06b6d4; border-radius:6px;">
-//                         <p style="margin:0; line-height:1.6;"><b>Message:</b><br/>${message}</p>
-//                     </div>
-//                     </div>
-
-//                     <!-- Footer -->
-//                     <div style="background:#f9fafb; padding:15px; font-size:12px; color:#6b7280; text-align:center;">
-//                     <p style="margin:0;">Email ini dikirim otomatis dari <b>Website Contact Form</b></p>
-//                     </div>
-//                 </div>
-//                 </body>
-//             </html>
-//         `,
-//             });
-
-//         res.status(200).json({ success: true, data });
-
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).json({ success: false, error });
-//     }
-// });
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 

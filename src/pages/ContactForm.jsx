@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { FaWhatsapp } from "react-icons/fa";
+import { FaImage, FaUpload } from "react-icons/fa6";
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -7,10 +8,10 @@ export default function Contact() {
         email: "",
         subject: "",
         message: "",
-        photo: "",
     });
-    const [file, setFile] = useState(null); // untuk simpan file
+    const [file, setFile] = useState(null);
     const [status, setStatus] = useState("");
+    const fileInputRef = useRef(null); // ✅ buat ref untuk input file
 
     const handleChange = (e) => {
         setFormData({
@@ -33,15 +34,15 @@ export default function Contact() {
             data.append("email", formData.email);
             data.append("subject", formData.subject);
             data.append("message", formData.message);
+            if (file) data.append("photo", file);
 
-            if (file) {
-                data.append("photo", file); // ⬅️ harus sama dengan upload.single("photo")
-            }
-
-            const res = await fetch("https://web-entri.onrender.com/send-email", {
-                method: "POST",
-                body: data,
-            });
+            const res = await fetch(
+                "https://web-entri.onrender.com/send-email",
+                {
+                    method: "POST",
+                    body: data,
+                }
+            );
 
             if (res.ok) {
                 setStatus("✅ Pesan berhasil dikirim!");
@@ -50,9 +51,14 @@ export default function Contact() {
                     email: "",
                     subject: "",
                     message: "",
-                    photo: "",
                 });
                 setFile(null);
+
+                if (fileInputRef.current) {
+                    fileInputRef.current.value = "";
+                }
+
+                setTimeout(() => setStatus(""), 3000);
             } else {
                 setStatus("❌ Gagal mengirim pesan.");
             }
@@ -64,7 +70,7 @@ export default function Contact() {
 
     return (
         <div>
-            {/* Hero */}
+            {/* Hero Section */}
             <section
                 className="h-[80vh] relative flex flex-col text-white bg-cover bg-no-repeat bg-center xl:bg-top"
                 style={{
@@ -74,15 +80,13 @@ export default function Contact() {
                 <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-cyan-800/80 via-black/50 to-black/70"></div>
                 <div className="block md:hidden absolute inset-0 bg-black/60"></div>
 
-                <div>
-                    <div className="relative w-11/12 z-10 mx-auto flex flex-col items-start h-[80vh] justify-center text-center">
-                        <h3 className="text-3xl w-full md:text-5xl font-bold mb-4">
-                            Contact{" "}
-                            <span className="bg-gradient-to-l from-cyan-500 via-cyan-400 to-cyan-200 bg-clip-text text-transparent">
-                                Us
-                            </span>{" "}
-                        </h3>
-                    </div>
+                <div className="relative w-11/12 z-10 mx-auto flex flex-col items-start h-[80vh] justify-center text-center">
+                    <h3 className="text-3xl w-full md:text-5xl font-bold mb-4">
+                        Contact{" "}
+                        <span className="bg-gradient-to-l from-cyan-500 via-cyan-400 to-cyan-200 bg-clip-text text-transparent">
+                            Us
+                        </span>
+                    </h3>
                 </div>
             </section>
 
@@ -93,7 +97,7 @@ export default function Contact() {
                         <img
                             src="/img/conper.png"
                             className="rounded-2xl"
-                            alt=""
+                            alt="Contact illustration"
                         />
                     </div>
                     <div className="xl:w-1/2 px-4 pb-20 xl:p-20 mx-auto text-center">
@@ -140,14 +144,43 @@ export default function Contact() {
                                 required
                             ></textarea>
 
-                            {/* Upload File */}
-                            <input
+                            {/* File Upload */}
+                            {/* <input
                                 type="file"
                                 name="photo"
+                                ref={fileInputRef}
                                 onChange={handleFileChange}
                                 className="w-full p-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 accept="image/*"
-                            />
+                            /> */}
+                            <div className="border-2 border-dashed border-cyan-400 rounded-xl p-5 cursor-pointer hover:bg-cyan-50 transition">
+                                <label
+                                    htmlFor="photo"
+                                    className="flex flex-col items-center justify-center space-y-2 text-cyan-700 cursor-pointer"
+                                >
+                                    <FaUpload className="text-3xl" />
+                                    <span className="font-semibold">
+                                        {file ? "Ganti File" : "Klik untuk pilih file gambar"}
+                                    </span>
+                                    <span className="text-sm text-gray-500">
+                                        (Format: JPG, PNG, WebP)
+                                    </span>
+                                </label>
+                                <input
+                                    type="file"
+                                    id="photo"
+                                    name="photo"
+                                    ref={fileInputRef}
+                                    onChange={handleFileChange}
+                                    className="hidden"
+                                    accept="image/*"
+                                />
+                                {file && (
+                                    <p className="mt-3 flex items-center gap-2 justify-center text-sm text-gray-700">
+                                        <FaImage className="text-cyan-700" /> <strong>{file.name}</strong> ({Math.round(file.size / 1024)} KB)
+                                    </p>
+                                )}
+                            </div>
 
                             <button
                                 type="submit"
@@ -155,6 +188,7 @@ export default function Contact() {
                             >
                                 Send
                             </button>
+
                             {status && (
                                 <p className="text-center mt-2 text-sm font-medium">
                                     {status}
