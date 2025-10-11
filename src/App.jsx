@@ -9,32 +9,50 @@ import ProductLiquid from "./pages/ProductLiquid";
 import ProductFurniture from "./pages/ProductFurniture";
 import ProductBmhp from "./pages/ProductBmhp";
 import ProductCutting from "./pages/ProductCutting";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import ContactForm from "./pages/ContactForm";
+import Edu from "./pages/Edu";
+import BlogList from "./pages/BlogList";
+import BlogDetail from "./pages/BlogDetail";
 
 AOS.init();
 
 export default function App() {
-  return (
-    <Router>
-      <div className="flex flex-col min-h-screen bg-white">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<ContactForm />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/products/furniture" element={<ProductFurniture />} />
-            <Route path="/products/liquid" element={<ProductLiquid />} />
-            <Route path="/products/bmhp" element={<ProductBmhp />} />
-            <Route path="/products/lab" element={<ProductLab />} />
-            <Route path="/products/cutting" element={<ProductCutting />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
-  );
+    return (
+        <Router>
+            <div className="flex flex-col min-h-screen bg-white">
+                <Navbar />
+                <main className="flex-grow">
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/edu" element={<Edu />} />
+                        <Route path="/blog" element={<BlogList />} />
+                        <Route path="/blog/:slug" element={<BlogDetail />} />
+                        <Route path="/contact" element={<ContactForm />} />
+                        <Route path="/products" element={<Products />} />
+                        <Route
+                            path="/products/furniture"
+                            element={<ProductFurniture />}
+                        />
+                        <Route
+                            path="/products/liquid"
+                            element={<ProductLiquid />}
+                        />
+                        <Route
+                            path="/products/bmhp"
+                            element={<ProductBmhp />}
+                        />
+                        <Route path="/products/lab" element={<ProductLab />} />
+                        <Route
+                            path="/products/cutting"
+                            element={<ProductCutting />}
+                        />
+                    </Routes>
+                </main>
+                <Footer />
+            </div>
+        </Router>
+    );
 }

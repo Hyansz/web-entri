@@ -91,7 +91,7 @@ export default function Contact() {
             </section>
 
             {/* Form Section */}
-            <section className="w-10/12 mx-auto md:mb-8 mt-10 md:mt-0">
+            <section className="w-10/12 mx-auto md:mb-8 mt-10">
                 <div className="flex items-center gap-10 flex-col md:flex-row">
                     <div className="xl:w-1/2">
                         <img
