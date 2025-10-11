@@ -479,6 +479,108 @@ const lab = [
     },
 ];
 
+const videos = [
+    {
+        _id: "1",
+        title: "Cara Menggunakan Produk Kami",
+        videoId: "t_9Zu8M9KJI",
+        description:
+            "Panduan lengkap penggunaan produk secara aman dan efisien.",
+    },
+    {
+        _id: "2",
+        title: "Perawatan Produk Agar Tahan Lama",
+        videoId: "5qap5aO4i9A",
+        description:
+            "Tips merawat produk agar tetap awet dan berfungsi optimal.",
+    },
+    {
+        _id: "3",
+        title: "Penjelasan Fitur Unggulan Kami",
+        videoId: "kXYiU_JCYtU",
+        description: "Pelajari keunggulan yang membuat produk kami berbeda.",
+    },
+    {
+        _id: "4",
+        title: "Tutorial Singkat: Instalasi Mudah",
+        videoId: "9bZkp7q19f0",
+        description: "Panduan instalasi produk dengan langkah mudah dan cepat.",
+    },
+    {
+        _id: "5",
+        title: "Demo Produk untuk Industri",
+        videoId: "E7wJTI-1dvQ",
+        description:
+            "Lihat bagaimana produk kami digunakan dalam skala industri.",
+    },
+];
+
+const blogs = [
+    {
+        id: 1,
+        slug: "panduan-produk-terbaru",
+        title: "Panduan Menggunakan Produk Terbaru Kami",
+        description:
+            "Pelajari cara terbaik menggunakan produk kami untuk hasil maksimal. Dalam artikel ini, kami akan membahas langkah-langkah penting agar Anda mendapatkan hasil terbaik dari setiap produk.",
+        thumbnail: "https://placehold.co/600x400?text=Blog+1",
+        content: `
+        <p>Produk terbaru kami dirancang dengan teknologi mutakhir untuk memudahkan Anda. Berikut panduannya:</p>
+        <ul>
+            <li>Langkah 1: Unboxing produk dengan hati-hati.</li>
+            <li>Langkah 2: Baca petunjuk penggunaan di kemasan.</li>
+            <li>Langkah 3: Gunakan sesuai instruksi.</li>
+        </ul>
+        <p>Dengan mengikuti panduan ini, Anda bisa memastikan produk bekerja optimal.</p>
+    `,
+        createdAt: "2025-10-01T10:00:00Z",
+    },
+    {
+        id: 2,
+        slug: "tips-perawatan-produk",
+        title: "5 Tips Merawat Produk Agar Lebih Awet",
+        description:
+            "Dengan perawatan yang tepat, produk Anda bisa bertahan lebih lama. Yuk simak beberapa tips sederhana agar produk tetap prima.",
+        thumbnail: "https://placehold.co/600x400?text=Blog+2",
+        content: `
+        <p>Merawat produk tidak sulit, asal tahu caranya:</p>
+        <ol>
+            <li>Bersihkan secara rutin.</li>
+            <li>Hindari paparan panas berlebihan.</li>
+            <li>Simpan di tempat kering.</li>
+        </ol>
+        <p>Dengan langkah ini, umur produk bisa bertambah hingga 2x lipat!</p>
+    `,
+        createdAt: "2025-09-25T09:00:00Z",
+    },
+];
+
+app.get("/api/blogs", (req, res) => {
+    res.json({ blogs });
+});
+
+app.get("/api/blogs/:slug", (req, res) => {
+    const blog = blogs.find((b) => b.slug === req.params.slug);
+    if (!blog) return res.status(404).json({ message: "Blog tidak ditemukan" });
+    res.json(blog);
+});
+
+app.get("/api/videos", (req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 9;
+
+    const startIndex = (page - 1) * limit;
+    const endIndex = startIndex + limit;
+
+    const paginatedVideos = videos.slice(startIndex, endIndex);
+
+    res.json({
+        videos: paginatedVideos,
+        total: videos.length,
+        page,
+        limit,
+    });
+});
+
 // endpoint paginasi furniture
 app.get("/api/furniture", (req, res) => {
     const page = parseInt(req.query.page) || 1;
