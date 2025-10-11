@@ -10,7 +10,7 @@ export default function EducationVideo() {
     const limit = 9;
 
     // Gunakan base URL dinamis agar bisa otomatis menyesuaikan saat deploy
-    const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    const API_BASE = import.meta.env.VITE_API_URL || "https://web-entri.onrender.com";
 
     useEffect(() => {
         const fetchVideos = async () => {

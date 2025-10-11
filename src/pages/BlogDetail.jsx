@@ -7,7 +7,7 @@ export default function BlogDetail() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/blogs/${slug}`)
+        fetch(`https://web-entri.onrender.com/api/blogs/${slug}`)
             .then((res) => res.json())
             .then((data) => setBlog(data))
             .catch(() => setBlog(null))
