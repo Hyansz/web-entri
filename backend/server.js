@@ -716,7 +716,7 @@ app.post("/send-email", upload.single("photo"), async (req, res) => {
                 <!-- FOOTER -->
                 <div style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; padding: 20px; text-align: center; font-size: 13px; color: #64748b;">
                     <p style="margin: 0;">This email was sent from your website contact form.</p>
-                    <p style="margin: 5px 0 0;">© ${new Date().getFullYear()} <span style="color: #06b6d4; font-weight: 600;">Your Website</span></p>
+                    <p style="margin: 5px 0 0;">© 2025 <span style="font-weight: 600;">PT Entri Jaya Makmur.</span> All right reserved</p>
                 </div>
 
                 </div>
