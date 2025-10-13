@@ -675,16 +675,53 @@ app.post("/send-email", upload.single("photo"), async (req, res) => {
             to: [process.env.TARGET_EMAIL],
             subject: `New Message from ${name}`,
             html: `
-        <h3>${subject}</h3>
-        <p><b>Name:</b> ${name}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Message:</b><br/>${message}</p>
-        ${
-            file
-                ? `<p><b>Photo uploaded:</b> ${file.originalname}</p>`
-                : `<p><i>No photo uploaded</i></p>`
-        }
-    `,
+            <div style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #e0f7fa; padding: 40px 0;">
+
+                <div style="max-width: 640px; margin: 0 auto; background: #ffffff; border-radius: 12px; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); overflow: hidden;">
+
+                <!-- HEADER -->
+                <div style="background: linear-gradient(135deg, #06b6d4, #0ea5e9); padding: 25px 20px; text-align: center; color: #ffffff;">
+                    <h1 style="margin: 0; font-size: 24px;">💬 New Contact Form Message</h1>
+                    <p style="margin: 6px 0 0; font-size: 14px; opacity: 0.9;">You’ve received a new message from your website</p>
+                </div>
+
+                <!-- CONTENT -->
+                <div style="padding: 30px; color: #333333;">
+                    <div style="border-left: 4px solid #06b6d4; padding-left: 15px; margin-bottom: 20px;">
+                    <p style="margin: 5px 0; font-size: 16px;"><b>Subject:</b> ${subject}</p>
+                    <p style="margin: 5px 0; font-size: 16px;"><b>Name:</b> ${name}</p>
+                    <p style="margin: 5px 0; font-size: 16px;">
+                        <b>Email:</b> 
+                        <a href="mailto:${email}" style="color: #0ea5e9; text-decoration: none;">${email}</a>
+                    </p>
+                    </div>
+
+                    <p style="font-weight: bold; font-size: 16px;">Message:</p>
+                    <div style="background-color: #f0f9ff; border: 1px solid #bae6fd; padding: 16px 20px; border-radius: 10px; font-size: 15px; line-height: 1.6; color: #334155;">
+                    ${message.replace(/\n/g, "<br/>")}
+                    </div>
+
+                    ${
+                        file
+                            ? `
+                        <div style="margin-top: 25px; background-color: #ecfeff; border: 1px solid #a5f3fc; padding: 15px; border-radius: 8px;">
+                        <p style="margin: 0; font-size: 15px; color: #036672;">
+                            📎 <b>Attached Photo:</b> ${file.originalname}
+                        </p>
+                        </div>`
+                            : `<p style="margin-top: 25px; color: #94a3b8; font-style: italic;">No photo uploaded</p>`
+                    }
+                </div>
+
+                <!-- FOOTER -->
+                <div style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; padding: 20px; text-align: center; font-size: 13px; color: #64748b;">
+                    <p style="margin: 0;">This email was sent from your website contact form.</p>
+                    <p style="margin: 5px 0 0;">© ${new Date().getFullYear()} <span style="color: #06b6d4; font-weight: 600;">Your Website</span></p>
+                </div>
+
+                </div>
+            </div>
+            `,
             attachments,
         });
 
