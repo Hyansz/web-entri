@@ -6,12 +6,24 @@ import dotenv from "dotenv";
 import { Resend } from "resend";
 import fs from "fs";
 import { fileURLToPath } from "url";
+import helmet from "helmet";
+import xss from "xss-clean";
+import rateLimit from "express-rate-limit";
 
 const app = express();
 
 dotenv.config();
-app.use(cors());
+app.use(helmet()); // tambah header keamanan HTTP
+app.use(xss()); // cegah XSS injection
+app.use(cors({ origin: "https://invitaitionspi.id" })); // batasi hanya domain kamu
 app.use(express.json());
+
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 menit
+    max: 100, // maksimal 100 request per IP
+    message: "Terlalu banyak request dari IP ini. Coba lagi nanti.",
+});
+app.use(limiter);
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 // Setup multer (tempat simpan file upload)
@@ -732,6 +744,17 @@ app.post("/send-email", upload.single("photo"), async (req, res) => {
         console.error(error);
         res.status(500).json({ success: false, error: error.message });
     }
+});
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// arahkan ke hasil build React (ubah sesuai lokasi folder build kamu)
+app.use(express.static(path.join(__dirname, "client/dist")));
+
+// jika semua route tidak ditemukan (misal /contact, /about), arahkan ke index.html
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/dist", "index.html"));
 });
 
 const PORT = process.env.PORT || 5000;
