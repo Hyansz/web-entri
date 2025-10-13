@@ -683,7 +683,7 @@ app.post("/send-email", upload.single("photo"), async (req, res) => {
                 
                 <!-- HEADER -->
                 <div style="background: linear-gradient(135deg, #06b6d4, #0ea5e9); padding: 25px 20px; text-align: center; color: #ffffff; font-family: 'Poppins', sans-serif;">
-                    <h1 style="margin: 0; font-size: 24px; font-weight: 600;">💬 New Contact Form Message</h1>
+                    <h1 style="margin: 0; font-size: 24px; font-weight: 600;">💬 New FAQ Form Message</h1>
                     <p style="margin: 6px 0 0; font-size: 14px; font-weight: 400; opacity: 0.9;">You’ve received a new message from your website</p>
                 </div>
 
