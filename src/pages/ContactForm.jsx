@@ -74,7 +74,7 @@ export default function Contact() {
             <section
                 className="h-[80vh] relative flex flex-col text-white bg-cover bg-no-repeat bg-center"
                 style={{
-                    backgroundImage: "url('/img/contact.png')",
+                    backgroundImage: "url('/img/contact.jpeg')",
                 }}
             >
                 <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-cyan-800/80 via-black/50 to-black/70"></div>
