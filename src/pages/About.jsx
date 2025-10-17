@@ -103,16 +103,16 @@ export default function About() {
                     {/* Item 2 */}
                     <div className="flex-1 w-full md:w-1/4">
                         <div className="flex items-center gap-4 justify-center md:justify-start mb-4 h-15">
-                            <FaUserGroup className="text-4xl bg-cyan-700 p-1.5 rounded-full text-white" />
+                            <HiOutlineCpuChip className="text-4xl bg-cyan-700 p-1 rounded-full text-white" />
                             <h2 className="text-lg font-semibold md:w-1/2">
-                                Tim Inovatif & Kompeten
+                                Tim Andal & Kompeten
                             </h2>
                         </div>
-                        <div className="bg-white py-2 shadow-md shadow-slate-400 rounded-lg">
+                        <div className="bg-white p-2 shadow-md shadow-slate-400 rounded-lg">
                             <OptimizedImage
-                                src="/img/qc.jpg"
-                                alt="Tim Inovatif & Kompeten"
-                                className="rounded-md w-full h-64 object-cover"
+                                src="/img/profesional.jpeg"
+                                alt="Teknologi Mesin Modern"
+                                className="w-full h-64 object-cover"
                             />
                         </div>
                     </div>
@@ -138,13 +138,13 @@ export default function About() {
                     <div className="flex-1 w-full md:w-1/4">
                         <div className="flex items-center gap-4 justify-center md:justify-start mb-4 h-15">
                             <MdOutlineVerified className="text-4xl bg-cyan-700 p-1.5 rounded-full text-white" />
-                            <h2 className="text-lg font-semibold w-3/5 md:w-3/4">
-                                Harmoni Kreativitas & Teknologi
+                            <h2 className="text-lg font-semibold md:w-1/2">
+                                Inovasi Tanpa Henti
                             </h2>
                         </div>
                         <div className="bg-white p-2 shadow-md shadow-slate-400 rounded-lg">
                             <OptimizedImage
-                                src="/img/las.jpg"
+                                src="/img/inovasi.jpeg"
                                 alt="Harmoni Kreativitas & Teknologi"
                                 className="w-full h-64 object-cover"
                             />

@@ -72,7 +72,7 @@ export default function Contact() {
         <div>
             {/* Hero Section */}
             <section
-                className="h-[80vh] relative flex flex-col text-white bg-cover bg-no-repeat bg-center xl:bg-top"
+                className="h-[80vh] relative flex flex-col text-white bg-cover bg-no-repeat bg-center"
                 style={{
                     backgroundImage: "url('/img/contact.png')",
                 }}
