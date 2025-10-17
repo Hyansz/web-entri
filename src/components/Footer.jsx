@@ -1,5 +1,5 @@
 import { BiLogoGmail } from "react-icons/bi";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -23,13 +23,28 @@ export default function Footer() {
                     <div>
                         <ul className="flex gap-4">
                             <li className="text-xl hover:scale-110 duration-400 cursor-pointer hover:backdrop-blur-md hover:bg-pink-400/80 p-1 rounded-lg hover:shadow-xl hover:shadow-pink-500/40">
-                                <FaInstagram />
+                                <a
+                                    href="https://www.instagram.com/pt.entrijayamakmur/"
+                                    target="_blank"
+                                >
+                                    <FaInstagram />
+                                </a>
                             </li>
-                            <li className="text-xl hover:scale-110 duration-400 cursor-pointer hover:backdrop-blur-md hover:bg-pink-400/80 p-1 rounded-lg hover:shadow-xl hover:shadow-pink-500/40">
-                                <FaInstagram />
+                            <li className="text-xl hover:scale-110 duration-400 cursor-pointer hover:backdrop-blur-md hover:bg-blue-400/80 p-1 rounded-lg hover:shadow-xl hover:shadow-blue-500">
+                                <a
+                                    href="https://web.facebook.com/pt.entrijayamakmur"
+                                    target="_blank"
+                                >
+                                    <FaFacebookF />
+                                </a>
                             </li>
-                            <li className="text-xl hover:scale-110 duration-400 cursor-pointer hover:backdrop-blur-md hover:bg-pink-400/80 p-1 rounded-lg hover:shadow-xl hover:shadow-pink-500/40">
-                                <FaInstagram />
+                            <li className="text-xl hover:scale-110 duration-400 cursor-pointer hover:backdrop-blur-md hover:bg-black/80 p-1 rounded-lg hover:shadow-xl hover:shadow-black/40">
+                                <a
+                                    href="https://www.tiktok.com/@pt.entrijayamakmur"
+                                    target="_blank"
+                                >
+                                    <FaTiktok />
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -98,13 +113,13 @@ export default function Footer() {
                             <div className="flex flex-col gap-3 md:gap-0.5 items-center md:items-start">
                                 <div>
                                     <a
-                                        href="https://wa.me/628123456789"
+                                        href="https://wa.me/6285174394123"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex w-full md:w-fit items-center gap-3 text-white rounded-2xl font-semibold transition duration-300 hover:scale-105"
                                     >
                                         <FaWhatsapp className="text-2xl" />
-                                        +62 812-3456-789
+                                        +62 851-7439-4123
                                     </a>
                                 </div>
                                 <div>
