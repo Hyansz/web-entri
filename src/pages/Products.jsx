@@ -133,8 +133,9 @@ export default function Products() {
                     </div>
                     <div>
                         <p>
-                            Aneka perabot dan perlengkapan khusus untuk
-                            menunjang fasilitas kesehatan.
+                            Berbagai cairan medis atau pembersih yang digunakan
+                            untuk sterilisasi, desinfeksi, dan kebutuhan
+                            laboratorium.
                         </p>
                     </div>
                 </div>
@@ -204,8 +205,8 @@ export default function Products() {
                     </div>
                     <div>
                         <p>
-                            Aneka perabot dan perlengkapan khusus untuk
-                            menunjang fasilitas kesehatan.
+                            Aneka macam peralatan medis yang digunakan sekali
+                            pakai atau memiliki masa pakai terbatas.
                         </p>
                     </div>
                 </div>
@@ -270,8 +271,9 @@ export default function Products() {
                     </div>
                     <div>
                         <p>
-                            Aneka perabot dan perlengkapan khusus untuk
-                            menunjang fasilitas kesehatan.
+                            Peralatan dan perlengkapan pendukung kegiatan
+                            analisis serta pengujian di laboratorium medis
+                            maupun penelitian.
                         </p>
                     </div>
                 </div>
@@ -338,8 +340,9 @@ export default function Products() {
                     </div>
                     <div>
                         <p>
-                            Aneka perabot dan perlengkapan khusus untuk
-                            menunjang fasilitas kesehatan.
+                            Desain dan pola dekoratif yang diproduksi
+                            menggunakan teknologi pemotongan laser untuk hasil
+                            presisi dan estetis.
                         </p>
                     </div>
                 </div>
