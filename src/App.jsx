@@ -12,9 +12,6 @@ import ProductCutting from "./pages/ProductCutting";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ContactForm from "./pages/ContactForm";
-import Edu from "./pages/Edu";
-import BlogList from "./pages/BlogList";
-import BlogDetail from "./pages/BlogDetail";
 
 AOS.init();
 
@@ -27,9 +24,6 @@ export default function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />
-                        <Route path="/edu" element={<Edu />} />
-                        <Route path="/blog" element={<BlogList />} />
-                        <Route path="/blog/:slug" element={<BlogDetail />} />
                         <Route path="/contact" element={<ContactForm />} />
                         <Route path="/products" element={<Products />} />
                         <Route

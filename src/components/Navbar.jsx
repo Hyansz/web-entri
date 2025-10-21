@@ -185,22 +185,6 @@ export default function Navbar() {
                             </Link>
                         </div>
                     </div>
-
-                    <Link
-                        to="/edu"
-                        onClick={() => handleMenuClick()}
-                        className="transition duration-300 hover:text-yellow-400 hover:scale-110"
-                    >
-                        Edukasi
-                    </Link>
-                    
-                    <Link
-                        to="/blog"
-                        onClick={() => handleMenuClick()}
-                        className="transition duration-300 hover:text-yellow-400 hover:scale-110"
-                    >
-                        Blog
-                    </Link>
                     
                     <Link
                         to="/contact"
@@ -310,22 +294,6 @@ export default function Navbar() {
                             </Link>
                         </div>
                     </div>
-
-                    <Link
-                        to="/edu"
-                        onClick={() => handleMenuClick()}
-                        className="block px-6 py-2 hover:text-yellow-400"
-                    >
-                        Edukasi
-                    </Link>
-
-                    <Link
-                        to="/blog"
-                        onClick={() => handleMenuClick()}
-                        className="block px-6 py-2 hover:text-yellow-400"
-                    >
-                        Blog
-                    </Link>
 
                     <Link
                         to="/contact"

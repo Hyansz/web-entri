@@ -600,6 +600,8 @@ app.get("/api/furniture", (req, res) => {
     const start = (page - 1) * limit;
     const end = start + limit;
 
+    res.set("Cache-Control", "public, max-age=600, stale-while-revalidate=60");
+
     const paginated = furniture.slice(start, end);
 
     res.json({
@@ -616,6 +618,8 @@ app.get("/api/liquid", (req, res) => {
     const limit = parseInt(req.query.limit) || 20;
     const start = (page - 1) * limit;
     const end = start + limit;
+
+    res.set("Cache-Control", "public, max-age=600, stale-while-revalidate=60");
 
     const paginated = liquid.slice(start, end);
 
@@ -634,6 +638,8 @@ app.get("/api/bmhp", (req, res) => {
     const start = (page - 1) * limit;
     const end = start + limit;
 
+    res.set("Cache-Control", "public, max-age=600, stale-while-revalidate=60");
+
     const paginated = bmhp.slice(start, end);
 
     res.json({
@@ -650,6 +656,8 @@ app.get("/api/lab", (req, res) => {
     const limit = parseInt(req.query.limit) || 20;
     const start = (page - 1) * limit;
     const end = start + limit;
+
+    res.set("Cache-Control", "public, max-age=600, stale-while-revalidate=60");
 
     const paginated = lab.slice(start, end);
 
