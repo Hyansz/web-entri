@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://entrijayamakmur.co.id/sitemap.xml
+
+# Blokir halaman sistem (opsional)
+Disallow: /admin/
+Disallow: /login/
+Disallow: /dashboard/

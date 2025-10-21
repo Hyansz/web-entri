@@ -106,6 +106,7 @@ export default function Navbar() {
                 <nav className="hidden md:flex space-x-6 items-center">
                     <Link
                         to="/"
+                        title="Beranda"
                         onClick={() => handleMenuClick()}
                         className="transition duration-300 hover:text-yellow-400 hover:scale-110"
                     >
@@ -113,6 +114,7 @@ export default function Navbar() {
                     </Link>
                     <Link
                         to="/about"
+                        title="Tentang Kami"
                         onClick={() => handleMenuClick()}
                         className="transition duration-300 hover:text-yellow-400 hover:scale-110"
                     >
@@ -143,6 +145,7 @@ export default function Navbar() {
                         >
                             <Link
                                 to="/products"
+                                title="Semua Produk"
                                 onClick={() => handleMenuClick()}
                                 className="block px-4 py-2 hover:text-yellow-400"
                             >
@@ -150,6 +153,7 @@ export default function Navbar() {
                             </Link>
                             <Link
                                 to="/products/furniture"
+                                title="Produk Furniture"
                                 onClick={() => handleMenuClick()}
                                 className="block px-4 py-2 hover:text-yellow-400"
                             >
@@ -157,6 +161,7 @@ export default function Navbar() {
                             </Link>
                             <Link
                                 to="/products/liquid"
+                                title="Produk Liquid"
                                 onClick={() => handleMenuClick()}
                                 className="block px-4 py-2 hover:text-yellow-400"
                             >
@@ -164,6 +169,7 @@ export default function Navbar() {
                             </Link>
                             <Link
                                 to="/products/bmhp"
+                                title="Produk BMHP"
                                 onClick={() => handleMenuClick()}
                                 className="block px-4 py-2 hover:text-yellow-400"
                             >
@@ -171,6 +177,7 @@ export default function Navbar() {
                             </Link>
                             <Link
                                 to="/products/lab"
+                                title="Produk Laboratorium"
                                 onClick={() => handleMenuClick()}
                                 className="block px-4 py-2 hover:text-yellow-400"
                             >
@@ -178,6 +185,7 @@ export default function Navbar() {
                             </Link>
                             <Link
                                 to="/products/cutting"
+                                title="Produk Cutting Laser"
                                 onClick={() => handleMenuClick()}
                                 className="block px-4 py-2 hover:text-yellow-400"
                             >
@@ -188,6 +196,7 @@ export default function Navbar() {
                     
                     <Link
                         to="/contact"
+                        title="Kontak Kami"
                         onClick={() => handleMenuClick()}
                         className="transition duration-300 hover:text-yellow-400 hover:scale-110"
                     >
@@ -215,6 +224,7 @@ export default function Navbar() {
                 <div className="flex flex-col space-y-2 py-4">
                     <Link
                         to="/"
+                        title="Beranda"
                         onClick={() => handleMenuClick()}
                         className="block px-6 py-2 hover:text-yellow-400"
                     >
@@ -222,6 +232,7 @@ export default function Navbar() {
                     </Link>
                     <Link
                         to="/about"
+                        title="Tentang Kami"
                         onClick={() => handleMenuClick()}
                         className="block px-6 py-2 hover:text-yellow-400"
                     >
@@ -252,6 +263,7 @@ export default function Navbar() {
                         >
                             <Link
                                 to="/products"
+                                title="Semua Produk"
                                 onClick={() => handleMenuClick()}
                                 className="block px-4 py-2 hover:text-yellow-400"
                             >
@@ -259,6 +271,7 @@ export default function Navbar() {
                             </Link>
                             <Link
                                 to="/products/furniture"
+                                title="Produk Furniture"
                                 onClick={() => handleMenuClick()}
                                 className="block px-4 py-2 hover:text-yellow-400"
                             >
@@ -266,6 +279,7 @@ export default function Navbar() {
                             </Link>
                             <Link
                                 to="/products/liquid"
+                                title="Produk Liquid"
                                 onClick={() => handleMenuClick()}
                                 className="block px-4 py-2 hover:text-yellow-400"
                             >
@@ -273,6 +287,7 @@ export default function Navbar() {
                             </Link>
                             <Link
                                 to="/products/bmhp"
+                                title="Produk BMHP"
                                 onClick={() => handleMenuClick()}
                                 className="block px-4 py-2 hover:text-yellow-400"
                             >
@@ -280,6 +295,7 @@ export default function Navbar() {
                             </Link>
                             <Link
                                 to="/products/lab"
+                                title="Produk Laboratorium"
                                 onClick={() => handleMenuClick()}
                                 className="block px-4 py-2 hover:text-yellow-400"
                             >
@@ -287,6 +303,7 @@ export default function Navbar() {
                             </Link>
                             <Link
                                 to="/products/cutting"
+                                title="Produk Cutting Laser"
                                 onClick={() => handleMenuClick()}
                                 className="block px-4 py-2 hover:text-yellow-400"
                             >
@@ -297,6 +314,7 @@ export default function Navbar() {
 
                     <Link
                         to="/contact"
+                        title="Kontak Kami"
                         onClick={() => handleMenuClick()}
                         className="block px-6 py-2 hover:text-yellow-400"
                     >
