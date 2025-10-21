@@ -58,6 +58,7 @@ export default function Footer() {
                             <div className="flex flex-col text-lg md:text-base md:gap-0.5 gap-3">
                                 <Link
                                     to="/"
+                                    title="Beranda"
                                     onClick={() =>
                                         window.scrollTo({
                                             top: 0,
@@ -70,6 +71,7 @@ export default function Footer() {
                                 </Link>
                                 <Link
                                     to="/about"
+                                    title="Tentang Kami"
                                     onClick={() =>
                                         window.scrollTo({
                                             top: 0,
@@ -82,6 +84,7 @@ export default function Footer() {
                                 </Link>
                                 <Link
                                     to="/products"
+                                    title="Semua Produk"
                                     onClick={() =>
                                         window.scrollTo({
                                             top: 0,
@@ -94,6 +97,7 @@ export default function Footer() {
                                 </Link>
                                 <Link
                                     to="/contact"
+                                    title="Kontak Kami"
                                     onClick={() =>
                                         window.scrollTo({
                                             top: 0,
