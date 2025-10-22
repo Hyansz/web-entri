@@ -5,7 +5,7 @@ export default function BlogList() {
     const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-        fetch("https://web-entri.onrender.com/api/blogs")
+        fetch("http://localhost:5000/api/blogs")
             .then((res) => res.json())
             .then((data) => setBlogs(data.blogs || []))
             .catch((err) => console.error("Gagal memuat blog:", err));
@@ -31,7 +31,7 @@ export default function BlogList() {
                 {blogs.map((b) => (
                     <article
                         key={b.id}
-                        className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-cyan-400/40 transition duration-500 border border-gray-100"
+                        className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-cyan-700/40 transition duration-500 border border-gray-100"
                     >
                         <img
                             src={b.thumbnail}
@@ -48,7 +48,13 @@ export default function BlogList() {
                             </p>
                             <Link
                                 to={`/blog/${b.slug}`}
-                                className="text-cyan-700 font-semibold hover:text-cyan-500 transition"
+                                onClick={() =>
+                                    window.scrollTo({
+                                        top: 0,
+                                        behavior: "smooth",
+                                    })
+                                }
+                                className="text-cyan-600 font-semibold hover:text-cyan-800 transition"
                             >
                                 Selengkapnya →
                             </Link>

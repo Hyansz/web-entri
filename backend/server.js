@@ -7,15 +7,16 @@ import { Resend } from "resend";
 import fs from "fs";
 import { fileURLToPath } from "url";
 import helmet from "helmet";
-import xss from "xss-clean";
+// import xss from "xss-clean";
 import rateLimit from "express-rate-limit";
 
 const app = express();
 
 dotenv.config();
 app.use(helmet()); // tambah header keamanan HTTP
-app.use(xss()); // cegah XSS injection
-app.use(cors({ origin: "https://invitaitionspi.id" })); // batasi hanya domain kamu
+// app.use(xss()); // cegah XSS injection
+// app.use(cors({ origin: "https://invitaitionspi.id" })); // batasi hanya domain kamu
+app.use(cors());
 app.use(express.json());
 
 const limiter = rateLimit({
@@ -40,351 +41,351 @@ const upload = multer({ storage });
 
 // data produk
 const furniture = [
-    {
-        id: 1,
-        title: "Hospital Bed Manual (1 Crank)",
-        img: "/img/bed1.png",
-    },
-    {
-        id: 2,
-        title: "Hospital Bed Manual (2 Crank)",
-        img: "/img/bed2.png",
-    },
-    {
-        id: 3,
-        title: "Hospital Bed Manual (3 Crank)",
-        img: "/img/bed3.png",
-    },
-    {
-        id: 4,
-        title: "Hospital Bed Electric (3 Crank)",
-        img: "/img/bed4.png",
-    },
-    {
-        id: 5,
-        title: "Hospital Bed ICU",
-        img: "/img/bed5.png",
-    },
-    {
-        id: 6,
-        title: "Examine Bed SS",
-        img: "/img/examin1.png",
-    },
-    {
-        id: 7,
-        title: "Examine Bed PC",
-        img: "/img/examin2.png",
-    },
-    {
-        id: 8,
-        title: "Stretcher Type 01",
-        img: "/img/examin3.png",
-    },
-    {
-        id: 9,
-        title: "Stretcher Type 02",
-        img: "/img/examin4.png",
-    },
-    {
-        id: 10,
-        title: "Verlos Bed SS",
-        img: "/img/examin5.png",
-    },
-    {
-        id: 11,
-        title: "Phlebotomy Chair",
-        img: "/img/kursi-gigi.png",
-    },
-    {
-        id: 12,
-        title: "Hospital Children Bed",
-        img: "/img/kasur-bayi1.png",
-    },
-    {
-        id: 13,
-        title: "Baby Box",
-        img: "/img/kasur-bayi2.png",
-    },
-    {
-        id: 14,
-        title: "Bed Side Cabinet Type 01",
-        img: "/img/bed-cabinet1.png",
-    },
-    {
-        id: 15,
-        title: "Bed Side Cabinet Type 02",
-        img: "/img/bed-cabinet2.png",
-    },
-    {
-        id: 16,
-        title: "Bed Side Cabinet Type 03",
-        img: "/img/bed-cabinet3.png",
-    },
-    {
-        id: 17,
-        title: "Instrumen Cabinet 2 Door Type 01",
-        img: "/img/lemari1.png",
-    },
-    {
-        id: 18,
-        title: "Instrumen Cabinet 2 Door Type 02",
-        img: "/img/lemari2.png",
-    },
-    {
-        id: 19,
-        title: "Instrumen Cabinet 2 Door Type 03",
-        img: "/img/lemari3.png",
-    },
-    {
-        id: 20,
-        title: "Instrumen Cabinet 2 Door Type 04",
-        img: "/img/lemari4.png",
-    },
-    {
-        id: 21,
-        title: "Instrumen Cabinet Single Door",
-        img: "/img/lemari5.png",
-    },
-    {
-        id: 22,
-        title: "Instrumen Cabinet 4 Door",
-        img: "/img/lemari6.png",
-    },
-    {
-        id: 23,
-        title: "Baby Dressing Table PC",
-        img: "/img/dressing-table1.png",
-    },
-    {
-        id: 24,
-        title: "Baby Dressing Table PC + Lamp",
-        img: "/img/dressing-table2.png",
-    },
-    {
-        id: 25,
-        title: "Infus Stand Kaki 5 SS",
-        img: "/img/infus-stand1.png",
-    },
-    {
-        id: 26,
-        title: "Infus Stand Kaki 5 PC",
-        img: "/img/infus-stand2.png",
-    },
-    {
-        id: 27,
-        title: "Infus Stand Kaki 5 Plastik",
-        img: "/img/infus-stand3.png",
-    },
-    {
-        id: 28,
-        title: "Infus Stand Kaki 3 SS",
-        img: "/img/infus-stand4.png",
-    },
-    {
-        id: 29,
-        title: "Infus Stand Kaki 3 SS",
-        img: "/img/infus-stand5.png",
-    },
-    {
-        id: 30,
-        title: "Foot Step Single SS",
-        img: "/img/foot-step1.png",
-    },
-    {
-        id: 31,
-        title: "Foot Step Single PC",
-        img: "/img/foot-step2.png",
-    },
-    {
-        id: 32,
-        title: "Foot Step Double SS",
-        img: "/img/foot-step3.png",
-    },
-    {
-        id: 33,
-        title: "Foot Step Double PC",
-        img: "/img/foot-step4.png",
-    },
-    {
-        id: 34,
-        title: "Overbed Table SS",
-        img: "/img/meja1.png",
-    },
-    {
-        id: 35,
-        title: "Overbed Table PC",
-        img: "/img/meja2.png",
-    },
-    {
-        id: 36,
-        title: "X-RAY Viewer Single",
-        img: "/img/x-ray1.png",
-    },
-    {
-        id: 37,
-        title: "X-RAY Viewer Double",
-        img: "/img/x-ray2.png",
-    },
-    {
-        id: 38,
-        title: "Bed Screen Single",
-        img: "/img/bed-screen1.png",
-    },
-    {
-        id: 39,
-        title: "Bed Screen Double",
-        img: "/img/bed-screen2.png",
-    },
-    {
-        id: 40,
-        title: "Bed Screen Triple",
-        img: "/img/bed-screen3.png",
-    },
-    {
-        id: 41,
-        title: "Infant Warmer Inkubator",
-        img: "/img/inkubator.png",
-    },
-    {
-        id: 42,
-        title: "X-Ray Hanger",
-        img: "/img/x-ray-hanger.png",
-    },
-    {
-        id: 43,
-        title: "Emergency Trolley",
-        img: "/img/emergency-trolley.png",
-    },
-    {
-        id: 44,
-        title: "Medicine Trolley",
-        img: "/img/medicine-trolley.png",
-    },
-    {
-        id: 45,
-        title: "Instrument Trolley Type 01",
-        img: "/img/introll1.png",
-    },
-    {
-        id: 45,
-        title: "Instrument Trolley Type 02",
-        img: "/img/introll2.png",
-    },
-    {
-        id: 45,
-        title: "Instrument Trolley Type 03",
-        img: "/img/introll3.png",
-    },
-    {
-        id: 45,
-        title: "Instrument Trolley 03 Sap",
-        img: "/img/introll4.png",
-    },
-    {
-        id: 46,
-        title: "ECG Trolley",
-        img: "/img/ecg-trolley.png",
-    },
-    {
-        id: 47,
-        title: "Linen Trolley",
-        img: "/img/lintroll.png",
-    },
-    {
-        id: 48,
-        title: "Food Trolley Type 01",
-        img: "/img/fotroll1.png",
-    },
-    {
-        id: 49,
-        title: "Food Trolley Type 02",
-        img: "/img/fotroll2.png",
-    },
-    {
-        id: 50,
-        title: "Almari Narkotik 2 Sap",
-        img: "/img/almari-narkotik1.png",
-    },
-    {
-        id: 51,
-        title: "Almari Narkotik 3 Sap",
-        img: "/img/almari-narkotik2.png",
-    },
-    {
-        id: 52,
-        title: "Standard Waskom Single SS Type 01",
-        img: "/img/waskom1.png",
-    },
-    {
-        id: 53,
-        title: "Standard Waskom Single PC Type 01",
-        img: "/img/waskom2.png",
-    },
-    {
-        id: 54,
-        title: "Standard Waskom Double SS Type 01",
-        img: "/img/waskom3.png",
-    },
-    {
-        id: 55,
-        title: "Standard Waskom Double PC Type 01",
-        img: "/img/waskom4.png",
-    },
-    {
-        id: 56,
-        title: "Standard Waskom Single SS Type 02",
-        img: "/img/waskom5.png",
-    },
-    {
-        id: 57,
-        title: "Standard Waskom Single SS Type 02",
-        img: "/img/waskom6.png",
-    },
-    {
-        id: 58,
-        title: "Standard Waskom Double SS Type 02",
-        img: "/img/waskom7.png",
-    },
-    {
-        id: 59,
-        title: "Standard Waskom Double PC Type 02",
-        img: "/img/waskom8.png",
-    },
-    {
-        id: 60,
-        title: "Oksigen Trolley Type 01",
-        img: "/img/oksigen-trolley1.png",
-    },
-    {
-        id: 61,
-        title: "Oksigen Trolley Type 02",
-        img: "/img/oksigen-trolley2.png",
-    },
-    {
-        id: 62,
-        title: "Scrub Station",
-        img: "/img/scrub-station.png",
-    },
-    {
-        id: 63,
-        title: "Keranda Jenazah",
-        img: "/img/keranda.png",
-    },
-    {
-        id: 64,
-        title: "Ambulance Type 01",
-        img: "/img/ambulan1.png",
-    },
-    {
-        id: 65,
-        title: "Ambulance Type 02",
-        img: "/img/ambulan2.png",
-    },
-    {
-        id: 66,
-        title: "Examination Lamp With Dimmer",
-        img: "/img/lampu.png",
-    },
+    // {
+    //     id: 1,
+    //     title: "Hospital Bed Manual (1 Crank)",
+    //     img: "/img/bed1.png",
+    // },
+    // {
+    //     id: 2,
+    //     title: "Hospital Bed Manual (2 Crank)",
+    //     img: "/img/bed2.png",
+    // },
+    // {
+    //     id: 3,
+    //     title: "Hospital Bed Manual (3 Crank)",
+    //     img: "/img/bed3.png",
+    // },
+    // {
+    //     id: 4,
+    //     title: "Hospital Bed Electric (3 Crank)",
+    //     img: "/img/bed4.png",
+    // },
+    // {
+    //     id: 5,
+    //     title: "Hospital Bed ICU",
+    //     img: "/img/bed5.png",
+    // },
+    // {
+    //     id: 6,
+    //     title: "Examine Bed SS",
+    //     img: "/img/examin1.png",
+    // },
+    // {
+    //     id: 7,
+    //     title: "Examine Bed PC",
+    //     img: "/img/examin2.png",
+    // },
+    // {
+    //     id: 8,
+    //     title: "Stretcher Type 01",
+    //     img: "/img/examin3.png",
+    // },
+    // {
+    //     id: 9,
+    //     title: "Stretcher Type 02",
+    //     img: "/img/examin4.png",
+    // },
+    // {
+    //     id: 10,
+    //     title: "Verlos Bed SS",
+    //     img: "/img/examin5.png",
+    // },
+    // {
+    //     id: 11,
+    //     title: "Phlebotomy Chair",
+    //     img: "/img/kursi-gigi.png",
+    // },
+    // {
+    //     id: 12,
+    //     title: "Hospital Children Bed",
+    //     img: "/img/kasur-bayi1.png",
+    // },
+    // {
+    //     id: 13,
+    //     title: "Baby Box",
+    //     img: "/img/kasur-bayi2.png",
+    // },
+    // {
+    //     id: 14,
+    //     title: "Bed Side Cabinet Type 01",
+    //     img: "/img/bed-cabinet1.png",
+    // },
+    // {
+    //     id: 15,
+    //     title: "Bed Side Cabinet Type 02",
+    //     img: "/img/bed-cabinet2.png",
+    // },
+    // {
+    //     id: 16,
+    //     title: "Bed Side Cabinet Type 03",
+    //     img: "/img/bed-cabinet3.png",
+    // },
+    // {
+    //     id: 17,
+    //     title: "Instrumen Cabinet 2 Door Type 01",
+    //     img: "/img/lemari1.png",
+    // },
+    // {
+    //     id: 18,
+    //     title: "Instrumen Cabinet 2 Door Type 02",
+    //     img: "/img/lemari2.png",
+    // },
+    // {
+    //     id: 19,
+    //     title: "Instrumen Cabinet 2 Door Type 03",
+    //     img: "/img/lemari3.png",
+    // },
+    // {
+    //     id: 20,
+    //     title: "Instrumen Cabinet 2 Door Type 04",
+    //     img: "/img/lemari4.png",
+    // },
+    // {
+    //     id: 21,
+    //     title: "Instrumen Cabinet Single Door",
+    //     img: "/img/lemari5.png",
+    // },
+    // {
+    //     id: 22,
+    //     title: "Instrumen Cabinet 4 Door",
+    //     img: "/img/lemari6.png",
+    // },
+    // {
+    //     id: 23,
+    //     title: "Baby Dressing Table PC",
+    //     img: "/img/dressing-table1.png",
+    // },
+    // {
+    //     id: 24,
+    //     title: "Baby Dressing Table PC + Lamp",
+    //     img: "/img/dressing-table2.png",
+    // },
+    // {
+    //     id: 25,
+    //     title: "Infus Stand Kaki 5 SS",
+    //     img: "/img/infus-stand1.png",
+    // },
+    // {
+    //     id: 26,
+    //     title: "Infus Stand Kaki 5 PC",
+    //     img: "/img/infus-stand2.png",
+    // },
+    // {
+    //     id: 27,
+    //     title: "Infus Stand Kaki 5 Plastik",
+    //     img: "/img/infus-stand3.png",
+    // },
+    // {
+    //     id: 28,
+    //     title: "Infus Stand Kaki 3 SS",
+    //     img: "/img/infus-stand4.png",
+    // },
+    // {
+    //     id: 29,
+    //     title: "Infus Stand Kaki 3 SS",
+    //     img: "/img/infus-stand5.png",
+    // },
+    // {
+    //     id: 30,
+    //     title: "Foot Step Single SS",
+    //     img: "/img/foot-step1.png",
+    // },
+    // {
+    //     id: 31,
+    //     title: "Foot Step Single PC",
+    //     img: "/img/foot-step2.png",
+    // },
+    // {
+    //     id: 32,
+    //     title: "Foot Step Double SS",
+    //     img: "/img/foot-step3.png",
+    // },
+    // {
+    //     id: 33,
+    //     title: "Foot Step Double PC",
+    //     img: "/img/foot-step4.png",
+    // },
+    // {
+    //     id: 34,
+    //     title: "Overbed Table SS",
+    //     img: "/img/meja1.png",
+    // },
+    // {
+    //     id: 35,
+    //     title: "Overbed Table PC",
+    //     img: "/img/meja2.png",
+    // },
+    // {
+    //     id: 36,
+    //     title: "X-RAY Viewer Single",
+    //     img: "/img/x-ray1.png",
+    // },
+    // {
+    //     id: 37,
+    //     title: "X-RAY Viewer Double",
+    //     img: "/img/x-ray2.png",
+    // },
+    // {
+    //     id: 38,
+    //     title: "Bed Screen Single",
+    //     img: "/img/bed-screen1.png",
+    // },
+    // {
+    //     id: 39,
+    //     title: "Bed Screen Double",
+    //     img: "/img/bed-screen2.png",
+    // },
+    // {
+    //     id: 40,
+    //     title: "Bed Screen Triple",
+    //     img: "/img/bed-screen3.png",
+    // },
+    // {
+    //     id: 41,
+    //     title: "Infant Warmer Inkubator",
+    //     img: "/img/inkubator.png",
+    // },
+    // {
+    //     id: 42,
+    //     title: "X-Ray Hanger",
+    //     img: "/img/x-ray-hanger.png",
+    // },
+    // {
+    //     id: 43,
+    //     title: "Emergency Trolley",
+    //     img: "/img/emergency-trolley.png",
+    // },
+    // {
+    //     id: 44,
+    //     title: "Medicine Trolley",
+    //     img: "/img/medicine-trolley.png",
+    // },
+    // {
+    //     id: 45,
+    //     title: "Instrument Trolley Type 01",
+    //     img: "/img/introll1.png",
+    // },
+    // {
+    //     id: 45,
+    //     title: "Instrument Trolley Type 02",
+    //     img: "/img/introll2.png",
+    // },
+    // {
+    //     id: 45,
+    //     title: "Instrument Trolley Type 03",
+    //     img: "/img/introll3.png",
+    // },
+    // {
+    //     id: 45,
+    //     title: "Instrument Trolley 03 Sap",
+    //     img: "/img/introll4.png",
+    // },
+    // {
+    //     id: 46,
+    //     title: "ECG Trolley",
+    //     img: "/img/ecg-trolley.png",
+    // },
+    // {
+    //     id: 47,
+    //     title: "Linen Trolley",
+    //     img: "/img/lintroll.png",
+    // },
+    // {
+    //     id: 48,
+    //     title: "Food Trolley Type 01",
+    //     img: "/img/fotroll1.png",
+    // },
+    // {
+    //     id: 49,
+    //     title: "Food Trolley Type 02",
+    //     img: "/img/fotroll2.png",
+    // },
+    // {
+    //     id: 50,
+    //     title: "Almari Narkotik 2 Sap",
+    //     img: "/img/almari-narkotik1.png",
+    // },
+    // {
+    //     id: 51,
+    //     title: "Almari Narkotik 3 Sap",
+    //     img: "/img/almari-narkotik2.png",
+    // },
+    // {
+    //     id: 52,
+    //     title: "Standard Waskom Single SS Type 01",
+    //     img: "/img/waskom1.png",
+    // },
+    // {
+    //     id: 53,
+    //     title: "Standard Waskom Single PC Type 01",
+    //     img: "/img/waskom2.png",
+    // },
+    // {
+    //     id: 54,
+    //     title: "Standard Waskom Double SS Type 01",
+    //     img: "/img/waskom3.png",
+    // },
+    // {
+    //     id: 55,
+    //     title: "Standard Waskom Double PC Type 01",
+    //     img: "/img/waskom4.png",
+    // },
+    // {
+    //     id: 56,
+    //     title: "Standard Waskom Single SS Type 02",
+    //     img: "/img/waskom5.png",
+    // },
+    // {
+    //     id: 57,
+    //     title: "Standard Waskom Single SS Type 02",
+    //     img: "/img/waskom6.png",
+    // },
+    // {
+    //     id: 58,
+    //     title: "Standard Waskom Double SS Type 02",
+    //     img: "/img/waskom7.png",
+    // },
+    // {
+    //     id: 59,
+    //     title: "Standard Waskom Double PC Type 02",
+    //     img: "/img/waskom8.png",
+    // },
+    // {
+    //     id: 60,
+    //     title: "Oksigen Trolley Type 01",
+    //     img: "/img/oksigen-trolley1.png",
+    // },
+    // {
+    //     id: 61,
+    //     title: "Oksigen Trolley Type 02",
+    //     img: "/img/oksigen-trolley2.png",
+    // },
+    // {
+    //     id: 62,
+    //     title: "Scrub Station",
+    //     img: "/img/scrub-station.png",
+    // },
+    // {
+    //     id: 63,
+    //     title: "Keranda Jenazah",
+    //     img: "/img/keranda.png",
+    // },
+    // {
+    //     id: 64,
+    //     title: "Ambulance Type 01",
+    //     img: "/img/ambulan1.png",
+    // },
+    // {
+    //     id: 65,
+    //     title: "Ambulance Type 02",
+    //     img: "/img/ambulan2.png",
+    // },
+    // {
+    //     id: 66,
+    //     title: "Examination Lamp With Dimmer",
+    //     img: "/img/lampu.png",
+    // },
 ];
 
 const liquid = [
@@ -448,7 +449,7 @@ const bmhp = [
     },
     {
         id: 4,
-        title: "masker Swab",
+        title: "Alkohol Swab",
         img: "/img/alswab.png",
     },
     {
@@ -530,20 +531,11 @@ const videos = [
 const blogs = [
     {
         id: 1,
-        slug: "panduan-produk-terbaru",
-        title: "Panduan Menggunakan Produk Terbaru Kami",
+        slug: "001",
+        title: "Alkohol Antriseptik",
         description:
-            "Pelajari cara terbaik menggunakan produk kami untuk hasil maksimal. Dalam artikel ini, kami akan membahas langkah-langkah penting agar Anda mendapatkan hasil terbaik dari setiap produk.",
-        thumbnail: "https://placehold.co/600x400?text=Blog+1",
-        content: `
-        <p>Produk terbaru kami dirancang dengan teknologi mutakhir untuk memudahkan Anda. Berikut panduannya:</p>
-        <ul>
-            <li>Langkah 1: Unboxing produk dengan hati-hati.</li>
-            <li>Langkah 2: Baca petunjuk penggunaan di kemasan.</li>
-            <li>Langkah 3: Gunakan sesuai instruksi.</li>
-        </ul>
-        <p>Dengan mengikuti panduan ini, Anda bisa memastikan produk bekerja optimal.</p>
-    `,
+            "Pelajari cara terbaik menggunakan produk kami untuk hasil maksimal. Dalam artikel ini, kami membahas langkah-langkah penting agar Anda mendapatkan hasil terbaik dari setiap produk.",
+        thumbnail: "/img/artikel/001.png",
         createdAt: "2025-10-01T10:00:00Z",
     },
     {
@@ -553,29 +545,52 @@ const blogs = [
         description:
             "Dengan perawatan yang tepat, produk Anda bisa bertahan lebih lama. Yuk simak beberapa tips sederhana agar produk tetap prima.",
         thumbnail: "https://placehold.co/600x400?text=Blog+2",
-        content: `
-        <p>Merawat produk tidak sulit, asal tahu caranya:</p>
-        <ol>
-            <li>Bersihkan secara rutin.</li>
-            <li>Hindari paparan panas berlebihan.</li>
-            <li>Simpan di tempat kering.</li>
-        </ol>
-        <p>Dengan langkah ini, umur produk bisa bertambah hingga 2x lipat!</p>
-    `,
         createdAt: "2025-09-25T09:00:00Z",
     },
 ];
 
 app.get("/api/blogs", (req, res) => {
-    res.json({ blogs });
+    if (!blogs.length) {
+        return res.json({
+            status: "empty",
+            message: "Belum ada blog yang tersedia",
+            blogs: [],
+        });
+    }
+
+    res.json({
+        status: "success",
+        total: blogs.length,
+        blogs,
+    });
 });
 
 app.get("/api/blogs/:slug", (req, res) => {
-    const blog = blogs.find((b) => b.slug === req.params.slug);
-    if (!blog) return res.status(404).json({ message: "Blog tidak ditemukan" });
-    res.json(blog);
+    const { slug } = req.params;
+    const filePath = path.join(__dirname, "blogs", `${slug}.html`);
+
+    if (!fs.existsSync(filePath)) {
+        return res.status(404).json({
+            status: "fail",
+            message: "Blog tidak ditemukan",
+        });
+    }
+
+    const htmlContent = fs.readFileSync(filePath, "utf-8");
+
+    // cari metadata tambahan dari const blogs (judul, thumbnail, dll)
+    const blogMeta = blogs.find((b) => b.slug === slug);
+
+    res.json({
+        status: "success",
+        blog: {
+            ...blogMeta,
+            content: htmlContent,
+        },
+    });
 });
 
+// videos
 app.get("/api/videos", (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 9;
@@ -583,17 +598,27 @@ app.get("/api/videos", (req, res) => {
     const startIndex = (page - 1) * limit;
     const endIndex = startIndex + limit;
 
+    if (!videos || videos.length === 0) {
+        return res.json({
+            status: "empty",
+            message: "Belum ada video yang tersedia",
+            total: 0,
+            videos: [],
+        });
+    }
+
     const paginatedVideos = videos.slice(startIndex, endIndex);
 
     res.json({
-        videos: paginatedVideos,
+        status: "success",
         total: videos.length,
         page,
         limit,
+        videos: paginatedVideos,
     });
 });
 
-// endpoint paginasi furniture
+// furniture
 app.get("/api/furniture", (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 20;
@@ -602,9 +627,19 @@ app.get("/api/furniture", (req, res) => {
 
     res.set("Cache-Control", "public, max-age=600, stale-while-revalidate=60");
 
+    if (!furniture || furniture.length === 0) {
+        return res.json({
+            status: "empty",
+            message: "Data furniture kosong",
+            total: 0,
+            furniture: [],
+        });
+    }
+
     const paginated = furniture.slice(start, end);
 
     res.json({
+        status: "success",
         total: furniture.length,
         page,
         limit,
@@ -612,7 +647,7 @@ app.get("/api/furniture", (req, res) => {
     });
 });
 
-// endpoint paginasi liquid
+// liquid
 app.get("/api/liquid", (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 20;
@@ -621,9 +656,19 @@ app.get("/api/liquid", (req, res) => {
 
     res.set("Cache-Control", "public, max-age=600, stale-while-revalidate=60");
 
+    if (!liquid || liquid.length === 0) {
+        return res.json({
+            status: "empty",
+            message: "Data liquid kosong",
+            total: 0,
+            liquid: [],
+        });
+    }
+
     const paginated = liquid.slice(start, end);
 
     res.json({
+        status: "success",
         total: liquid.length,
         page,
         limit,
@@ -631,7 +676,7 @@ app.get("/api/liquid", (req, res) => {
     });
 });
 
-// endpoint paginasi bmhp
+// bmhp
 app.get("/api/bmhp", (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 20;
@@ -640,9 +685,19 @@ app.get("/api/bmhp", (req, res) => {
 
     res.set("Cache-Control", "public, max-age=600, stale-while-revalidate=60");
 
+    if (!bmhp || bmhp.length === 0) {
+        return res.json({
+            status: "empty",
+            message: "Data BMHP kosong",
+            total: 0,
+            bmhp: [],
+        });
+    }
+
     const paginated = bmhp.slice(start, end);
 
     res.json({
+        status: "success",
         total: bmhp.length,
         page,
         limit,
@@ -650,7 +705,7 @@ app.get("/api/bmhp", (req, res) => {
     });
 });
 
-// endpoint paginasi lab
+// lab
 app.get("/api/lab", (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 20;
@@ -659,9 +714,19 @@ app.get("/api/lab", (req, res) => {
 
     res.set("Cache-Control", "public, max-age=600, stale-while-revalidate=60");
 
+    if (!lab || lab.length === 0) {
+        return res.json({
+            status: "empty",
+            message: "Data laboratorium kosong",
+            total: 0,
+            lab: [],
+        });
+    }
+
     const paginated = lab.slice(start, end);
 
     res.json({
+        status: "success",
         total: lab.length,
         page,
         limit,
@@ -756,9 +821,11 @@ app.post("/send-email", upload.single("photo"), async (req, res) => {
 
 app.use(express.static(path.join(__dirname, "../dist")));
 
-app.get("*", (req, res) => {
+app.get(/.*/, (req, res) => {
     res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
+
+app.use("/img", express.static(path.join(__dirname, "public/img")));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, "0.0.0.0", () => {

@@ -73,6 +73,7 @@ export default function ProductLab() {
                                 <img
                                     src={p.img}
                                     alt={p.title}
+                                    loading="lazy"
                                     className="rounded mb-3 mx-auto"
                                 />
                                 <h3 className="text-lg font-semibold">

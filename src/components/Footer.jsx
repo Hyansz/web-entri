@@ -96,6 +96,19 @@ export default function Footer() {
                                     All Products
                                 </Link>
                                 <Link
+                                    to="/blog"
+                                    title="Blog"
+                                    onClick={() =>
+                                        window.scrollTo({
+                                            top: 0,
+                                            behavior: "smooth",
+                                        })
+                                    }
+                                    className="transition duration-300 w-full md:w-fit hover:scale-110"
+                                >
+                                    Blog
+                                </Link>
+                                <Link
                                     to="/contact"
                                     title="Kontak Kami"
                                     onClick={() =>

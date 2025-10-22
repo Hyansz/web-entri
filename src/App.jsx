@@ -12,6 +12,9 @@ import ProductCutting from "./pages/ProductCutting";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ContactForm from "./pages/ContactForm";
+import BlogList from "./pages/BlogList";
+import BlogDetail from "./pages/BlogDetail";
+import WaPhone from "./components/WaPhone";
 
 AOS.init();
 
@@ -24,6 +27,8 @@ export default function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />
+                        <Route path="/blog" element={<BlogList />} />
+                        <Route path="/blog/:slug" element={<BlogDetail />} />
                         <Route path="/contact" element={<ContactForm />} />
                         <Route path="/products" element={<Products />} />
                         <Route
@@ -46,6 +51,7 @@ export default function App() {
                     </Routes>
                 </main>
                 <Footer />
+                <WaPhone />
             </div>
         </Router>
     );

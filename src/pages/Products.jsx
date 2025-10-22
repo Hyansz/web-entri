@@ -252,7 +252,7 @@ export default function Products() {
                                     img: "./img/masker2.png",
                                     title: "Surgical Facemask (Head Loop)",
                                 },
-                                { img: "./img/alswab.png", title: "Alat Swab" },
+                                { img: "./img/alswab.png", title: "Alkohol Swab" },
                             ].map((item, i) => (
                                 <SwiperSlide key={i} className="py-5 mb-5">
                                     <div className="rounded-xl shadow-md text-center p-3 h-80 flex flex-col justify-start">
