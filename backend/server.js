@@ -538,15 +538,6 @@ const blogs = [
         thumbnail: "/img/artikel/001.png",
         createdAt: "2025-10-01T10:00:00Z",
     },
-    {
-        id: 2,
-        slug: "tips-perawatan-produk",
-        title: "5 Tips Merawat Produk Agar Lebih Awet",
-        description:
-            "Dengan perawatan yang tepat, produk Anda bisa bertahan lebih lama. Yuk simak beberapa tips sederhana agar produk tetap prima.",
-        thumbnail: "https://placehold.co/600x400?text=Blog+2",
-        createdAt: "2025-09-25T09:00:00Z",
-    },
 ];
 
 app.get("/api/blogs", (req, res) => {

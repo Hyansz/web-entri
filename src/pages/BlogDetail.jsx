@@ -10,7 +10,7 @@ export default function BlogDetail() {
     // Ambil detail blog
     useEffect(() => {
         setLoading(true);
-        fetch(`http://localhost:5000/api/blogs/${slug}`)
+        fetch(`https://web-entri.onrender.com/api/blogs/${slug}`)
             .then((res) => res.json())
             .then((data) => setBlog(data.blog))
             .catch(() => setBlog(null))
@@ -19,7 +19,7 @@ export default function BlogDetail() {
 
     // Ambil daftar blog lain untuk "Populer Lainnya"
     useEffect(() => {
-        fetch(`http://localhost:5000/api/blogs`)
+        fetch(`https://web-entri.onrender.com/api/blogs`)
             .then((res) => res.json())
             .then((data) => {
                 const others = data.blogs.filter((b) => b.slug !== slug);
