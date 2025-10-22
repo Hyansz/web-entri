@@ -53,4 +53,10 @@
         <priority>0.7</priority>
         <changefreq>monthly</changefreq>
     </url>
+
+    <url>
+        <loc>https://entrijayamakmur.co.id/blog</loc>
+        <priority>0.7</priority>
+        <changefreq>monthly</changefreq>
+    </url>
 </urlset>
