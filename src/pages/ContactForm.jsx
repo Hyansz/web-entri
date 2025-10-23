@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { Helmet } from "react-helmet";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaImage, FaUpload } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -12,7 +13,8 @@ export default function Contact() {
     });
     const [file, setFile] = useState(null);
     const [status, setStatus] = useState("");
-    const fileInputRef = useRef(null); // ✅ buat ref untuk input file
+    const fileInputRef = useRef(null);
+    const { t } = useTranslation();
 
     const handleChange = (e) => {
         setFormData({
@@ -86,7 +88,7 @@ export default function Contact() {
             <div>
                 {/* Hero Section */}
                 <section
-                    className="h-[80vh] relative flex flex-col text-white bg-cover bg-no-repeat bg-center"
+                    className="h-[80vh] max-h-[700px] relative flex flex-col text-white bg-cover bg-no-repeat bg-center"
                     style={{
                         backgroundImage: "url('/img/contact.jpeg')",
                     }}
@@ -96,9 +98,9 @@ export default function Contact() {
 
                     <div className="relative w-11/12 z-10 mx-auto flex flex-col items-start h-[80vh] justify-center text-center">
                         <h3 className="text-3xl w-full md:text-5xl font-bold mb-4">
-                            Contact{" "}
+                            {t("kontak.kontak1")}{" "}
                             <span className="bg-gradient-to-l from-cyan-500 via-cyan-400 to-cyan-200 bg-clip-text text-transparent">
-                                Us
+                                {t("kontak.kontak2")}
                             </span>
                         </h3>
                     </div>
@@ -115,8 +117,8 @@ export default function Contact() {
                             />
                         </div>
                         <div className="xl:w-1/2 px-4 pb-20 xl:p-20 mx-auto text-center">
-                            <h3 className="text-2xl md:text-3xl font-semibold mb-6">
-                                Kritik dan Saran
+                            <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-cyan-700">
+                                {t("faq.faq")}
                             </h3>
                             <form
                                 onSubmit={handleSubmit}
@@ -126,7 +128,7 @@ export default function Contact() {
                                 <input
                                     type="text"
                                     name="name"
-                                    placeholder="Your Name"
+                                    placeholder={t("kontak.placeholder.name")}
                                     value={formData.name}
                                     onChange={handleChange}
                                     className="w-full p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -135,7 +137,7 @@ export default function Contact() {
                                 <input
                                     type="email"
                                     name="email"
-                                    placeholder="Your Email"
+                                    placeholder={t("kontak.placeholder.email")}
                                     value={formData.email}
                                     onChange={handleChange}
                                     className="w-full p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -144,14 +146,18 @@ export default function Contact() {
                                 <input
                                     type="text"
                                     name="subject"
-                                    placeholder="Your Subject"
+                                    placeholder={t(
+                                        "kontak.placeholder.subject"
+                                    )}
                                     value={formData.subject}
                                     onChange={handleChange}
                                     className="w-full p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
                                 <textarea
                                     name="message"
-                                    placeholder="Your Message"
+                                    placeholder={t(
+                                        "kontak.placeholder.message"
+                                    )}
                                     value={formData.message}
                                     onChange={handleChange}
                                     className="w-full p-3 border rounded-xl h-32 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -167,8 +173,8 @@ export default function Contact() {
                                         <FaUpload className="text-3xl" />
                                         <span className="font-semibold">
                                             {file
-                                                ? "Ganti File"
-                                                : "Klik untuk pilih file gambar"}
+                                                ? t("kontak.file.change")
+                                                : t("kontak.file.select")}
                                         </span>
                                         <span className="text-sm text-gray-500">
                                             (Format: JPG, PNG, WebP)

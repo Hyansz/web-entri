@@ -1,4 +1,3 @@
-import { FaUserGroup } from "react-icons/fa6";
 import { HiOutlineCpuChip } from "react-icons/hi2";
 import { MdOutlineVerified } from "react-icons/md";
 import { RiCustomerService2Fill } from "react-icons/ri";
@@ -8,8 +7,12 @@ import "swiper/css";
 import "swiper/css/pagination";
 import OptimizedImage from "../components/OptimizedImage";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
+import { FaUserGroup } from "react-icons/fa6";
 
 export default function About() {
+    const { t } = useTranslation();
+
     return (
         <>
             <Helmet>
@@ -27,7 +30,7 @@ export default function About() {
             <div>
                 {/* Hero */}
                 <section
-                    className="h-[80vh] relative flex flex-col text-white bg-cover bg-no-repeat bg-center md:bg-right"
+                    className="h-[80vh] max-h-[700px] relative flex flex-col text-white bg-cover bg-no-repeat bg-center md:bg-right"
                     style={{
                         backgroundImage: "url('./img/about.png')",
                     }}
@@ -36,22 +39,21 @@ export default function About() {
                     <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-cyan-800/50 via-black/50 to-black/60"></div>
                     <div className="block md:hidden absolute inset-0 bg-black/60"></div>
 
-                    {/* <div className="h-20 bg-transparent w-full"></div> */}
-                    <div className="md:flex w-full items-center">
+                    <div className="md:flex w-full items-center max-h-[700px]">
                         <div className="hidden relative z-10 w-11/12 mx-auto md:flex flex-col items-start text-left"></div>
-                        <div className="relative z-10 md:w-11/12 mx-auto flex flex-col items-start text-center md:text-left bg-gradient-to-t md:bg-gradient-to-l from-cyan-800 via-cyan-800/10 md:via-cyan-800/75 to-transparent h-[80vh] justify-center px-10">
+                        <div className="relative z-10 md:w-11/12 mx-auto flex flex-col items-start text-center md:text-left bg-gradient-to-t md:bg-gradient-to-l from-cyan-800 via-cyan-800/10 md:via-cyan-800/75 to-transparent h-[80vh] max-h-[700px] justify-center px-10">
                             <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                                Cari Seuppliyer{" "}
+                                {t("about.h1")}{" "}
                                 <span className="bg-gradient-to-r from-cyan-100 via-cyan-300 to-cyan-100 bg-clip-text text-transparent">
-                                    alat kesehatan
+                                    {t("about.h2")}
                                 </span>{" "}
-                                berkualitas?
+                                {t("about.h3")}
                             </h3>
                             <h3 className="w-full text-3xl md:text-4xl font-bold mb-4">
                                 <span className="bg-gradient-to-r from-cyan-100 via-cyan-300 to-cyan-100  bg-clip-text text-transparent">
-                                    Kami
+                                    {t("about.h4")}
                                 </span>{" "}
-                                solusinya.
+                                {t("about.h5")}
                             </h3>
                         </div>
                     </div>
@@ -70,20 +72,9 @@ export default function About() {
                     <div className="relative flex justify-center items-center p-6 md:p-20">
                         <div className="w-full md:w-2/3">
                             <h1 className="text-3xl font-semibold mb-5 text-center md:text-left">
-                                Dari Awal Hingga Kini
+                                {t("about.thn")}
                             </h1>
-                            <p className="text-justify">
-                                Perjalanan PT Entri Jaya Makmur dimulai sejak
-                                tahun 2006 yang awalnya hanya berupa Workshop
-                                kecil di daerah Mojosongo, Surakarta. Dan pada
-                                tahun 2016, PT Entri Jaya Makmur mulai
-                                mendirikan Pabrik Manufaktur pertamanya yang
-                                berlokasi di Randusari RT 01/ RW 30, Mojosongo,
-                                Jebres, Surakarta, Jawa tengah. Proses produksi
-                                menggunakan bahan baku berkualitas, Melayani
-                                konsumen dengan baik melaui ketepatan waktu
-                                pengiriman barang
-                            </p>
+                            <p className="text-justify">{t("about.sejarah")}</p>
                         </div>
                         <div className="hidden md:block bg-green-500 w-1/2"></div>
                     </div>
@@ -92,17 +83,28 @@ export default function About() {
                 {/* Komitmen */}
                 <section className="w-10/12 mx-auto py-20">
                     <h1 className="text-center text-3xl font-semibold">
-                        <span className="text-cyan-700">Komitmen Kami</span>{" "}
-                        Untuk Anda
+                        <span className="text-cyan-700">
+                            {t("about.komit1")}
+                        </span>{" "}
+                        {t("about.komit2")}
                     </h1>
 
                     <div className="flex flex-col md:flex-row flex-wrap items-start gap-5 pt-16">
                         {/* Item 1 */}
                         <div className="flex-1 w-full md:w-1/4">
-                            <div className="flex items-center gap-4 justify-center md:justify-start mb-4 h-15">
+                            <div className="hidden md:flex items-center gap-4 justify-center md:justify-start mb-4 h-15">
                                 <HiOutlineCpuChip className="text-4xl bg-cyan-700 p-1 rounded-full text-white" />
-                                <h2 className="text-lg font-semibold md:w-1/2">
-                                    Teknologi Mesin Modern
+                                <h2 className="text-lg font-semibold">
+                                    {t("about.komit3")}
+                                    <h2 className="text-lg font-semibold">
+                                        {t("about.komit3-1")}
+                                    </h2>
+                                </h2>
+                            </div>
+                            <div className="flex md:hidden items-center gap-4 justify-center md:justify-start mb-4 h-15">
+                                <HiOutlineCpuChip className="text-4xl bg-cyan-700 p-1 rounded-full text-white" />
+                                <h2 className="text-lg font-semibold">
+                                    {t("about.komit3-2")}
                                 </h2>
                             </div>
                             <div className="bg-white p-2 shadow-md shadow-slate-400 rounded-lg">
@@ -116,10 +118,19 @@ export default function About() {
 
                         {/* Item 2 */}
                         <div className="flex-1 w-full md:w-1/4">
-                            <div className="flex items-center gap-4 justify-center md:justify-start mb-4 h-15">
-                                <HiOutlineCpuChip className="text-4xl bg-cyan-700 p-1 rounded-full text-white" />
-                                <h2 className="text-lg font-semibold md:w-1/2">
-                                    Tim Andal & Kompeten
+                            <div className="hidden md:flex items-center gap-4 justify-center md:justify-start mb-4 h-15">
+                                <FaUserGroup className="text-4xl bg-cyan-700 p-1 rounded-full text-white" />
+                                <h2 className="text-lg font-semibold">
+                                    {t("about.komit4")}
+                                    <h2 className="text-lg font-semibold">
+                                        {t("about.komit4-1")}
+                                    </h2>
+                                </h2>
+                            </div>
+                            <div className="flex md:hidden items-center gap-4 justify-center md:justify-start mb-4 h-15">
+                                <FaUserGroup className="text-4xl bg-cyan-700 p-1 rounded-full text-white" />
+                                <h2 className="text-lg font-semibold">
+                                    {t("about.komit4-2")}
                                 </h2>
                             </div>
                             <div className="bg-white p-2 shadow-md shadow-slate-400 rounded-lg">
@@ -133,10 +144,19 @@ export default function About() {
 
                         {/* Item 3 */}
                         <div className="flex-1 w-full md:w-1/4">
-                            <div className="flex items-center gap-4 justify-center md:justify-start mb-4 h-15">
+                            <div className="hidden md:flex items-center gap-4 justify-center md:justify-start mb-4 h-15">
                                 <RiCustomerService2Fill className="text-4xl bg-cyan-700 p-1.5 rounded-full text-white" />
-                                <h2 className="text-lg font-semibold md:w-1/2">
-                                    Pelayanan Profesional
+                                <h2 className="text-lg font-semibold">
+                                    {t("about.komit5")}
+                                    <h2 className="text-lg font-semibold">
+                                        {t("about.komit5-1")}
+                                    </h2>
+                                </h2>
+                            </div>
+                            <div className="flex md:hidden items-center gap-4 justify-center md:justify-start mb-4 h-15">
+                                <RiCustomerService2Fill className="text-4xl bg-cyan-700 p-1.5 rounded-full text-white" />
+                                <h2 className="text-lg font-semibold">
+                                    {t("about.komit5-2")}
                                 </h2>
                             </div>
                             <div className="bg-white py-2 shadow-md shadow-slate-400 rounded-lg">
@@ -150,10 +170,19 @@ export default function About() {
 
                         {/* Item 4 */}
                         <div className="flex-1 w-full md:w-1/4">
-                            <div className="flex items-center gap-4 justify-center md:justify-start mb-4 h-15">
+                            <div className="hidden md:flex items-center gap-4 justify-center md:justify-start mb-4 h-15">
                                 <MdOutlineVerified className="text-4xl bg-cyan-700 p-1.5 rounded-full text-white" />
-                                <h2 className="text-lg font-semibold md:w-1/2">
-                                    Inovasi Tanpa Henti
+                                <h2 className="text-lg font-semibold">
+                                    {t("about.komit6")}
+                                    <h2 className="text-lg font-semibold">
+                                        {t("about.komit6-1")}
+                                    </h2>
+                                </h2>
+                            </div>
+                            <div className="flex md:hidden items-center gap-4 justify-center md:justify-start mb-4 h-15">
+                                <MdOutlineVerified className="text-4xl bg-cyan-700 p-1.5 rounded-full text-white" />
+                                <h2 className="text-lg font-semibold">
+                                    {t("about.komit6-2")}
                                 </h2>
                             </div>
                             <div className="bg-white p-2 shadow-md shadow-slate-400 rounded-lg">
@@ -170,9 +199,9 @@ export default function About() {
                 {/* Terpercaya */}
                 <div className="w-10/12 mx-auto my-20">
                     <h1 className="text-3xl text-center font-semibold mb-5">
-                        Solusi Terpercaya Bagi Klien{" "}
+                        {t("about.klien1")}{" "}
                         <span className="text-cyan-700">
-                            diseluruh Indonesia
+                            {t("about.klien2")}
                         </span>
                     </h1>
                     <Swiper

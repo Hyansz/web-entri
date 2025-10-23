@@ -6,12 +6,14 @@ import "swiper/css/pagination";
 import { FaWhatsapp } from "react-icons/fa";
 import YTLazy from "../components/YTLazy";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
     const handleMenuClick = (callback) => {
         if (callback) callback();
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
+    const { t } = useTranslation();
 
     return (
         <>
@@ -29,7 +31,7 @@ export default function Home() {
             <div>
                 {/* Hero */}
                 <section
-                    className="h-screen relative flex flex-col justify-center items-center text-white bg-cover bg-center"
+                    className="h-screen max-h-[800px] relative flex flex-col justify-center items-center text-white bg-cover bg-center"
                     style={{
                         backgroundImage: "url('./img/bsm1.jpg')",
                     }}
@@ -45,22 +47,21 @@ export default function Home() {
                             data-aos="zoom-in"
                         >
                             <h1 className="text-3xl md:text-5xl mx-auto md:w-[90%] font-bold mb-4 drop-shadow-lg">
-                                Hospital Furniture dan{" "}
+                                {t("hero.h1")}{" "}
                                 <span className="bg-gradient-to-l from-cyan-500 via-cyan-400 to-cyan-200 bg-clip-text text-transparent">
-                                    Alat Kesehatan
+                                    {t("hero.h2")}
                                 </span>{" "}
-                                terbesar di Solo Raya.
+                                {t("hero.h3")}
                             </h1>
                             <p className="text-base md:text-xl mb-6 max-w-2xl mx-auto drop-shadow">
-                                Menyediakan aneka perlengkapan penunjang
-                                kesehatan.
+                                {t("hero.h4")}
                             </p>
                             <Link
                                 to="/about"
                                 title="Tentang Kami"
                                 className="px-6 py-3 backdrop-blur-md bg-white/20 border border-white/20 text-white rounded-xl shadow hover:text-cyan-700 hover:bg-gray-100 transition text-sm md:text-base font-semibold cursor-pointer duration-400"
                             >
-                                Tentang Kami
+                                {t("hero.btn")}
                             </Link>
                         </div>
                     </div>
@@ -68,17 +69,14 @@ export default function Home() {
 
                 {/* Welcome */}
                 <section className="w-11/12 py-15 md:py-20 mx-auto text-center">
-                    <h3 className="text-lg md:text-xl font-medium">
-                        Selamat Datang di
+                    <h3 className="text-lg md:text-xl font-semibold">
+                        {t("hero.sc1")}
                     </h3>
                     <h1 className="text-2xl md:text-4xl font-bold pt-1 pb-5 md:pt-2 md:pb-6 text-cyan-600">
                         PT ENTRI JAYA MAKMUR
                     </h1>
                     <p className="text-md w-11/12 mx-auto">
-                        Kami adalah Perusahaan yang berjalan di bidang Medical,
-                        Electrical, Mechanical Hospital Liquid Products. Kami
-                        berkomitmen untuk menjadi mitra terbaik dalam
-                        menyediakan solusi untuk keperluan alat kesehatan.
+                        {t("hero.sc2")}
                     </p>
 
                     <div className="w-11/12 mx-auto bg-slate-100 flex flex-col md:flex-row items-center mt-10 rounded-2xl p-6 md:p-10 gap-8 md:gap-10 shadow-lg shadow-slate-300">
@@ -95,20 +93,18 @@ export default function Home() {
                         {/* Deskripsi */}
                         <div className="md:w-1/2 w-full text-center md:text-left">
                             <h1 className="text-2xl md:text-3xl font-semibold text-cyan-700 pb-4">
-                                <span className="text-black">Kompeten dan</span>{" "}
-                                Berkualitas
+                                <span className="text-black">{t("hero.op1")}</span>{" "}
+                                {t("hero.op2")}
                             </h1>
                             <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-                                PT Entri Jaya Makmur merupakan produsen alat
-                                kesehatan berskala global dengan kualitas
-                                terjamin dan mengutamakan kepuasan pelanggan.
+                                {t("hero.sc3")}
                             </p>
                         </div>
                     </div>
 
                     <div className="w-11/12 mx-auto mt-20">
                         <h1 className="text-2xl font-semibold mb-5">
-                            Partnership
+                            {t("hero.mitra")}
                         </h1>
                         <Swiper
                             modules={[Pagination, Autoplay]}
@@ -204,13 +200,12 @@ export default function Home() {
                                 onClick={() => handleMenuClick()}
                                 className="bg-cyan-700 px-4 py-2 rounded-3xl font-semibold text-white hover:scale-110 transition duration-300 hover:text-cyan-700 hover:bg-white hover:border hover:border-cyan-700"
                             >
-                                Selengkapnya
+                                {t("hero.more")}
                             </Link>
                         </div>
                         <div>
                             <p>
-                                Aneka perabot dan perlengkapan khusus untuk
-                                menunjang fasilitas kesehatan.
+                                {t("hero.sc4")}
                             </p>
                         </div>
                     </div>
@@ -276,8 +271,8 @@ export default function Home() {
                     <div>
                         <div className="flex items-center justify-between mb-5 h-12 gap-2">
                             <h1 className="text-2xl font-semibold">
-                                <span className="text-cyan-700">Produk</span>{" "}
-                                Liquid.
+                                <span className="text-cyan-700">{t("hero.sc5")}</span>{" "}
+                                {t("hero.sc6")}
                             </h1>
                             <Link
                                 to="/products/liquid"
@@ -285,14 +280,12 @@ export default function Home() {
                                 onClick={() => handleMenuClick()}
                                 className="bg-cyan-700 px-4 py-2 rounded-3xl font-semibold text-white hover:scale-110 transition duration-300 hover:text-cyan-700 hover:bg-white hover:border hover:border-cyan-700"
                             >
-                                Selengkapnya
+                                {t("hero.more")}
                             </Link>
                         </div>
                         <div>
                             <p>
-                                Berbagai cairan medis atau pembersih yang
-                                digunakan untuk sterilisasi, desinfeksi, dan
-                                kebutuhan laboratorium.
+                                {t("hero.sc7")}
                             </p>
                         </div>
                     </div>
@@ -350,8 +343,8 @@ export default function Home() {
                     <div>
                         <div className="flex items-center justify-between mb-5 h-12 gap-2">
                             <h1 className="text-2xl font-semibold">
-                                <span className="text-cyan-700">Produk</span>{" "}
-                                BMHP.
+                                <span className="text-cyan-700">{t("hero.sc8")}</span>{" "}
+                                {t("hero.sc9")}
                             </h1>
                             <Link
                                 to="/products/bmhp"
@@ -359,13 +352,12 @@ export default function Home() {
                                 onClick={() => handleMenuClick()}
                                 className="bg-cyan-700 px-4 py-2 rounded-3xl font-semibold text-white hover:scale-110 transition duration-300 hover:text-cyan-700 hover:bg-white hover:border hover:border-cyan-700"
                             >
-                                Selengkapnya
+                                {t("hero.more")}
                             </Link>
                         </div>
                         <div>
                             <p>
-                                Aneka macam peralatan medis yang digunakan
-                                sekali pakai atau memiliki masa pakai terbatas.
+                                {t("hero.sc10")}
                             </p>
                         </div>
                     </div>
@@ -428,14 +420,12 @@ export default function Home() {
                                 onClick={() => handleMenuClick()}
                                 className="bg-cyan-700 px-4 py-2 rounded-3xl font-semibold text-white hover:scale-110 transition duration-300 hover:text-cyan-700 hover:bg-white hover:border hover:border-cyan-700"
                             >
-                                Selengkapnya
+                                {t("hero.more")}
                             </Link>
                         </div>
                         <div>
                             <p>
-                                Peralatan dan perlengkapan pendukung kegiatan
-                                analisis serta pengujian di laboratorium medis
-                                maupun penelitian.
+                                {t("hero.sc11")}
                             </p>
                         </div>
                     </div>
@@ -489,8 +479,8 @@ export default function Home() {
                     <div>
                         <div className="flex items-center justify-between mb-10 md:mb-5 h-12">
                             <h1 className="text-2xl font-semibold">
-                                <span className="text-cyan-700">Motif</span>{" "}
-                                Cutting Laser.
+                                <span className="text-cyan-700">{t("hero.sc12")}</span>{" "}
+                                {t("hero.sc13")}
                             </h1>
                             <Link
                                 to="/products/cutting"
@@ -498,14 +488,12 @@ export default function Home() {
                                 onClick={() => handleMenuClick()}
                                 className="bg-cyan-700 px-4 py-2 rounded-3xl font-semibold text-white hover:scale-110 transition duration-300 hover:text-cyan-700 hover:bg-white hover:border hover:border-cyan-700"
                             >
-                                Selengkapnya
+                                {t("hero.more")}
                             </Link>
                         </div>
                         <div>
                             <p>
-                                Desain dan pola dekoratif yang diproduksi
-                                menggunakan teknologi pemotongan laser untuk
-                                hasil presisi dan estetis.
+                                {t("hero.sc14")}
                             </p>
                         </div>
                     </div>
@@ -577,8 +565,7 @@ export default function Home() {
                         {/* Content */}
                         <div className="relative z-10 w-full md:w-2/3 text-center md:text-left">
                             <h1 className="text-2xl md:text-4xl leading-snug md:leading-tight font-semibold text-white mb-6 md:mb-8 max-w-2xl mx-auto md:mx-0 drop-shadow-lg">
-                                Hubungi Kami Sekarang &amp; Dapatkan Solusi
-                                Kesehatan Terbaik Untuk Anda!
+                                {t("hero.hub")}
                             </h1>
 
                             <div className="hidden md:block">

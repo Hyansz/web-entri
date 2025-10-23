@@ -1,8 +1,11 @@
 import { BiLogoGmail } from "react-icons/bi";
 import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+    const { t } = useTranslation();
+
     return (
         <footer className="backdrop-blur-md bg-cyan-700/90 text-white pt-4 px-4">
             <div className="mb-10 flex flex-col xl:flex-row justify-between py-6 w-11/12 mx-auto">
@@ -13,12 +16,7 @@ export default function Footer() {
                             alt=""
                             className="mb-4 w-11/12 md:w-2/4 xl:w-2/3 mx-auto xl:mx-0"
                         />
-                        <p>
-                            Perusahaan yang menunjang segala kebutuhan tenaga
-                            kesehatan dan berkomitmen untuk menjadi mitra
-                            terbaik dalam menyediakan solusi untuk keperluan
-                            alat kesehatan.
-                        </p>
+                        <p>{t("footer.h1")}</p>
                     </div>
                     <div>
                         <ul className="flex gap-4">
@@ -53,7 +51,7 @@ export default function Footer() {
                     <div className="flex flex-col justify-center md:justify-between gap-10">
                         <div>
                             <h1 className="mb-5 md:mb-2 font-semibold text-xl md:text-lg">
-                                Laman
+                                {t("footer.site")}
                             </h1>
                             <div className="flex flex-col text-lg md:text-base md:gap-0.5 gap-3">
                                 <Link
@@ -67,7 +65,7 @@ export default function Footer() {
                                     }
                                     className="transition duration-300 w-full md:w-fit hover:scale-110"
                                 >
-                                    Home
+                                    {t("nav.home")}
                                 </Link>
                                 <Link
                                     to="/about"
@@ -80,7 +78,7 @@ export default function Footer() {
                                     }
                                     className="transition duration-300 w-full md:w-fit hover:scale-110"
                                 >
-                                    About
+                                    {t("nav.tentang")}
                                 </Link>
                                 <Link
                                     to="/products"
@@ -93,7 +91,7 @@ export default function Footer() {
                                     }
                                     className="transition duration-300 w-full md:w-fit hover:scale-110"
                                 >
-                                    All Products
+                                    {t("nav.produk")}
                                 </Link>
                                 <Link
                                     to="/blog"
@@ -119,13 +117,13 @@ export default function Footer() {
                                     }
                                     className="transition duration-300 w-full md:w-fit hover:scale-110"
                                 >
-                                    Contact
+                                    {t("nav.kontak")}
                                 </Link>
                             </div>
                         </div>
                         <div>
                             <h1 className="mb-5 md:mb-2 text-xl md:text-lg font-semibold">
-                                Kontak Kami
+                                {t("footer.kontak")}
                             </h1>
                             <div className="flex flex-col gap-3 md:gap-0.5 items-center md:items-start">
                                 <div>
@@ -155,7 +153,7 @@ export default function Footer() {
                     </div>
                     <div>
                         <h1 className="mb-4 md:mb-2 font-semibold text-xl md:text-lg">
-                            Alamat
+                            {t("footer.alamat")}
                         </h1>
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31643.4499440724!2d110.81485797431638!3d-7.527852800000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a17477073a1ab%3A0xb8932b3b6617c817!2sPT.%20ENTRI%20JAYA%20MAKMUR!5e0!3m2!1sid!2sid!4v1758162647345!5m2!1sid!2sid"

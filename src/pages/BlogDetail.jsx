@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function BlogDetail() {
     const { slug } = useParams();
     const [blog, setBlog] = useState(null);
     const [loading, setLoading] = useState(true);
     const [otherBlogs, setOtherBlogs] = useState([]);
+    const { t } = useTranslation();
 
     // Ambil detail blog
     useEffect(() => {
@@ -111,7 +113,7 @@ export default function BlogDetail() {
                                             to={`/blog/${b.slug}`}
                                             className="text-cyan-600 font-semibold hover:text-cyan-800 transition"
                                         >
-                                            Selengkapnya →
+                                            {t("hero.more")} →
                                         </Link>
                                     </div>
                                 </article>

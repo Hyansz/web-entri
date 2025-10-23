@@ -21,7 +21,7 @@ AOS.init();
 export default function App() {
     return (
         <Router>
-            <div className="flex flex-col min-h-screen bg-white">
+            <div className="flex flex-col min-h-screen bg-white max-w-[1800px] mx-auto">
                 <Navbar />
                 <main className="flex-grow">
                     <Routes>

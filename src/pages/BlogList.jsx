@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function BlogList() {
     const [blogs, setBlogs] = useState([]);
+    const { t, i18n } = useTranslation();
 
     useEffect(() => {
         fetch("https://web-entri.onrender.com/api/blogs")
@@ -55,10 +57,14 @@ export default function BlogList() {
                             />
                             <div className="p-5 text-left">
                                 <h3 className="text-xl font-semibold text-cyan-800 mb-2">
-                                    {b.title}
+                                    {i18n.language === "id"
+                                        ? b.title_id
+                                        : b.title_en}
                                 </h3>
                                 <p className="text-gray-700 mb-4 line-clamp-3">
-                                    {b.description}
+                                    {i18n.language === "id"
+                                        ? b.description_id
+                                        : b.description_en}
                                 </p>
                                 <Link
                                     to={`/blog/${b.slug}`}
@@ -70,7 +76,7 @@ export default function BlogList() {
                                     }
                                     className="text-cyan-600 font-semibold hover:text-cyan-800 transition"
                                 >
-                                    Selengkapnya →
+                                    {t("hero.more")} →
                                 </Link>
                             </div>
                         </article>

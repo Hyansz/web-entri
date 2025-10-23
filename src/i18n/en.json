@@ -1,0 +1,87 @@
+{
+    "nav": {
+        "home": "Home",
+        "tentang": "About",
+        "produk": "Products",
+        "kontak": "Contact",
+        "bahasa": "Language"
+    },
+    "hero": {
+        "h1": "The largest Hospital Furniture and",
+        "h2": "Medical Equipment",
+        "h3": "provider in the Greater Solo.",
+        "h4": "Offering a wide range of healthcare support supplies.",
+        "btn": "About Us",
+        "sc1": "Welcome To",
+        "sc2": "We are a company engaged in the fields of Medical, Electrical, and Mechanical Hospital Liquid Products. We are committed to being the best partner in providing solutions for healthcare equipment needs.",
+        "op1": "Competent and",
+        "op2": "High Quality",
+        "sc3": "PT Entri Jaya Makmur is a global-scale medical equipment manufacturer with guaranteed quality and a strong commitment to customer satisfaction.",
+        "mitra": "Partnership",
+        "more": "More",
+        "sc4": "A variety of furniture and specialized equipment to support healthcare facilities.",
+        "sc5": "Liquid",
+        "sc6": "Products.",
+        "sc7": "Various medical or cleaning liquids used for sterilization, disinfection, and laboratory needs.",
+        "sc8": "Medical",
+        "sc9": "Disposables.",
+        "sc10": "A variety of medical instruments designed for single use or with a limited lifespan.",
+        "sc11": "Equipment and supplies that support analytical and testing activities in medical and research laboratories.",
+        "sc12": "Laser",
+        "sc13": "Cutting Patterns.",
+        "sc14": "Decorative designs and motifs produced using laser cutting technology for precise and aesthetic results.",
+        "hub": "Contact Us Now & Get the Best Healthcare Solutions for You!"
+    },
+    "footer": {
+        "h1": "A company that supports all the needs of healthcare professionals and is committed to being the best partner in providing solutions for medical equipment requirements.",
+        "site": "Sitelink",
+        "kontak": "Contact Us",
+        "alamat": "Address"
+    },
+    "about": {
+        "h1": "Looking for a trusted",
+        "h2": "medical equipment",
+        "h3": "supplier?",
+        "h4": "We are",
+        "h5": "the solution.",
+        "thn": "From the Beginning to the Present",
+        "sejarah": "The journey of PT Entri Jaya Makmur began in 2006 as a small workshop in the Mojosongo area of Surakarta. In 2016, the company established its first manufacturing plant located in Randusari RT 01/RW 30, Mojosongo, Jebres, Surakarta, Central Java. The production process utilizes high-quality raw materials, and the company is dedicated to serving customers with excellence through timely product delivery.",
+        "komit1": "Our",
+        "komit2": "Commitment",
+        "komit3": "Modern Machine",
+        "komit3-1": "Technology",
+        "komit3-2": "Modern Machine Technology",
+        "komit4": "Reliable & Competent",
+        "komit4-1": "Team",
+        "komit4-2": "Reliable & Competent Team",
+        "komit5": "Professional",
+        "komit5-1": "Service",
+        "komit5-2": "Professional Service",
+        "komit6": "Continuous",
+        "komit6-1": "Innovation",
+        "komit6-2": "Continuous Innovation",
+        "klien1": "A Trusted Solution for Clients",
+        "klien2": "Across Indonesia"
+    },
+    "produk": {
+        "h1": "Our",
+        "h2": "Product"
+    },
+    "kontak": {
+        "kontak1": "Contact",
+        "kontak2": "Us",
+        "placeholder": {
+            "name": "Your Name",
+            "email": "Your Email",
+            "subject": "Your Subject",
+            "message": "Your Message"
+        },
+        "file": {
+            "select": "Click to select an image file",
+            "change": "Change File"
+        }
+    },
+    "faq": {
+        "faq": "Feedback and Suggestions"
+    }
+}

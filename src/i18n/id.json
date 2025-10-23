@@ -1,0 +1,87 @@
+{
+    "nav": {
+        "home": "Beranda",
+        "tentang": "Tentang",
+        "produk": "Produk",
+        "kontak": "Kontak",
+        "bahasa": "Bahasa"
+    },
+    "hero": {
+        "h1": "Hospital Furniture dan",
+        "h2": "Alat Kesehatan",
+        "h3": "terbesar di Solo Raya.",
+        "h4": "Menyediakan aneka perlengkapan penunjang kesehatan.",
+        "btn": "Tentang Kami",
+        "sc1": "Selamat Datang di",
+        "sc2": "Kami adalah Perusahaan yang berjalan di bidang Medical, Electrical, Mechanical Hospital Liquid Products. Kami berkomitmen untuk menjadi mitra terbaik dalam menyediakan solusi untuk keperluan alat kesehatan.",
+        "op1": "Kompeten dan",
+        "op2": "Berkualitas",
+        "sc3": "PT Entri Jaya Makmur merupakan produsen alat kesehatan berskala global dengan kualitas terjamin dan mengutamakan kepuasan pelanggan.",
+        "mitra": "Mitra",
+        "more": "Selengkapnya",
+        "sc4": "Aneka perabot dan perlengkapan  khusus untuk menunjang fasilitas kesehatan.",
+        "sc5": "Produk",
+        "sc6": "Liquid.",
+        "sc7": "Berbagai cairan medis atau pembersih yang digunakan untuk sterilisasi, desinfeksi, dan kebutuhan laboratorium.",
+        "sc8": "Produk",
+        "sc9": "BMHP.",
+        "sc10": "Aneka macam peralatan medis yang digunakan sekali pakai atau memiliki masa pakai terbatas.",
+        "sc11": "Peralatan dan perlengkapan pendukung kegiatan analisis serta pengujian di laboratorium medis maupun penelitian.",
+        "sc12": "Motif",
+        "sc13": "Cutting Laser.",
+        "sc14": "Desain dan pola dekoratif yang diproduksi menggunakan teknologi pemotongan laser untuk hasil presisi dan estetis.",
+        "hub": "Hubungi Kami Sekarang & Dapatkan Solusi Kesehatan Terbaik Untuk Anda!"
+    },
+    "footer": {
+        "h1": "Perusahaan yang menunjang segala kebutuhan tenaga kesehatan dan berkomitmen untuk menjadi mitra terbaik dalam menyediakan solusi untuk keperluan alat kesehatan.",
+        "site": "Laman",
+        "kontak": "Kontak Kami",
+        "alamat": "Alamat"
+    },
+    "about": {
+        "h1": "Cari Seuppliyer",
+        "h2": "alat kesehatan",
+        "h3": "berkualitas?",
+        "h4": "Kami",
+        "h5": "solusinya.",
+        "thn": "Dari Awal Hingga Kini",
+        "sejarah": "Perjalanan PT Entri Jaya Makmur dimulai sejak tahun 2006 yang awalnya hanya berupa Workshop kecil di daerah Mojosongo, Surakarta. Dan pada tahun 2016, PT Entri Jaya Makmur mulai mendirikan Pabrik Manufaktur pertamanya yang berlokasi di Randusari RT 01/ RW 30, Mojosongo, Jebres, Surakarta, Jawa tengah. Proses produksi menggunakan bahan baku berkualitas, Melayani konsumen dengan baik melaui ketepatan waktu pengiriman barang.",
+        "komit1": "Komitmen Kami",
+        "komit2": "Untuk Anda",
+        "komit3": "Teknologi Mesin",
+        "komit3-1": "Modern",
+        "komit3-2": "Teknologi Mesin Modern",
+        "komit4": "Tim Andal",
+        "komit4-1": "& Kompeten",
+        "komit4-2": "Tim Andal & Kompeten",
+        "komit5": "Pelayanan",
+        "komit5-1": "Profesional",
+        "komit5-2": "Pelayanan Profesional",
+        "komit6": "Inovasi Tanpa",
+        "komit6-1": "Henti",
+        "komit6-2": "Inovasi Tanpa Henti",
+        "klien1": "Solusi Terpercaya Bagi Klien",
+        "klien2": "diseluruh Indonesia"
+    },
+    "produk": {
+        "h1": "Produk",
+        "h2": "Kami"
+    },
+    "kontak": {
+        "kontak1": "Kontak",
+        "kontak2": "Kami",
+        "placeholder": {
+            "name": "Nama Anda",
+            "email": "Email Anda",
+            "subject": "Subjek Anda",
+            "message": "Pesan Anda"
+        },
+        "file": {
+            "select": "Klik untuk pilih file gambar",
+            "change": "Ganti File"
+        }
+    },
+    "faq": {
+        "faq": "Kritik dan Saran"
+    }
+}

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false); // mobile menu
@@ -14,6 +15,17 @@ export default function Navbar() {
     const desktopDropdownRef = useRef(null);
     const mobileDropdownRef = useRef(null);
     const mobileMenuRef = useRef(null);
+
+    const { t, i18n } = useTranslation();
+    const [open, setOpen] = useState(false);
+    const [lang, setLang] = useState(i18n.language || "id");
+
+    const changeLang = (langCode) => {
+        i18n.changeLanguage(langCode);
+        localStorage.setItem("lang", langCode);
+        setLang(langCode);
+        setOpen(false);
+    };
 
     // Auto hide/show navbar on scroll + tutup menu/dropdown
     useEffect(() => {
@@ -85,7 +97,7 @@ export default function Navbar() {
 
     return (
         <header
-            className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+            className={`fixed top-0 w-full z-50 mx-auto right-0 left-0 transition-all duration-500 ${
                 showNavbar ? "translate-y-0" : "-translate-y-[90px]"
             } ${
                 isScrolled
@@ -110,7 +122,7 @@ export default function Navbar() {
                         onClick={() => handleMenuClick()}
                         className="transition duration-300 hover:text-yellow-400 hover:scale-110"
                     >
-                        Home
+                        {t("nav.home")}
                     </Link>
                     <Link
                         to="/about"
@@ -118,7 +130,7 @@ export default function Navbar() {
                         onClick={() => handleMenuClick()}
                         className="transition duration-300 hover:text-yellow-400 hover:scale-110"
                     >
-                        About
+                        {t("nav.tentang")}
                     </Link>
 
                     {/* Products Dropdown - Desktop */}
@@ -129,7 +141,7 @@ export default function Navbar() {
                                 setDesktopDropdownOpen((prev) => !prev)
                             }
                         >
-                            <span>Products</span>
+                            <span>{t("nav.produk")}</span>
                             <FaChevronDown
                                 className={`transition-transform ${
                                     desktopDropdownOpen ? "rotate-180" : ""
@@ -201,15 +213,76 @@ export default function Navbar() {
                     >
                         Blog
                     </Link>
-                    
+
                     <Link
                         to="/contact"
                         title="Kontak Kami"
                         onClick={() => handleMenuClick()}
                         className="transition duration-300 hover:text-yellow-400 hover:scale-110"
                     >
-                        Contact
+                        {t("nav.kontak")}
                     </Link>
+                    <div className="relative">
+                        <button
+                            onClick={() => setOpen(!open)}
+                            className="flex items-center gap-2 px-3 py-2 border-2 border-white hover:border-yellow-400 cursor-pointer rounded-full transition-all duration-300 shadow-md hover:scale-105 hover:text-yellow-400"
+                        >
+                            <img
+                                src={
+                                    lang === "id"
+                                        ? "https://flagcdn.com/id.svg"
+                                        : "https://flagcdn.com/gb.svg"
+                                }
+                                alt="flag"
+                                className="w-6 h-4 rounded-sm"
+                            />
+                            <FaChevronDown
+                                className={`transition-transform duration-300 ${
+                                    open ? "rotate-180" : "rotate-0"
+                                }`}
+                            />
+                        </button>
+
+                        <div
+                            className={`absolute right-0 mt-6 backdrop-blur-md bg-cyan-700/70 shadow-md text-white w-36 rounded-xl overflow-hidden transform transition-all duration-300 origin-top ${
+                                open
+                                    ? "opacity-100 scale-100 translate-y-0"
+                                    : "opacity-0 scale-90 -translate-y-2 pointer-events-none"
+                            }`}
+                        >
+                            <button
+                                onClick={() => changeLang("id")}
+                                className={`flex items-center gap-3 w-full cursor-pointer hover:text-yellow-400 px-4 py-2 bg-cyan-700/70 transition ${
+                                    lang === "id" ? "bg-cyan-800" : ""
+                                }`}
+                            >
+                                <img
+                                    src="https://flagcdn.com/id.svg"
+                                    alt="Indonesia"
+                                    className="w-6 h-4 rounded-sm"
+                                />
+                                <span className="text-sm font-medium">
+                                    Indonesia
+                                </span>
+                            </button>
+
+                            <button
+                                onClick={() => changeLang("en")}
+                                className={`flex items-center text-white cursor-pointer hover:text-yellow-400 gap-3 w-full px-4 py-2 bg-cyan-700/70 transition ${
+                                    lang === "en" ? "bg-cyan-800" : ""
+                                }`}
+                            >
+                                <img
+                                    src="https://flagcdn.com/gb.svg"
+                                    alt="English"
+                                    className="w-6 h-4 rounded-sm"
+                                />
+                                <span className="text-sm font-medium">
+                                    English
+                                </span>
+                            </button>
+                        </div>
+                    </div>
                 </nav>
 
                 {/* Mobile Toggle */}

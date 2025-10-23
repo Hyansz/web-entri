@@ -4,12 +4,15 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 
 export default function Products() {
     const handleMenuClick = (callback) => {
         if (callback) callback();
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
+
+    const { t } = useTranslation();
 
     return (
         <>
@@ -28,7 +31,7 @@ export default function Products() {
             <div>
                 {/* Hero */}
                 <section
-                    className="h-[80vh] relative flex flex-col text-white bg-cover bg-no-repeat bg-right"
+                    className="h-[80vh] max-h-[700px] relative flex flex-col text-white bg-cover bg-no-repeat bg-right"
                     style={{
                         backgroundImage: "url('/img/inventory.jpg')",
                     }}
@@ -38,11 +41,11 @@ export default function Products() {
                     <div className="md:hidden block absolute inset-0 bg-gradient-to-t from-cyan-800 via-black/50 to-black/60"></div>
 
                     <div>
-                        <div className="relative w-11/12 z-10 mx-auto flex flex-col items-start h-[80vh] justify-center text-center">
+                        <div className="relative w-11/12 z-10 mx-auto flex flex-col items-start h-[80vh] max-h-[700px] justify-center text-center">
                             <h3 className="text-3xl w-full md:text-5xl font-bold mb-4">
-                                Our{" "}
+                                {t("produk.h1")}{" "}
                                 <span className="bg-gradient-to-l from-cyan-500 via-cyan-400 to-cyan-200 bg-clip-text text-transparent">
-                                    Product
+                                    {t("produk.h2")}
                                 </span>{" "}
                             </h3>
                         </div>
@@ -63,14 +66,11 @@ export default function Products() {
                                 onClick={() => handleMenuClick()}
                                 className="bg-cyan-700 px-4 py-2 rounded-3xl font-semibold text-white hover:scale-110 transition duration-300 hover:text-cyan-700 hover:bg-white hover:border hover:border-cyan-700"
                             >
-                                Selengkapnya
+                                {t("hero.more")}
                             </Link>
                         </div>
                         <div>
-                            <p>
-                                Aneka perabot dan perlengkapan khusus untuk
-                                menunjang fasilitas kesehatan.
-                            </p>
+                            <p>{t("hero.sc4")}</p>
                         </div>
                     </div>
 
@@ -135,8 +135,10 @@ export default function Products() {
                     <div>
                         <div className="flex items-center justify-between mb-5 h-12 gap-2">
                             <h1 className="text-2xl font-semibold">
-                                <span className="text-cyan-700">Produk</span>{" "}
-                                Liquid.
+                                <span className="text-cyan-700">
+                                    {t("hero.sc5")}
+                                </span>{" "}
+                                {t("hero.sc6")}
                             </h1>
                             <Link
                                 to="/products/liquid"
@@ -144,15 +146,11 @@ export default function Products() {
                                 onClick={() => handleMenuClick()}
                                 className="bg-cyan-700 px-4 py-2 rounded-3xl font-semibold text-white hover:scale-110 transition duration-300 hover:text-cyan-700 hover:bg-white hover:border hover:border-cyan-700"
                             >
-                                Selengkapnya
+                                {t("hero.more")}
                             </Link>
                         </div>
                         <div>
-                            <p>
-                                Berbagai cairan medis atau pembersih yang
-                                digunakan untuk sterilisasi, desinfeksi, dan
-                                kebutuhan laboratorium.
-                            </p>
+                            <p>{t("hero.sc7")}</p>
                         </div>
                     </div>
 
@@ -209,8 +207,10 @@ export default function Products() {
                     <div>
                         <div className="flex items-center justify-between mb-5 h-12 gap-2">
                             <h1 className="text-2xl font-semibold">
-                                <span className="text-cyan-700">Produk</span>{" "}
-                                BMHP.
+                                <span className="text-cyan-700">
+                                    {t("hero.sc8")}
+                                </span>{" "}
+                                {t("hero.sc9")}
                             </h1>
                             <Link
                                 to="/products/bmhp"
@@ -218,14 +218,11 @@ export default function Products() {
                                 onClick={() => handleMenuClick()}
                                 className="bg-cyan-700 px-4 py-2 rounded-3xl font-semibold text-white hover:scale-110 transition duration-300 hover:text-cyan-700 hover:bg-white hover:border hover:border-cyan-700"
                             >
-                                Selengkapnya
+                                {t("hero.more")}
                             </Link>
                         </div>
                         <div>
-                            <p>
-                                Aneka macam peralatan medis yang digunakan
-                                sekali pakai atau memiliki masa pakai terbatas.
-                            </p>
+                            <p>{t("hero.sc10")}</p>
                         </div>
                     </div>
 
@@ -252,7 +249,10 @@ export default function Products() {
                                     img: "./img/masker2.png",
                                     title: "Surgical Facemask (Head Loop)",
                                 },
-                                { img: "./img/alswab.png", title: "Alkohol Swab" },
+                                {
+                                    img: "./img/alswab.png",
+                                    title: "Alkohol Swab",
+                                },
                             ].map((item, i) => (
                                 <SwiperSlide key={i} className="py-5 mb-5">
                                     <div className="rounded-xl shadow-md text-center p-3 h-80 flex flex-col justify-start">
@@ -287,15 +287,11 @@ export default function Products() {
                                 onClick={() => handleMenuClick()}
                                 className="bg-cyan-700 px-4 py-2 rounded-3xl font-semibold text-white hover:scale-110 transition duration-300 hover:text-cyan-700 hover:bg-white hover:border hover:border-cyan-700"
                             >
-                                Selengkapnya
+                                {t("hero.more")}
                             </Link>
                         </div>
                         <div>
-                            <p>
-                                Peralatan dan perlengkapan pendukung kegiatan
-                                analisis serta pengujian di laboratorium medis
-                                maupun penelitian.
-                            </p>
+                            <p>{t("hero.sc11")}</p>
                         </div>
                     </div>
 
@@ -348,8 +344,10 @@ export default function Products() {
                     <div>
                         <div className="flex items-center justify-between mb-10 md:mb-5 h-12">
                             <h1 className="text-2xl font-semibold">
-                                <span className="text-cyan-700">Motif</span>{" "}
-                                Cutting Laser.
+                                <span className="text-cyan-700">
+                                    {t("hero.sc12")}
+                                </span>{" "}
+                                {t("hero.sc13")}
                             </h1>
                             <Link
                                 to="/products/cutting"
@@ -357,15 +355,11 @@ export default function Products() {
                                 onClick={() => handleMenuClick()}
                                 className="bg-cyan-700 px-4 py-2 rounded-3xl font-semibold text-white hover:scale-110 transition duration-300 hover:text-cyan-700 hover:bg-white hover:border hover:border-cyan-700"
                             >
-                                Selengkapnya
+                                {t("hero.more")}
                             </Link>
                         </div>
                         <div>
-                            <p>
-                                Desain dan pola dekoratif yang diproduksi
-                                menggunakan teknologi pemotongan laser untuk
-                                hasil presisi dan estetis.
-                            </p>
+                            <p>{t("hero.sc14")}</p>
                         </div>
                     </div>
 

@@ -532,9 +532,12 @@ const blogs = [
     {
         id: 1,
         slug: "001",
-        title: "Alkohol Antriseptik",
-        description:
+        title_id: "Alkohol Antriseptik",
+        title_en: "Antiseptic Alcohol",
+        description_id:
             "Alkohol antiseptik IPA 5% dan BIT 6% hadir dalam ukuran 1 liter, 5 liter, 20 liter, dan 200 liter. Produk ini sangat cocok digunakan dalam industri kosmetik, sabun, parfum isi ulang, dan produk wewangian lainnya, membantu menjaga keamanan, kualitas, dan kestabilan produk.",
+        description_en:
+            "Antiseptic alcohol containing 5% IPA and 6% BIT is available in 1-liter, 5-liter, 20-liter, and 200-liter sizes. This product is highly suitable for use in the cosmetics, soap, refill perfume, and other fragrance industries, helping maintain product safety, quality, and stability.",
         thumbnail: "/img/artikel/001.png",
         createdAt: "2025-10-01T10:00:00Z",
     },
