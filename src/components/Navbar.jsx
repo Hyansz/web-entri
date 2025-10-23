@@ -11,6 +11,7 @@ export default function Navbar() {
     const [lastScrollY, setLastScrollY] = useState(0);
     const [isScrolled, setIsScrolled] = useState(false);
     const navigate = useNavigate();
+    const [langDropdownOpen, setLangDropdownOpen] = useState(false);
 
     const desktopDropdownRef = useRef(null);
     const mobileDropdownRef = useRef(null);
@@ -299,7 +300,7 @@ export default function Navbar() {
             <nav
                 ref={mobileMenuRef}
                 className={`md:hidden absolute top-full left-0 w-full backdrop-blur-md bg-cyan-700/90 overflow-hidden transition-all duration-800 ease-in-out ${
-                    isOpen ? "max-h-[450px] opacity-100" : "max-h-0 opacity-0"
+                    isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
                 }`}
             >
                 <div className="flex flex-col space-y-2 py-4">
@@ -311,6 +312,7 @@ export default function Navbar() {
                     >
                         Home
                     </Link>
+
                     <Link
                         to="/about"
                         title="Tentang Kami"
@@ -320,7 +322,7 @@ export default function Navbar() {
                         About
                     </Link>
 
-                    {/* Mobile Dropdown */}
+                    {/* Dropdown Produk */}
                     <div className="px-6" ref={mobileDropdownRef}>
                         <button
                             className="w-full flex justify-between items-center py-2 hover:text-yellow-400"
@@ -335,6 +337,7 @@ export default function Navbar() {
                                 }`}
                             />
                         </button>
+
                         <div
                             className={`ml-2 border-l border-cyan-500 overflow-hidden transition-all duration-500 ease-in-out ${
                                 mobileDropdownOpen
@@ -409,6 +412,67 @@ export default function Navbar() {
                     >
                         Contact
                     </Link>
+
+                    {/* Dropdown Bahasa */}
+                    <div className="px-6">
+                        <button
+                            className="w-full flex justify-between items-center py-2 hover:text-yellow-400"
+                            onClick={() => setLangDropdownOpen((prev) => !prev)}
+                        >
+                            <span className="flex items-center gap-2">
+                                <img
+                                    src={
+                                        lang === "id"
+                                            ? "https://flagcdn.com/id.svg"
+                                            : "https://flagcdn.com/gb.svg"
+                                    }
+                                    alt="flag"
+                                    className="w-6 h-4 rounded-sm"
+                                />
+                                {lang === "id" ? "Indonesia" : "English"}
+                            </span>
+                            <FaChevronDown
+                                className={`transition-transform ${
+                                    langDropdownOpen ? "rotate-180" : ""
+                                }`}
+                            />
+                        </button>
+
+                        <div
+                            className={`ml-2 border-l border-cyan-500 overflow-hidden transition-all duration-500 ease-in-out ${
+                                langDropdownOpen
+                                    ? "max-h-32 opacity-100"
+                                    : "max-h-0 opacity-0"
+                            }`}
+                        >
+                            <button
+                                onClick={() => changeLang("id")}
+                                className={`flex items-center gap-3 w-full text-left px-4 py-2 hover:text-yellow-400 transition ${
+                                    lang === "id" ? "bg-cyan-800" : ""
+                                }`}
+                            >
+                                <img
+                                    src="https://flagcdn.com/id.svg"
+                                    alt="Indonesia"
+                                    className="w-6 h-4 rounded-sm"
+                                />
+                                <span>Indonesia</span>
+                            </button>
+                            <button
+                                onClick={() => changeLang("en")}
+                                className={`flex items-center gap-3 w-full text-left px-4 py-2 hover:text-yellow-400 transition ${
+                                    lang === "en" ? "bg-cyan-800" : ""
+                                }`}
+                            >
+                                <img
+                                    src="https://flagcdn.com/gb.svg"
+                                    alt="English"
+                                    className="w-6 h-4 rounded-sm"
+                                />
+                                <span>English</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </nav>
         </header>
