@@ -41,351 +41,351 @@ const upload = multer({ storage });
 
 // data produk
 const furniture = [
-    // {
-    //     id: 1,
-    //     title: "Hospital Bed Manual (1 Crank)",
-    //     img: "/img/bed1.png",
-    // },
-    // {
-    //     id: 2,
-    //     title: "Hospital Bed Manual (2 Crank)",
-    //     img: "/img/bed2.png",
-    // },
-    // {
-    //     id: 3,
-    //     title: "Hospital Bed Manual (3 Crank)",
-    //     img: "/img/bed3.png",
-    // },
-    // {
-    //     id: 4,
-    //     title: "Hospital Bed Electric (3 Crank)",
-    //     img: "/img/bed4.png",
-    // },
-    // {
-    //     id: 5,
-    //     title: "Hospital Bed ICU",
-    //     img: "/img/bed5.png",
-    // },
-    // {
-    //     id: 6,
-    //     title: "Examine Bed SS",
-    //     img: "/img/examin1.png",
-    // },
-    // {
-    //     id: 7,
-    //     title: "Examine Bed PC",
-    //     img: "/img/examin2.png",
-    // },
-    // {
-    //     id: 8,
-    //     title: "Stretcher Type 01",
-    //     img: "/img/examin3.png",
-    // },
-    // {
-    //     id: 9,
-    //     title: "Stretcher Type 02",
-    //     img: "/img/examin4.png",
-    // },
-    // {
-    //     id: 10,
-    //     title: "Verlos Bed SS",
-    //     img: "/img/examin5.png",
-    // },
-    // {
-    //     id: 11,
-    //     title: "Phlebotomy Chair",
-    //     img: "/img/kursi-gigi.png",
-    // },
-    // {
-    //     id: 12,
-    //     title: "Hospital Children Bed",
-    //     img: "/img/kasur-bayi1.png",
-    // },
-    // {
-    //     id: 13,
-    //     title: "Baby Box",
-    //     img: "/img/kasur-bayi2.png",
-    // },
-    // {
-    //     id: 14,
-    //     title: "Bed Side Cabinet Type 01",
-    //     img: "/img/bed-cabinet1.png",
-    // },
-    // {
-    //     id: 15,
-    //     title: "Bed Side Cabinet Type 02",
-    //     img: "/img/bed-cabinet2.png",
-    // },
-    // {
-    //     id: 16,
-    //     title: "Bed Side Cabinet Type 03",
-    //     img: "/img/bed-cabinet3.png",
-    // },
-    // {
-    //     id: 17,
-    //     title: "Instrumen Cabinet 2 Door Type 01",
-    //     img: "/img/lemari1.png",
-    // },
-    // {
-    //     id: 18,
-    //     title: "Instrumen Cabinet 2 Door Type 02",
-    //     img: "/img/lemari2.png",
-    // },
-    // {
-    //     id: 19,
-    //     title: "Instrumen Cabinet 2 Door Type 03",
-    //     img: "/img/lemari3.png",
-    // },
-    // {
-    //     id: 20,
-    //     title: "Instrumen Cabinet 2 Door Type 04",
-    //     img: "/img/lemari4.png",
-    // },
-    // {
-    //     id: 21,
-    //     title: "Instrumen Cabinet Single Door",
-    //     img: "/img/lemari5.png",
-    // },
-    // {
-    //     id: 22,
-    //     title: "Instrumen Cabinet 4 Door",
-    //     img: "/img/lemari6.png",
-    // },
-    // {
-    //     id: 23,
-    //     title: "Baby Dressing Table PC",
-    //     img: "/img/dressing-table1.png",
-    // },
-    // {
-    //     id: 24,
-    //     title: "Baby Dressing Table PC + Lamp",
-    //     img: "/img/dressing-table2.png",
-    // },
-    // {
-    //     id: 25,
-    //     title: "Infus Stand Kaki 5 SS",
-    //     img: "/img/infus-stand1.png",
-    // },
-    // {
-    //     id: 26,
-    //     title: "Infus Stand Kaki 5 PC",
-    //     img: "/img/infus-stand2.png",
-    // },
-    // {
-    //     id: 27,
-    //     title: "Infus Stand Kaki 5 Plastik",
-    //     img: "/img/infus-stand3.png",
-    // },
-    // {
-    //     id: 28,
-    //     title: "Infus Stand Kaki 3 SS",
-    //     img: "/img/infus-stand4.png",
-    // },
-    // {
-    //     id: 29,
-    //     title: "Infus Stand Kaki 3 SS",
-    //     img: "/img/infus-stand5.png",
-    // },
-    // {
-    //     id: 30,
-    //     title: "Foot Step Single SS",
-    //     img: "/img/foot-step1.png",
-    // },
-    // {
-    //     id: 31,
-    //     title: "Foot Step Single PC",
-    //     img: "/img/foot-step2.png",
-    // },
-    // {
-    //     id: 32,
-    //     title: "Foot Step Double SS",
-    //     img: "/img/foot-step3.png",
-    // },
-    // {
-    //     id: 33,
-    //     title: "Foot Step Double PC",
-    //     img: "/img/foot-step4.png",
-    // },
-    // {
-    //     id: 34,
-    //     title: "Overbed Table SS",
-    //     img: "/img/meja1.png",
-    // },
-    // {
-    //     id: 35,
-    //     title: "Overbed Table PC",
-    //     img: "/img/meja2.png",
-    // },
-    // {
-    //     id: 36,
-    //     title: "X-RAY Viewer Single",
-    //     img: "/img/x-ray1.png",
-    // },
-    // {
-    //     id: 37,
-    //     title: "X-RAY Viewer Double",
-    //     img: "/img/x-ray2.png",
-    // },
-    // {
-    //     id: 38,
-    //     title: "Bed Screen Single",
-    //     img: "/img/bed-screen1.png",
-    // },
-    // {
-    //     id: 39,
-    //     title: "Bed Screen Double",
-    //     img: "/img/bed-screen2.png",
-    // },
-    // {
-    //     id: 40,
-    //     title: "Bed Screen Triple",
-    //     img: "/img/bed-screen3.png",
-    // },
-    // {
-    //     id: 41,
-    //     title: "Infant Warmer Inkubator",
-    //     img: "/img/inkubator.png",
-    // },
-    // {
-    //     id: 42,
-    //     title: "X-Ray Hanger",
-    //     img: "/img/x-ray-hanger.png",
-    // },
-    // {
-    //     id: 43,
-    //     title: "Emergency Trolley",
-    //     img: "/img/emergency-trolley.png",
-    // },
-    // {
-    //     id: 44,
-    //     title: "Medicine Trolley",
-    //     img: "/img/medicine-trolley.png",
-    // },
-    // {
-    //     id: 45,
-    //     title: "Instrument Trolley Type 01",
-    //     img: "/img/introll1.png",
-    // },
-    // {
-    //     id: 45,
-    //     title: "Instrument Trolley Type 02",
-    //     img: "/img/introll2.png",
-    // },
-    // {
-    //     id: 45,
-    //     title: "Instrument Trolley Type 03",
-    //     img: "/img/introll3.png",
-    // },
-    // {
-    //     id: 45,
-    //     title: "Instrument Trolley 03 Sap",
-    //     img: "/img/introll4.png",
-    // },
-    // {
-    //     id: 46,
-    //     title: "ECG Trolley",
-    //     img: "/img/ecg-trolley.png",
-    // },
-    // {
-    //     id: 47,
-    //     title: "Linen Trolley",
-    //     img: "/img/lintroll.png",
-    // },
-    // {
-    //     id: 48,
-    //     title: "Food Trolley Type 01",
-    //     img: "/img/fotroll1.png",
-    // },
-    // {
-    //     id: 49,
-    //     title: "Food Trolley Type 02",
-    //     img: "/img/fotroll2.png",
-    // },
-    // {
-    //     id: 50,
-    //     title: "Almari Narkotik 2 Sap",
-    //     img: "/img/almari-narkotik1.png",
-    // },
-    // {
-    //     id: 51,
-    //     title: "Almari Narkotik 3 Sap",
-    //     img: "/img/almari-narkotik2.png",
-    // },
-    // {
-    //     id: 52,
-    //     title: "Standard Waskom Single SS Type 01",
-    //     img: "/img/waskom1.png",
-    // },
-    // {
-    //     id: 53,
-    //     title: "Standard Waskom Single PC Type 01",
-    //     img: "/img/waskom2.png",
-    // },
-    // {
-    //     id: 54,
-    //     title: "Standard Waskom Double SS Type 01",
-    //     img: "/img/waskom3.png",
-    // },
-    // {
-    //     id: 55,
-    //     title: "Standard Waskom Double PC Type 01",
-    //     img: "/img/waskom4.png",
-    // },
-    // {
-    //     id: 56,
-    //     title: "Standard Waskom Single SS Type 02",
-    //     img: "/img/waskom5.png",
-    // },
-    // {
-    //     id: 57,
-    //     title: "Standard Waskom Single SS Type 02",
-    //     img: "/img/waskom6.png",
-    // },
-    // {
-    //     id: 58,
-    //     title: "Standard Waskom Double SS Type 02",
-    //     img: "/img/waskom7.png",
-    // },
-    // {
-    //     id: 59,
-    //     title: "Standard Waskom Double PC Type 02",
-    //     img: "/img/waskom8.png",
-    // },
-    // {
-    //     id: 60,
-    //     title: "Oksigen Trolley Type 01",
-    //     img: "/img/oksigen-trolley1.png",
-    // },
-    // {
-    //     id: 61,
-    //     title: "Oksigen Trolley Type 02",
-    //     img: "/img/oksigen-trolley2.png",
-    // },
-    // {
-    //     id: 62,
-    //     title: "Scrub Station",
-    //     img: "/img/scrub-station.png",
-    // },
-    // {
-    //     id: 63,
-    //     title: "Keranda Jenazah",
-    //     img: "/img/keranda.png",
-    // },
-    // {
-    //     id: 64,
-    //     title: "Ambulance Type 01",
-    //     img: "/img/ambulan1.png",
-    // },
-    // {
-    //     id: 65,
-    //     title: "Ambulance Type 02",
-    //     img: "/img/ambulan2.png",
-    // },
-    // {
-    //     id: 66,
-    //     title: "Examination Lamp With Dimmer",
-    //     img: "/img/lampu.png",
-    // },
+    {
+        id: 1,
+        title: "Hospital Bed Manual (1 Crank)",
+        img: "/img/bed1.png",
+    },
+    {
+        id: 2,
+        title: "Hospital Bed Manual (2 Crank)",
+        img: "/img/bed2.png",
+    },
+    {
+        id: 3,
+        title: "Hospital Bed Manual (3 Crank)",
+        img: "/img/bed3.png",
+    },
+    {
+        id: 4,
+        title: "Hospital Bed Electric (3 Crank)",
+        img: "/img/bed4.png",
+    },
+    {
+        id: 5,
+        title: "Hospital Bed ICU",
+        img: "/img/bed5.png",
+    },
+    {
+        id: 6,
+        title: "Examine Bed SS",
+        img: "/img/examin1.png",
+    },
+    {
+        id: 7,
+        title: "Examine Bed PC",
+        img: "/img/examin2.png",
+    },
+    {
+        id: 8,
+        title: "Stretcher Type 01",
+        img: "/img/examin3.png",
+    },
+    {
+        id: 9,
+        title: "Stretcher Type 02",
+        img: "/img/examin4.png",
+    },
+    {
+        id: 10,
+        title: "Verlos Bed SS",
+        img: "/img/examin5.png",
+    },
+    {
+        id: 11,
+        title: "Phlebotomy Chair",
+        img: "/img/kursi-gigi.png",
+    },
+    {
+        id: 12,
+        title: "Hospital Children Bed",
+        img: "/img/kasur-bayi1.png",
+    },
+    {
+        id: 13,
+        title: "Baby Box",
+        img: "/img/kasur-bayi2.png",
+    },
+    {
+        id: 14,
+        title: "Bed Side Cabinet Type 01",
+        img: "/img/bed-cabinet1.png",
+    },
+    {
+        id: 15,
+        title: "Bed Side Cabinet Type 02",
+        img: "/img/bed-cabinet2.png",
+    },
+    {
+        id: 16,
+        title: "Bed Side Cabinet Type 03",
+        img: "/img/bed-cabinet3.png",
+    },
+    {
+        id: 17,
+        title: "Instrumen Cabinet 2 Door Type 01",
+        img: "/img/lemari1.png",
+    },
+    {
+        id: 18,
+        title: "Instrumen Cabinet 2 Door Type 02",
+        img: "/img/lemari2.png",
+    },
+    {
+        id: 19,
+        title: "Instrumen Cabinet 2 Door Type 03",
+        img: "/img/lemari3.png",
+    },
+    {
+        id: 20,
+        title: "Instrumen Cabinet 2 Door Type 04",
+        img: "/img/lemari4.png",
+    },
+    {
+        id: 21,
+        title: "Instrumen Cabinet Single Door",
+        img: "/img/lemari5.png",
+    },
+    {
+        id: 22,
+        title: "Instrumen Cabinet 4 Door",
+        img: "/img/lemari6.png",
+    },
+    {
+        id: 23,
+        title: "Baby Dressing Table PC",
+        img: "/img/dressing-table1.png",
+    },
+    {
+        id: 24,
+        title: "Baby Dressing Table PC + Lamp",
+        img: "/img/dressing-table2.png",
+    },
+    {
+        id: 25,
+        title: "Infus Stand Kaki 5 SS",
+        img: "/img/infus-stand1.png",
+    },
+    {
+        id: 26,
+        title: "Infus Stand Kaki 5 PC",
+        img: "/img/infus-stand2.png",
+    },
+    {
+        id: 27,
+        title: "Infus Stand Kaki 5 Plastik",
+        img: "/img/infus-stand3.png",
+    },
+    {
+        id: 28,
+        title: "Infus Stand Kaki 3 SS",
+        img: "/img/infus-stand4.png",
+    },
+    {
+        id: 29,
+        title: "Infus Stand Kaki 3 SS",
+        img: "/img/infus-stand5.png",
+    },
+    {
+        id: 30,
+        title: "Foot Step Single SS",
+        img: "/img/foot-step1.png",
+    },
+    {
+        id: 31,
+        title: "Foot Step Single PC",
+        img: "/img/foot-step2.png",
+    },
+    {
+        id: 32,
+        title: "Foot Step Double SS",
+        img: "/img/foot-step3.png",
+    },
+    {
+        id: 33,
+        title: "Foot Step Double PC",
+        img: "/img/foot-step4.png",
+    },
+    {
+        id: 34,
+        title: "Overbed Table SS",
+        img: "/img/meja1.png",
+    },
+    {
+        id: 35,
+        title: "Overbed Table PC",
+        img: "/img/meja2.png",
+    },
+    {
+        id: 36,
+        title: "X-RAY Viewer Single",
+        img: "/img/x-ray1.png",
+    },
+    {
+        id: 37,
+        title: "X-RAY Viewer Double",
+        img: "/img/x-ray2.png",
+    },
+    {
+        id: 38,
+        title: "Bed Screen Single",
+        img: "/img/bed-screen1.png",
+    },
+    {
+        id: 39,
+        title: "Bed Screen Double",
+        img: "/img/bed-screen2.png",
+    },
+    {
+        id: 40,
+        title: "Bed Screen Triple",
+        img: "/img/bed-screen3.png",
+    },
+    {
+        id: 41,
+        title: "Infant Warmer Inkubator",
+        img: "/img/inkubator.png",
+    },
+    {
+        id: 42,
+        title: "X-Ray Hanger",
+        img: "/img/x-ray-hanger.png",
+    },
+    {
+        id: 43,
+        title: "Emergency Trolley",
+        img: "/img/emergency-trolley.png",
+    },
+    {
+        id: 44,
+        title: "Medicine Trolley",
+        img: "/img/medicine-trolley.png",
+    },
+    {
+        id: 45,
+        title: "Instrument Trolley Type 01",
+        img: "/img/introll1.png",
+    },
+    {
+        id: 45,
+        title: "Instrument Trolley Type 02",
+        img: "/img/introll2.png",
+    },
+    {
+        id: 45,
+        title: "Instrument Trolley Type 03",
+        img: "/img/introll3.png",
+    },
+    {
+        id: 45,
+        title: "Instrument Trolley 03 Sap",
+        img: "/img/introll4.png",
+    },
+    {
+        id: 46,
+        title: "ECG Trolley",
+        img: "/img/ecg-trolley.png",
+    },
+    {
+        id: 47,
+        title: "Linen Trolley",
+        img: "/img/lintroll.png",
+    },
+    {
+        id: 48,
+        title: "Food Trolley Type 01",
+        img: "/img/fotroll1.png",
+    },
+    {
+        id: 49,
+        title: "Food Trolley Type 02",
+        img: "/img/fotroll2.png",
+    },
+    {
+        id: 50,
+        title: "Almari Narkotik 2 Sap",
+        img: "/img/almari-narkotik1.png",
+    },
+    {
+        id: 51,
+        title: "Almari Narkotik 3 Sap",
+        img: "/img/almari-narkotik2.png",
+    },
+    {
+        id: 52,
+        title: "Standard Waskom Single SS Type 01",
+        img: "/img/waskom1.png",
+    },
+    {
+        id: 53,
+        title: "Standard Waskom Single PC Type 01",
+        img: "/img/waskom2.png",
+    },
+    {
+        id: 54,
+        title: "Standard Waskom Double SS Type 01",
+        img: "/img/waskom3.png",
+    },
+    {
+        id: 55,
+        title: "Standard Waskom Double PC Type 01",
+        img: "/img/waskom4.png",
+    },
+    {
+        id: 56,
+        title: "Standard Waskom Single SS Type 02",
+        img: "/img/waskom5.png",
+    },
+    {
+        id: 57,
+        title: "Standard Waskom Single SS Type 02",
+        img: "/img/waskom6.png",
+    },
+    {
+        id: 58,
+        title: "Standard Waskom Double SS Type 02",
+        img: "/img/waskom7.png",
+    },
+    {
+        id: 59,
+        title: "Standard Waskom Double PC Type 02",
+        img: "/img/waskom8.png",
+    },
+    {
+        id: 60,
+        title: "Oksigen Trolley Type 01",
+        img: "/img/oksigen-trolley1.png",
+    },
+    {
+        id: 61,
+        title: "Oksigen Trolley Type 02",
+        img: "/img/oksigen-trolley2.png",
+    },
+    {
+        id: 62,
+        title: "Scrub Station",
+        img: "/img/scrub-station.png",
+    },
+    {
+        id: 63,
+        title: "Keranda Jenazah",
+        img: "/img/keranda.png",
+    },
+    {
+        id: 64,
+        title: "Ambulance Type 01",
+        img: "/img/ambulan1.png",
+    },
+    {
+        id: 65,
+        title: "Ambulance Type 02",
+        img: "/img/ambulan2.png",
+    },
+    {
+        id: 66,
+        title: "Examination Lamp With Dimmer",
+        img: "/img/lampu.png",
+    },
 ];
 
 const liquid = [
