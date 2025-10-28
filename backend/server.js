@@ -13,9 +13,7 @@ import rateLimit from "express-rate-limit";
 const app = express();
 
 dotenv.config();
-app.use(helmet()); // tambah header keamanan HTTP
-// app.use(xss()); // cegah XSS injection
-// app.use(cors({ origin: "https://invitaitionspi.id" })); // batasi hanya domain kamu
+app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
@@ -391,7 +389,7 @@ const furniture = [
 const liquid = [
     {
         id: 1,
-        title: "masker Antiseptik",
+        title: "Alkohol Antiseptik",
         img: "/img/alkohol.png",
     },
     {
@@ -401,7 +399,7 @@ const liquid = [
     },
     {
         id: 3,
-        title: "masker 95%, 96% ( 200 L )",
+        title: "Alkohol 95%, 96% ( 200 L )",
         img: "/img/alkohol.png",
     },
     {
