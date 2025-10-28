@@ -93,7 +93,7 @@ export default function ProductFurniture() {
 
                     {status === "empty" && (
                         <p className="text-gray-500 text-lg font-semibold">
-                            {message || "Belum ada data furniture."}
+                            {message || "Belum ada Produk furniture."}
                         </p>
                     )}
 

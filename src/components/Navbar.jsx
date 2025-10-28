@@ -12,10 +12,12 @@ export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const navigate = useNavigate();
     const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+    const langDropdownDesktopRef = useRef(null);
 
     const desktopDropdownRef = useRef(null);
     const mobileDropdownRef = useRef(null);
     const mobileMenuRef = useRef(null);
+    const langDropdownRef = useRef(null);
 
     const { t, i18n } = useTranslation();
     const [open, setOpen] = useState(false);
@@ -26,6 +28,7 @@ export default function Navbar() {
         localStorage.setItem("lang", langCode);
         setLang(langCode);
         setOpen(false);
+        setLangDropdownOpen(false);
     };
 
     // Auto hide/show navbar on scroll + tutup menu/dropdown
@@ -38,8 +41,6 @@ export default function Navbar() {
             }
 
             setIsScrolled(window.scrollY > 0);
-
-            // Tutup semua dropdown & menu saat scroll
             setDesktopDropdownOpen(false);
             setMobileDropdownOpen(false);
             setIsOpen(false);
@@ -72,6 +73,12 @@ export default function Navbar() {
                 !e.target.closest("button[data-toggle='mobile']")
             ) {
                 setIsOpen(false);
+            }
+            if (
+                langDropdownDesktopRef.current &&
+                !langDropdownDesktopRef.current.contains(e.target)
+            ) {
+                setOpen(false);
             }
         };
 
@@ -223,7 +230,7 @@ export default function Navbar() {
                     >
                         {t("nav.kontak")}
                     </Link>
-                    <div className="relative">
+                    <div className="relative" ref={langDropdownDesktopRef}>
                         <button
                             onClick={() => setOpen(!open)}
                             className="flex items-center gap-2 px-3 py-2 border-2 border-white hover:border-yellow-400 cursor-pointer rounded-full transition-all duration-300 shadow-md hover:scale-105 hover:text-yellow-400"
@@ -300,35 +307,31 @@ export default function Navbar() {
             <nav
                 ref={mobileMenuRef}
                 className={`md:hidden absolute top-full left-0 w-full backdrop-blur-md bg-cyan-700/90 overflow-hidden transition-all duration-800 ease-in-out ${
-                    isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                    isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
                 }`}
             >
                 <div className="flex flex-col space-y-2 py-4">
-                    <Link
-                        to="/"
-                        title="Beranda"
-                        onClick={() => handleMenuClick()}
-                        className="block px-6 py-2 hover:text-yellow-400"
-                    >
-                        Home
-                    </Link>
+                    {[
+                        ["Home", "/"],
+                        ["About", "/about"],
+                        ["Blog", "/blog"],
+                        ["Contact", "/contact"],
+                    ].map(([label, path]) => (
+                        <Link
+                            key={path}
+                            to={path}
+                            onClick={() => handleMenuClick()}
+                            className="block px-6 py-2 hover:text-yellow-400"
+                        >
+                            {label}
+                        </Link>
+                    ))}
 
-                    <Link
-                        to="/about"
-                        title="Tentang Kami"
-                        onClick={() => handleMenuClick()}
-                        className="block px-6 py-2 hover:text-yellow-400"
-                    >
-                        About
-                    </Link>
-
-                    {/* Dropdown Produk */}
+                    {/* Products Dropdown Mobile */}
                     <div className="px-6" ref={mobileDropdownRef}>
                         <button
                             className="w-full flex justify-between items-center py-2 hover:text-yellow-400"
-                            onClick={() =>
-                                setMobileDropdownOpen((prev) => !prev)
-                            }
+                            onClick={() => setMobileDropdownOpen((p) => !p)}
                         >
                             <span>Products</span>
                             <FaChevronDown
@@ -337,7 +340,6 @@ export default function Navbar() {
                                 }`}
                             />
                         </button>
-
                         <div
                             className={`ml-2 border-l border-cyan-500 overflow-hidden transition-all duration-500 ease-in-out ${
                                 mobileDropdownOpen
@@ -345,79 +347,31 @@ export default function Navbar() {
                                     : "max-h-0 opacity-0"
                             }`}
                         >
-                            <Link
-                                to="/products"
-                                title="Semua Produk"
-                                onClick={() => handleMenuClick()}
-                                className="block px-4 py-2 hover:text-yellow-400"
-                            >
-                                All Products
-                            </Link>
-                            <Link
-                                to="/products/furniture"
-                                title="Produk Furniture"
-                                onClick={() => handleMenuClick()}
-                                className="block px-4 py-2 hover:text-yellow-400"
-                            >
-                                Hospital Furniture
-                            </Link>
-                            <Link
-                                to="/products/liquid"
-                                title="Produk Liquid"
-                                onClick={() => handleMenuClick()}
-                                className="block px-4 py-2 hover:text-yellow-400"
-                            >
-                                Liquid
-                            </Link>
-                            <Link
-                                to="/products/bmhp"
-                                title="Produk BMHP"
-                                onClick={() => handleMenuClick()}
-                                className="block px-4 py-2 hover:text-yellow-400"
-                            >
-                                BMHP
-                            </Link>
-                            <Link
-                                to="/products/lab"
-                                title="Produk Laboratorium"
-                                onClick={() => handleMenuClick()}
-                                className="block px-4 py-2 hover:text-yellow-400"
-                            >
-                                Laboratorium
-                            </Link>
-                            <Link
-                                to="/products/cutting"
-                                title="Produk Cutting Laser"
-                                onClick={() => handleMenuClick()}
-                                className="block px-4 py-2 hover:text-yellow-400"
-                            >
-                                Motif Cutting
-                            </Link>
+                            {[
+                                ["All Products", "/products"],
+                                ["Hospital Furniture", "/products/furniture"],
+                                ["Liquid", "/products/liquid"],
+                                ["BMHP", "/products/bmhp"],
+                                ["Laboratorium", "/products/lab"],
+                                ["Motif Cutting", "/products/cutting"],
+                            ].map(([label, link]) => (
+                                <Link
+                                    key={link}
+                                    to={link}
+                                    onClick={() => handleMenuClick()}
+                                    className="block px-4 py-2 hover:text-yellow-400"
+                                >
+                                    {label}
+                                </Link>
+                            ))}
                         </div>
                     </div>
 
-                    <Link
-                        to="/blog"
-                        onClick={() => handleMenuClick()}
-                        className="block px-6 py-2 hover:text-yellow-400"
-                    >
-                        Blog
-                    </Link>
-
-                    <Link
-                        to="/contact"
-                        title="Kontak Kami"
-                        onClick={() => handleMenuClick()}
-                        className="block px-6 py-2 hover:text-yellow-400"
-                    >
-                        Contact
-                    </Link>
-
-                    {/* Dropdown Bahasa */}
-                    <div className="px-6">
+                    {/* Language Dropdown Mobile */}
+                    <div className="px-6" ref={langDropdownRef}>
                         <button
                             className="w-full flex justify-between items-center py-2 hover:text-yellow-400"
-                            onClick={() => setLangDropdownOpen((prev) => !prev)}
+                            onClick={() => setLangDropdownOpen((p) => !p)}
                         >
                             <span className="flex items-center gap-2">
                                 <img
@@ -447,7 +401,7 @@ export default function Navbar() {
                         >
                             <button
                                 onClick={() => changeLang("id")}
-                                className={`flex items-center gap-3 w-full text-left px-4 py-2 hover:text-yellow-400 transition ${
+                                className={`flex items-center gap-3 w-full text-left px-4 py-2 hover:text-yellow-400 ${
                                     lang === "id" ? "bg-cyan-800" : ""
                                 }`}
                             >
@@ -460,7 +414,7 @@ export default function Navbar() {
                             </button>
                             <button
                                 onClick={() => changeLang("en")}
-                                className={`flex items-center gap-3 w-full text-left px-4 py-2 hover:text-yellow-400 transition ${
+                                className={`flex items-center gap-3 w-full text-left px-4 py-2 hover:text-yellow-400 ${
                                     lang === "en" ? "bg-cyan-800" : ""
                                 }`}
                             >
