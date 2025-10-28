@@ -104,11 +104,16 @@ export default function BlogDetail() {
                                     />
                                     <div className="p-5 text-left">
                                         <h3 className="text-xl font-semibold text-cyan-800 mb-2">
-                                            {b.title}
+                                            {t.language === "en"
+                                                ? b.title_en
+                                                : b.title_id}
                                         </h3>
                                         <p className="text-gray-700 mb-4 line-clamp-3">
-                                            {b.description}
+                                            {t.language === "en"
+                                                ? b.description_en
+                                                : b.description_id}
                                         </p>
+
                                         <Link
                                             to={`/blog/${b.slug}`}
                                             className="text-cyan-600 font-semibold hover:text-cyan-800 transition"

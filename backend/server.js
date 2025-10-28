@@ -548,7 +548,7 @@ const blogs = [
             "Diabetes adalah penyakit kronis yang dapat merusak organ tubuh akibat kadar gula darah tinggi, dengan risiko utama meliputi penyakit jantung, stroke, gagal ginjal, kerusakan mata (kebutaan), dan penyakit saraf.",
         description_en:
             "Diabetes is a chronic disease that can damage body organs due to high blood sugar levels, with main risks including heart disease, stroke, kidney failure, eye damage (blindness), and nerve disorders.",
-        thumbnail: "/img/artikel/001.png",
+        thumbnail: "/img/artikel/002.png",
         createdAt: "2025-10-28T15:30:00Z",
     },
 ];
