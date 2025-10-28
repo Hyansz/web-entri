@@ -539,6 +539,18 @@ const blogs = [
         thumbnail: "/img/artikel/001.png",
         createdAt: "2025-10-01T10:00:00Z",
     },
+    {
+        id: 2,
+        slug: "002",
+        title_id: "N3 Gluco",
+        title_en: "N3 Gluco",
+        description_id:
+            "Diabetes adalah penyakit kronis yang dapat merusak organ tubuh akibat kadar gula darah tinggi, dengan risiko utama meliputi penyakit jantung, stroke, gagal ginjal, kerusakan mata (kebutaan), dan penyakit saraf.",
+        description_en:
+            "Diabetes is a chronic disease that can damage body organs due to high blood sugar levels, with main risks including heart disease, stroke, kidney failure, eye damage (blindness), and nerve disorders.",
+        thumbnail: "/img/artikel/001.png",
+        createdAt: "2025-10-28T15:30:00Z",
+    },
 ];
 
 app.get("/api/blogs", (req, res) => {
