@@ -492,6 +492,26 @@ const lab = [
 const videos = [
     {
         _id: "1",
+        title_id: "Apa Itu Diabetes?",
+        title_en: "What is Diabates",
+        videoId: "fwN6EMQuVfU",
+        description_id:
+            "Simak pengertian dari diabetes lebih lengkap",
+        description_en:
+            "Learn more about the definition of diabetes in detail.",
+    },
+    {
+        _id: "2",
+        title_id: "Mengapa Pilih N3 Gluco",
+        title_en: "Why Choose N3 Gluco",
+        videoId: "8DWUlpkHMtI",
+        description_id:
+            "Menghasilkan Akurasi Tinggi, Hasil Cepat, Mudah Digunakan, DLL",
+        description_en:
+            "Delivers High Accuracy, Fast Results, Easy to Use, and More",
+    },
+    {
+        _id: "3",
         title_id: "Cara Penggunaan Produk N3 Gluco",
         title_en: "How To Use N3 Gluco",
         videoId: "Efyfmk2Xjbs",
@@ -499,6 +519,16 @@ const videos = [
             "Panduan lengkap penggunaan produk secara aman dan efisien.",
         description_en:
             "A complete guide to using the product safely and efficiently.",
+    },
+    {
+        _id: "4",
+        title_id: "Pusat Supply Alkohol Antiseptik",
+        title_en: "How To Use N3 Gluco",
+        videoId: "sI_kjrHiNQU",
+        description_id:
+            "Pusat supply alkohol antiseptik harga pabrik dijamin murah",
+        description_en:
+            "The leading supplier of antiseptic alcohol at factory prices — guaranteed affordable.",
     },
 ];
 
