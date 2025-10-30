@@ -107,6 +107,19 @@ export default function Footer() {
                                     Blog
                                 </Link>
                                 <Link
+                                    to="/edu"
+                                    title="Edukasi"
+                                    onClick={() =>
+                                        window.scrollTo({
+                                            top: 0,
+                                            behavior: "smooth",
+                                        })
+                                    }
+                                    className="transition duration-300 w-full md:w-fit hover:scale-110"
+                                >
+                                    {t("nav.edu")}
+                                </Link>
+                                <Link
                                     to="/contact"
                                     title="Kontak Kami"
                                     onClick={() =>

@@ -7,15 +7,14 @@ import { Resend } from "resend";
 import fs from "fs";
 import { fileURLToPath } from "url";
 import helmet from "helmet";
-// import xss from "xss-clean";
 import rateLimit from "express-rate-limit";
 
+dotenv.config();
 const app = express();
 
-dotenv.config();
-app.use(helmet());
 app.use(cors());
 app.use(express.json());
+app.use(helmet());
 
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 menit
@@ -493,36 +492,13 @@ const lab = [
 const videos = [
     {
         _id: "1",
-        title: "Cara Menggunakan Produk Kami",
-        videoId: "t_9Zu8M9KJI",
-        description:
+        title_id: "Cara Penggunaan Produk N3 Gluco",
+        title_en: "How To Use N3 Gluco",
+        videoId: "Efyfmk2Xjbs",
+        description_id:
             "Panduan lengkap penggunaan produk secara aman dan efisien.",
-    },
-    {
-        _id: "2",
-        title: "Perawatan Produk Agar Tahan Lama",
-        videoId: "5qap5aO4i9A",
-        description:
-            "Tips merawat produk agar tetap awet dan berfungsi optimal.",
-    },
-    {
-        _id: "3",
-        title: "Penjelasan Fitur Unggulan Kami",
-        videoId: "kXYiU_JCYtU",
-        description: "Pelajari keunggulan yang membuat produk kami berbeda.",
-    },
-    {
-        _id: "4",
-        title: "Tutorial Singkat: Instalasi Mudah",
-        videoId: "9bZkp7q19f0",
-        description: "Panduan instalasi produk dengan langkah mudah dan cepat.",
-    },
-    {
-        _id: "5",
-        title: "Demo Produk untuk Industri",
-        videoId: "E7wJTI-1dvQ",
-        description:
-            "Lihat bagaimana produk kami digunakan dalam skala industri.",
+        description_en:
+            "A complete guide to using the product safely and efficiently.",
     },
 ];
 

@@ -15,6 +15,7 @@ import ContactForm from "./pages/ContactForm";
 import BlogList from "./pages/BlogList";
 import BlogDetail from "./pages/BlogDetail";
 import WaPhone from "./components/WaPhone";
+import EducationVideo from "./pages/Edu";
 
 AOS.init();
 
@@ -28,6 +29,7 @@ export default function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/blog" element={<BlogList />} />
+                        <Route path="/edu" element={<EducationVideo />} />
                         <Route path="/blog/:slug" element={<BlogDetail />} />
                         <Route path="/contact" element={<ContactForm />} />
                         <Route path="/products" element={<Products />} />

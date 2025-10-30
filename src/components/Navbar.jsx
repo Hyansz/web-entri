@@ -223,6 +223,14 @@ export default function Navbar() {
                     </Link>
 
                     <Link
+                        to="/edu"
+                        onClick={() => handleMenuClick()}
+                        className="transition duration-300 hover:text-yellow-400 hover:scale-110"
+                    >
+                        {t("nav.edu")}
+                    </Link>
+
+                    <Link
                         to="/contact"
                         title="Kontak Kami"
                         onClick={() => handleMenuClick()}
@@ -315,6 +323,7 @@ export default function Navbar() {
                         ["Home", "/"],
                         ["About", "/about"],
                         ["Blog", "/blog"],
+                        ["Edukasi", "/edu"],
                         ["Contact", "/contact"],
                     ].map(([label, path]) => (
                         <Link

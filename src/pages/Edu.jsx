@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import YTLazy from "../components/YTLazy";
+import { useTranslation } from "react-i18next";
 
 export default function EducationVideo() {
     const [videos, setVideos] = useState([]);
@@ -8,6 +9,7 @@ export default function EducationVideo() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const limit = 9;
+    const { t, i18n } = useTranslation();
 
     // Gunakan base URL dinamis agar bisa otomatis menyesuaikan saat deploy
     const API_BASE = import.meta.env.VITE_API_URL || "https://web-entri.onrender.com";
@@ -54,20 +56,19 @@ export default function EducationVideo() {
 
                 <div className="relative z-10 w-11/12 mx-auto flex flex-col items-center h-[80vh] justify-center text-center">
                     <h3 className="text-3xl md:text-5xl font-bold mb-4">
-                        Video{" "}
+                        {t("edu.h1")}{" "}
                         <span className="bg-gradient-to-l from-cyan-400 via-cyan-300 to-cyan-100 bg-clip-text text-transparent">
-                            Edukasi
+                            {t("edu.h2")}
                         </span>
                     </h3>
                     <p className="text-lg max-w-xl text-gray-100">
-                        Pelajari lebih dalam tentang produk kami melalui
-                        berbagai video edukasi yang kami sajikan.
+                        {t("edu.desk")}
                     </p>
                 </div>
             </section>
 
             {/* Video Section */}
-            <section className="w-10/12 mx-auto text-center py-16 px-6">
+            <section className="w-full md:w-11/12 mx-auto text-center py-16 px-6">
                 {loading ? (
                     <p className="text-cyan-700 text-lg animate-pulse">
                         Memuat video...
@@ -81,24 +82,37 @@ export default function EducationVideo() {
                 ) : (
                     <>
                         {/* Grid Video */}
-                        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+                        <div className="grid sm:grid-cols-3 md:grid-cols-4 gap-8">
                             {videos.map((v) => (
                                 <article
                                     key={v._id || v.id}
                                     className="bg-white rounded-xl shadow-md shadow-cyan-800/30 p-3 hover:scale-[1.03] transition-transform duration-300 text-cyan-800 border border-cyan-500/20"
                                 >
-                                    <div className="aspect-video rounded-lg overflow-hidden mb-3">
+                                    <div className="aspect-[9/16] rounded-lg overflow-hidden mb-3">
                                         <YTLazy
                                             videoId={`${v.videoId}`}
-                                            className="shadow-xl"
+                                            className="shadow-xl w-full h-full object-cover scale-[1.02]"
                                         />
                                     </div>
                                     <h3 className="text-lg font-semibold">
-                                        {v.title}
+                                        {i18n.language === "id"
+                                            ? v.title_id
+                                            : v.title_en}
                                     </h3>
+                                    {i18n.language === "id" ? (
+                                        <p className="text-sm text-gray-600 mt-1">
+                                            {v.description_id}
+                                        </p>
+                                    ) : (
+                                        <p className="text-sm text-gray-600 mt-1">
+                                            {v.description_en}
+                                        </p>
+                                    )}
                                     {v.description && (
                                         <p className="text-sm text-gray-600 mt-1">
-                                            {v.description}
+                                            {i18n.language === "id"
+                                                ? v.description_id
+                                                : v.description_en}
                                         </p>
                                     )}
                                 </article>

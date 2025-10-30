@@ -4,6 +4,7 @@
         "tentang": "About",
         "produk": "Products",
         "kontak": "Contact",
+        "edu": "Education",
         "bahasa": "Language"
     },
     "hero": {
@@ -83,5 +84,10 @@
     },
     "faq": {
         "faq": "Feedback and Suggestions"
+    },
+    "edu": {
+        "h1": "Education",
+        "h2": "Video",
+        "desk": "Learn more about our products through the various educational videos we provide."
     }
 }

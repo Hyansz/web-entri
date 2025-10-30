@@ -4,6 +4,7 @@
         "tentang": "Tentang",
         "produk": "Produk",
         "kontak": "Kontak",
+        "edu": "Edukasi",
         "bahasa": "Bahasa"
     },
     "hero": {
@@ -83,5 +84,10 @@
     },
     "faq": {
         "faq": "Kritik dan Saran"
+    },
+    "edu": {
+        "h1": "Video",
+        "h2": "Edukasi",
+        "desk": "Pelajari lebih dalam tentang produk kami melalui berbagai video edukasi yang kami sajikan."
     }
 }
