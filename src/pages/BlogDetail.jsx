@@ -116,6 +116,12 @@ export default function BlogDetail() {
 
                                         <Link
                                             to={`/blog/${b.slug}`}
+                                            onClick={() =>
+                                                window.scrollTo({
+                                                    top: 0,
+                                                    behavior: "smooth",
+                                                })
+                                            }
                                             className="text-cyan-600 font-semibold hover:text-cyan-800 transition"
                                         >
                                             {t("hero.more")} →
