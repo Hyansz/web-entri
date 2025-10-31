@@ -487,6 +487,11 @@ const lab = [
         title: "Laminar Air Flow",
         img: "/img/lab3.png",
     },
+    {
+        id: 4,
+        title: "Alat Gluco",
+        img: "/img/gluco.jpg",
+    },
 ];
 
 const videos = [
