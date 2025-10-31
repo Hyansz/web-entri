@@ -9,7 +9,7 @@ export default function ProductLab() {
 
     useEffect(() => {
         fetch(
-            `http://localhost:5000/api/lab?page=${page}&limit=${limit}`
+            `https://web-entri.onrender.com/api/lab?page=${page}&limit=${limit}`
         )
             .then((res) => res.json())
             .then((data) => {
