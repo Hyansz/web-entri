@@ -490,7 +490,7 @@ const lab = [
     {
         id: 4,
         title: "Alat Gluco",
-        img: "/img/gluco.jpg",
+        img: "/img/gluco.png",
     },
 ];
 

@@ -9,7 +9,7 @@ export default function ProductLab() {
 
     useEffect(() => {
         fetch(
-            `https://web-entri.onrender.com/api/lab?page=${page}&limit=${limit}`
+            `http://localhost:5000/api/lab?page=${page}&limit=${limit}`
         )
             .then((res) => res.json())
             .then((data) => {
@@ -64,7 +64,7 @@ export default function ProductLab() {
                 {/* Produk */}
                 <section className="w-10/12 mx-auto text-center py-16 px-6">
                     {/* Produk Grid */}
-                    <div className="grid sm:grid-cols-3 md:grid-cols-3 gap-6">
+                    <div className="grid sm:grid-cols-4 md:grid-cols-4 gap-6">
                         {lab.map((p, i) => (
                             <div
                                 key={i}
