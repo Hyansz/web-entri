@@ -301,8 +301,8 @@ export default function Products() {
                             spaceBetween={20}
                             slidesPerView={1}
                             breakpoints={{
-                                640: { slidesPerView: 3 },
-                                1024: { slidesPerView: 3 },
+                                640: { slidesPerView: 4 },
+                                1024: { slidesPerView: 4 },
                             }}
                             pagination={{ clickable: true }}
                             autoplay={{ delay: 3000 }}
@@ -320,6 +320,10 @@ export default function Products() {
                                 {
                                     img: "./img/lab3.png",
                                     title: "Laminar Air Flow",
+                                },
+                                {
+                                    img: "./img/gluco.png",
+                                    title: "Alat gluco",
                                 },
                             ].map((item, i) => (
                                 <SwiperSlide key={i} className="py-5 mb-5">
