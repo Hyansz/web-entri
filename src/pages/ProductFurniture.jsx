@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 export default function ProductFurniture() {
     const [furniture, setFurniture] = useState([]);
     const [page, setPage] = useState(1);
     const [total, setTotal] = useState(0);
-    const [status, setStatus] = useState("loading"); // 🔹 status data
-    const [message, setMessage] = useState(""); // 🔹 pesan dari API
+    const [status, setStatus] = useState("loading");
+    const [message, setMessage] = useState("");
     const limit = 16;
 
     useEffect(() => {
@@ -60,7 +61,6 @@ export default function ProductFurniture() {
                         backgroundImage: "url('/img/hosfur.jpg')",
                     }}
                 >
-                    {/* Overlay */}
                     <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-cyan-800 via-black/50 to-black/60"></div>
                     <div className="md:hidden block absolute inset-0 bg-gradient-to-t from-cyan-800 via-black/50 to-black/60"></div>
 
@@ -78,7 +78,6 @@ export default function ProductFurniture() {
 
                 {/* Produk */}
                 <section className="w-10/12 mx-auto text-center py-16 px-6">
-                    {/* 🔹 Status Data */}
                     {status === "loading" && (
                         <p className="text-cyan-600 text-lg font-semibold">
                             Memuat data...
@@ -99,12 +98,11 @@ export default function ProductFurniture() {
 
                     {status === "success" && (
                         <>
-                            {/* Produk Grid */}
                             <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
                                 {furniture.map((p, i) => (
                                     <div
                                         key={i}
-                                        className="bg-white rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20"
+                                        className="bg-white rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20 flex flex-col justify-between"
                                     >
                                         <img
                                             src={p.img}
@@ -112,9 +110,17 @@ export default function ProductFurniture() {
                                             loading="lazy"
                                             className="rounded mb-3 mx-auto"
                                         />
-                                        <h3 className="text-lg font-semibold">
+                                        <h3 className="text-lg font-semibold mb-3">
                                             {p.title}
                                         </h3>
+
+                                        {/* 🔹 Tombol Detail */}
+                                        <Link
+                                            to={`/products/furniture/${p.id}`}
+                                            className="inline-block mt-auto px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
+                                        >
+                                            Detail
+                                        </Link>
                                     </div>
                                 ))}
                             </div>

@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Products from "./pages/Products";
+import ProductFurnitureDetail from "./pages/ProductFurnitureDetail";
 import ProductLab from "./pages/ProductLab";
 import ProductLiquid from "./pages/ProductLiquid";
 import ProductFurniture from "./pages/ProductFurniture";
@@ -36,6 +37,10 @@ export default function App() {
                         <Route
                             path="/products/furniture"
                             element={<ProductFurniture />}
+                        />
+                        <Route
+                            path="/products/furniture/:id"
+                            element={<ProductFurnitureDetail />}
                         />
                         <Route
                             path="/products/liquid"

@@ -574,7 +574,7 @@ export default function Home() {
 
                             <div className="hidden md:block">
                                 <a
-                                    href="https://wa.me/6285174394123"
+                                    href="https://wa.me/6285174394123?text=Halo,%20Saya%20dari%20website%20entri."
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex w-fit items-center gap-3 bg-green-600 hover:bg-green-700 transition-all duration-300 text-white py-3 px-8 rounded-2xl font-semibold shadow-lg mx-auto md:mx-0"
@@ -586,7 +586,7 @@ export default function Home() {
                         </div>
                         <div className="absolute md:hidden z-20 bottom-10">
                             <a
-                                href="https://wa.me/6285174394123"
+                                href="https://wa.me/6285174394123?text=Halo,%20Saya%20dari%20website%20entri."
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex w-fit items-center gap-3 backdrop-blur-md bg-cyan-700/80 md:bg-green-600 hover:scale-110 hover:backdrop-blur-md hover:bg-cyan-700/60 md:hover:bg-green-700 transition-all text-white py-3 px-8 rounded-2xl font-semibold shadow-lg mx-auto md:mx-0 duration-500 hover:shadow-xl hover:shadow-cyan-500/30"

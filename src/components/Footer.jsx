@@ -141,7 +141,7 @@ export default function Footer() {
                             <div className="flex flex-col gap-3 md:gap-0.5 items-center md:items-start">
                                 <div>
                                     <a
-                                        href="https://wa.me/6285174394123"
+                                        href="https://wa.me/6285174394123?text=Halo,%20Saya%20dari%20website%20entri."
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex w-full md:w-fit items-center gap-3 text-white rounded-2xl font-semibold transition duration-300 hover:scale-105"

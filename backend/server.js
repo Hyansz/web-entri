@@ -41,7 +41,11 @@ const furniture = [
     {
         id: 1,
         title: "Hospital Bed Manual (1 Crank)",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
         img: "/img/bed1.png",
+        spesifikasi: "Bahan dasar rangka dari pipa besi dan matras dari plat besi | Aksesoris panel kepala dan kaki ABS | Bed rail aluminium | 1 Penggerak matras (Engkol) ABS | Castor lengkap 5” (RHJ-TW PU 125), dua pemutar dengan kunci pengaman | Tiang infus pipa stainless steel | Dimensi (P x L x T) (200 x 90 x 110 CM) | Berat +/- 108 Kg, beban maksimal 150 Kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi cat dan rangka 3 bulan"
     },
     {
         id: 2,
@@ -500,8 +504,7 @@ const videos = [
         title_id: "Apa Itu Diabetes?",
         title_en: "What is Diabates",
         videoId: "fwN6EMQuVfU",
-        description_id:
-            "Simak pengertian dari diabetes lebih lengkap",
+        description_id: "Simak pengertian dari diabetes lebih lengkap",
         description_en:
             "Learn more about the definition of diabetes in detail.",
     },
@@ -660,6 +663,21 @@ app.get("/api/furniture", (req, res) => {
         limit,
         furniture: paginated,
     });
+});
+
+// furniture Detail
+app.get("/api/furniture/:id", (req, res) => {
+    const { id } = req.params;
+    const item = furniture.find((f) => f.id == id);
+
+    if (!item) {
+        return res.status(404).json({
+            status: "error",
+            message: "Produk tidak ditemukan",
+        });
+    }
+
+    res.json(item);
 });
 
 // liquid
