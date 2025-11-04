@@ -75,9 +75,7 @@ export default function Home() {
                     <h1 className="text-2xl md:text-4xl font-bold pt-1 pb-5 md:pt-2 md:pb-6 text-cyan-600">
                         PT ENTRI JAYA MAKMUR
                     </h1>
-                    <p className="text-md w-11/12 mx-auto">
-                        {t("hero.sc2")}
-                    </p>
+                    <p className="text-md w-11/12 mx-auto">{t("hero.sc2")}</p>
 
                     <div className="w-11/12 mx-auto bg-slate-100 flex flex-col md:flex-row items-center mt-10 rounded-2xl p-6 md:p-10 gap-8 md:gap-10 shadow-lg shadow-slate-300">
                         {/* Video */}
@@ -93,7 +91,9 @@ export default function Home() {
                         {/* Deskripsi */}
                         <div className="md:w-1/2 w-full text-center md:text-left">
                             <h1 className="text-2xl md:text-3xl font-semibold text-cyan-700 pb-4">
-                                <span className="text-black">{t("hero.op1")}</span>{" "}
+                                <span className="text-black">
+                                    {t("hero.op1")}
+                                </span>{" "}
                                 {t("hero.op2")}
                             </h1>
                             <p className="text-base md:text-lg text-gray-700 leading-relaxed">
@@ -204,9 +204,7 @@ export default function Home() {
                             </Link>
                         </div>
                         <div>
-                            <p>
-                                {t("hero.sc4")}
-                            </p>
+                            <p>{t("hero.sc4")}</p>
                         </div>
                     </div>
 
@@ -225,40 +223,55 @@ export default function Home() {
                         >
                             {[
                                 {
+                                    id: 1,
                                     img: "./img/bed1.png",
                                     title: "Hospital Bed Manual (1 Crank)",
                                 },
                                 {
+                                    id: 11,
                                     img: "./img/kursi-gigi.png",
                                     title: "Phlebotomy Chair",
                                 },
                                 {
+                                    id: 12,
                                     img: "./img/kasur-bayi1.png",
                                     title: "Hospital Children Bed",
                                 },
                                 {
+                                    id: 17,
                                     img: "./img/lemari1.png",
                                     title: "Instrumen Cabinet 2 Door Type 01",
                                 },
                                 {
+                                    id: 5,
                                     img: "./img/bed5.png",
                                     title: "Hospital Bed ICU",
                                 },
                                 {
+                                    id: 6,
                                     img: "./img/examin1.png",
                                     title: "Examine Bed SS",
                                 },
                             ].map((item, i) => (
                                 <SwiperSlide key={i} className="py-5 mb-5">
-                                    <div className="rounded-xl shadow-md text-center p-3 h-80 flex flex-col justify-start">
-                                        <img
-                                            src={item.img}
-                                            alt={item.title}
-                                            className="h-56 w-full object-contain mx-auto"
-                                        />
-                                        <p className="font-semibold text-lg mt-3">
-                                            {item.title}
-                                        </p>
+                                    <div className="bg-white rounded-xl shadow-md text-center p-4 h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
+                                        <div>
+                                            <img
+                                                src={item.img}
+                                                alt={item.title}
+                                                className="h-[220px] w-full object-contain mx-auto mb-3"
+                                            />
+                                            <p className="font-semibold text-lg text-cyan-800">
+                                                {item.title}
+                                            </p>
+                                        </div>
+
+                                        <Link
+                                            to={`/products/furniture/${item.id}`}
+                                            className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
+                                        >
+                                            Detail
+                                        </Link>
                                     </div>
                                 </SwiperSlide>
                             ))}
@@ -271,7 +284,9 @@ export default function Home() {
                     <div>
                         <div className="flex items-center justify-between mb-5 h-12 gap-2">
                             <h1 className="text-2xl font-semibold">
-                                <span className="text-cyan-700">{t("hero.sc5")}</span>{" "}
+                                <span className="text-cyan-700">
+                                    {t("hero.sc5")}
+                                </span>{" "}
                                 {t("hero.sc6")}
                             </h1>
                             <Link
@@ -284,9 +299,7 @@ export default function Home() {
                             </Link>
                         </div>
                         <div>
-                            <p>
-                                {t("hero.sc7")}
-                            </p>
+                            <p>{t("hero.sc7")}</p>
                         </div>
                     </div>
 
@@ -305,6 +318,7 @@ export default function Home() {
                         >
                             {[
                                 {
+                                    id: 100,
                                     img: "./img/alkohol.png",
                                     title: "Alkohol Antiseptik",
                                 },
@@ -322,7 +336,7 @@ export default function Home() {
                                 },
                             ].map((item, i) => (
                                 <SwiperSlide key={i} className="py-5 mb-5">
-                                    <div className="rounded-xl shadow-md text-center p-3 h-auto flex flex-col justify-start">
+                                    <div className="bg-white rounded-xl shadow-md text-center p-4 h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                         <img
                                             src={item.img}
                                             alt={item.title}
@@ -331,6 +345,12 @@ export default function Home() {
                                         <p className="font-semibold text-lg mt-3">
                                             {item.title}
                                         </p>
+                                        <Link
+                                            to={`/products/furniture/${item.id}`}
+                                            className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
+                                        >
+                                            Detail
+                                        </Link>
                                     </div>
                                 </SwiperSlide>
                             ))}
@@ -343,7 +363,9 @@ export default function Home() {
                     <div>
                         <div className="flex items-center justify-between mb-5 h-12 gap-2">
                             <h1 className="text-2xl font-semibold">
-                                <span className="text-cyan-700">{t("hero.sc8")}</span>{" "}
+                                <span className="text-cyan-700">
+                                    {t("hero.sc8")}
+                                </span>{" "}
                                 {t("hero.sc9")}
                             </h1>
                             <Link
@@ -356,9 +378,7 @@ export default function Home() {
                             </Link>
                         </div>
                         <div>
-                            <p>
-                                {t("hero.sc10")}
-                            </p>
+                            <p>{t("hero.sc10")}</p>
                         </div>
                     </div>
 
@@ -385,10 +405,13 @@ export default function Home() {
                                     img: "./img/masker2.png",
                                     title: "Surgical Facemask (Head Loop)",
                                 },
-                                { img: "./img/alswab.png", title: "Alkohol Swab" },
+                                {
+                                    img: "./img/alswab.png",
+                                    title: "Alkohol Swab",
+                                },
                             ].map((item, i) => (
                                 <SwiperSlide key={i} className="py-5 mb-5">
-                                    <div className="rounded-xl shadow-md text-center p-3 h-80 flex flex-col justify-start">
+                                    <div className="bg-white rounded-xl shadow-md text-center p-4 h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                         <img
                                             src={item.img}
                                             alt={item.title}
@@ -397,6 +420,12 @@ export default function Home() {
                                         <p className="font-semibold text-lg mt-3">
                                             {item.title}
                                         </p>
+                                        <Link
+                                            to={`/products/furniture/${item.id}`}
+                                            className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
+                                        >
+                                            Detail
+                                        </Link>
                                     </div>
                                 </SwiperSlide>
                             ))}
@@ -424,9 +453,7 @@ export default function Home() {
                             </Link>
                         </div>
                         <div>
-                            <p>
-                                {t("hero.sc11")}
-                            </p>
+                            <p>{t("hero.sc11")}</p>
                         </div>
                     </div>
 
@@ -462,7 +489,7 @@ export default function Home() {
                                 },
                             ].map((item, i) => (
                                 <SwiperSlide key={i} className="py-5 mb-5">
-                                    <div className="rounded-xl shadow-md text-center p-3 h-80 flex flex-col justify-start">
+                                    <div className="bg-white rounded-xl shadow-md text-center p-4 h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                         <img
                                             src={item.img}
                                             alt={item.title}
@@ -471,6 +498,12 @@ export default function Home() {
                                         <p className="font-semibold text-lg mt-3">
                                             {item.title}
                                         </p>
+                                        <Link
+                                            to={`/products/furniture/${item.id}`}
+                                            className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
+                                        >
+                                            Detail
+                                        </Link>
                                     </div>
                                 </SwiperSlide>
                             ))}
@@ -483,7 +516,9 @@ export default function Home() {
                     <div>
                         <div className="flex items-center justify-between mb-10 md:mb-5 h-12">
                             <h1 className="text-2xl font-semibold">
-                                <span className="text-cyan-700">{t("hero.sc12")}</span>{" "}
+                                <span className="text-cyan-700">
+                                    {t("hero.sc12")}
+                                </span>{" "}
                                 {t("hero.sc13")}
                             </h1>
                             <Link
@@ -496,9 +531,7 @@ export default function Home() {
                             </Link>
                         </div>
                         <div>
-                            <p>
-                                {t("hero.sc14")}
-                            </p>
+                            <p>{t("hero.sc14")}</p>
                         </div>
                     </div>
 
@@ -547,6 +580,12 @@ export default function Home() {
                                         <p className="font-semibold text-lg mt-3">
                                             {item.title}
                                         </p>
+                                        <Link
+                                            to={`/products/furniture/${item.id}`}
+                                            className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
+                                        >
+                                            Detail
+                                        </Link>
                                     </div>
                                 </SwiperSlide>
                             ))}

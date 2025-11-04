@@ -89,40 +89,55 @@ export default function Products() {
                         >
                             {[
                                 {
+                                    id: 1,
                                     img: "./img/bed1.png",
                                     title: "Hospital Bed Manual (1 Crank)",
                                 },
                                 {
+                                    id: 11,
                                     img: "./img/kursi-gigi.png",
                                     title: "Phlebotomy Chair",
                                 },
                                 {
+                                    id: 12,
                                     img: "./img/kasur-bayi1.png",
                                     title: "Hospital Children Bed",
                                 },
                                 {
+                                    id: 17,
                                     img: "./img/lemari1.png",
                                     title: "Instrumen Cabinet 2 Door Type 01",
                                 },
                                 {
+                                    id: 5,
                                     img: "./img/bed5.png",
                                     title: "Hospital Bed ICU",
                                 },
                                 {
+                                    id: 6,
                                     img: "./img/examin1.png",
                                     title: "Examine Bed SS",
                                 },
                             ].map((item, i) => (
                                 <SwiperSlide key={i} className="py-5 mb-5">
-                                    <div className="rounded-xl shadow-md text-center p-3 h-80 flex flex-col justify-start">
-                                        <img
-                                            src={item.img}
-                                            alt={item.title}
-                                            className="h-56 w-full object-contain mx-auto"
-                                        />
-                                        <p className="font-semibold text-lg mt-3">
-                                            {item.title}
-                                        </p>
+                                    <div className="bg-white rounded-xl shadow-md text-center p-4 h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
+                                        <div>
+                                            <img
+                                                src={item.img}
+                                                alt={item.title}
+                                                className="h-[220px] w-full object-contain mx-auto mb-3"
+                                            />
+                                            <p className="font-semibold text-lg text-cyan-800">
+                                                {item.title}
+                                            </p>
+                                        </div>
+
+                                        <Link
+                                            to={`/products/furniture/${item.id}`}
+                                            className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
+                                        >
+                                            Detail
+                                        </Link>
                                     </div>
                                 </SwiperSlide>
                             ))}
@@ -169,6 +184,7 @@ export default function Products() {
                         >
                             {[
                                 {
+                                    id: 100,
                                     img: "./img/alkohol.png",
                                     title: "Alkohol Antiseptik",
                                 },
@@ -186,7 +202,7 @@ export default function Products() {
                                 },
                             ].map((item, i) => (
                                 <SwiperSlide key={i} className="py-5 mb-5">
-                                    <div className="rounded-xl shadow-md text-center p-3 h-auto flex flex-col justify-start">
+                                    <div className="bg-white rounded-xl shadow-md text-center p-4 h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                         <img
                                             src={item.img}
                                             alt={item.title}
@@ -195,6 +211,12 @@ export default function Products() {
                                         <p className="font-semibold text-lg mt-3">
                                             {item.title}
                                         </p>
+                                        <Link
+                                            to={`/products/furniture/${item.id}`}
+                                            className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
+                                        >
+                                            Detail
+                                        </Link>
                                     </div>
                                 </SwiperSlide>
                             ))}
@@ -255,7 +277,7 @@ export default function Products() {
                                 },
                             ].map((item, i) => (
                                 <SwiperSlide key={i} className="py-5 mb-5">
-                                    <div className="rounded-xl shadow-md text-center p-3 h-80 flex flex-col justify-start">
+                                    <div className="bg-white rounded-xl shadow-md text-center p-4 h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                         <img
                                             src={item.img}
                                             alt={item.title}
@@ -264,6 +286,12 @@ export default function Products() {
                                         <p className="font-semibold text-lg mt-3">
                                             {item.title}
                                         </p>
+                                        <Link
+                                            to={`/products/furniture/${item.id}`}
+                                            className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
+                                        >
+                                            Detail
+                                        </Link>
                                     </div>
                                 </SwiperSlide>
                             ))}
@@ -323,11 +351,11 @@ export default function Products() {
                                 },
                                 {
                                     img: "./img/gluco.png",
-                                    title: "Alat gluco",
+                                    title: "Alat Gluco",
                                 },
                             ].map((item, i) => (
                                 <SwiperSlide key={i} className="py-5 mb-5">
-                                    <div className="rounded-xl shadow-md text-center p-3 h-80 flex flex-col justify-start">
+                                    <div className="bg-white rounded-xl shadow-md text-center p-4 h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                         <img
                                             src={item.img}
                                             alt={item.title}
@@ -336,6 +364,12 @@ export default function Products() {
                                         <p className="font-semibold text-lg mt-3">
                                             {item.title}
                                         </p>
+                                        <Link
+                                            to={`/products/furniture/${item.id}`}
+                                            className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
+                                        >
+                                            Detail
+                                        </Link>
                                     </div>
                                 </SwiperSlide>
                             ))}
@@ -412,6 +446,12 @@ export default function Products() {
                                         <p className="font-semibold text-lg mt-3">
                                             {item.title}
                                         </p>
+                                        <Link
+                                            to={`/products/furniture/${item.id}`}
+                                            className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
+                                        >
+                                            Detail
+                                        </Link>
                                     </div>
                                 </SwiperSlide>
                             ))}

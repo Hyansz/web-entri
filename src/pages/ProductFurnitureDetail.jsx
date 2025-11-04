@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoIosCloseCircleOutline } from "react-icons/io";
@@ -6,6 +6,7 @@ import { IoIosCloseCircleOutline } from "react-icons/io";
 export default function ProductFurnitureDetail() {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`https://web-entri.onrender.com/api/furniture/${id}`)
@@ -37,12 +38,12 @@ export default function ProductFurnitureDetail() {
                         <h1 className="font-bold text-cyan-800">
                             {product.title}
                         </h1>
-                        <Link
-                            to="/products/furniture"
-                            className="transition duration-300 font-bold text-cyan-800 hover:text-cyan-800 hover:scale-110"
+                        <button
+                            onClick={() => navigate(-1)}
+                            className="transition cursor-pointer duration-300 font-bold text-cyan-800 hover:text-cyan-800 hover:scale-110"
                         >
-                            <IoIosCloseCircleOutline />
-                        </Link>
+                            <IoIosCloseCircleOutline size={28} />
+                        </button>
                     </div>
                     <table className="w-full border-separate border-spacing-y-2">
                         <tbody>
