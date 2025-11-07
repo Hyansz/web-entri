@@ -58,7 +58,7 @@ export default function BlogList() {
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-800 via-black/50 to-black/60"></div>
                     <div className="relative z-10 w-11/12 mx-auto flex flex-col items-center justify-center h-full text-center">
                         <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                            Blog
+                            Artikel
                         </h1>
                     </div>
                 </section>

@@ -2,19 +2,20 @@
     "nav": {
         "home": "Home",
         "tentang": "About",
+        "blog": "Articles",
         "produk": "Products",
         "kontak": "Contact",
         "edu": "Education",
         "bahasa": "Language"
     },
     "hero": {
-        "h1": "The largest Hospital Furniture and",
-        "h2": "Medical Equipment",
-        "h3": "provider in the Greater Solo.",
+        "h1": "Hospital Furniture",
+        "h2": "The largest Medical Equipment and",
+        "h3": "provider in Indonesia.",
         "h4": "Offering a wide range of healthcare support supplies.",
         "btn": "About Us",
         "sc1": "Welcome To",
-        "sc2": "We are a company engaged in the fields of Medical, Electrical, and Mechanical Hospital Liquid Products. We are committed to being the best partner in providing solutions for healthcare equipment needs.",
+        "sc2": "We are a company engaged in the fields of Medical Electrical, Mechanical Hospital, and Liquid Products. We are committed to being the best partner in providing solutions for healthcare equipment needs.",
         "op1": "Competent and",
         "op2": "High Quality",
         "sc3": "PT Entri Jaya Makmur is a global-scale medical equipment manufacturer with guaranteed quality and a strong commitment to customer satisfaction.",
@@ -38,6 +39,12 @@
         "site": "Sitelink",
         "kontak": "Contact Us",
         "alamat": "Address"
+    },
+    "mitra": {
+        "h1": "Trusted Solutions for Clients",
+        "h2": "Across Indonesia",
+        "klien1": "Join Us as",
+        "klien2": "Our Partner"
     },
     "about": {
         "h1": "Looking for a trusted",

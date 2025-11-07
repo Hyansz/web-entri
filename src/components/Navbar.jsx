@@ -132,6 +132,7 @@ export default function Navbar() {
                     >
                         {t("nav.home")}
                     </Link>
+
                     <Link
                         to="/about"
                         title="Tentang Kami"
@@ -139,6 +140,15 @@ export default function Navbar() {
                         className="transition duration-300 hover:text-yellow-400 hover:scale-110"
                     >
                         {t("nav.tentang")}
+                    </Link>
+
+                    <Link
+                        to="/mitra"
+                        title="Mitra Kami"
+                        onClick={() => handleMenuClick()}
+                        className="transition duration-300 hover:text-yellow-400 hover:scale-110"
+                    >
+                        {t("hero.mitra")}
                     </Link>
 
                     {/* Products Dropdown - Desktop */}
@@ -219,7 +229,7 @@ export default function Navbar() {
                         onClick={() => handleMenuClick()}
                         className="transition duration-300 hover:text-yellow-400 hover:scale-110"
                     >
-                        Blog
+                        Artikel
                     </Link>
 
                     <Link
@@ -320,11 +330,12 @@ export default function Navbar() {
             >
                 <div className="flex flex-col space-y-2 py-4">
                     {[
-                        ["Home", "/"],
-                        ["About", "/about"],
-                        ["Blog", "/blog"],
-                        ["Edukasi", "/edu"],
-                        ["Contact", "/contact"],
+                        [t("nav.home"), "/"],
+                        [t("nav.tentang"), "/about"],
+                        [t("hero.mitra"), "/mitra"],
+                        [t("nav.blog"), "/blog"],
+                        [t("nav.edu"), "/edu"],
+                        [t("nav.kontak"), "/contact"],
                     ].map(([label, path]) => (
                         <Link
                             key={path}
@@ -342,7 +353,7 @@ export default function Navbar() {
                             className="w-full flex justify-between items-center py-2 hover:text-yellow-400"
                             onClick={() => setMobileDropdownOpen((p) => !p)}
                         >
-                            <span>Products</span>
+                            <span>{t("nav.produk")}</span>
                             <FaChevronDown
                                 className={`transition-transform ${
                                     mobileDropdownOpen ? "rotate-180" : ""

@@ -47,9 +47,9 @@ export default function Home() {
                             data-aos="zoom-in"
                         >
                             <h1 className="text-3xl md:text-5xl mx-auto md:w-[90%] font-bold mb-4 drop-shadow-lg">
-                                {t("hero.h1")}{" "}
+                                {t("hero.h2")}{" "}
                                 <span className="bg-gradient-to-l from-cyan-500 via-cyan-400 to-cyan-200 bg-clip-text text-transparent">
-                                    {t("hero.h2")}
+                                    {t("hero.h1")}
                                 </span>{" "}
                                 {t("hero.h3")}
                             </h1>
@@ -100,89 +100,6 @@ export default function Home() {
                                 {t("hero.sc3")}
                             </p>
                         </div>
-                    </div>
-
-                    <div className="w-11/12 mx-auto mt-20">
-                        <h1 className="text-2xl font-semibold mb-5">
-                            {t("hero.mitra")}
-                        </h1>
-                        <Swiper
-                            modules={[Pagination, Autoplay]}
-                            spaceBetween={20}
-                            slidesPerView={3}
-                            loop
-                            breakpoints={{
-                                640: { slidesPerView: 4 },
-                                1024: { slidesPerView: 7 },
-                            }}
-                            pagination={{ clickable: true }}
-                            autoplay={{ delay: 3000 }}
-                            className="cursor-grab rounded-2xl h-auto"
-                        >
-                            <SwiperSlide className="py-5 mb-5">
-                                <img
-                                    src="./img/partner1.png"
-                                    alt="Partner 1"
-                                    className="rounded-xl shadow-md"
-                                />
-                            </SwiperSlide>
-                            <SwiperSlide className="py-5 mb-5">
-                                <img
-                                    src="./img/partner2.png"
-                                    alt="Partner 2"
-                                    className="rounded-xl shadow-md"
-                                />
-                            </SwiperSlide>
-                            <SwiperSlide className="py-5 mb-5">
-                                <img
-                                    src="./img/partner3.png"
-                                    alt="Partner 3"
-                                    className="rounded-xl shadow-md"
-                                />
-                            </SwiperSlide>
-                            <SwiperSlide className="py-5 mb-5">
-                                <img
-                                    src="./img/partner4.png"
-                                    alt="Partner 4"
-                                    className="rounded-xl shadow-md"
-                                />
-                            </SwiperSlide>
-                            <SwiperSlide className="py-5 mb-5">
-                                <img
-                                    src="./img/partner5.png"
-                                    alt="Partner 5"
-                                    className="rounded-xl shadow-md"
-                                />
-                            </SwiperSlide>
-                            <SwiperSlide className="py-5 mb-5">
-                                <img
-                                    src="./img/partner6.png"
-                                    alt="Partner 6"
-                                    className="rounded-xl shadow-md"
-                                />
-                            </SwiperSlide>
-                            <SwiperSlide className="py-5 mb-5">
-                                <img
-                                    src="./img/partner7.png"
-                                    alt="Partner 7"
-                                    className="rounded-xl shadow-md"
-                                />
-                            </SwiperSlide>
-                            <SwiperSlide className="py-5 mb-5">
-                                <img
-                                    src="./img/partner8.png"
-                                    alt="Partner 8"
-                                    className="rounded-xl shadow-md"
-                                />
-                            </SwiperSlide>
-                            <SwiperSlide className="py-5 mb-5">
-                                <img
-                                    src="./img/partner9.png"
-                                    alt="Partner 8"
-                                    className="rounded-xl shadow-md"
-                                />
-                            </SwiperSlide>
-                        </Swiper>
                     </div>
                 </section>
 
@@ -337,14 +254,17 @@ export default function Home() {
                             ].map((item, i) => (
                                 <SwiperSlide key={i} className="py-5 mb-5">
                                     <div className="bg-white rounded-xl shadow-md text-center p-4 h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
-                                        <img
-                                            src={item.img}
-                                            alt={item.title}
-                                            className="h-auto w-full object-contain mx-auto"
-                                        />
-                                        <p className="font-semibold text-lg mt-3">
-                                            {item.title}
-                                        </p>
+                                        <div>
+                                            <img
+                                                src={item.img}
+                                                alt={item.title}
+                                                className="h-[220px] w-full object-contain mx-auto mb-3"
+                                            />
+                                            <p className="font-semibold text-lg text-cyan-800">
+                                                {item.title}
+                                            </p>
+                                        </div>
+
                                         <Link
                                             to={`/products/furniture/${item.id}`}
                                             className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
@@ -643,6 +563,92 @@ export default function Home() {
                                 className="w-full md:max-h-[400px] object-contain"
                             />
                         </div>
+                    </div>
+                </section>
+
+                {/* Mitra */}
+                <section className="w-11/12 pb-15 md:pb-20 mx-auto text-center">
+                    <div className="w-11/12 mx-auto mt-20">
+                        <h1 className="text-2xl font-semibold mb-5">
+                            {t("hero.mitra")}
+                        </h1>
+                        <Swiper
+                            modules={[Pagination, Autoplay]}
+                            spaceBetween={20}
+                            slidesPerView={2}
+                            loop
+                            breakpoints={{
+                                640: { slidesPerView: 4 },
+                                1024: { slidesPerView: 7 },
+                            }}
+                            pagination={{ clickable: true }}
+                            autoplay={{ delay: 3000 }}
+                            className="cursor-grab rounded-2xl h-auto"
+                        >
+                            <SwiperSlide className="py-5 mb-5">
+                                <img
+                                    src="./img/partner-1.png"
+                                    alt="Partner 1"
+                                    className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide className="py-5 mb-5">
+                                <img
+                                    src="./img/partner-2.png"
+                                    alt="Partner 2"
+                                    className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide className="py-5 mb-5">
+                                <img
+                                    src="./img/partner-3.png"
+                                    alt="Partner 3"
+                                    className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide className="py-5 mb-5">
+                                <img
+                                    src="./img/partner-4.png"
+                                    alt="Partner 4"
+                                    className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide className="py-5 mb-5">
+                                <img
+                                    src="./img/partner-5.png"
+                                    alt="Partner 5"
+                                    className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide className="py-5 mb-5">
+                                <img
+                                    src="./img/partner-6.png"
+                                    alt="Partner 6"
+                                    className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide className="py-5 mb-5">
+                                <img
+                                    src="./img/partner-7.png"
+                                    alt="Partner 7"
+                                    className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide className="py-5 mb-5">
+                                <img
+                                    src="./img/partner-8.png"
+                                    alt="Partner 8"
+                                    className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide className="py-5 mb-5">
+                                <img
+                                    src="./img/partner-9.png"
+                                    alt="Partner 8"
+                                    className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                                />
+                            </SwiperSlide>
+                        </Swiper>
                     </div>
                 </section>
             </div>

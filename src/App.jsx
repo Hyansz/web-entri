@@ -17,6 +17,8 @@ import BlogList from "./pages/BlogList";
 import BlogDetail from "./pages/BlogDetail";
 import WaPhone from "./components/WaPhone";
 import EducationVideo from "./pages/Edu";
+import Mitra from "./pages/Mitra";
+import ToTop from "./components/ToTop";
 
 AOS.init();
 
@@ -29,6 +31,7 @@ export default function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />
+                        <Route path="/mitra" element={<Mitra />} />
                         <Route path="/blog" element={<BlogList />} />
                         <Route path="/edu" element={<EducationVideo />} />
                         <Route path="/blog/:slug" element={<BlogDetail />} />
@@ -58,6 +61,7 @@ export default function App() {
                     </Routes>
                 </main>
                 <Footer />
+                <ToTop />
                 <WaPhone />
             </div>
         </Router>

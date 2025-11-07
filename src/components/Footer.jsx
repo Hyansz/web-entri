@@ -81,6 +81,19 @@ export default function Footer() {
                                     {t("nav.tentang")}
                                 </Link>
                                 <Link
+                                    to="/mitra"
+                                    title="Blog"
+                                    onClick={() =>
+                                        window.scrollTo({
+                                            top: 0,
+                                            behavior: "smooth",
+                                        })
+                                    }
+                                    className="transition duration-300 w-full md:w-fit hover:scale-110"
+                                >
+                                    {t("hero.mitra")}
+                                </Link>
+                                <Link
                                     to="/products"
                                     title="Semua Produk"
                                     onClick={() =>
@@ -94,7 +107,7 @@ export default function Footer() {
                                     {t("nav.produk")}
                                 </Link>
                                 <Link
-                                    to="/blog"
+                                    to="/artikel"
                                     title="Blog"
                                     onClick={() =>
                                         window.scrollTo({
@@ -104,7 +117,7 @@ export default function Footer() {
                                     }
                                     className="transition duration-300 w-full md:w-fit hover:scale-110"
                                 >
-                                    Blog
+                                    {t("nav.blog")}
                                 </Link>
                                 <Link
                                     to="/edu"
