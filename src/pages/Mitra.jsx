@@ -13,6 +13,30 @@ import { FaUserGroup } from "react-icons/fa6";
 export default function Mitra() {
     const { t } = useTranslation();
 
+    // Daftar mitra beserta nama rumah sakit
+    const partners = [
+        { src: "/img/partner-1.png", name: "RSUD SUNAN KALIJAGA DEMAK" },
+        { src: "/img/partner-2.png", name: "DINAS KESEHATAN KABUPATEN OKU SELATAN" },
+        { src: "/img/partner-3.png", name: "RSUD DR. WAHIDIN SUDIRO" },
+        { src: "/img/partner-4.png", name: "RSUD BREBES" },
+        { src: "/img/partner-5.png", name: "RSU SARILA HUSADA" },
+        { src: "/img/partner-6.png", name: "RSI PURWODADI" },
+        { src: "/img/partner-7.png", name: "RSI AT-TIN HUSADA" },
+        { src: "/img/partner-8.png", name: "RS PANTI WILASA CITARUM" },
+        { src: "/img/partner-9.png", name: "RS PKU MUHAMMADIYAH GRUP" },
+        { src: "/img/partner-10.png", name: "RS MAGUAN HUSADA" },
+        { src: "/img/partner-11.png", name: "RS JAFAR MEDIKA" },
+        { src: "/img/partner-12.png", name: "RS DKT SLAMET RIYADI" },
+        { src: "/img/partner-13.png", name: "PUSKESMAS GOMBONG II SEMONDO" },
+        { src: "/img/partner-14.png", name: "RS NUR HIDAYAH" },
+        { src: "/img/partner-15.png", name: "DINAS KESEHATAN KABUPATEN SLEMAN" },
+        { src: "/img/partner-16.png", name: "DINAS KESEHATAN PPKB KOTA TANJUNGPINANG" },
+        { src: "/img/partner-17.png", name: "DINAS KESEHATA SURABAYA KOTA MOJOKERTO" },
+        { src: "/img/partner-18.png", name: "DINAS KESEHATAN SURABAYA KABUPATEN BONDOWOSO" },
+        { src: "/img/partner-19.png", name: "PT KALI REJO MAKMUR" },
+        { src: "/img/partner-20.png", name: "RSUD DR. LOEKMONO HADI" },
+    ];
+
     return (
         <>
             <Helmet>
@@ -45,7 +69,7 @@ export default function Mitra() {
                                 {t("mitra.h1")}{" "}
                             </h3>
                             <h3 className="w-full text-3xl md:text-4xl font-bold mb-4">
-                                <span className="bg-gradient-to-r from-cyan-100 via-cyan-300 to-cyan-100  bg-clip-text text-transparent">
+                                <span className="bg-gradient-to-r from-cyan-100 via-cyan-300 to-cyan-100 bg-clip-text text-transparent">
                                     {t("mitra.h2")}
                                 </span>
                             </h3>
@@ -61,38 +85,21 @@ export default function Mitra() {
                             {t("mitra.klien2")}
                         </span>
                     </h1>
+
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 py-10">
-                        {[
-                            "/img/partner-1.png",
-                            "/img/partner-2.png",
-                            "/img/partner-3.png",
-                            "/img/partner-4.png",
-                            "/img/partner-5.png",
-                            "/img/partner-6.png",
-                            "/img/partner-7.png",
-                            "/img/partner-8.png",
-                            "/img/partner-9.png",
-                            "/img/partner-10.png",
-                            "/img/partner-11.png",
-                            "/img/partner-12.png",
-                            "/img/partner-13.png",
-                            "/img/partner-14.png",
-                            "/img/partner-15.png",
-                            "/img/partner-16.png",
-                            "/img/partner-17.png",
-                            "/img/partner-18.png",
-                            "/img/partner-19.png",
-                            "/img/partner-20.jpg",
-                        ].map((src, i) => (
+                        {partners.map((partner, i) => (
                             <div
                                 key={i}
-                                className="flex items-center justify-center bg-white rounded-xl shadow-md hover:shadow-cyan-700/40 transition duration-300 p-4"
+                                className="flex flex-col items-center justify-center bg-white rounded-xl shadow-md hover:shadow-cyan-700/40 transition duration-300 p-4"
                             >
                                 <OptimizedImage
-                                    src={src}
-                                    alt={`Partner ${i + 1}`}
-                                    className="w-full h-auto object-contain max-h-40"
+                                    src={partner.src}
+                                    alt={partner.name}
+                                    className="w-full h-auto object-contain max-h-40 mb-3"
                                 />
+                                <h1 className="text-sm font-semibold text-center text-gray-700">
+                                    {partner.name}
+                                </h1>
                             </div>
                         ))}
                     </div>

@@ -103,6 +103,45 @@ export default function Home() {
                     </div>
                 </section>
 
+                {/* Banner */}
+                {/* <section className="w-11/12 mx-auto text-center">
+                    <div className="w-11/12 mx-auto mt-16">
+                        <Swiper
+                            modules={[Pagination, Autoplay]}
+                            spaceBetween={20}
+                            slidesPerView={1}
+                            loop
+                            breakpoints={{
+                                640: { slidesPerView: 1 },
+                                1024: { slidesPerView: 1 },
+                            }}
+                            pagination={{ clickable: true }}
+                            autoplay={{ delay: 3000 }}
+                            className="cursor-grab rounded-2xl"
+                        >
+                            <SwiperSlide className="py-5 mb-5">
+                                <div className="bg-white rounded-xl shadow-md hover:shadow-cyan-700/40 transition duration-300 m-2 flex justify-center">
+                                    <img
+                                        src="./img/artikel/001.png"
+                                        alt="Trend 1"
+                                        className="rounded-xl w-full md:h-72 object-cover"
+                                    />
+                                </div>
+                            </SwiperSlide>
+
+                            <SwiperSlide className="py-5 mb-5">
+                                <div className="bg-white rounded-xl shadow-md hover:shadow-cyan-700/40 transition duration-300 m-2 flex justify-center">
+                                    <img
+                                        src="./img/artikel/002.png"
+                                        alt="Trend 2"
+                                        className="rounded-xl w-full md:h-72 object-cover"
+                                    />
+                                </div>
+                            </SwiperSlide>
+                        </Swiper>
+                    </div>
+                </section> */}
+
                 {/* Product 1 */}
                 <section className="w-10/12 py-15 md:py-20 mx-auto">
                     <div>
