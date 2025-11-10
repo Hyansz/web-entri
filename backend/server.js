@@ -41,166 +41,322 @@ const furniture = [
     {
         id: 1,
         title: "Hospital Bed Manual (1 Crank)",
+        img: "/img/bed1.png",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
-        img: "/img/bed1.png",
-        spesifikasi: "Bahan dasar rangka dari pipa besi dan matras dari plat besi | Aksesoris panel kepala dan kaki ABS | Bed rail aluminium | 1 Penggerak matras (Engkol) ABS | Castor lengkap 5” (RHJ-TW PU 125), dua pemutar dengan kunci pengaman | Tiang infus pipa stainless steel | Dimensi (P x L x T) (200 x 90 x 110 CM) | Berat +/- 108 Kg, beban maksimal 150 Kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi cat dan rangka 3 bulan"
+        spesifikasi:
+            "Bahan dasar rangka dari pipa besi dan matras dari plat besi | Aksesoris panel kepala dan kaki ABS | Bed rail aluminium | 1 Penggerak matras (Engkol) ABS | Castor lengkap 5” (RHJ-TW PU 125), dua pemutar dengan kunci pengaman | Tiang infus pipa stainless steel | Dimensi (P x L x T) (200 x 90 x 110 CM) | Berat +/- 108 Kg, beban maksimal 150 Kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi cat dan rangka 3 bulan",
     },
     {
         id: 2,
         title: "Hospital Bed Manual (2 Crank)",
         img: "/img/bed2.png",
+        kemenkes: "10902810701",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari pipa besi dan matras dari plat besi | Aksesoris panel kepala dan kaki ABS | Bed rail aluminium | 2 Penggerak matras (Engkol) ABS | Castor lengkap 5” (RHJ-TW PU 125), dua pemutar dengan kunci pengaman | Tiang infus pipa stainless steel | Dimensi (P x L x T) (200 x 90 x 110 CM) | Berat +/- 108Kg, beban maksimal 150Kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi cat dan rangka 3 bulan",
     },
     {
         id: 3,
         title: "Hospital Bed Manual (3 Crank)",
         img: "/img/bed3.png",
+        kemenkes: "10902810701",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari pipa besi dan matras dari plat besi | Aksesoris panel kepala dan kaki ABS | Bed rail aluminium | 3 Penggerak matras (Engkol) ABS | Castor lengkap 5” (RHJ-TW PU 125), dua pemutar dengan kunci pengaman | Tiang infus pipa stainless steel | Dimensi (P x L x T) (200 x 90 x 110 CM) | Berat +/- 108Kg, beban maksimal 150Kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi cat dan rangka 3 bulan",
     },
     {
         id: 4,
         title: "Hospital Bed Electric (3 Crank)",
         img: "/img/bed4.png",
+        kemenkes: "10902810520",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari pipa besi dan matras dari plat besi | Aksesoris panel kepala dan kaki ABS | Bed rail aluminium | Tiang infus pipa stainless steel | 1 Penggerak rangka naik turun dengan electric motor | 2 Penggerak matras dengan electric motor | 3 Electric motor matras dan rangka dikendalikan dengan remote control | Castor lengkap 5” (RHJ-TW PU 125), dua pemutar dengan kunci pengaman | Dimensi (P x L x T) (200 x 90 x 110 CM) | Berat +/- 108Kg, beban maksimal 150Kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi cat dan rangka 3 bulan",
     },
     {
         id: 5,
         title: "Hospital Bed ICU",
         img: "/img/bed5.png",
+        kemenkes: "10902810520",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari pipa besi dan matras dari plat besi | Aksesoris panel kepala dan kaki ABS | Bed rail aluminium | Tiang infus pipa stainless steel | 1 Penggerak rangka naik turun dengan electric motor | 2 Penggerak matras dengan electric motor | 3 Electric motor matras dan rangka dikendalikan dengan remote control | Castor lengkap 5” (RHJ-TW PU 125), dua pemutar dengan kunci pengaman | Dimensi (P x L x T) (200 x 90 x 110 CM) | Berat +/- 108Kg, beban maksimal 150Kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi cat dan rangka 3 bulan",
     },
     {
         id: 6,
         title: "Examine Bed SS",
         img: "/img/examin1.png",
+        kemenkes: "10903810837",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari pipa stainless steel | Matras berbahan busa dengan plywood dilapisi sarung kulit sintetis | Pengelasan TIG | Dimensi (P x L x T) (190 x 60 x 76 CM) | Berat +/- 28Kg, beban maksimal 100Kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 7,
         title: "Examine Bed PC",
         img: "/img/examin2.png",
+        kemenkes: "10903810837",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari pipa besi MS | Matras berbahan busa dengan plywood dilapisi sarung kulit sintetis | Pengelasan TIG | Dimensi (P x L x T) (190 x 60 x 76 CM) | Berat +/- 28 Kg, beban maksimal 100 Kg | Ridgid, kuat dan tahan lama, Cat powder coating tidak mudah tergores | Garansi cat dan rangka 3 bulan",
     },
     {
         id: 8,
         title: "Stretcher Type 01",
         img: "/img/examin3.png",
+        kemenkes: "10903810930",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari pipa stainless steel | Matras berbahan busa dengan plywood dilapisi sarung kulit sintetis | Tiang infus pipa stainless steel | Pengelasan TIG | Roda ruji 25” | Castor 5” | Dimensi (P x L x T) (220 x 60 x 90 CM) | Berat +/- 28 kg, beban maksimal 150 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 9,
         title: "Stretcher Type 02",
         img: "/img/examin4.png",
+        kemenkes: "10903810930",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari pipa stainless steel | Matras berbahan busa dengan plywood dilapisi sarung kulit sintetis | Tiang infus pipa stainless steel | Pengelasan TIG | Roda ruji 25” | Castor 5” dua set roda dengan pengunci | Dimensi (P x L x T) (220 x 60 x 90 CM) | Berat +/- 28 kg, beban maksimal 150 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 10,
         title: "Verlos Bed SS",
         img: "/img/examin5.png",
+        kemenkes: "21103810806",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari pipa stainless steel | Matras berbahan busa dengan plywood dilapisi sarung kulit sintetis | Tiang infus pipa stainless steel | Pengelasan TIG | Castor 5” dua set roda dengan pengunci | Dimensi (P x L x T) (190 x 75 x 80 CM) | Berat +/- 35 kg, beban maksimal 150 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 11,
         title: "Phlebotomy Chair",
         img: "/img/kursi-gigi.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama pipa dan hollow MS | Matras berbahan busa dengan plywood dilapisi sarung kulit sintetis | Warna sarung kulit Oscar, bisa request sesuai permintaan | Pengelasan MIG | Dimensi (P x L x T) (72 x 75 x 65 CM) | Berat +/- 28 kg dengan beban maksimal 100 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 12,
         title: "Hospital Children Bed",
         img: "/img/kasur-bayi1.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari pipa besi dan matras dari plat besi | Bahan dasar rangka pengaman terbuat dari pipa stainless steel | Pengelasan kombinasi TIG & MIG | Castor lengkap 4” dua pemutar lengkap dengan kunci pengaman | Dimensi (P x L x T) 150 x 80 x 130 CM) | Berat +/- 15 kg dengan beban maksimal 60 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 13,
         title: "Baby Box",
         img: "/img/kasur-bayi2.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari pipa besi stainless steel | Cover pengaman terbuat dari acrylic glossy 2 mm | Matras berbahan busa dengan plywood dilapisi sarung kulit sintetis | Pengelasan TIG | Castor 2” | Dimensi (P x L x T) (700 x 450 x 90 CM) | Berat +/- 15 kg dengan beban maksimal 60 kg | Garansi (-)",
     },
     {
         id: 14,
         title: "Bed Side Cabinet Type 01",
         img: "/img/bed-cabinet1.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar body rangka dan laci dari plat besi | Cover body bagian atas berbahan plat stainless steel | Meja partisi berbahan plywood | Pengelasan kombinasi TIG & MIG | Castor 2” | Dimensi (P x L x T) (46 x 45 x 100 CM) | Berat +/- 24 kg dengan beban maksimal 50 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 15,
         title: "Bed Side Cabinet Type 02",
         img: "/img/bed-cabinet2.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar body rangka dan laci dari plat besi | Cover body bagian atas berbahan plat stainless steel dan round stainless steel | Laci bagian bawah berbahan plat stainless steel | Pengelasan kombinasi TIG & MIG | Castor 2” | Dimensi (P x L x T) (46 x 45 x 100 CM) | Berat +/- 25 kg dengan beban maksimal 50 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 16,
         title: "Bed Side Cabinet Type 03",
         img: "/img/bed-cabinet3.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar body rangka dari plat besi | Cover body bagian atas berbahan plat stainless steel dan round stainless steel | Pengelasan kombinasi TIG & MIG | Castor 2” | Dimensi (P x L x T) (46 x 45 x 100 CM) | Berat +/- 24 kg dengan beban maksimal 50 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 17,
         title: "Instrumen Cabinet 2 Door Type 01",
         img: "/img/lemari1.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari plat besi | Pintu berbahan rangka hollow MS, plat MS dan kaca | Partisi kaca 4 susun | Pengelasan MIG | Dimensi (P x L x T) (90 x 45 x 170 CM) | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 18,
         title: "Instrumen Cabinet 2 Door Type 02",
         img: "/img/lemari2.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari plat besi | Pintu berbahan rangka hollow MS, plat MS dan kaca | Body samping 2 sisi terbuat dari kaca | Partisi kaca 4 susun | Pengelasan MIG | Dimensi (P x L x T) (90 x 45 x 170 CM) | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 19,
         title: "Instrumen Cabinet 2 Door Type 03",
         img: "/img/lemari3.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari plat besi | Pintu berbahan rangka hollow MS, plat MS dan kaca | Partisi kaca 3 susun | Pengelasan MIG | Dimensi (P x L x T) (90 x 45 x 170 CM) | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 20,
         title: "Instrumen Cabinet 2 Door Type 04",
         img: "/img/lemari4.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari plat besi | Pintu atas berbahan rangka hollow MS, plat MS dan kaca | Pintu bawah berbahan plat besi berikut dengan handle dan pengunci | Partisi kaca 1 susun | Pengelasan MIG | Dimensi (P x L x T) (70 x 40 x 170 CM) | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 21,
         title: "Instrumen Cabinet Single Door",
         img: "/img/lemari5.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari plat besi | Pintu berbahan rangka hollow MS, plat MS dan kaca | Partisi kaca 3 susun | Pengelasan MIG | Dimensi (P x L x T) (70 x 45 x 170 CM) | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 22,
         title: "Instrumen Cabinet 4 Door",
         img: "/img/lemari6.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari plat besi | Pintu atas berbahan kaca (Sistem sliding) | Pintu bawah berbahan plat besi berikut dengan handle dan pengunci | Partisi atas 2 susun dan partisi bawah 1 susun | Pengelasan MIG | Dimensi (P x L x T) (85 x 40 x 160 CM) | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 23,
         title: "Baby Dressing Table PC",
         img: "/img/dressing-table1.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari plat dan pipa besi | Matras berbahan busa dan dilapisi sarung kulit sintetis | Pengelasan MIG | Dimensi (P x L x T) (100 x 50 x 90 CM) | Berat +/- 44 kg dengan beban maksimal 50 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 24,
         title: "Baby Dressing Table PC + Lamp",
         img: "/img/dressing-table2.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka dari plat dan pipa besi | Matras berbahan busa dan dilapisi sarung kulit sintetis | Pengelasan MIG | Stand lampu unit (include dengan lampu dan knob) | Dimensi (P x L x T) (100 x 50 x 90 CM) | Berat +/- 45 kg dengan beban maksimal 50 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi electrical 3 bulan",
     },
     {
         id: 25,
         title: "Infus Stand Kaki 5 SS",
         img: "/img/infus-stand1.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama pipa stainless steel | Rangka kaki hollow stainless steel (5 pcs) | Pengelasan TIG | Castor 2” (5 pcs) | Dimensi (P x L x T) (50 x 50 x 150 CM) | Berat +/- 2,5 kg dengan beban maksimal 2 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 26,
         title: "Infus Stand Kaki 5 PC",
         img: "/img/infus-stand2.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama pipa MS | Rangka kaki hollow MS (5 pcs) | Tiang atas pipa stainless steel | Pengelasan kombinasi TIG & MIG | Castor 2” (5 pcs) | Dimensi (P x L x T) (50 x 50 x 150 CM) | Berat +/- 2,5 kg dengan beban maksimal 2 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 27,
         title: "Infus Stand Kaki 5 Plastik",
         img: "/img/infus-stand3.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama pipa stainless steel | Rangka kaki plastik ABS dengan roda | Tiang atas pipa stainless steel | Pengelasan kombinasi TIG | Castor 2” (Swivel | Dimensi (P x L x T) (50 x 50 x 150 CM) | Berat +/- 2,5 kg dengan beban maksimal 2 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 28,
         title: "Infus Stand Kaki 3 SS",
         img: "/img/infus-stand4.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama pipa stainless steel | Rangka kaki hollow stainless steel (3 pcs) | Pengelasan TIG | Castor 2” (3 pcs) | Dimensi (P x L x T) (50 x 50 x 150 CM) | Berat +/- 2,5 kg dengan beban maksimal 2 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 29,
-        title: "Infus Stand Kaki 3 SS",
+        title: "Infus Stand Kaki 3 PC",
         img: "/img/infus-stand5.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama pipa MS | Rangka kaki hollow MS (3 pcs) | Tiang atas pipa stainless steel | Pengelasan kombinasi MIG | Castor 2” (3 pcs) | Dimensi (P x L x T) (50 x 50 x 150 CM) | Berat +/- 2,5 kg dengan beban maksimal 2 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 30,
         title: "Foot Step Single SS",
         img: "/img/foot-step1.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama pipa stainless steel | Foot stand plywood dilapisi dengan karet vinyl | Pengelasan TIG | Dimensi (P x L x T) (50 x 40 x 26 CM) | Berat +/- 2 kg dengan beban maksimal 100 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 31,
         title: "Foot Step Single PC",
         img: "/img/foot-step2.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama pipa MS | Foot stand plywood dilapisi dengan karet vinyl | Pengelasan MIG | Dimensi (P x L x T) (50 x 40 x 26 CM) | Berat +/- 2 kg dengan beban maksimal 100 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 32,
         title: "Foot Step Double SS",
         img: "/img/foot-step3.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama pipa stainless steel | Foot stand plywood dilapisi dengan karet vinyl | Pengelasan TIG | Dimensi (P x L x T) (50 x 40 x 40 CM) | Berat +/- 3 kg dengan beban maksimal 100 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 33,

@@ -104,8 +104,11 @@ export default function Home() {
                 </section>
 
                 {/* Banner */}
-                {/* <section className="w-11/12 mx-auto text-center">
-                    <div className="w-11/12 mx-auto mt-16">
+                <section className="w-11/12 mx-auto text-center">
+                    <h3 className="text-xl md:text-2xl font-semibold">
+                        {t("hero.bs")}
+                    </h3>
+                    <div className="w-11/12 mx-auto">
                         <Swiper
                             modules={[Pagination, Autoplay]}
                             spaceBetween={20}
@@ -122,7 +125,7 @@ export default function Home() {
                             <SwiperSlide className="py-5 mb-5">
                                 <div className="bg-white rounded-xl shadow-md hover:shadow-cyan-700/40 transition duration-300 m-2 flex justify-center">
                                     <img
-                                        src="./img/artikel/001.png"
+                                        src="./img/best1.png"
                                         alt="Trend 1"
                                         className="rounded-xl w-full md:h-72 object-cover"
                                     />
@@ -132,7 +135,7 @@ export default function Home() {
                             <SwiperSlide className="py-5 mb-5">
                                 <div className="bg-white rounded-xl shadow-md hover:shadow-cyan-700/40 transition duration-300 m-2 flex justify-center">
                                     <img
-                                        src="./img/artikel/002.png"
+                                        src="./img/best2.png"
                                         alt="Trend 2"
                                         className="rounded-xl w-full md:h-72 object-cover"
                                     />
@@ -140,7 +143,7 @@ export default function Home() {
                             </SwiperSlide>
                         </Swiper>
                     </div>
-                </section> */}
+                </section>
 
                 {/* Product 1 */}
                 <section className="w-10/12 py-15 md:py-20 mx-auto">
