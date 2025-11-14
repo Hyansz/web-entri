@@ -362,227 +362,412 @@ const furniture = [
         id: 33,
         title: "Foot Step Double PC",
         img: "/img/foot-step4.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama pipa MS | Foot stand plywood dilapisi dengan karet vinyl | Pengelasan MIG | Dimensi (P x L x T) (50 x 40 x 40 CM) | Berat +/- 3 kg dengan beban maksimal 100 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 34,
         title: "Overbed Table SS",
         img: "/img/meja1.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama pipa stainless steel | Nampan terbuat dari stainless steel | Pengelasan TIG | Castor 2” | Dimensi (P x L x T) (40 x 70 x 85-130 CM) | Beban maksimal 20 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 35,
         title: "Overbed Table PC",
         img: "/img/meja2.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama pipa MS | Rangka atas terbuat dari stainless steel | Nampan terbuat dari plywood 15 mm finishing powder coating putih | Pengelasan kombinasi TIG & MIG | Castor 2” | Dimensi (P x L x T) (40 x 70 x 85-130 CM) | Beban maksimal 20 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 36,
         title: "X-RAY Viewer Single",
         img: "/img/x-ray1.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama plat besi MS | Rangka list stainless steel & aluminium | Cover viewer berbahan acrylic (milky white) | Pengelasan kombinasi TIG & MIG | Power 64 watt, voltage AC 220 V | Saklar manual | Dimensi (P x L x T) (40 x 50 x6,5 CM) | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi electric (1 bulan)",
     },
     {
         id: 37,
         title: "X-RAY Viewer Double",
         img: "/img/x-ray2.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama plat besi MS | Rangka list stainless steel & aluminium | Cover viewer berbahan acrylic (milky white) | Pengelasan kombinasi TIG & MIG | Power 64 watt, voltage AC 220 V | Saklar manual | Dimensi (P x L x T) (70 x 50 x6,5 CM) | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi electric (1 bulan)",
     },
     {
         id: 38,
         title: "Bed Screen Single",
         img: "/img/bed-screen1.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka pipa stainless steel | Warna kain bisa sesuai permintaan | Single screen | Pengelasan TIG | Castor 2” (4 pcs) | Dimensi (P x L x T) (90 x 50 x 175 CM) | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 39,
         title: "Bed Screen Double",
         img: "/img/bed-screen2.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka pipa stainless steel | Warna kain bisa sesuai permintaan | Double screen | Pengelasan TIG | Castor 2” (5 pcs) | Dimensi (P x L x T) (90 x 50 x 175 CM) 2x | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 40,
         title: "Bed Screen Triple",
         img: "/img/bed-screen3.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka pipa stainless steel | Warna kain bisa sesuai permintaan | Single screen | Pengelasan TIG | Castor 2” (6 pcs) | Dimensi (P x L x T) (90 x 50 x 175 CM) 3x | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 41,
         title: "Infant Warmer Inkubator",
         img: "/img/inkubator.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari plat besi | Pengelasan kombinasi TIG & MIG | Matras berbahan busa dengan plywood yang dilapisi sarung kulit sintetis | Alat pengontrol panas inkubator | Bohlam 40 watt (4 unit), 60 watt (2 unit) | Lampu TL 20 watt (penerangan) | Tiang infus berbahan pipa stainless steel | Castor 4” dua pemutar dengan kunci pengaman | Dimensi (P x L x T) (60 x 65 x 175 CM) | Berat +/- 30 kg, beban maksimal 10 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi electric (3 bulan)",
     },
     {
         id: 42,
         title: "X-Ray Hanger",
         img: "/img/x-ray-hanger.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama pipa stainless steel | Pengelasan TIG | Ridgid, kuat dan tahan lama | Dimensi (P x L x T) 24 x 30 CM | Dimensi (P x L x T) 35 x 35 CM | Dimensi (P x L x T) 30 x 40 CM | Berat +/- 0,5 kg | Garansi (-)",
     },
     {
         id: 43,
         title: "Emergency Trolley",
         img: "/img/emergency-trolley.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari plat MS, stainless steel dan pipa besi | Cover body atas berbahan plat stainless steel | Pengelasan kombinasi TIG & MIG | Castor 4” dua pemutar dengan kunci pengaman | Diameter waskom 30 cm | Tiang infus berbahan pipa stainless steel | Dimensi (P x L x T) (80 x 60 x 135 CM) | Berat +/- 50 kg, beban maksimal 80 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 44,
         title: "Medicine Trolley",
         img: "/img/medicine-trolley.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari plat MS dan pipa MS | Pengelasan MIG | Castor 4” plat, dua pemutar dengan kunci pengaman | 24 Medicine storage, 2 laci besar | Pintu dengan pengunci | Dimensi (P x L x T) (69 x 40 x 110 CM) | Berat +/- 40 kg, beban maksimal 100 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 45,
         title: "Instrument Trolley Type 01",
         img: "/img/introll1.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari plat, pipa dan hollow stainless steel | Rak 2 susun dan laci 2 unit | Dilengkapi dengan waskom dan tempat sampah | Pengelasan TIG | Castor 3” dua set roda dengan pengunci | Dimensi (P x L x T) (75 x 45 x 90,5 CM) | Beban maksimal 50 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 45,
         title: "Instrument Trolley Type 02",
         img: "/img/introll2.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari plat, pipa dan hollow stainless steel | Rak 2 susun dan laci 2 unit | Pengelasan TIG | Castor 3” dua set roda dengan pengunci | Dimensi (P x L x T) (75 x 45 x 90,5 CM) | Beban maksimal 50 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 45,
         title: "Instrument Trolley Type 03",
         img: "/img/introll3.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari plat, pipa dan hollow stainless steel | Pengelasan TIG | Castor 3” dua set roda dengan pengunci | Dimensi (P x L x T) (75 x 45 x 90,5 CM) | Beban maksimal 50 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 45,
         title: "Instrument Trolley 03 Sap",
         img: "/img/introll4.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari plat, pipa dan hollow stainless steel | Rak 3 susun dilengkapi dengan keranjang | Pengelasan TIG | Castor 3” dua set roda dengan pengunci | Dimensi (P x L x T) (75 x 45 x 90,5 CM) | Beban maksimal 50 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 46,
         title: "ECG Trolley",
         img: "/img/ecg-trolley.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari plat, pipa dan hollow stainless steel | Rask 2 susun | Pengelasan TIG | Castor 3” dua set roda dengan pengunci | Dimensi (P x L x T) (75 x 45 x 170 CM) | Beban maksimal 50 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 47,
         title: "Linen Trolley",
         img: "/img/lintroll.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari plat dan pipa MS | Rangka kain linen dari pipa dan knee stainless steel 3/4” | Pengelasan kombinasi TIG & MIG | Rak partisi 3 susun dilengkapi dengan kain linen | Castor 4”, dua pemutar dengan kunci pengaman | Warna kain linen bisa sesuai permintaan | Dimensi (P x L x T) (110 x 65 x 100 CM) | Berat +/- 34 kg dengan beban maksimal 70 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 48,
         title: "Food Trolley Type 01",
         img: "/img/fotroll1.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari plat dan round stainless steel | Pengelasan TIG | 2 kunci pintu luar dan dalam | Rak 20 susun dan bisa dikunci | Castor 4” plat, dua pemutar dengan kunci pengaman | Dimensi (P x L x T) 80 x 57, 5 x 130 CM (Nampan multiplek) | Dimensi (P x L x T) 80 x 45 x 130 CM (Nampan stainless steel) | Berat +/- 40 kg, beban maksimal 100 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 49,
         title: "Food Trolley Type 02",
         img: "/img/fotroll2.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari plat dan round stainless steel | Pengelasan TIG | 2 kunci pintu luar dan dalam | Rak 10 susun dan bisa dikunci | Castor 4” plat, dua pemutar dengan kunci pengaman | Dimensi (P x L x T) 80 x 57,5 x 82 CM (Nampan multiplek) | Dimensi (P x L x T) 80 x 45 x 82 CM (Nampan stainless steel) | Berat +/- 25 kg, beban maksimal 80 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 50,
         title: "Almari Narkotik 2 Sap",
         img: "/img/almari-narkotik1.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari plat dan round stainless steel | Pengelasan TIG | Rak 2 susun | 2 kunci pintu luar dan dalam | Dimensi (P x L x T) (30 x 22 x 52 CM) | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 51,
         title: "Almari Narkotik 3 Sap",
         img: "/img/almari-narkotik2.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari plat dan round stainless steel | Pengelasan TIG | Rak 3 susun | 2 kunci pintu luar dan dalam | Dimensi (P x L x T) (30 x 22 x 52 CM) | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 52,
         title: "Standard Waskom Single SS Type 01",
         img: "/img/waskom1.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari pipa stainless steel | Pengelasan TIG | Castor 2” | Diameter waskom 30 cm | Dimensi (P x L x T) (45 x 45 x 70 CM) | Berat +/- 3 kg dengan beban maksimal 20 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 53,
         title: "Standard Waskom Single PC Type 01",
         img: "/img/waskom2.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari pipa MS | Pengelasan MIG | Castor 2” | Diameter waskom 30 cm | Dimensi (P x L x T) (45 x 45 x 70 CM) | Berat +/- 3 kg dengan beban maksimal 20 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 54,
         title: "Standard Waskom Double SS Type 01",
         img: "/img/waskom3.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari pipa stainless steel | Pengelasan TIG | Castor 2” | Diameter waskom 30 cm | Dimensi (P x L x T) (50 x 50 x 150 CM) | Berat +/- 5 kg dengan beban maksimal 20 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 55,
         title: "Standard Waskom Double PC Type 01",
         img: "/img/waskom4.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari pipa MS | Pengelasan MIG | Castor 2” | Diameter waskom 30 cm | Dimensi (P x L x T) (50 x 50 x 150 CM) | Berat +/- 3 kg dengan beban maksimal 20 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 56,
         title: "Standard Waskom Single SS Type 02",
         img: "/img/waskom5.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari pipa stainless steel | Pengelasan TIG | Kaki terbuat dari plastik ABS | Castor 2” swivel | Diameter waskom 30 cm | Dimensi (P x L x T) (50 x 50 x 100 CM) | Berat +/- 2 kg dengan beban maksimal 10 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 57,
-        title: "Standard Waskom Single SS Type 02",
+        title: "Standard Waskom Single PC Type 02",
         img: "/img/waskom6.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari pipa MS | Pengelasan MIG | Kaki terbuat dari plastik ABS | Castor 2” swivel | Diameter waskom 30 cm | Dimensi (P x L x T) (50 x 50 x 100 CM) | Berat +/- 2 kg dengan beban maksimal 10 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 58,
         title: "Standard Waskom Double SS Type 02",
         img: "/img/waskom7.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari pipa stainless steel | Pengelasan TIG | Kaki terbuat dari plastik ABS | Castor 2” swivel | Diameter waskom 30 cm | Dimensi (P x L x T) (50 x 85 x 100 CM) | Berat +/- 2,5 kg dengan beban maksimal 15 kg | Ridgid, kuat dan tahan lama | Garansi (-)",
     },
     {
         id: 59,
         title: "Standard Waskom Double PC Type 02",
         img: "/img/waskom8.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari pipa MS | Pengelasan MIG | Kaki terbuat dari plastik ABS | Castor 2” swivel | Diameter waskom 30 cm | Dimensi (P x L x T) (50 x 85 x 100 CM) | Berat +/- 2,5 kg dengan beban maksimal 15 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 60,
         title: "Oksigen Trolley Type 01",
         img: "/img/oksigen-trolley1.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari plat dan pipa MS | Pengelasan MIG | Castor 4” 2 pcs | Dimensi (P x L x T) (80 x 60 x 135 CM) | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 61,
         title: "Oksigen Trolley Type 02",
         img: "/img/oksigen-trolley2.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari plat dan pipa MS | Pengelasan MIG | Castor 4” plat 1 pcs, 6” 2 pcs | Dimensi (P x L x T) (80 x 60 x 135 CM) | Berat +/- 6 kg | Ridgid, kuat dan tahan lama (Cat powder coating tidak mudah tergores) | Garansi (-)",
     },
     {
         id: 62,
         title: "Scrub Station",
         img: "/img/scrub-station.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama dari plat stainless steel BA 304 (1,6 mm) | Pintu bagian bawah berbahan plat stainless steel BA 304 (1 mm) | Dilengkapi pintu 4 set (dengan handle dan pengunci) | Pengelasan TIG | 2 kran air (otomatis) dengan sensor, juga bisa manual (air panas) | Container untuk sabun (otomatis) | Dimensi (P x L x T) (65 x 135 x 155 CM) | Dispenser voltage 220 V 500 watt | Beban maksimal 100 kg",
     },
     {
         id: 63,
         title: "Keranda Jenazah",
         img: "/img/keranda.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Hollow stainless steel 40x40x1 mm | Hollow stainless steel 25x25x1 mm | Plat stainless steel 1 BA 201 (1 mm) dan (2 mm) | Plat stainless steel 1 BA 201 (0,8 mm) | Pipa stainless steel 1” | Round stainless steel 10 mm | Pengelasan TIG | Dimensi (P x L x T) (200 x 70 x 110 CM) | Castor 5” plat, dua pemutar dengan kunci pengaman",
     },
     {
         id: 64,
         title: "Ambulance Type 01",
         img: "/img/ambulan1.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Sticker samping kanan, kiri, depan dan belakang (Tulisan ambulance, logo dan alamat instansi) | Stretcher otomatis (berikut dengan rail stretcher) | Kursi perawat | Almari cabinet berbahan plywood | Infus gantung + APAR 1 kg | Plat bemper dan plat penutup scop | Lantai kabin beralaskan karpet vinyl | Wastafel (lengkap dengan pompa air, kran dan inverter) | Lampu periksa | Tabung oksigen, masker oksigen dan regulator | Dimensi menyesuaikan dengan size armada yang akan digunakan | Lampu rotary set (lengkap dengan radio, sirine dan mic) | Garansi set lampu rotary (3 bulan)",
     },
     {
         id: 65,
         title: "Ambulance Type 02",
         img: "/img/ambulan2.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Sticker samping kanan, kiri, depan dan belakang (Tulisan ambulance, logo dan alamat instansi) | Stretcher otomatis (berikut dengan rail stretcher) | Kursi perawat | Kotak P3K | Infus gantung + APAR 1 kg | Plat bemper dan plat penutup scop | Lantai kabin beralaskan karpet vinyl | Tabung oksigen, masker oksigen dan regulator | Dimensi menyesuaikan dengan size armada yang akan digunakan | Lampu periksa | Lampu rotary set (lengkap dengan radio, sirine dan mic) | Garansi set lampu rotary (3 bulan)",
     },
     {
         id: 66,
         title: "Examination Lamp With Dimmer",
         img: "/img/lampu.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan dasar rangka utama pipa stainless steel | Rangka kaki plastik ABS berikut dengan roda | Castor 2” swivel | Voltase 220 V | Lampu LED 7 watt | Intensitas cahaya dimmer max 35.000 lux | Posisi lampu bisa di adjust kanan, kiri dan naik, turun | Tombol saklar manual | Dimensi (L x T) 50 x 150 cm | Ridgid, kuat dan tahan lama",
     },
 ];
 
 const liquid = [
     {
-        id: 1,
+        id: 67,
         title: "Alkohol Antiseptik",
         img: "/img/alkohol.png",
     },
     {
-        id: 2,
+        id: 68,
         title: "Hand Sanitizer",
         img: "/img/hand-sanitizer.png",
     },
     {
-        id: 3,
+        id: 69,
         title: "Alkohol 95%, 96% ( 200 L )",
         img: "/img/alkohol.png",
     },
     {
-        id: 4,
+        id: 70,
         title: "Chlorhexidine 0.5%, 2%, 4% ( 5 L )",
         img: "/img/chlorhexidine.png",
     },
     {
-        id: 5,
+        id: 71,
         title: "Aquadest Water 5L",
         img: "/img/aquadest-5L.png",
     },
     {
-        id: 6,
+        id: 72,
         title: "Aquadest Water 20L",
         img: "/img/aquadest-20L.png",
     },
     {
-        id: 7,
+        id: 73,
         title: "Polyhexamethylene Biguanide",
         img: "/img/phmb.png",
     },
     {
-        id: 8,
+        id: 74,
         title: "Zyme",
         img: "/img/zyme.png",
     },
