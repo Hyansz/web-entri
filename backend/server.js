@@ -735,41 +735,81 @@ const liquid = [
         id: 67,
         title: "Alkohol Antiseptik",
         img: "/img/alkohol.png",
+        kemenkes: "20501220252",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Mengandung Ethyl alcohol food grade, Isopropil , Benzalkonium Chloride | Tersedia dengan kandungan alkohol 70%, 95%, 96% | Tersedia dalam kemasan 100ml, 1L, 5L, 20L, 200L",
     },
     {
         id: 68,
         title: "Hand Sanitizer",
         img: "/img/hand-sanitizer.png",
+        kemenkes: "20501220386",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Mengandung Ethyl alcohol 70%, CHG (Chlorhexidine Gluconate) 0,5% | Aman untuk permukaan kulit | Tersedia varian aroma original dan parfum lemon | Tersedia dalam kemasan 100ml, 500ml, 1L, 5L dan 20L",
     },
     {
         id: 69,
         title: "Alkohol 95%, 96% ( 200 L )",
         img: "/img/alkohol.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Alkohol 95%, 96% ( 200 L )",
     },
     {
         id: 70,
         title: "Chlorhexidine 0.5%, 2%, 4% ( 5 L )",
         img: "/img/chlorhexidine.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Mengandung Ethyl Alcohol, CHG (Chlorhexidine Gluconate) | Tersedia varian aroma original dan parfum lemon | Tersedia kadar CHG (Chlorhexidine Gluconate) 0,5%, 2% dan 4% | Tersedia dalam kemasan 1L, 5L dan 20L",
     },
     {
         id: 71,
         title: "Aquadest Water 5L",
         img: "/img/aquadest-5L.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "pH Netral (7,0) Appearance (clear and free of visible particular) | Nilai TDS (Total Dissolved Solid) 3Mg/Liter (standar max 5) | Nilai Conductivity 8,5 μS/cm (standar max 10) | Tersedia dalam kemasan 1 Liter, 5 Liter dan 20 Liter",
     },
     {
         id: 72,
         title: "Aquadest Water 20L",
         img: "/img/aquadest-20L.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "pH Netral (7,0) Appearance (clear and free of visible particular) | Nilai TDS (Total Dissolved Solid) 3Mg/Liter (standar max 5) | Nilai Conductivity 8,5 μS/cm (standar max 10) | Tersedia dalam kemasan 1 Liter, 5 Liter dan 20 Liter",
     },
     {
         id: 73,
         title: "Polyhexamethylene Biguanide",
         img: "/img/phmb.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "POLIHEXAMETHYLENE BIGUANIDE",
     },
     {
         id: 74,
         title: "Zyme",
         img: "/img/zyme.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Multi Enzyme Cleanser ( 3 in 1 )",
     },
 ];
 
