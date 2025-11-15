@@ -19,6 +19,7 @@ import WaPhone from "./components/WaPhone";
 import EducationVideo from "./pages/Edu";
 import Mitra from "./pages/Mitra";
 import ToTop from "./components/ToTop";
+import ProductLiquidDetail from "./pages/ProductLiquidDetail";
 
 AOS.init();
 
@@ -48,6 +49,10 @@ export default function App() {
                         <Route
                             path="/products/liquid"
                             element={<ProductLiquid />}
+                        />
+                        <Route
+                            path="/products/liquid/:id"
+                            element={<ProductLiquidDetail />}
                         />
                         <Route
                             path="/products/bmhp"

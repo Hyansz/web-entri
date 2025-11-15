@@ -1090,6 +1090,20 @@ app.get("/api/liquid", (req, res) => {
     });
 });
 
+app.get("/api/liquid/:id", (req, res) => {
+    const { id } = req.params;
+    const item = liquid.find((f) => f.id == id);
+
+    if (!item) {
+        return res.status(404).json({
+            status: "error",
+            message: "Produk tidak ditemukan",
+        });
+    }
+
+    res.json(item);
+});
+
 // bmhp
 app.get("/api/bmhp", (req, res) => {
     const page = parseInt(req.query.page) || 1;

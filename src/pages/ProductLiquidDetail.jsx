@@ -3,13 +3,13 @@ import { useEffect, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 
-export default function ProductFurnitureDetail() {
+export default function ProductLiquidDetail() {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`https://web-entri.onrender.com/api/furniture/${id}`)
+        fetch(`https://web-entri.onrender.com/api/liquid/${id}`)
             .then((res) => res.json())
             .then((data) => setProduct(data))
             .catch((err) => console.error(err));
