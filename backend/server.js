@@ -23,12 +23,22 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Pastikan folder uploads ada
+const uploadDir = path.join(__dirname, "uploads");
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+}
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 // Setup multer (tempat simpan file upload)
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "uploads/");
+        cb(null, uploadDir);
     },
+
     filename: (req, file, cb) => {
         cb(null, Date.now() + "-" + file.originalname);
     },
@@ -758,8 +768,7 @@ const liquid = [
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
-        spesifikasi:
-            "Alkohol 95%, 96% ( 200 L )",
+        spesifikasi: "Alkohol 95%, 96% ( 200 L )",
     },
     {
         id: 70,
@@ -798,8 +807,7 @@ const liquid = [
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
-        spesifikasi:
-            "POLIHEXAMETHYLENE BIGUANIDE",
+        spesifikasi: "POLIHEXAMETHYLENE BIGUANIDE",
     },
     {
         id: 74,
@@ -808,8 +816,7 @@ const liquid = [
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
-        spesifikasi:
-            "Multi Enzyme Cleanser ( 3 in 1 )",
+        spesifikasi: "Multi Enzyme Cleanser ( 3 in 1 )",
     },
 ];
 
@@ -831,8 +838,7 @@ const bmhp = [
         kemenkes: "15402032",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
-        spesifikasi:
-            "KORSET - DOUBLE SET LUMBAR SACRAL SUPPORTER",
+        spesifikasi: "KORSET - DOUBLE SET LUMBAR SACRAL SUPPORTER",
     },
     {
         id: 77,
@@ -1244,8 +1250,7 @@ app.get("/api/lab/:id", (req, res) => {
 
     res.json(item);
 });
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+
 
 app.post("/send-email", upload.single("photo"), async (req, res) => {
     try {
@@ -1253,7 +1258,7 @@ app.post("/send-email", upload.single("photo"), async (req, res) => {
         const file = req.file;
 
         // Definisi filePath DI SINI, di dalam route handler
-        const filePath = file ? path.join(__dirname, file.path) : null;
+        const filePath = file ? file.path : null;
 
         let attachments = [];
         if (filePath) {

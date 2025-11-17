@@ -40,7 +40,7 @@ export default function Contact() {
             if (file) data.append("photo", file);
 
             const res = await fetch(
-                "https://web-entri.onrender.com/send-email",
+                "http://web-entri.onrender.com/send-email",
                 {
                     method: "POST",
                     body: data,
