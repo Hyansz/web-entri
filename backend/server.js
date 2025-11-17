@@ -898,22 +898,37 @@ const bmhp = [
 
 const lab = [
     {
-        id: 1,
+        id: 83,
         title: "Centrifuge 12 Holes",
         img: "/img/lab1.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "TIPE : N3CFG-12H | KLASIFIKASI : KELAS I | PROTEKSI : IPXO | RANGKA UTAMA : Terbuat dari bahan plate besi | ROTOR ADAPTER : Terbuat dari bahan cor aluminiu | KAKI : 4 dop kaki dari karet | FINISHING : Cat powder coating | KECEPATAN PUTAR : 0-5500rpm | KAPASITAS TABUNG : 12 tabung (5, 10 dan 15ml) | SUMBER LISTRIK : 220V-240 AC | FREKUENSI : 50/60 Hz | UKURAN : (P x L x T) (300mm x 420mm x 330mm) | Time Control | Speed Control | Lid Lock | Switch ON/OFF | 12 Botol (5,10 dan 15ml) | 5 dop kaki karet",
     },
     {
-        id: 2,
+        id: 84,
         title: "Bio Safety Cabinet",
         img: "/img/lab2.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Dimensi (P x L x T) (120x70x180 cm) | (P x L x T) (100x70x180 cm) | (P x L x T) (80x70x180 cm) | Sirkulasi udara 70%, Exhaust udara 30% | Pintu sliding Vertikal (Tempered glass 5 MM) | Heppa Filter 99,9% Efisien 0,3 μL | Kecepatan udara naik 0,53 +/- 0,025 M/S, Udara turun 0,33 +/- 0,025 M/S | Lampu UV 18 Watt, Ilumination Led 8 Watt, Ilumination 1000 Lux Display LCD | Tinggi permukaan kerja 750 MM Tinggi aman jendela 200 MM, Maksimum terbuka 370 MM | Sistem Alarm (Audio visual alarm) | Power supply 220 Volt +/- 10%, 60/50 Hz | Level Noise/Kebisingan +/- 61 Db | Material Cabinet plat MS dengan Cat Powder Coating | Material ruang kerja atas Stainless Steel India Gilap 1 MM | Material ruang kerja bawah Stainless Steel BA 3041 MM | Material jendela depan tempered glass 5 MM | Material jendela samping Acrylic Glossy 5 MM",
     },
     {
-        id: 3,
+        id: 85,
         title: "Laminar Air Flow",
         img: "/img/lab3.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Dimensi (P x L x T) 100x75x185 cm) | Pengelasan TIG & MIG | Lampu penerangan 10 watt 2 titik | Blower atas dan blower bawah | Acrylic doff 5 mm | Body plat MS ketebalan 1,4 & 1,6 mm | Finishing cat powder coating",
     },
     {
-        id: 4,
+        id: 86,
         title: "Alat Gluco",
         img: "/img/gluco.png",
     },
@@ -1216,6 +1231,19 @@ app.get("/api/lab", (req, res) => {
     });
 });
 
+app.get("/api/lab/:id", (req, res) => {
+    const { id } = req.params;
+    const item = lab.find((f) => f.id == id);
+
+    if (!item) {
+        return res.status(404).json({
+            status: "error",
+            message: "Produk tidak ditemukan",
+        });
+    }
+
+    res.json(item);
+});
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
