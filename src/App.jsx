@@ -69,10 +69,10 @@ export default function App() {
                             path="/products/lab/:id"
                             element={<ProductLabDetail />}
                         />
-                        <Route
+                        {/* <Route
                             path="/products/cutting"
                             element={<ProductCutting />}
-                        />
+                        /> */}
                     </Routes>
                 </main>
                 <Footer />

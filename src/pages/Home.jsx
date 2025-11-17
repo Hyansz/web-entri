@@ -488,7 +488,7 @@ export default function Home() {
                 </section>
 
                 {/* Product 5 */}
-                <section className="w-10/12 py-15 md:py-20 mx-auto">
+                {/* <section className="w-10/12 py-15 md:py-20 mx-auto">
                     <div>
                         <div className="flex items-center justify-between mb-10 md:mb-5 h-12">
                             <h1 className="text-2xl font-semibold">
@@ -567,7 +567,7 @@ export default function Home() {
                             ))}
                         </Swiper>
                     </div>
-                </section>
+                </section> */}
 
                 {/* Contact Us */}
                 <section className="w-11/12 md:w-10/12 py-12 md:py-20 mx-auto">

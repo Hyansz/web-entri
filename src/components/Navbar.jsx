@@ -213,14 +213,14 @@ export default function Navbar() {
                             >
                                 Laboratorium
                             </Link>
-                            <Link
+                            {/* <Link
                                 to="/products/cutting"
                                 title="Produk Cutting Laser"
                                 onClick={() => handleMenuClick()}
                                 className="block px-4 py-2 hover:text-yellow-400"
                             >
                                 Motif Cutting
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
 
@@ -373,7 +373,7 @@ export default function Navbar() {
                                 ["Liquid", "/products/liquid"],
                                 ["BMHP", "/products/bmhp"],
                                 ["Laboratorium", "/products/lab"],
-                                ["Motif Cutting", "/products/cutting"],
+                                // ["Motif Cutting", "/products/cutting"],
                             ].map(([label, link]) => (
                                 <Link
                                     key={link}
