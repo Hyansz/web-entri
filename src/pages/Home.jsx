@@ -277,19 +277,22 @@ export default function Home() {
                         >
                             {[
                                 {
-                                    id: 100,
+                                    id: 67,
                                     img: "./img/alkohol.png",
                                     title: "Alkohol Antiseptik",
                                 },
                                 {
+                                    id: 68,
                                     img: "./img/hand-sanitizer.png",
                                     title: "Hand Sanitizer",
                                 },
                                 {
+                                    id: 70,
                                     img: "./img/chlorhexidine.png",
                                     title: "Chlorhexidine",
                                 },
                                 {
+                                    id: 71,
                                     img: "./img/aquadest-5L.png",
                                     title: "Aquadest 5L",
                                 },
@@ -308,7 +311,7 @@ export default function Home() {
                                         </div>
 
                                         <Link
-                                            to={`/products/furniture/${item.id}`}
+                                            to={`/products/liquid/${item.id}`}
                                             className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
                                         >
                                             Detail
@@ -359,15 +362,22 @@ export default function Home() {
                         >
                             {[
                                 {
+                                    id: 75,
                                     img: "./img/masker1.png",
                                     title: "Surgical Facemask (Ear Loop)",
                                 },
-                                { img: "./img/korset.png", title: "Korset" },
                                 {
+                                    id: 76,
+                                    img: "./img/korset.png",
+                                    title: "Korset",
+                                },
+                                {
+                                    id: 77,
                                     img: "./img/masker2.png",
                                     title: "Surgical Facemask (Head Loop)",
                                 },
                                 {
+                                    id: 78,
                                     img: "./img/alswab.png",
                                     title: "Alkohol Swab",
                                 },
@@ -383,7 +393,7 @@ export default function Home() {
                                             {item.title}
                                         </p>
                                         <Link
-                                            to={`/products/furniture/${item.id}`}
+                                            to={`/products/bmhp/${item.id}`}
                                             className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
                                         >
                                             Detail
@@ -434,18 +444,22 @@ export default function Home() {
                         >
                             {[
                                 {
+                                    id: 83,
                                     img: "./img/lab1.png",
                                     title: "Centrifuge 12 Holes",
                                 },
                                 {
+                                    id: 84,
                                     img: "./img/lab2.png",
                                     title: "Bio Safety Cabinet",
                                 },
                                 {
+                                    id: 85,
                                     img: "./img/lab3.png",
                                     title: "Laminar Air Flow",
                                 },
                                 {
+                                    id: 86,
                                     img: "./img/gluco.png",
                                     title: "Alat Gluco",
                                 },
@@ -461,7 +475,7 @@ export default function Home() {
                                             {item.title}
                                         </p>
                                         <Link
-                                            to={`/products/furniture/${item.id}`}
+                                            to={`/products/lab/${item.id}`}
                                             className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
                                         >
                                             Detail
