@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 export default function ProductBmhp() {
     const [bmhp, setBmhp] = useState([]);
@@ -8,9 +9,7 @@ export default function ProductBmhp() {
     const limit = 16;
 
     useEffect(() => {
-        fetch(
-            `https://web-entri.onrender.com/api/bmhp?page=${page}&limit=${limit}`
-        )
+        fetch(`https://web-entri.onrender.com/api/bmhp?page=${page}&limit=${limit}`)
             .then((res) => res.json())
             .then((data) => {
                 setBmhp(data.bmhp);
@@ -67,7 +66,7 @@ export default function ProductBmhp() {
                         {bmhp.map((p, i) => (
                             <div
                                 key={i}
-                                className="bg-white rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20"
+                                className="bg-white rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20 flex flex-col justify-between"
                             >
                                 <img
                                     src={p.img}
@@ -75,9 +74,22 @@ export default function ProductBmhp() {
                                     loading="lazy"
                                     className="rounded mb-3 mx-auto"
                                 />
-                                <h3 className="text-lg font-semibold">
+                                <h3 className="text-lg font-semibold mb-3">
                                     {p.title}
                                 </h3>
+
+                                <Link
+                                    to={`/products/liquid/${p.id}`}
+                                    className="inline-block mt-auto px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
+                                    onClick={() =>
+                                        window.scrollTo({
+                                            top: 0,
+                                            behavior: "smooth",
+                                        })
+                                    }
+                                >
+                                    Detail
+                                </Link>
                             </div>
                         ))}
                     </div>

@@ -218,7 +218,7 @@ export default function Products() {
                                         </div>
 
                                         <Link
-                                            to={`/products/furniture/${item.id}`}
+                                            to={`/products/liquid/${item.id}`}
                                             className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
                                         >
                                             Detail
@@ -269,15 +269,22 @@ export default function Products() {
                         >
                             {[
                                 {
+                                    id: 75,
                                     img: "./img/masker1.png",
                                     title: "Surgical Facemask (Ear Loop)",
                                 },
-                                { img: "./img/korset.png", title: "Korset" },
+                                { 
+                                    id: 76, 
+                                    img: "./img/korset.png", 
+                                    title: "Korset" 
+                                },
                                 {
+                                    id: 77, 
                                     img: "./img/masker2.png",
                                     title: "Surgical Facemask (Head Loop)",
                                 },
                                 {
+                                    id: 78, 
                                     img: "./img/alswab.png",
                                     title: "Alkohol Swab",
                                 },
@@ -293,7 +300,7 @@ export default function Products() {
                                             {item.title}
                                         </p>
                                         <Link
-                                            to={`/products/furniture/${item.id}`}
+                                            to={`/products/bmhp/${item.id}`}
                                             className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
                                         >
                                             Detail

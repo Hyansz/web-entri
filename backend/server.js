@@ -1173,6 +1173,20 @@ app.get("/api/bmhp", (req, res) => {
     });
 });
 
+app.get("/api/bmhp/:id", (req, res) => {
+    const { id } = req.params;
+    const item = bmhp.find((f) => f.id == id);
+
+    if (!item) {
+        return res.status(404).json({
+            status: "error",
+            message: "Produk tidak ditemukan",
+        });
+    }
+
+    res.json(item);
+});
+
 // lab
 app.get("/api/lab", (req, res) => {
     const page = parseInt(req.query.page) || 1;

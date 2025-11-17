@@ -20,6 +20,7 @@ import EducationVideo from "./pages/Edu";
 import Mitra from "./pages/Mitra";
 import ToTop from "./components/ToTop";
 import ProductLiquidDetail from "./pages/ProductLiquidDetail";
+import ProductBmhpDetail from "./pages/ProductBmhpDetail";
 
 AOS.init();
 
@@ -57,6 +58,10 @@ export default function App() {
                         <Route
                             path="/products/bmhp"
                             element={<ProductBmhp />}
+                        />
+                        <Route
+                            path="/products/bmhp/:id"
+                            element={<ProductBmhpDetail />}
                         />
                         <Route path="/products/lab" element={<ProductLab />} />
                         <Route
