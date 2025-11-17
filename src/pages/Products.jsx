@@ -184,19 +184,22 @@ export default function Products() {
                         >
                             {[
                                 {
-                                    id: 100,
+                                    id: 67,
                                     img: "./img/alkohol.png",
                                     title: "Alkohol Antiseptik",
                                 },
                                 {
+                                    id: 68,
                                     img: "./img/hand-sanitizer.png",
                                     title: "Hand Sanitizer",
                                 },
                                 {
+                                    id: 70,
                                     img: "./img/chlorhexidine.png",
                                     title: "Chlorhexidine",
                                 },
                                 {
+                                    id: 71,
                                     img: "./img/aquadest-5L.png",
                                     title: "Aquadest 5L",
                                 },

@@ -815,44 +815,84 @@ const liquid = [
 
 const bmhp = [
     {
-        id: 1,
+        id: 75,
         title: "Surgical Facemask (Ear Loop)",
         img: "/img/masker1.png",
+        kemenkes: "21603910158",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "P x L =/- 17.5cm x 9.5cm, warna hijau | Standar 3 ply surgical mask, dengan lapisan tengah meltbown filter BFE 99% | Tali atau Pengait telinga 75% nylon dan 25% spandex | Pengait hidung single dan terbuat dari metal",
     },
     {
-        id: 2,
+        id: 76,
         title: "Korset",
         img: "/img/korset.png",
+        kemenkes: "15402032",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "KORSET - DOUBLE SET LUMBAR SACRAL SUPPORTER",
     },
     {
-        id: 3,
+        id: 77,
         title: "Surgical Facemask (Head Loop)",
         img: "/img/masker2.png",
+        kemenkes: "21603021219",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "P x L=/- 17.5cm x 9.5cm warna hijau | Standar 3 ply surgical mask, dengan lapisan tengah meltbown filter BFE 99% | Tali atau pengait telinga 75% nylon dan 25% spandex | Pengait telinga 75% nylon dan 25% spandex | Pengait hidung single dan terbuat dari metal | Desain yang pas serta lentur, bebas lateks untuk kenyamanan pemakaian yang lama | Desain tali yang bisa diapaki untuk perempuan berhijab",
     },
     {
-        id: 4,
+        id: 78,
         title: "Alkohol Swab",
         img: "/img/alswab.png",
+        kemenkes: "20903220108",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Berbahan dasar kapas steril yang lembut | Bahan lebih tebal dan tidak melepaskan serabut | Komposisi Alkohol (Ethanol 70%) + Chlorhexidine gluconate 0.5%",
     },
     {
-        id: 5,
+        id: 79,
         title: "Masker Sterile KF-94 4 Ply",
         img: "/img/masker3.png",
+        kemenkes: "21603120478",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan 4 lapis (spunbond-meltblown-meltblown-spunbond) | Melalui proses sterile EQ (metode sterilisasi dengan teknologi untuk membunuh mikroorganisme) | Dibuat dengan material lembut dengan tingkat filtrasi yang tinggi | Dilengkapi kawat hidung yang fleksibel dan mudah disesuaikan | Tali kait nyaman saat dikaitkan ke telinga, dilengkapi dengan S hook (pengait) tambahan yang mudah dikenakan bahkan untuk wanita berhijab | Model masker kekinian dengan tingkat keamanan ganda dan nyaman saat dipakai",
     },
     {
-        id: 6,
+        id: 80,
         title: "N95 Particular Respirator 5 Ply",
         img: "/img/masker4.png",
+        kemenkes: "21603022296",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Terdiri dari bahan 5 layer untuk memberikan perlindungan secara maksimal | Pada bagian dalam masker terdapat busa pelindung untuk memberikan kenyamanan selama pemakaian | Pada bagian luar masker terdapat nose clip yang bisa disesuaikan mengikuti bentuk wajah • Desain masker dirancang menutupi area hidung dan mulut dengan sempurna sehingga filtrasi partikel udara menjadi lebih efisien | Telah lolos pengujian dari Nelson Labs dengan prosedur NIOSH",
     },
     {
-        id: 7,
+        id: 81,
         title: "Nitrile Examination Gloves",
         img: "/img/gloves.png",
+        kemenkes: "20501220252",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Terdiri dari bahan 5 layer untuk memberikan perlindungan secara maksimal | Pada bagian dalam masker terdapat busa pelindung untuk memberikan kenyamanan selama pemakaian | Pada bagian luar masker terdapat nose clip yang bisa disesuaikan mengikuti bentuk wajah • Desain masker dirancang menutupi area hidung dan mulut dengan sempurna sehingga filtrasi partikel udara menjadi lebih efisien | Telah lolos pengujian dari Nelson Labs dengan prosedur NIOSH", // ko masker
     },
     {
-        id: 8,
+        id: 82,
         title: "Blood Lancet",
         img: "/img/blood-lancet.png",
+        kemenkes: "11603122510",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Ukuran jarum 28G | Dilengkapi dengan pengaman jarum yang mudah dilepas ketika akan digunakan | Compatible dengan semua needle pen | 1 Box işi 100pcs",
     },
 ];
 
