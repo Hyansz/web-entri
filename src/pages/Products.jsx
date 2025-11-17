@@ -351,18 +351,22 @@ export default function Products() {
                         >
                             {[
                                 {
+                                    id: 83,
                                     img: "./img/lab1.png",
                                     title: "Centrifuge 12 Holes",
                                 },
                                 {
+                                    id: 84,
                                     img: "./img/lab2.png",
                                     title: "Bio Safety Cabinet",
                                 },
                                 {
+                                    id: 85,
                                     img: "./img/lab3.png",
                                     title: "Laminar Air Flow",
                                 },
                                 {
+                                    id: 86,
                                     img: "./img/gluco.png",
                                     title: "Alat Gluco",
                                 },
@@ -378,7 +382,7 @@ export default function Products() {
                                             {item.title}
                                         </p>
                                         <Link
-                                            to={`/products/furniture/${item.id}`}
+                                            to={`/products/lab/${item.id}`}
                                             className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
                                         >
                                             Detail
