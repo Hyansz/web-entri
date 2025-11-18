@@ -277,22 +277,22 @@ export default function Home() {
                         >
                             {[
                                 {
-                                    id: 67,
+                                    id: 71,
                                     img: "./img/alkohol.png",
                                     title: "Alkohol Antiseptik",
                                 },
                                 {
-                                    id: 68,
+                                    id: 72,
                                     img: "./img/hand-sanitizer.png",
                                     title: "Hand Sanitizer",
                                 },
                                 {
-                                    id: 70,
+                                    id: 74,
                                     img: "./img/chlorhexidine.png",
                                     title: "Chlorhexidine",
                                 },
                                 {
-                                    id: 71,
+                                    id: 77,
                                     img: "./img/aquadest-5L.png",
                                     title: "Aquadest 5L",
                                 },
@@ -362,22 +362,22 @@ export default function Home() {
                         >
                             {[
                                 {
-                                    id: 75,
+                                    id: 79,
                                     img: "./img/masker1.png",
                                     title: "Surgical Facemask (Ear Loop)",
                                 },
                                 {
-                                    id: 76,
+                                    id: 80,
                                     img: "./img/korset.png",
                                     title: "Korset",
                                 },
                                 {
-                                    id: 77,
+                                    id: 81,
                                     img: "./img/masker2.png",
                                     title: "Surgical Facemask (Head Loop)",
                                 },
                                 {
-                                    id: 78,
+                                    id: 82,
                                     img: "./img/alswab.png",
                                     title: "Alkohol Swab",
                                 },
@@ -444,22 +444,22 @@ export default function Home() {
                         >
                             {[
                                 {
-                                    id: 83,
+                                    id: 87,
                                     img: "./img/lab1.png",
                                     title: "Centrifuge 12 Holes",
                                 },
                                 {
-                                    id: 84,
+                                    id: 88,
                                     img: "./img/lab2.png",
                                     title: "Bio Safety Cabinet",
                                 },
                                 {
-                                    id: 85,
+                                    id: 89,
                                     img: "./img/lab3.png",
                                     title: "Laminar Air Flow",
                                 },
                                 {
-                                    id: 86,
+                                    id: 90,
                                     img: "./img/gluco.png",
                                     title: "Alat Gluco",
                                 },

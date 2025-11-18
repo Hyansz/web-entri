@@ -52,7 +52,7 @@ const furniture = [
         id: 1,
         title: "Hospital Bed Manual (1 Crank)",
         img: "/img/bed1.png",
-        kemenkes: "-",
+        kemenkes: "10902810773",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
         spesifikasi:
@@ -72,7 +72,7 @@ const furniture = [
         id: 3,
         title: "Hospital Bed Manual (3 Crank)",
         img: "/img/bed3.png",
-        kemenkes: "10902810701",
+        kemenkes: "10902810520",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
         spesifikasi:
@@ -82,7 +82,7 @@ const furniture = [
         id: 4,
         title: "Hospital Bed Electric (3 Crank)",
         img: "/img/bed4.png",
-        kemenkes: "10902810520",
+        kemenkes: "20902220453",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
         spesifikasi:
@@ -92,7 +92,7 @@ const furniture = [
         id: 5,
         title: "Hospital Bed ICU",
         img: "/img/bed5.png",
-        kemenkes: "10902810520",
+        kemenkes: "10902810453",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
         spesifikasi:
@@ -292,7 +292,7 @@ const furniture = [
         id: 25,
         title: "Infus Stand Kaki 5 SS",
         img: "/img/infus-stand1.png",
-        kemenkes: "-",
+        kemenkes: "10903220439",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
         spesifikasi:
@@ -302,7 +302,7 @@ const furniture = [
         id: 26,
         title: "Infus Stand Kaki 5 PC",
         img: "/img/infus-stand2.png",
-        kemenkes: "-",
+        kemenkes: "10903220439",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
         spesifikasi:
@@ -312,7 +312,7 @@ const furniture = [
         id: 27,
         title: "Infus Stand Kaki 5 Plastik",
         img: "/img/infus-stand3.png",
-        kemenkes: "-",
+        kemenkes: "10903220439",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
         spesifikasi:
@@ -322,7 +322,7 @@ const furniture = [
         id: 28,
         title: "Infus Stand Kaki 3 SS",
         img: "/img/infus-stand4.png",
-        kemenkes: "-",
+        kemenkes: "10903220439",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
         spesifikasi:
@@ -332,7 +332,7 @@ const furniture = [
         id: 29,
         title: "Infus Stand Kaki 3 PC",
         img: "/img/infus-stand5.png",
-        kemenkes: "-",
+        kemenkes: "10903220439",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
         spesifikasi:
@@ -738,11 +738,51 @@ const furniture = [
         spesifikasi:
             "Bahan dasar rangka utama pipa stainless steel | Rangka kaki plastik ABS berikut dengan roda | Castor 2” swivel | Voltase 220 V | Lampu LED 7 watt | Intensitas cahaya dimmer max 35.000 lux | Posisi lampu bisa di adjust kanan, kiri dan naik, turun | Tombol saklar manual | Dimensi (L x T) 50 x 150 cm | Ridgid, kuat dan tahan lama",
     },
+    {
+        id: 67,
+        title: "Lemari Microscope",
+        img: "/img/lmscope.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Dimensi ( PxL x T ) ( 80 x 40 x 180 cm ) | Bahan dasar rangka utama plat besi MS | Pintu kaca dengan dilengkapi safety lock door | Adjustable height Shelving ( 2 shelf ) | Cat powder coating tidak mudah tergores | Humidity system, LED Lamp, Dehumidifier NTL | Thermohigro for temperature & Humidity Viewer",
+    },
+    {
+        id: 68,
+        title: "Pass Box",
+        img: "/img/passbox.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "External Dimensions (mm) ( 775 x 500 x 620 mm ) | Internal Dimensions (mm) ( 530 x 450 x 400 mm ) | Material terbuat dari bahan SS 304 | Finishing Hair Line | Lampu LED 36 Watt | Lampu Ultra Violet (UV) | Magnetic Inter Lock System ( tidak bisa dibuka bersamaaan) | Tempered Glass 5mm",
+    },
+    {
+        id: 69,
+        title: "Air Shower",
+        img: "/img/shobox.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Material: Stainless Steel 304 Hairline | External Size (W x L x H) (1500 x 1000 x 2110) mm | Internal Size (W x L x H) (900 x 930 x 2000) mm | Door Width: 825 mm | Noise Level: ≤ 70 dB | Jumlah Nozzle Stainless Steel: 16 pcs | Kecepatan Angin Nozzle: ≤ 25 m/s | Lampu LED: 6 Watt x 4 pcs | Air Shower Time: 0 - 99 menit | Voltage (V/Hz): AC 220V/110V, 50Hz/60Hz | HEPA Filter Efficiency: > 99,99% untuk partikel 0,3 μm | Control System: LCD control panel, electronic interlock, automatic blowing | Ukuran HEPA Filter (W x H x D) (295 x 445 x 70) mm | Ukuran Pre-filter (W x H x D) (AC 220V/110V, 50HZ/60HZ)",
+    },
+    {
+        id: 70,
+        title: "X-Ray Table",
+        img: "/img/xray-table.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Bahan Dasar Frame: Mill Steel dengan powder coating | Material Holder Kaset Detector: Stainless Steel 304 | Ukuran (W x L x H): (2000 x 650 x 700) mm | Ukuran Kaset (W x L): (180 x 240) mm, (350 x 430) mm | Menerima Custom Ukuran & Warna Cat: Ya | Beban Maksimal: 100 kg",
+    },
 ];
 
 const liquid = [
     {
-        id: 67,
+        id: 71,
         title: "Alkohol Antiseptik",
         img: "/img/alkohol.png",
         kemenkes: "20501220252",
@@ -752,7 +792,7 @@ const liquid = [
             "Mengandung Ethyl alcohol food grade, Isopropil , Benzalkonium Chloride | Tersedia dengan kandungan alkohol 70%, 95%, 96% | Tersedia dalam kemasan 100ml, 1L, 5L, 20L, 200L",
     },
     {
-        id: 68,
+        id: 72,
         title: "Hand Sanitizer",
         img: "/img/hand-sanitizer.png",
         kemenkes: "20501220386",
@@ -762,7 +802,7 @@ const liquid = [
             "Mengandung Ethyl alcohol 70%, CHG (Chlorhexidine Gluconate) 0,5% | Aman untuk permukaan kulit | Tersedia varian aroma original dan parfum lemon | Tersedia dalam kemasan 100ml, 500ml, 1L, 5L dan 20L",
     },
     {
-        id: 69,
+        id: 73,
         title: "Alkohol 95%, 96% ( 200 L )",
         img: "/img/alkohol.png",
         kemenkes: "-",
@@ -771,7 +811,7 @@ const liquid = [
         spesifikasi: "Alkohol 95%, 96% ( 200 L )",
     },
     {
-        id: 70,
+        id: 74,
         title: "Chlorhexidine 0.5%, 2%, 4% ( 5 L )",
         img: "/img/chlorhexidine.png",
         kemenkes: "-",
@@ -781,7 +821,7 @@ const liquid = [
             "Mengandung Ethyl Alcohol, CHG (Chlorhexidine Gluconate) | Tersedia varian aroma original dan parfum lemon | Tersedia kadar CHG (Chlorhexidine Gluconate) 0,5%, 2% dan 4% | Tersedia dalam kemasan 1L, 5L dan 20L",
     },
     {
-        id: 71,
+        id: 75,
         title: "Aquadest Water 5L",
         img: "/img/aquadest-5L.png",
         kemenkes: "-",
@@ -791,7 +831,7 @@ const liquid = [
             "pH Netral (7,0) Appearance (clear and free of visible particular) | Nilai TDS (Total Dissolved Solid) 3Mg/Liter (standar max 5) | Nilai Conductivity 8,5 μS/cm (standar max 10) | Tersedia dalam kemasan 1 Liter, 5 Liter dan 20 Liter",
     },
     {
-        id: 72,
+        id: 76,
         title: "Aquadest Water 20L",
         img: "/img/aquadest-20L.png",
         kemenkes: "-",
@@ -801,7 +841,7 @@ const liquid = [
             "pH Netral (7,0) Appearance (clear and free of visible particular) | Nilai TDS (Total Dissolved Solid) 3Mg/Liter (standar max 5) | Nilai Conductivity 8,5 μS/cm (standar max 10) | Tersedia dalam kemasan 1 Liter, 5 Liter dan 20 Liter",
     },
     {
-        id: 73,
+        id: 77,
         title: "Polyhexamethylene Biguanide",
         img: "/img/phmb.png",
         kemenkes: "-",
@@ -810,7 +850,7 @@ const liquid = [
         spesifikasi: "POLIHEXAMETHYLENE BIGUANIDE",
     },
     {
-        id: 74,
+        id: 78,
         title: "Zyme",
         img: "/img/zyme.png",
         kemenkes: "-",
@@ -822,7 +862,7 @@ const liquid = [
 
 const bmhp = [
     {
-        id: 75,
+        id: 79,
         title: "Surgical Facemask (Ear Loop)",
         img: "/img/masker1.png",
         kemenkes: "21603910158",
@@ -832,7 +872,7 @@ const bmhp = [
             "P x L =/- 17.5cm x 9.5cm, warna hijau | Standar 3 ply surgical mask, dengan lapisan tengah meltbown filter BFE 99% | Tali atau Pengait telinga 75% nylon dan 25% spandex | Pengait hidung single dan terbuat dari metal",
     },
     {
-        id: 76,
+        id: 80,
         title: "Korset",
         img: "/img/korset.png",
         kemenkes: "15402032",
@@ -841,7 +881,7 @@ const bmhp = [
         spesifikasi: "KORSET - DOUBLE SET LUMBAR SACRAL SUPPORTER",
     },
     {
-        id: 77,
+        id: 81,
         title: "Surgical Facemask (Head Loop)",
         img: "/img/masker2.png",
         kemenkes: "21603021219",
@@ -851,7 +891,7 @@ const bmhp = [
             "P x L=/- 17.5cm x 9.5cm warna hijau | Standar 3 ply surgical mask, dengan lapisan tengah meltbown filter BFE 99% | Tali atau pengait telinga 75% nylon dan 25% spandex | Pengait telinga 75% nylon dan 25% spandex | Pengait hidung single dan terbuat dari metal | Desain yang pas serta lentur, bebas lateks untuk kenyamanan pemakaian yang lama | Desain tali yang bisa diapaki untuk perempuan berhijab",
     },
     {
-        id: 78,
+        id: 82,
         title: "Alkohol Swab",
         img: "/img/alswab.png",
         kemenkes: "20903220108",
@@ -861,7 +901,7 @@ const bmhp = [
             "Berbahan dasar kapas steril yang lembut | Bahan lebih tebal dan tidak melepaskan serabut | Komposisi Alkohol (Ethanol 70%) + Chlorhexidine gluconate 0.5%",
     },
     {
-        id: 79,
+        id: 83,
         title: "Masker Sterile KF-94 4 Ply",
         img: "/img/masker3.png",
         kemenkes: "21603120478",
@@ -871,7 +911,7 @@ const bmhp = [
             "Bahan 4 lapis (spunbond-meltblown-meltblown-spunbond) | Melalui proses sterile EQ (metode sterilisasi dengan teknologi untuk membunuh mikroorganisme) | Dibuat dengan material lembut dengan tingkat filtrasi yang tinggi | Dilengkapi kawat hidung yang fleksibel dan mudah disesuaikan | Tali kait nyaman saat dikaitkan ke telinga, dilengkapi dengan S hook (pengait) tambahan yang mudah dikenakan bahkan untuk wanita berhijab | Model masker kekinian dengan tingkat keamanan ganda dan nyaman saat dipakai",
     },
     {
-        id: 80,
+        id: 84,
         title: "N95 Particular Respirator 5 Ply",
         img: "/img/masker4.png",
         kemenkes: "21603022296",
@@ -881,7 +921,7 @@ const bmhp = [
             "Terdiri dari bahan 5 layer untuk memberikan perlindungan secara maksimal | Pada bagian dalam masker terdapat busa pelindung untuk memberikan kenyamanan selama pemakaian | Pada bagian luar masker terdapat nose clip yang bisa disesuaikan mengikuti bentuk wajah • Desain masker dirancang menutupi area hidung dan mulut dengan sempurna sehingga filtrasi partikel udara menjadi lebih efisien | Telah lolos pengujian dari Nelson Labs dengan prosedur NIOSH",
     },
     {
-        id: 81,
+        id: 85,
         title: "Nitrile Examination Gloves",
         img: "/img/gloves.png",
         kemenkes: "20501220252",
@@ -891,7 +931,7 @@ const bmhp = [
             "Terdiri dari bahan 5 layer untuk memberikan perlindungan secara maksimal | Pada bagian dalam masker terdapat busa pelindung untuk memberikan kenyamanan selama pemakaian | Pada bagian luar masker terdapat nose clip yang bisa disesuaikan mengikuti bentuk wajah • Desain masker dirancang menutupi area hidung dan mulut dengan sempurna sehingga filtrasi partikel udara menjadi lebih efisien | Telah lolos pengujian dari Nelson Labs dengan prosedur NIOSH", // ko masker
     },
     {
-        id: 82,
+        id: 86,
         title: "Blood Lancet",
         img: "/img/blood-lancet.png",
         kemenkes: "11603122510",
@@ -904,7 +944,7 @@ const bmhp = [
 
 const lab = [
     {
-        id: 83,
+        id: 87,
         title: "Centrifuge 12 Holes",
         img: "/img/lab1.png",
         kemenkes: "-",
@@ -914,7 +954,7 @@ const lab = [
             "TIPE : N3CFG-12H | KLASIFIKASI : KELAS I | PROTEKSI : IPXO | RANGKA UTAMA : Terbuat dari bahan plate besi | ROTOR ADAPTER : Terbuat dari bahan cor aluminiu | KAKI : 4 dop kaki dari karet | FINISHING : Cat powder coating | KECEPATAN PUTAR : 0-5500rpm | KAPASITAS TABUNG : 12 tabung (5, 10 dan 15ml) | SUMBER LISTRIK : 220V-240 AC | FREKUENSI : 50/60 Hz | UKURAN : (P x L x T) (300mm x 420mm x 330mm) | Time Control | Speed Control | Lid Lock | Switch ON/OFF | 12 Botol (5,10 dan 15ml) | 5 dop kaki karet",
     },
     {
-        id: 84,
+        id: 88,
         title: "Bio Safety Cabinet",
         img: "/img/lab2.png",
         kemenkes: "-",
@@ -924,7 +964,7 @@ const lab = [
             "Dimensi (P x L x T) (120x70x180 cm) | (P x L x T) (100x70x180 cm) | (P x L x T) (80x70x180 cm) | Sirkulasi udara 70%, Exhaust udara 30% | Pintu sliding Vertikal (Tempered glass 5 MM) | Heppa Filter 99,9% Efisien 0,3 μL | Kecepatan udara naik 0,53 +/- 0,025 M/S, Udara turun 0,33 +/- 0,025 M/S | Lampu UV 18 Watt, Ilumination Led 8 Watt, Ilumination 1000 Lux Display LCD | Tinggi permukaan kerja 750 MM Tinggi aman jendela 200 MM, Maksimum terbuka 370 MM | Sistem Alarm (Audio visual alarm) | Power supply 220 Volt +/- 10%, 60/50 Hz | Level Noise/Kebisingan +/- 61 Db | Material Cabinet plat MS dengan Cat Powder Coating | Material ruang kerja atas Stainless Steel India Gilap 1 MM | Material ruang kerja bawah Stainless Steel BA 3041 MM | Material jendela depan tempered glass 5 MM | Material jendela samping Acrylic Glossy 5 MM",
     },
     {
-        id: 85,
+        id: 89,
         title: "Laminar Air Flow",
         img: "/img/lab3.png",
         kemenkes: "-",
@@ -934,7 +974,7 @@ const lab = [
             "Dimensi (P x L x T) 100x75x185 cm) | Pengelasan TIG & MIG | Lampu penerangan 10 watt 2 titik | Blower atas dan blower bawah | Acrylic doff 5 mm | Body plat MS ketebalan 1,4 & 1,6 mm | Finishing cat powder coating",
     },
     {
-        id: 86,
+        id: 90,
         title: "Alat Gluco",
         img: "/img/gluco.png",
     },
