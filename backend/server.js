@@ -784,7 +784,7 @@ const liquid = [
     {
         id: 71,
         title: "Alkohol Antiseptik",
-        img: "/img/alkohol.png",
+        img: "/img/alkohol-full.png",
         kemenkes: "20501220252",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -822,8 +822,8 @@ const liquid = [
     },
     {
         id: 75,
-        title: "Aquadest Water 5L",
-        img: "/img/aquadest-5L.png",
+        title: "Aquadest Water DM",
+        img: "/img/aquadest.png",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -832,16 +832,6 @@ const liquid = [
     },
     {
         id: 76,
-        title: "Aquadest Water 20L",
-        img: "/img/aquadest-20L.png",
-        kemenkes: "-",
-        merk: "N3",
-        lokasi: "Surakarta, Indonesia",
-        spesifikasi:
-            "pH Netral (7,0) Appearance (clear and free of visible particular) | Nilai TDS (Total Dissolved Solid) 3Mg/Liter (standar max 5) | Nilai Conductivity 8,5 μS/cm (standar max 10) | Tersedia dalam kemasan 1 Liter, 5 Liter dan 20 Liter",
-    },
-    {
-        id: 77,
         title: "Polyhexamethylene Biguanide",
         img: "/img/phmb.png",
         kemenkes: "-",
@@ -850,7 +840,7 @@ const liquid = [
         spesifikasi: "POLIHEXAMETHYLENE BIGUANIDE",
     },
     {
-        id: 78,
+        id: 77,
         title: "Zyme",
         img: "/img/zyme.png",
         kemenkes: "-",
@@ -858,40 +848,58 @@ const liquid = [
         lokasi: "Surakarta, Indonesia",
         spesifikasi: "Multi Enzyme Cleanser ( 3 in 1 )",
     },
+    {
+        id: 78,
+        title: "Anti Microbial Hand Wash",
+        img: "/img/handwash.png",
+        kemenkes: "20309320366",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi: "Mengandung Chlorhexidine Gluconate 4% | Sebagai anti mikroba baik gram positif maupun gram negatif | Bersifat lembut di kulit | Tersedia dalam kemasan 500ml, 5 Liter dan 20 Liter",
+    },
+    {
+        id: 79,
+        title: "Povidone Iodine",
+        img: "/img/povidone.png",
+        kemenkes: "20309320366",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi: "Mengandung povidone iodine 10% | Efektif mensterilkan area pada tubuh yang akan dilakukan operasi | Bisa diencerkan untuk tujuan penggunaan yang lebih spesifik ( kumur ) | Tersedia dalam kemasan 15ml, 30ml, 60ml dan 1 Liter",
+    },
 ];
 
 const bmhp = [
     {
-        id: 79,
+        id: 80,
         title: "Surgical Facemask (Ear Loop)",
         img: "/img/masker1.png",
         kemenkes: "21603910158",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
         spesifikasi:
-            "P x L =/- 17.5cm x 9.5cm, warna hijau | Standar 3 ply surgical mask, dengan lapisan tengah meltbown filter BFE 99% | Tali atau Pengait telinga 75% nylon dan 25% spandex | Pengait hidung single dan terbuat dari metal",
-    },
-    {
-        id: 80,
-        title: "Korset",
-        img: "/img/korset.png",
-        kemenkes: "15402032",
-        merk: "N3",
-        lokasi: "Surakarta, Indonesia",
-        spesifikasi: "KORSET - DOUBLE SET LUMBAR SACRAL SUPPORTER",
+            "Ukuran P x L +/- 17,5cm x 9,5cm warna hijau | Standar 3 ply surgical mask, dengan lapisan tengah meltbown filter BFE 99% | Tali atau Pengait telinga 75% nylon dan 25% Spandex | Pengait hidung single dan terbuat dari metal | Bebas lateks untuk kenyamanan pemakaian yang lama",
     },
     {
         id: 81,
+        title: "Korset",
+        img: "/img/korset.png",
+        kemenkes: "11402021032",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi: "Terbuat dari bahan yang elastis, fleksibel dan lembut dengan velcro perekat dan | tali pengait untuk mengatur kekencangan | Tersedia 2 varian : | - Korset Double Side Pull Lumbal Sacral Supporter ( Sebatas pinggang ) | - Korset Thoraco Lumbo Sacral Orthosis ( Panjang dari punggung ke pinggang ) | Tersedia bahan standar dan premium",
+    },
+    {
+        id: 82,
         title: "Surgical Facemask (Head Loop)",
         img: "/img/masker2.png",
         kemenkes: "21603021219",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
         spesifikasi:
-            "P x L=/- 17.5cm x 9.5cm warna hijau | Standar 3 ply surgical mask, dengan lapisan tengah meltbown filter BFE 99% | Tali atau pengait telinga 75% nylon dan 25% spandex | Pengait telinga 75% nylon dan 25% spandex | Pengait hidung single dan terbuat dari metal | Desain yang pas serta lentur, bebas lateks untuk kenyamanan pemakaian yang lama | Desain tali yang bisa diapaki untuk perempuan berhijab",
+            "Ukuran P x L +/- 17,5cm x 9,5cm warna hijau | Standar 3 ply surgical mask, dengan lapisan tengah meltbown filter BFE 99% | Tali atau Pengait telinga 75% nylon dan 25% Spandex | Pengait hidung single dan terbuat dari metal | Bebas lateks untuk kenyamanan pemakaian yang lama",
     },
     {
-        id: 82,
+        id: 83,
         title: "Alkohol Swab",
         img: "/img/alswab.png",
         kemenkes: "20903220108",
@@ -901,17 +909,17 @@ const bmhp = [
             "Berbahan dasar kapas steril yang lembut | Bahan lebih tebal dan tidak melepaskan serabut | Komposisi Alkohol (Ethanol 70%) + Chlorhexidine gluconate 0.5%",
     },
     {
-        id: 83,
+        id: 84,
         title: "Masker Sterile KF-94 4 Ply",
         img: "/img/masker3.png",
-        kemenkes: "21603120478",
+        kemenkes: "21603120475",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
         spesifikasi:
             "Bahan 4 lapis (spunbond-meltblown-meltblown-spunbond) | Melalui proses sterile EQ (metode sterilisasi dengan teknologi untuk membunuh mikroorganisme) | Dibuat dengan material lembut dengan tingkat filtrasi yang tinggi | Dilengkapi kawat hidung yang fleksibel dan mudah disesuaikan | Tali kait nyaman saat dikaitkan ke telinga, dilengkapi dengan S hook (pengait) tambahan yang mudah dikenakan bahkan untuk wanita berhijab | Model masker kekinian dengan tingkat keamanan ganda dan nyaman saat dipakai",
     },
     {
-        id: 84,
+        id: 85,
         title: "N95 Particular Respirator 5 Ply",
         img: "/img/masker4.png",
         kemenkes: "21603022296",
@@ -921,17 +929,17 @@ const bmhp = [
             "Terdiri dari bahan 5 layer untuk memberikan perlindungan secara maksimal | Pada bagian dalam masker terdapat busa pelindung untuk memberikan kenyamanan selama pemakaian | Pada bagian luar masker terdapat nose clip yang bisa disesuaikan mengikuti bentuk wajah • Desain masker dirancang menutupi area hidung dan mulut dengan sempurna sehingga filtrasi partikel udara menjadi lebih efisien | Telah lolos pengujian dari Nelson Labs dengan prosedur NIOSH",
     },
     {
-        id: 85,
+        id: 86,
         title: "Nitrile Examination Gloves",
         img: "/img/gloves.png",
         kemenkes: "20501220252",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
         spesifikasi:
-            "Terdiri dari bahan 5 layer untuk memberikan perlindungan secara maksimal | Pada bagian dalam masker terdapat busa pelindung untuk memberikan kenyamanan selama pemakaian | Pada bagian luar masker terdapat nose clip yang bisa disesuaikan mengikuti bentuk wajah • Desain masker dirancang menutupi area hidung dan mulut dengan sempurna sehingga filtrasi partikel udara menjadi lebih efisien | Telah lolos pengujian dari Nelson Labs dengan prosedur NIOSH", // ko masker
+            "Terbuat dari bahan karet sintetis | Varian Non-Powdered ( tidak berbedak ) | Non Sterile Ambidextrous | Tersedia warna biru | Tersedia ukuran XS, S, M, L",
     },
     {
-        id: 86,
+        id: 87,
         title: "Blood Lancet",
         img: "/img/blood-lancet.png",
         kemenkes: "11603122510",
@@ -940,43 +948,142 @@ const bmhp = [
         spesifikasi:
             "Ukuran jarum 28G | Dilengkapi dengan pengaman jarum yang mudah dilepas ketika akan digunakan | Compatible dengan semua needle pen | 1 Box işi 100pcs",
     },
+    {
+        id: 88,
+        title: "AC Swab",
+        img: "/img/88.png",
+        kemenkes: "20903321959",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Ketebalan tissue 5 mil dengan ukuran 6cm x 3cm | Berbahan dasar kapas steril yang lembut | Komposisi Alkohol ( Ethanol 70% ) dan Chlorhexidine gluconate 2%",
+    },
+    {
+        id: 89,
+        title: "Nasal Cannula Oksigen",
+        img: "/img/89.png",
+        kemenkes: "10403122557",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Selang terbuat dari bahan PVC medical grade yang lunak sehingga nyaman selama pemakaian | Panjang selang 175cm, sangat fleksibel untuk pergerakan pasien | Nasal tip yang lunak tidak menyebabkan iritasi lubang hidung selama pemakaian | Desain selang non kinky sehingga oksigen tetap mengalir walaupun selang dalam kondisi tertekuk | Tersedia untuk dewasa, anak-anak dan bayi",
+    },
+    {
+        id: 90,
+        title: "Oksigen Mask Rebreathing",
+        img: "/img/90.png",
+        kemenkes: "10403910188",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Selang terbuat dari bahan PVC medical grade yang lunak sehingga nyaman selama pemakaian | Panjang selang 180cm, sangat fleksibel untuk pergerakan pasien | Desain non kinky sehingga oksigen tetap mengalir walaupun selang dalam kondisi tertekuk | Sungkup dengan Nose Bridge untuk mengatur posisi sungkup agar lebih pas saat dikenakan di wajah, dilengkapi dengan tali pengikat yang bisa diatur | Tersedia untuk dewasa, anak-anak dan bayi",
+    },
+    {
+        id: 91,
+        title: "Oksigen Mask Non Rebreathing",
+        img: "/img/91.png",
+        kemenkes: "10403910188",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Selang terbuat dari bahan PVC medical grade yang lunak sehingga nyaman selama pemakaian | Panjang selang 180cm, sangat fleksibel untuk pergerakan pasien | Kantong berbahan lembut dan kuat | Desain selang non kinky sehingga oksigen tetap mengalir walaupun selang dalam kondisi tertekuk | Katup satu arah yang berfungsi secara sempurna | Sungkup berbahan silicon dengan Nose Bridge untuk mengatur posisi sungkup agar lebih pas saat dikenakan di wajah, dilengkapi dengan tali pengikat yang bisa diatur | Tersedia untuk dewasa, anak-anak dan bayi",
+    },
+    {
+        id: 92,
+        title: "Nebulizer Mask",
+        img: "/img/92.png",
+        kemenkes: "20403220846",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Selang terbuat dari bahan PVC medical grade yang lunak sehingga nyaman selama pemakaian | Panjang selang 180cm, sangat fleksibel untuk pergerakan pasien | Gelas obat model segitiga ( sungkup ), yang menghasilkan uap lebih cepat dan pekat | Standar ukuran partikel 0,5 - 1 micron | Bisa dipakai pasien dalam posisi horizontal",
+    },
+    {
+        id: 93,
+        title: "Suction Connecting Tube",
+        img: "/img/93.png",
+        kemenkes: "20903020169",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Dibuat dari bahan PVC medical grade yang lunak dan tidak kaku sehingga nyaman selama pemakaian | Panjang 3 meter untuk keleluasaan pemakaian | Terdapat connector jika diperlukan untuk menyambung selang | Produk tersedia dalam kemasan steril | Terdapat pilihan dengan atau tanpa Yankauer",
+    },
+    {
+        id: 94,
+        title: "Blood Transfusion Set",
+        img: "/img/94.png",
+        kemenkes: "20902911129",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Spike tajam yang kuat dan tidak mudah patah | Panjang selang 168cm untuk keleluasaan pemakaian | Dinding tubing tebal dan fleksibel sehingga tidak mudah terlipat dan menjaga akurasi tetesan | Chamber transparan, mudah untuk memantau cairan | Filter 0,5 mikron yang terlindungi oleh chamber keras untuk patient safety | Roller clamp yang kokoh menjamin akurasi tetesan hingga akhir terapi cairan",
+    },
+    {
+        id: 95,
+        title: "Infus Set Pediatric ( Anak-anak )",
+        img: "/img/95.png",
+        kemenkes: "20902220592",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Spike tajam yang kuat dan tidak mudah patah | Panjang selang 180cm untuk keleluasaan pemakaian | Dinding tube tebal dan fleksibel sehingga tidak mudah terlipat serta menjaga akurasi tetesan | Gelembung udara mudah dikeluarkan dari tubing | Roller Clamp kokoh menjamin akurasi tetesan hingga akhir terapi cairan | Y-Injection port dengan media injection yang tebal sehingga tidak terjadi kebocoran walaupun ditusuk berulang kali | Air vent dengan filter 0,2 mikron yang berfungsi untuk menyaring bakteri/mikroorganisme pada saat pemakaian botol kaca",
+    },
 ];
 
 const lab = [
     {
-        id: 87,
+        id: 88,
         title: "Centrifuge 12 Holes",
         img: "/img/lab1.png",
-        kemenkes: "-",
+        kemenkes: "20501220252",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
         spesifikasi:
-            "TIPE : N3CFG-12H | KLASIFIKASI : KELAS I | PROTEKSI : IPXO | RANGKA UTAMA : Terbuat dari bahan plate besi | ROTOR ADAPTER : Terbuat dari bahan cor aluminiu | KAKI : 4 dop kaki dari karet | FINISHING : Cat powder coating | KECEPATAN PUTAR : 0-5500rpm | KAPASITAS TABUNG : 12 tabung (5, 10 dan 15ml) | SUMBER LISTRIK : 220V-240 AC | FREKUENSI : 50/60 Hz | UKURAN : (P x L x T) (300mm x 420mm x 330mm) | Time Control | Speed Control | Lid Lock | Switch ON/OFF | 12 Botol (5,10 dan 15ml) | 5 dop kaki karet",
+            "TIPE : N3CFG-12H | KLASIFIKASI : KELAS I | PROTEKSI : IPXO | RANGKA UTAMA : Terbuat dari bahan plate besi | ROTOR ADAPTER : Terbuat dari bahan cor aluminiu | KAKI : 4 dop kaki dari karet | FINISHING : Cat powder coating | KECEPATAN PUTAR : 0-5500rpm | KAPASITAS TABUNG : 12 tabung (5, 10 dan 15ml) | SUMBER LISTRIK : 220V-240 AC | FREKUENSI : 50/60 Hz | UKURAN : (P x L x T) (300mm x 420mm x 330mm) | Time Control | Speed Control | Lid Lock | Switch ON/OFF | 12 Botol (5,10 dan 15ml) | 4 dop kaki karet",
     },
     {
-        id: 88,
-        title: "Bio Safety Cabinet",
+        id: 89,
+        title: "Biological Safety Cabinet",
         img: "/img/lab2.png",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
         spesifikasi:
-            "Dimensi (P x L x T) (120x70x180 cm) | (P x L x T) (100x70x180 cm) | (P x L x T) (80x70x180 cm) | Sirkulasi udara 70%, Exhaust udara 30% | Pintu sliding Vertikal (Tempered glass 5 MM) | Heppa Filter 99,9% Efisien 0,3 μL | Kecepatan udara naik 0,53 +/- 0,025 M/S, Udara turun 0,33 +/- 0,025 M/S | Lampu UV 18 Watt, Ilumination Led 8 Watt, Ilumination 1000 Lux Display LCD | Tinggi permukaan kerja 750 MM Tinggi aman jendela 200 MM, Maksimum terbuka 370 MM | Sistem Alarm (Audio visual alarm) | Power supply 220 Volt +/- 10%, 60/50 Hz | Level Noise/Kebisingan +/- 61 Db | Material Cabinet plat MS dengan Cat Powder Coating | Material ruang kerja atas Stainless Steel India Gilap 1 MM | Material ruang kerja bawah Stainless Steel BA 3041 MM | Material jendela depan tempered glass 5 MM | Material jendela samping Acrylic Glossy 5 MM",
+            "Dimensi (P x L x T) (120 x 70 x 180 cm) | (P x L x T) (100 x 70 x 180 cm) | (P x L x T) (80 x 70 x 180 cm) | Sirkulasi udara 70%, Exhaust udara 30% | Pintu sliding Vertikal (Tempered glass 5 MM) | Heppa Filter 99,9% Efisien 0,3 μL | Kecepatan udara naik 0,53 +/- 0,025 M/S, Udara turun 0,33 +/- 0,025 M/S | Lampu UV 18 Watt, Ilumination Led 8 Watt, Ilumination 1000 Lux Display LCD | Tinggi permukaan kerja 750 MM Tinggi aman jendela 200 MM, Maksimum terbuka 370 MM | Sistem Alarm (Audio visual alarm) | Power supply 220 Volt +/- 10%, 60/50 Hz | Level Noise/Kebisingan +/- 61 Db | Material Cabinet plat MS dengan Cat Powder Coating | Material ruang kerja atas Stainless Steel India Gilap 1 MM | Material ruang kerja bawah Stainless Steel BA 3041 MM | Material jendela depan tempered glass 5 MM | Material jendela samping Acrylic Glossy 5 MM",
     },
     {
-        id: 89,
+        id: 90,
         title: "Laminar Air Flow",
         img: "/img/lab3.png",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
         spesifikasi:
-            "Dimensi (P x L x T) 100x75x185 cm) | Pengelasan TIG & MIG | Lampu penerangan 10 watt 2 titik | Blower atas dan blower bawah | Acrylic doff 5 mm | Body plat MS ketebalan 1,4 & 1,6 mm | Finishing cat powder coating",
+            "Dimensi (P x L x T) (100 x 75 x 185 cm) | Pengelasan TIG & MIG | Lampu penerangan 10 watt 2 titik | Blower atas dan blower bawah | Acrylic doff 5 mm | Body plat MS ketebalan 1,4 & 1,6 mm | Finishing cat powder coating",
     },
     {
-        id: 90,
+        id: 91,
         title: "Alat Gluco",
         img: "/img/gluco.png",
+    },
+    {
+        id: 92,
+        title: "Otto Track Control Unit",
+        img: "/img/otto.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Dimensi ( P x L x T ) ( 350 x 300 x 320 mm ) | Berat +/- 20 Kg | Recoil ( Yes ) | Voltage supply 220 V/50 Hz | Power 60 watt | Display TFT LCD 5,0” Full color | Tarikan maksimum 80 Kg | Mode Intermitten & Statis | Setting hold 1 - 80 Kg | Setting rest 1 - 60 Menit | Timer hold 1 - 60 Detik | Timer rest 1 - 60 Detik | Speed control ( Akselerasi - Deselerasi otomatis ) | Fuse motor 5 ampere | Remote control ( untuk mengatur tinggi secara otomatis )",
+    },{
+        id: 93,
+        title: "Electric Tens Stimulator",
+        img: "/img/lab3.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Alat terapi untuk menghantarkan sinyal listrik yang merangsang syaraf agar mengirim sinyal ke otak untuk menghambat rasa sakit | Listrik dari alat ini akan memicu syaraf agar memproduksi endofin, agar menghambat persepsi terhadap rasa sakit | Metode ini sering digunakan untuk masalah tulang, otot, sendi dan sakit pinggang",
     },
 ];
 
