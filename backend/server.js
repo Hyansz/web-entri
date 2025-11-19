@@ -1032,7 +1032,7 @@ const bmhp = [
 
 const lab = [
     {
-        id: 88,
+        id: 96,
         title: "Centrifuge 12 Holes",
         img: "/img/lab1.png",
         kemenkes: "20501220252",
@@ -1042,7 +1042,7 @@ const lab = [
             "TIPE : N3CFG-12H | KLASIFIKASI : KELAS I | PROTEKSI : IPXO | RANGKA UTAMA : Terbuat dari bahan plate besi | ROTOR ADAPTER : Terbuat dari bahan cor aluminiu | KAKI : 4 dop kaki dari karet | FINISHING : Cat powder coating | KECEPATAN PUTAR : 0-5500rpm | KAPASITAS TABUNG : 12 tabung (5, 10 dan 15ml) | SUMBER LISTRIK : 220V-240 AC | FREKUENSI : 50/60 Hz | UKURAN : (P x L x T) (300mm x 420mm x 330mm) | Time Control | Speed Control | Lid Lock | Switch ON/OFF | 12 Botol (5,10 dan 15ml) | 4 dop kaki karet",
     },
     {
-        id: 89,
+        id: 97,
         title: "Biological Safety Cabinet",
         img: "/img/lab2.png",
         kemenkes: "-",
@@ -1052,7 +1052,7 @@ const lab = [
             "Dimensi (P x L x T) (120 x 70 x 180 cm) | (P x L x T) (100 x 70 x 180 cm) | (P x L x T) (80 x 70 x 180 cm) | Sirkulasi udara 70%, Exhaust udara 30% | Pintu sliding Vertikal (Tempered glass 5 MM) | Heppa Filter 99,9% Efisien 0,3 μL | Kecepatan udara naik 0,53 +/- 0,025 M/S, Udara turun 0,33 +/- 0,025 M/S | Lampu UV 18 Watt, Ilumination Led 8 Watt, Ilumination 1000 Lux Display LCD | Tinggi permukaan kerja 750 MM Tinggi aman jendela 200 MM, Maksimum terbuka 370 MM | Sistem Alarm (Audio visual alarm) | Power supply 220 Volt +/- 10%, 60/50 Hz | Level Noise/Kebisingan +/- 61 Db | Material Cabinet plat MS dengan Cat Powder Coating | Material ruang kerja atas Stainless Steel India Gilap 1 MM | Material ruang kerja bawah Stainless Steel BA 3041 MM | Material jendela depan tempered glass 5 MM | Material jendela samping Acrylic Glossy 5 MM",
     },
     {
-        id: 90,
+        id: 98,
         title: "Laminar Air Flow",
         img: "/img/lab3.png",
         kemenkes: "-",
@@ -1062,12 +1062,12 @@ const lab = [
             "Dimensi (P x L x T) (100 x 75 x 185 cm) | Pengelasan TIG & MIG | Lampu penerangan 10 watt 2 titik | Blower atas dan blower bawah | Acrylic doff 5 mm | Body plat MS ketebalan 1,4 & 1,6 mm | Finishing cat powder coating",
     },
     {
-        id: 91,
+        id: 99,
         title: "Alat Gluco",
         img: "/img/gluco.png",
     },
     {
-        id: 92,
+        id: 100,
         title: "Otto Track Control Unit",
         img: "/img/otto.png",
         kemenkes: "-",
@@ -1076,7 +1076,7 @@ const lab = [
         spesifikasi:
             "Dimensi ( P x L x T ) ( 350 x 300 x 320 mm ) | Berat +/- 20 Kg | Recoil ( Yes ) | Voltage supply 220 V/50 Hz | Power 60 watt | Display TFT LCD 5,0” Full color | Tarikan maksimum 80 Kg | Mode Intermitten & Statis | Setting hold 1 - 80 Kg | Setting rest 1 - 60 Menit | Timer hold 1 - 60 Detik | Timer rest 1 - 60 Detik | Speed control ( Akselerasi - Deselerasi otomatis ) | Fuse motor 5 ampere | Remote control ( untuk mengatur tinggi secara otomatis )",
     },{
-        id: 93,
+        id: 101,
         title: "Electric Tens Stimulator",
         img: "/img/lab3.png",
         kemenkes: "-",
