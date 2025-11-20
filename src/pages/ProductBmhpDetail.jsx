@@ -22,6 +22,10 @@ export default function ProductBmhpDetail() {
         ? product.spesifikasi.split("|").map((s) => s.trim())
         : [];
 
+    const showSpekSection =
+        (product.spesifikasi && spesifikasiList.length > 0) ||
+        (product.spek && product.spek !== "");
+
     return (
         <div>
             <div className="h-18.5 bg-cyan-700"></div>
@@ -79,14 +83,35 @@ export default function ProductBmhpDetail() {
                         </tbody>
                     </table>
 
-                    <div className="text-base font-medium text-black mt-2 mb-6">
-                        <p>Spesifikasi :</p>
-                        <ul className="list-disc text-sm ml-6 mt-2 text-cyan-800">
-                            {spesifikasiList.map((item, index) => (
-                                <li key={index}>{item}</li>
-                            ))}
-                        </ul>
-                    </div>
+                    {showSpekSection && (
+                        <div className="text-base font-medium text-black mt-2 mb-6">
+                            {/* Jika SPESIFIKASI TEXT ADA */}
+                            {product.spesifikasi &&
+                                spesifikasiList.length > 0 && (
+                                    <>
+                                        <p>Spesifikasi :</p>
+                                        <ul className="list-disc text-sm ml-6 mt-2 text-cyan-800">
+                                            {spesifikasiList.map(
+                                                (item, index) => (
+                                                    <li key={index}>{item}</li>
+                                                )
+                                            )}
+                                        </ul>
+                                    </>
+                                )}
+
+                            {/* Jika GAMBAR SPEK ADA */}
+                            {product.spek && (
+                                <div className="mt-4">
+                                    <img
+                                        src={product.spek}
+                                        alt="Spesifikasi Produk"
+                                        className="rounded-xl shadow-md"
+                                    />
+                                </div>
+                            )}
+                        </div>
+                    )}
 
                     <div>
                         <a

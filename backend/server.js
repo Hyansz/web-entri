@@ -855,7 +855,8 @@ const liquid = [
         kemenkes: "20309320366",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
-        spesifikasi: "Mengandung Chlorhexidine Gluconate 4% | Sebagai anti mikroba baik gram positif maupun gram negatif | Bersifat lembut di kulit | Tersedia dalam kemasan 500ml, 5 Liter dan 20 Liter",
+        spesifikasi:
+            "Mengandung Chlorhexidine Gluconate 4% | Sebagai anti mikroba baik gram positif maupun gram negatif | Bersifat lembut di kulit | Tersedia dalam kemasan 500ml, 5 Liter dan 20 Liter",
     },
     {
         id: 79,
@@ -864,7 +865,8 @@ const liquid = [
         kemenkes: "20309320366",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
-        spesifikasi: "Mengandung povidone iodine 10% | Efektif mensterilkan area pada tubuh yang akan dilakukan operasi | Bisa diencerkan untuk tujuan penggunaan yang lebih spesifik ( kumur ) | Tersedia dalam kemasan 15ml, 30ml, 60ml dan 1 Liter",
+        spesifikasi:
+            "Mengandung povidone iodine 10% | Efektif mensterilkan area pada tubuh yang akan dilakukan operasi | Bisa diencerkan untuk tujuan penggunaan yang lebih spesifik ( kumur ) | Tersedia dalam kemasan 15ml, 30ml, 60ml dan 1 Liter",
     },
 ];
 
@@ -886,7 +888,8 @@ const bmhp = [
         kemenkes: "11402021032",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
-        spesifikasi: "Terbuat dari bahan yang elastis, fleksibel dan lembut dengan velcro perekat dan | tali pengait untuk mengatur kekencangan | Tersedia 2 varian : | - Korset Double Side Pull Lumbal Sacral Supporter ( Sebatas pinggang ) | - Korset Thoraco Lumbo Sacral Orthosis ( Panjang dari punggung ke pinggang ) | Tersedia bahan standar dan premium",
+        spesifikasi:
+            "Terbuat dari bahan yang elastis, fleksibel dan lembut dengan velcro perekat dan | tali pengait untuk mengatur kekencangan | Tersedia 2 varian : | - Korset Double Side Pull Lumbal Sacral Supporter ( Sebatas pinggang ) | - Korset Thoraco Lumbo Sacral Orthosis ( Panjang dari punggung ke pinggang ) | Tersedia bahan standar dan premium",
     },
     {
         id: 82,
@@ -1028,11 +1031,216 @@ const bmhp = [
         spesifikasi:
             "Spike tajam yang kuat dan tidak mudah patah | Panjang selang 180cm untuk keleluasaan pemakaian | Dinding tube tebal dan fleksibel sehingga tidak mudah terlipat serta menjaga akurasi tetesan | Gelembung udara mudah dikeluarkan dari tubing | Roller Clamp kokoh menjamin akurasi tetesan hingga akhir terapi cairan | Y-Injection port dengan media injection yang tebal sehingga tidak terjadi kebocoran walaupun ditusuk berulang kali | Air vent dengan filter 0,2 mikron yang berfungsi untuk menyaring bakteri/mikroorganisme pada saat pemakaian botol kaca",
     },
+    {
+        id: 96,
+        title: "Infus Set Macro ( Dewasa )",
+        img: "/img/macro.png",
+        kemenkes: "20902810576",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Spike tajam yang kuat dan tidak mudah patah | Dengan panjang selang 180cm untuk keleluasaan pemakaian | Dinding tube tebal dan fleksibel sehingga tidak mudah terlipat serta menjaga akurasi tetesan | Gelembung udara mudah dikeluarkan dari tubing | Roller Clamp kokoh menjamin akurasi tetesan hingga akhir terapi cairan | Y-Injection port dengan media injection yang tebal sehingga tidak terjadi kebocoran walaupun ditusuk berulang kali | Air vent dengan filter 0,2 mikron yang berfungsi untuk menyaring bakteri/mikroorganisme pada saat pemakaian botol kaca",
+    },
+    {
+        id: 97,
+        title: "IV Catheter",
+        img: "/img/IV.png",
+        kemenkes: "20902220086",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Canula terbuat dari bahan thermoplastic polyurethane, aman dan nyaman | Body terbuat dari bahan MABS transparan, memudahkan saat memantau proses injeksi | Kemasan berbahan soft blister dengan tehnik sterilisasi EO | Model pen tanpa injection port | Tutup jarum yang dapat dikunci untuk safety | Tersedia ukuran 18G, 20G, 22G dan 24G",
+    },
+    {
+        id: 98,
+        title: "IV Catheter With Wing",
+        img: "/img/IVwings.png",
+        kemenkes: "20902322947",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Canula terbuat dari bahan thermoplastic polyurethane, aman dan nyaman | Body terbuat dari bahan MABS transparan, memudahkan saat memantau proses injeksi | Kemasan berbahan soft blister dengan tehnik sterilisasi EO | Model pen dengan injection port | Tutup jarum yang dapat dikunci untuk safety | Tersedia ukuran 18G, 20G, 22G dan 24G",
+    },
+    {
+        id: 99,
+        title: "Disposable Syringe",
+        img: "/img/dispo.png",
+        kemenkes: "20902420291",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Body terbuat dari bahan PP yang kuat | Material gasket terbuat dari Styrene Butadiene Rubber | Ujung Needle dibuat dengan tehnik pemotongan 3 tapper cut untuk mengurangi rasa sakit atau nyeri | Tersedia dalam scale line 1ml, 3ml, 5ml dan 10ml | Disterilisasi dengan tehnik Etylane Oxyde | Kemasan 100pcs per Inner ( 1ml, 3ml, 5ml dan 10ml )",
+    },
+    {
+        id: 100,
+        title: "Urine Bag",
+        img: "/img/ubag.png",
+        kemenkes: "10805122551",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Terbuat dari bahan berkualitas sehingga kuat dan anti bocor | Dilengkapi dengan anti reflux pada saluran masuk sehingga cairan tidak mengalir kembali | Kapasitas 2.000ml dengan skala ukur sehingga mudah untuk melakukan pemantauan | Desain pembuangan model T-Valve untuk kemudahan dan keamanan | Tersedia pilihan dengan atau tanpa Hanger ( penggantung )",
+    },
+    {
+        id: 101,
+        title: "Sample Container",
+        img: "/img/sample.png",
+        kemenkes: "10203020209",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Body terbuat dari bahan PP yang tebal dan kuat | Tutup terbuat dari bahan HDPE dengan ulir jumlah 4 sehingga lebih aman | Dilengkapi dengan label yang tahan air | Tersedia pilihan Sterile dan Non-sterile | Kapasitas 60ml",
+    },
+    {
+        id: 102,
+        title: "Nurse Cap",
+        img: "/img/nucap.png",
+        kemenkes: "11803022515",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Terbuat dari bahan spunbond yang anti air | Material lembut sehingga nyaman ketika dipakai | Karet penahan yang nyaman saat medical nurse cap dipakai | Packaging yang simpel dan rapi",
+    },
+    {
+        id: 103,
+        title: "Safety Box",
+        img: "/img/safetybox.png",
+        kemenkes: "20903020657",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Terbuat dari bahan kardus tebal yang sesuai standar WHO | Terdapat pengaman tambahan didalam box, berupa kertas tebal dengan lapisan lilin sehingga anti bocor | Kuat dan aman untuk menampung limbah medis yang tajam dan berbahaya | Kapasitas 2,5Lt, 5Lt dan 12,5Lt",
+    },
+    {
+        id: 104,
+        title: "Packing Bag",
+        img: "/img/pbag.png",
+        kemenkes: "-",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Terbuat dari bahan LDPE yang fleksibel, tahan bahan kimia dan kedap air | Bahan yang kuat dengan ketebalan 6 mil | Tersedia ukuran 60cm x 90cm dan 90cmx120cm | Warna kuning",
+    },
+    {
+        id: 105,
+        title: "Latex Examination Gloves",
+        img: "/img/latex.png",
+        kemenkes: "10903220211",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Terbuat dari bahan latex dengan ketebalan 5 mil | Tersedia varian Powdered ( berbedak ) dan Non Powdered ( tidak berbedak ) | Non Sterile Ambidextrous | Tersedia ukuran XS, S, M, L",
+    },
+    {
+        id: 106,
+        title: "Supreme Examination Gloves",
+        img: "/img/supreme.png",
+        kemenkes: "10903221335",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Sarung tangan berbahan latex premium dengan elastisitas tinggi | Hanya tersedia varian powdered ( berbedak ) | Non Sterile Ambidestrous | Sensitifitas tinggi pada jari saat dipakai",
+    },
+    {
+        id: 107,
+        title: "Surgical Gloves Steril",
+        img: "/img/sgs.png",
+        kemenkes: "11603120881",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Ketebalan bahan 6.5 mil | Sarung tangan latex dengan elastisitas tinggi | Desain curve yang membuat tangan atau jari tidak mudah lelah | Aman dari reaksi setrum saat menggunakan alat medis dengan sumber tenaga listrik | Sensitifitas tinggi pada jari saat dipakai",
+    },
+    {
+        id: 108,
+        title: "Gloves Obgyn",
+        img: "/img/go.png",
+        kemenkes: "10903120672",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Sarung tangan latex dengan elastisitas tinggi | Panjang +/- 56cm, melindungi tangan sampai diatas siku | Sensitifitas tinggi pada jari saat dipakai",
+    },
+    {
+        id: 109,
+        title: "Apron Plastik",
+        img: "/img/ap.png",
+        kemenkes: "11603220138",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Terbuat dari bahan LDPE ( Low Density Polyethylene ) terbaik dengan ketebalan 30 micron | Bahan yang mampu melindungi badan dari percikan partikel dan cairan secara maksimal | Bisa digunakan untuk kegiatan medis dan non-medis | Panjang bawah sampai menutupi lutut | Tersedia varian lengan pendek dan panjang",
+    },
+    {
+        id: 110,
+        title: "Surgical Gown",
+        img: "/img/ap.png",
+        kemenkes: "21603022374",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Diproduksi dengan tehnik Non Woven | Bahan yang mampu melindungi badan dari percikan partikel dan cairan secara maksimal | Lengan elastis dan terdapat tali pada bagian belakang leher dan pinggang | Tersedia ukuran All Size",
+    },
+    {
+        id: 111,
+        title: "Coverall PP & PPL",
+        img: "/img/cp.png",
+        kemenkes: "21603020447",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi:
+            "Berbahan Polypropylene dan diproduksi dengan tehnik Non Woven | Non Woven laminasi berbentuk serat yang terikat dan tersusun secara kuat melalui proses kimiawi | Bahan yang mampu melindungi badan dari percikan partikel dan cairan secara maksimal | Ringan dan nyaman saat dipakai | Tersedia dalam ukuran All Size",
+    },
+    {
+        id: 112,
+        title: "Hemodialisis Pack",
+        img: "/img/hp.png",
+        kemenkes: "20805021050",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spek: "/img/spek.png",
+    },
+    {
+        id: 113,
+        title: "Kasa Lipat",
+        img: "/img/kl.png",
+        kemenkes: "11603223067",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi: "Varian Non Sterile | Model lipat dalam | Size 1 : 4cm x 4cm, 4cm x 11cm, 5cm x 5cm, 5cm x 7cm | Size 2 : 5cm x 12cm, 6cm x 6cm, 7cm x 13cm, 8cm x 7cm | Size 3 : 7.5cm x 7.5cm, 8cm x 10cm, 10cm x 10cm, 10cm x 12cm | 1 Pack isi 50pcs",
+    },
+    {
+        id: 114,
+        title: "Kasa Hidrophyl",
+        img: "/img/kh.png",
+        kemenkes: "11603810931",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi: "Tersedia varian Non Sterile | Merah terbuat dari bahan full cotton | Biru terbuat dari bahan mix | Mempunyai ukuran 40Y x 80cm | Bisa dipotong sesuai dengan ukuran yang dibutuhkan | Minim residu dan debu",
+    },
+    {
+        id: 115,
+        title: "Kasa Perban",
+        img: "/img/kp.png",
+        kemenkes: "11603810931",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi: "Tersedia varian Non Steril | Tersedia ukuran 2.5Y x 5cm, 2.5Y x 10cm, 2.5Y x 15cm | Setiap 1 pack berisi 50 roll",
+    },
+    {
+        id: 116,
+        title: "Razor",
+        img: "/img/razor.png",
+        kemenkes: "11603810931",
+        merk: "N3",
+        lokasi: "Surakarta, Indonesia",
+        spesifikasi: "Dua sisi mata pisau berbahan stainless steel yang tajam dan berkualitas | Dilengkapi dengan pelindung agar kualitas mata pisau tetap tajam | Dirancang dengan fitur pengaman agar nyaman dan aman saat dipakai | Panjang handle 88mm dan terbuat dari bahan plastik berkualitas",
+    },
 ];
 
 const lab = [
     {
-        id: 96,
+        id: 117,
         title: "Centrifuge 12 Holes",
         img: "/img/lab1.png",
         kemenkes: "20501220252",
@@ -1042,7 +1250,7 @@ const lab = [
             "TIPE : N3CFG-12H | KLASIFIKASI : KELAS I | PROTEKSI : IPXO | RANGKA UTAMA : Terbuat dari bahan plate besi | ROTOR ADAPTER : Terbuat dari bahan cor aluminiu | KAKI : 4 dop kaki dari karet | FINISHING : Cat powder coating | KECEPATAN PUTAR : 0-5500rpm | KAPASITAS TABUNG : 12 tabung (5, 10 dan 15ml) | SUMBER LISTRIK : 220V-240 AC | FREKUENSI : 50/60 Hz | UKURAN : (P x L x T) (300mm x 420mm x 330mm) | Time Control | Speed Control | Lid Lock | Switch ON/OFF | 12 Botol (5,10 dan 15ml) | 4 dop kaki karet",
     },
     {
-        id: 97,
+        id: 118,
         title: "Biological Safety Cabinet",
         img: "/img/lab2.png",
         kemenkes: "-",
@@ -1052,7 +1260,7 @@ const lab = [
             "Dimensi (P x L x T) (120 x 70 x 180 cm) | (P x L x T) (100 x 70 x 180 cm) | (P x L x T) (80 x 70 x 180 cm) | Sirkulasi udara 70%, Exhaust udara 30% | Pintu sliding Vertikal (Tempered glass 5 MM) | Heppa Filter 99,9% Efisien 0,3 μL | Kecepatan udara naik 0,53 +/- 0,025 M/S, Udara turun 0,33 +/- 0,025 M/S | Lampu UV 18 Watt, Ilumination Led 8 Watt, Ilumination 1000 Lux Display LCD | Tinggi permukaan kerja 750 MM Tinggi aman jendela 200 MM, Maksimum terbuka 370 MM | Sistem Alarm (Audio visual alarm) | Power supply 220 Volt +/- 10%, 60/50 Hz | Level Noise/Kebisingan +/- 61 Db | Material Cabinet plat MS dengan Cat Powder Coating | Material ruang kerja atas Stainless Steel India Gilap 1 MM | Material ruang kerja bawah Stainless Steel BA 3041 MM | Material jendela depan tempered glass 5 MM | Material jendela samping Acrylic Glossy 5 MM",
     },
     {
-        id: 98,
+        id: 119,
         title: "Laminar Air Flow",
         img: "/img/lab3.png",
         kemenkes: "-",
@@ -1062,12 +1270,12 @@ const lab = [
             "Dimensi (P x L x T) (100 x 75 x 185 cm) | Pengelasan TIG & MIG | Lampu penerangan 10 watt 2 titik | Blower atas dan blower bawah | Acrylic doff 5 mm | Body plat MS ketebalan 1,4 & 1,6 mm | Finishing cat powder coating",
     },
     {
-        id: 99,
+        id: 120,
         title: "Alat Gluco",
         img: "/img/gluco.png",
     },
     {
-        id: 100,
+        id: 121,
         title: "Otto Track Control Unit",
         img: "/img/otto.png",
         kemenkes: "-",
@@ -1075,8 +1283,9 @@ const lab = [
         lokasi: "Surakarta, Indonesia",
         spesifikasi:
             "Dimensi ( P x L x T ) ( 350 x 300 x 320 mm ) | Berat +/- 20 Kg | Recoil ( Yes ) | Voltage supply 220 V/50 Hz | Power 60 watt | Display TFT LCD 5,0” Full color | Tarikan maksimum 80 Kg | Mode Intermitten & Statis | Setting hold 1 - 80 Kg | Setting rest 1 - 60 Menit | Timer hold 1 - 60 Detik | Timer rest 1 - 60 Detik | Speed control ( Akselerasi - Deselerasi otomatis ) | Fuse motor 5 ampere | Remote control ( untuk mengatur tinggi secara otomatis )",
-    },{
-        id: 101,
+    },
+    {
+        id: 122,
         title: "Electric Tens Stimulator",
         img: "/img/lab3.png",
         kemenkes: "-",
@@ -1397,7 +1606,6 @@ app.get("/api/lab/:id", (req, res) => {
 
     res.json(item);
 });
-
 
 app.post("/send-email", upload.single("photo"), async (req, res) => {
     try {

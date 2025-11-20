@@ -146,7 +146,13 @@ export default function ProductLab() {
                                 {[...Array(totalPages)].map((_, i) => (
                                     <button
                                         key={i}
-                                        onClick={() => setPage(i + 1)}
+                                        onClick={() => {
+                                            setPage(i + 1);
+                                            window.scrollTo({
+                                                top: 0,
+                                                behavior: "smooth",
+                                            });
+                                        }}
                                         className={`px-4 py-2 cursor-pointer rounded ${
                                             page === i + 1
                                                 ? "bg-cyan-800 text-white"

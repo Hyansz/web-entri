@@ -444,22 +444,22 @@ export default function Home() {
                         >
                             {[
                                 {
-                                    id: 96,
+                                    id: 117,
                                     img: "./img/lab1.png",
                                     title: "Centrifuge 12 Holes",
                                 },
                                 {
-                                    id: 97,
+                                    id: 118,
                                     img: "./img/lab2.png",
                                     title: "Bio Safety Cabinet",
                                 },
                                 {
-                                    id: 98,
+                                    id: 119,
                                     img: "./img/lab3.png",
                                     title: "Laminar Air Flow",
                                 },
                                 {
-                                    id: 99,
+                                    id: 120,
                                     img: "./img/gluco.png",
                                     title: "Alat Gluco",
                                 },

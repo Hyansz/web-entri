@@ -12,7 +12,8 @@ export default function EducationVideo() {
     const { t, i18n } = useTranslation();
 
     // Gunakan base URL dinamis agar bisa otomatis menyesuaikan saat deploy
-    const API_BASE = import.meta.env.VITE_API_URL || "https://web-entri.onrender.com";
+    const API_BASE =
+        import.meta.env.VITE_API_URL || "https://web-entri.onrender.com";
 
     useEffect(() => {
         const fetchVideos = async () => {
@@ -135,7 +136,13 @@ export default function EducationVideo() {
                                 {Array.from({ length: totalPages }, (_, i) => (
                                     <button
                                         key={i}
-                                        onClick={() => setPage(i + 1)}
+                                        onClick={() => {
+                                            setPage(i + 1);
+                                            window.scrollTo({
+                                                top: 0,
+                                                behavior: "smooth",
+                                            });
+                                        }}
                                         className={`px-4 py-2 rounded cursor-pointer ${
                                             page === i + 1
                                                 ? "bg-cyan-800 text-white"

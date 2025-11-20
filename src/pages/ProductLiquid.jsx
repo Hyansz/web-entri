@@ -12,7 +12,9 @@ export default function ProductLiquid() {
 
     useEffect(() => {
         setStatus("loading");
-        fetch(`https://web-entri.onrender.com/api/liquid?page=${page}&limit=${limit}`)
+        fetch(
+            `https://web-entri.onrender.com/api/liquid?page=${page}&limit=${limit}`
+        )
             .then((res) => res.json())
             .then((data) => {
                 if (data.status === "empty") {
@@ -141,7 +143,13 @@ export default function ProductLiquid() {
                                 {[...Array(totalPages)].map((_, i) => (
                                     <button
                                         key={i}
-                                        onClick={() => setPage(i + 1)}
+                                        onClick={() => {
+                                            setPage(i + 1);
+                                            window.scrollTo({
+                                                top: 0,
+                                                behavior: "smooth",
+                                            });
+                                        }}
                                         className={`px-4 py-2 rounded cursor-pointer ${
                                             page === i + 1
                                                 ? "bg-cyan-800 text-white"

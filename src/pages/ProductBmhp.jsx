@@ -79,7 +79,7 @@ export default function ProductBmhp() {
                                 </h3>
 
                                 <Link
-                                    to={`/products/liquid/${p.id}`}
+                                    to={`/products/bmhp/${p.id}`}
                                     className="inline-block mt-auto px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
                                     onClick={() =>
                                         window.scrollTo({
@@ -107,7 +107,13 @@ export default function ProductBmhp() {
                         {[...Array(totalPages)].map((_, i) => (
                             <button
                                 key={i}
-                                onClick={() => setPage(i + 1)}
+                                onClick={() => {
+                                    setPage(i + 1);
+                                    window.scrollTo({
+                                        top: 0,
+                                        behavior: "smooth",
+                                    });
+                                }}
                                 className={`px-4 py-2 cursor-pointer rounded ${
                                     page === i + 1
                                         ? "bg-cyan-800 text-white"
