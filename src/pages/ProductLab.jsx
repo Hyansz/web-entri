@@ -58,7 +58,7 @@ export default function ProductLab() {
                 <section
                     className="h-[80vh] relative flex flex-col text-white bg-cover bg-no-repeat bg-center md:bg-right"
                     style={{
-                        backgroundImage: "url('/img/laborat.jpg')",
+                        backgroundImage: "url('/img/laborat.webp')",
                     }}
                 >
                     {/* Overlay */}

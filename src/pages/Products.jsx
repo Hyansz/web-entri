@@ -33,7 +33,7 @@ export default function Products() {
                 <section
                     className="h-[80vh] max-h-[700px] relative flex flex-col text-white bg-cover bg-no-repeat bg-right"
                     style={{
-                        backgroundImage: "url('/img/inventory.jpg')",
+                        backgroundImage: "url('/img/inventory.webp')",
                     }}
                 >
                     {/* Overlay */}
@@ -90,32 +90,32 @@ export default function Products() {
                             {[
                                 {
                                     id: 1,
-                                    img: "./img/bed1.png",
+                                    img: "./img/bed1.webp",
                                     title: "Hospital Bed Manual (1 Crank)",
                                 },
                                 {
                                     id: 11,
-                                    img: "./img/kursi-gigi.png",
+                                    img: "./img/kursi-gigi.webp",
                                     title: "Phlebotomy Chair",
                                 },
                                 {
                                     id: 12,
-                                    img: "./img/kasur-bayi1.png",
+                                    img: "./img/kasur-bayi1.webp",
                                     title: "Hospital Children Bed",
                                 },
                                 {
                                     id: 17,
-                                    img: "./img/lemari1.png",
+                                    img: "./img/lemari1.webp",
                                     title: "Instrumen Cabinet 2 Door Type 01",
                                 },
                                 {
                                     id: 5,
-                                    img: "./img/bed5.png",
+                                    img: "./img/bed5.webp",
                                     title: "Hospital Bed ICU",
                                 },
                                 {
                                     id: 6,
-                                    img: "./img/examin1.png",
+                                    img: "./img/examin1.webp",
                                     title: "Examine Bed SS",
                                 },
                             ].map((item, i) => (
@@ -185,22 +185,22 @@ export default function Products() {
                             {[
                                 {
                                     id: 71,
-                                    img: "./img/alkohol-full.png",
+                                    img: "./img/alkohol-full.webp",
                                     title: "Alkohol Antiseptik",
                                 },
                                 {
                                     id: 72,
-                                    img: "./img/hand-sanitizer.png",
+                                    img: "./img/hand-sanitizer.webp",
                                     title: "Hand Sanitizer",
                                 },
                                 {
                                     id: 74,
-                                    img: "./img/chlorhexidine.png",
+                                    img: "./img/chlorhexidine.webp",
                                     title: "Chlorhexidine",
                                 },
                                 {
                                     id: 75,
-                                    img: "./img/aquadest.png",
+                                    img: "./img/aquadest.webp",
                                     title: "Aquadest Water DM",
                                 },
                             ].map((item, i) => (
@@ -270,22 +270,22 @@ export default function Products() {
                             {[
                                 {
                                     id: 80,
-                                    img: "./img/masker1.png",
+                                    img: "./img/masker1.webp",
                                     title: "Surgical Facemask (Ear Loop)",
                                 },
                                 {
                                     id: 81,
-                                    img: "./img/korset.png",
+                                    img: "./img/korset.webp",
                                     title: "Korset",
                                 },
                                 {
                                     id: 82,
-                                    img: "./img/masker2.png",
+                                    img: "./img/masker2.webp",
                                     title: "Surgical Facemask (Head Loop)",
                                 },
                                 {
                                     id: 83,
-                                    img: "./img/alswab.png",
+                                    img: "./img/alswab.webp",
                                     title: "Alkohol Swab",
                                 },
                             ].map((item, i) => (
@@ -352,22 +352,22 @@ export default function Products() {
                             {[
                                 {
                                     id: 117,
-                                    img: "./img/lab1.png",
+                                    img: "./img/lab1.webp",
                                     title: "Centrifuge 12 Holes",
                                 },
                                 {
                                     id: 118,
-                                    img: "./img/lab2.png",
+                                    img: "./img/lab2.webp",
                                     title: "Bio Safety Cabinet",
                                 },
                                 {
                                     id: 119,
-                                    img: "./img/lab3.png",
+                                    img: "./img/lab3.webp",
                                     title: "Laminar Air Flow",
                                 },
                                 {
                                     id: 120,
-                                    img: "./img/gluco.png",
+                                    img: "./img/gluco.webp",
                                     title: "Alat Gluco",
                                 },
                             ].map((item, i) => (
@@ -433,23 +433,23 @@ export default function Products() {
                         >
                             {[
                                 {
-                                    img: "./img/motif1.png",
+                                    img: "./img/motif1.webp",
                                     title: "Motif Cutting 1",
                                 },
                                 {
-                                    img: "./img/motif2.png",
+                                    img: "./img/motif2.webp",
                                     title: "Motif Cutting 2",
                                 },
                                 {
-                                    img: "./img/motif3.png",
+                                    img: "./img/motif3.webp",
                                     title: "Motif Cutting 3",
                                 },
                                 {
-                                    img: "./img/motif4.png",
+                                    img: "./img/motif4.webp",
                                     title: "Motif Cutting 4",
                                 },
                                 {
-                                    img: "./img/motif5.png",
+                                    img: "./img/motif5.webp",
                                     title: "Motif Cutting 5",
                                 },
                             ].map((item, i) => (

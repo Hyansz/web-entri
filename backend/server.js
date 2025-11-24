@@ -51,7 +51,7 @@ const furniture = [
     {
         id: 1,
         title: "Hospital Bed Manual (1 Crank)",
-        img: "/img/bed1.png",
+        img: "/img/bed1.webp",
         kemenkes: "10902810773",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -61,7 +61,7 @@ const furniture = [
     {
         id: 2,
         title: "Hospital Bed Manual (2 Crank)",
-        img: "/img/bed2.png",
+        img: "/img/bed2.webp",
         kemenkes: "10902810701",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -71,7 +71,7 @@ const furniture = [
     {
         id: 3,
         title: "Hospital Bed Manual (3 Crank)",
-        img: "/img/bed3.png",
+        img: "/img/bed3.webp",
         kemenkes: "10902810520",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -81,7 +81,7 @@ const furniture = [
     {
         id: 4,
         title: "Hospital Bed Electric (3 Crank)",
-        img: "/img/bed4.png",
+        img: "/img/bed4.webp",
         kemenkes: "20902220453",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -91,7 +91,7 @@ const furniture = [
     {
         id: 5,
         title: "Hospital Bed ICU",
-        img: "/img/bed5.png",
+        img: "/img/bed5.webp",
         kemenkes: "10902810453",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -101,7 +101,7 @@ const furniture = [
     {
         id: 6,
         title: "Examine Bed SS",
-        img: "/img/examin1.png",
+        img: "/img/examin1.webp",
         kemenkes: "10903810837",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -111,7 +111,7 @@ const furniture = [
     {
         id: 7,
         title: "Examine Bed PC",
-        img: "/img/examin2.png",
+        img: "/img/examin2.webp",
         kemenkes: "10903810837",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -121,7 +121,7 @@ const furniture = [
     {
         id: 8,
         title: "Stretcher Type 01",
-        img: "/img/examin3.png",
+        img: "/img/examin3.webp",
         kemenkes: "10903810930",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -131,7 +131,7 @@ const furniture = [
     {
         id: 9,
         title: "Stretcher Type 02",
-        img: "/img/examin4.png",
+        img: "/img/examin4.webp",
         kemenkes: "10903810930",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -141,7 +141,7 @@ const furniture = [
     {
         id: 10,
         title: "Verlos Bed SS",
-        img: "/img/examin5.png",
+        img: "/img/examin5.webp",
         kemenkes: "21103810806",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -151,7 +151,7 @@ const furniture = [
     {
         id: 11,
         title: "Phlebotomy Chair",
-        img: "/img/kursi-gigi.png",
+        img: "/img/kursi-gigi.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -161,7 +161,7 @@ const furniture = [
     {
         id: 12,
         title: "Hospital Children Bed",
-        img: "/img/kasur-bayi1.png",
+        img: "/img/kasur-bayi1.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -171,7 +171,7 @@ const furniture = [
     {
         id: 13,
         title: "Baby Box",
-        img: "/img/kasur-bayi2.png",
+        img: "/img/kasur-bayi2.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -181,7 +181,7 @@ const furniture = [
     {
         id: 14,
         title: "Bed Side Cabinet Type 01",
-        img: "/img/bed-cabinet1.png",
+        img: "/img/bed-cabinet1.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -191,7 +191,7 @@ const furniture = [
     {
         id: 15,
         title: "Bed Side Cabinet Type 02",
-        img: "/img/bed-cabinet2.png",
+        img: "/img/bed-cabinet2.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -201,7 +201,7 @@ const furniture = [
     {
         id: 16,
         title: "Bed Side Cabinet Type 03",
-        img: "/img/bed-cabinet3.png",
+        img: "/img/bed-cabinet3.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -211,7 +211,7 @@ const furniture = [
     {
         id: 17,
         title: "Instrumen Cabinet 2 Door Type 01",
-        img: "/img/lemari1.png",
+        img: "/img/lemari1.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -221,7 +221,7 @@ const furniture = [
     {
         id: 18,
         title: "Instrumen Cabinet 2 Door Type 02",
-        img: "/img/lemari2.png",
+        img: "/img/lemari2.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -231,7 +231,7 @@ const furniture = [
     {
         id: 19,
         title: "Instrumen Cabinet 2 Door Type 03",
-        img: "/img/lemari3.png",
+        img: "/img/lemari3.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -241,7 +241,7 @@ const furniture = [
     {
         id: 20,
         title: "Instrumen Cabinet 2 Door Type 04",
-        img: "/img/lemari4.png",
+        img: "/img/lemari4.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -251,7 +251,7 @@ const furniture = [
     {
         id: 21,
         title: "Instrumen Cabinet Single Door",
-        img: "/img/lemari5.png",
+        img: "/img/lemari5.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -261,7 +261,7 @@ const furniture = [
     {
         id: 22,
         title: "Instrumen Cabinet 4 Door",
-        img: "/img/lemari6.png",
+        img: "/img/lemari6.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -271,7 +271,7 @@ const furniture = [
     {
         id: 23,
         title: "Baby Dressing Table PC",
-        img: "/img/dressing-table1.png",
+        img: "/img/dressing-table1.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -281,7 +281,7 @@ const furniture = [
     {
         id: 24,
         title: "Baby Dressing Table PC + Lamp",
-        img: "/img/dressing-table2.png",
+        img: "/img/dressing-table2.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -291,7 +291,7 @@ const furniture = [
     {
         id: 25,
         title: "Infus Stand Kaki 5 SS",
-        img: "/img/infus-stand1.png",
+        img: "/img/infus-stand1.webp",
         kemenkes: "10903220439",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -301,7 +301,7 @@ const furniture = [
     {
         id: 26,
         title: "Infus Stand Kaki 5 PC",
-        img: "/img/infus-stand2.png",
+        img: "/img/infus-stand2.webp",
         kemenkes: "10903220439",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -311,7 +311,7 @@ const furniture = [
     {
         id: 27,
         title: "Infus Stand Kaki 5 Plastik",
-        img: "/img/infus-stand3.png",
+        img: "/img/infus-stand3.webp",
         kemenkes: "10903220439",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -321,7 +321,7 @@ const furniture = [
     {
         id: 28,
         title: "Infus Stand Kaki 3 SS",
-        img: "/img/infus-stand4.png",
+        img: "/img/infus-stand4.webp",
         kemenkes: "10903220439",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -331,7 +331,7 @@ const furniture = [
     {
         id: 29,
         title: "Infus Stand Kaki 3 PC",
-        img: "/img/infus-stand5.png",
+        img: "/img/infus-stand5.webp",
         kemenkes: "10903220439",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -341,7 +341,7 @@ const furniture = [
     {
         id: 30,
         title: "Foot Step Single SS",
-        img: "/img/foot-step1.png",
+        img: "/img/foot-step1.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -351,7 +351,7 @@ const furniture = [
     {
         id: 31,
         title: "Foot Step Single PC",
-        img: "/img/foot-step2.png",
+        img: "/img/foot-step2.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -361,7 +361,7 @@ const furniture = [
     {
         id: 32,
         title: "Foot Step Double SS",
-        img: "/img/foot-step3.png",
+        img: "/img/foot-step3.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -371,7 +371,7 @@ const furniture = [
     {
         id: 33,
         title: "Foot Step Double PC",
-        img: "/img/foot-step4.png",
+        img: "/img/foot-step4.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -381,7 +381,7 @@ const furniture = [
     {
         id: 34,
         title: "Overbed Table SS",
-        img: "/img/meja1.png",
+        img: "/img/meja1.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -391,7 +391,7 @@ const furniture = [
     {
         id: 35,
         title: "Overbed Table PC",
-        img: "/img/meja2.png",
+        img: "/img/meja2.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -401,7 +401,7 @@ const furniture = [
     {
         id: 36,
         title: "X-RAY Viewer Single",
-        img: "/img/x-ray1.png",
+        img: "/img/x-ray1.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -411,7 +411,7 @@ const furniture = [
     {
         id: 37,
         title: "X-RAY Viewer Double",
-        img: "/img/x-ray2.png",
+        img: "/img/x-ray2.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -421,7 +421,7 @@ const furniture = [
     {
         id: 38,
         title: "Bed Screen Single",
-        img: "/img/bed-screen1.png",
+        img: "/img/bed-screen1.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -431,7 +431,7 @@ const furniture = [
     {
         id: 39,
         title: "Bed Screen Double",
-        img: "/img/bed-screen2.png",
+        img: "/img/bed-screen2.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -441,7 +441,7 @@ const furniture = [
     {
         id: 40,
         title: "Bed Screen Triple",
-        img: "/img/bed-screen3.png",
+        img: "/img/bed-screen3.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -451,7 +451,7 @@ const furniture = [
     {
         id: 41,
         title: "Infant Warmer Inkubator",
-        img: "/img/inkubator.png",
+        img: "/img/inkubator.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -461,7 +461,7 @@ const furniture = [
     {
         id: 42,
         title: "X-Ray Hanger",
-        img: "/img/x-ray-hanger.png",
+        img: "/img/x-ray-hanger.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -471,7 +471,7 @@ const furniture = [
     {
         id: 43,
         title: "Emergency Trolley",
-        img: "/img/emergency-trolley.png",
+        img: "/img/emergency-trolley.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -481,7 +481,7 @@ const furniture = [
     {
         id: 44,
         title: "Medicine Trolley",
-        img: "/img/medicine-trolley.png",
+        img: "/img/medicine-trolley.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -491,7 +491,7 @@ const furniture = [
     {
         id: 45,
         title: "Instrument Trolley Type 01",
-        img: "/img/introll1.png",
+        img: "/img/introll1.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -501,7 +501,7 @@ const furniture = [
     {
         id: 45,
         title: "Instrument Trolley Type 02",
-        img: "/img/introll2.png",
+        img: "/img/introll2.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -511,7 +511,7 @@ const furniture = [
     {
         id: 45,
         title: "Instrument Trolley Type 03",
-        img: "/img/introll3.png",
+        img: "/img/introll3.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -521,7 +521,7 @@ const furniture = [
     {
         id: 45,
         title: "Instrument Trolley 03 Sap",
-        img: "/img/introll4.png",
+        img: "/img/introll4.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -531,7 +531,7 @@ const furniture = [
     {
         id: 46,
         title: "ECG Trolley",
-        img: "/img/ecg-trolley.png",
+        img: "/img/ecg-trolley.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -541,7 +541,7 @@ const furniture = [
     {
         id: 47,
         title: "Linen Trolley",
-        img: "/img/lintroll.png",
+        img: "/img/lintroll.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -551,7 +551,7 @@ const furniture = [
     {
         id: 48,
         title: "Food Trolley Type 01",
-        img: "/img/fotroll1.png",
+        img: "/img/fotroll1.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -561,7 +561,7 @@ const furniture = [
     {
         id: 49,
         title: "Food Trolley Type 02",
-        img: "/img/fotroll2.png",
+        img: "/img/fotroll2.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -571,7 +571,7 @@ const furniture = [
     {
         id: 50,
         title: "Almari Narkotik 2 Sap",
-        img: "/img/almari-narkotik1.png",
+        img: "/img/almari-narkotik1.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -581,7 +581,7 @@ const furniture = [
     {
         id: 51,
         title: "Almari Narkotik 3 Sap",
-        img: "/img/almari-narkotik2.png",
+        img: "/img/almari-narkotik2.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -591,7 +591,7 @@ const furniture = [
     {
         id: 52,
         title: "Standard Waskom Single SS Type 01",
-        img: "/img/waskom1.png",
+        img: "/img/waskom1.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -601,7 +601,7 @@ const furniture = [
     {
         id: 53,
         title: "Standard Waskom Single PC Type 01",
-        img: "/img/waskom2.png",
+        img: "/img/waskom2.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -611,7 +611,7 @@ const furniture = [
     {
         id: 54,
         title: "Standard Waskom Double SS Type 01",
-        img: "/img/waskom3.png",
+        img: "/img/waskom3.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -621,7 +621,7 @@ const furniture = [
     {
         id: 55,
         title: "Standard Waskom Double PC Type 01",
-        img: "/img/waskom4.png",
+        img: "/img/waskom4.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -631,7 +631,7 @@ const furniture = [
     {
         id: 56,
         title: "Standard Waskom Single SS Type 02",
-        img: "/img/waskom5.png",
+        img: "/img/waskom5.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -641,7 +641,7 @@ const furniture = [
     {
         id: 57,
         title: "Standard Waskom Single PC Type 02",
-        img: "/img/waskom6.png",
+        img: "/img/waskom6.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -651,7 +651,7 @@ const furniture = [
     {
         id: 58,
         title: "Standard Waskom Double SS Type 02",
-        img: "/img/waskom7.png",
+        img: "/img/waskom7.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -661,7 +661,7 @@ const furniture = [
     {
         id: 59,
         title: "Standard Waskom Double PC Type 02",
-        img: "/img/waskom8.png",
+        img: "/img/waskom8.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -671,7 +671,7 @@ const furniture = [
     {
         id: 60,
         title: "Oksigen Trolley Type 01",
-        img: "/img/oksigen-trolley1.png",
+        img: "/img/oksigen-trolley1.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -681,7 +681,7 @@ const furniture = [
     {
         id: 61,
         title: "Oksigen Trolley Type 02",
-        img: "/img/oksigen-trolley2.png",
+        img: "/img/oksigen-trolley2.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -691,7 +691,7 @@ const furniture = [
     {
         id: 62,
         title: "Scrub Station",
-        img: "/img/scrub-station.png",
+        img: "/img/scrub-station.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -701,7 +701,7 @@ const furniture = [
     {
         id: 63,
         title: "Keranda Jenazah",
-        img: "/img/keranda.png",
+        img: "/img/keranda.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -711,7 +711,7 @@ const furniture = [
     {
         id: 64,
         title: "Ambulance Type 01",
-        img: "/img/ambulan1.png",
+        img: "/img/ambulan1.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -721,7 +721,7 @@ const furniture = [
     {
         id: 65,
         title: "Ambulance Type 02",
-        img: "/img/ambulan2.png",
+        img: "/img/ambulan2.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -731,7 +731,7 @@ const furniture = [
     {
         id: 66,
         title: "Examination Lamp With Dimmer",
-        img: "/img/lampu.png",
+        img: "/img/lampu.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -741,7 +741,7 @@ const furniture = [
     {
         id: 67,
         title: "Lemari Microscope",
-        img: "/img/lmscope.png",
+        img: "/img/lmscope.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -751,7 +751,7 @@ const furniture = [
     {
         id: 68,
         title: "Pass Box",
-        img: "/img/passbox.png",
+        img: "/img/passbox.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -761,7 +761,7 @@ const furniture = [
     {
         id: 69,
         title: "Air Shower",
-        img: "/img/shobox.png",
+        img: "/img/shobox.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -771,7 +771,7 @@ const furniture = [
     {
         id: 70,
         title: "X-Ray Table",
-        img: "/img/xray-table.png",
+        img: "/img/xray-table.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -784,7 +784,7 @@ const liquid = [
     {
         id: 71,
         title: "Alkohol Antiseptik",
-        img: "/img/alkohol-full.png",
+        img: "/img/alkohol-full.webp",
         kemenkes: "20501220252",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -794,7 +794,7 @@ const liquid = [
     {
         id: 72,
         title: "Hand Sanitizer",
-        img: "/img/hand-sanitizer.png",
+        img: "/img/hand-sanitizer.webp",
         kemenkes: "20501220386",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -804,7 +804,7 @@ const liquid = [
     {
         id: 73,
         title: "Alkohol 95%, 96% ( 200 L )",
-        img: "/img/alkohol.png",
+        img: "/img/alkohol.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -813,7 +813,7 @@ const liquid = [
     {
         id: 74,
         title: "Chlorhexidine 0.5%, 2%, 4% ( 5 L )",
-        img: "/img/chlorhexidine.png",
+        img: "/img/chlorhexidine.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -823,7 +823,7 @@ const liquid = [
     {
         id: 75,
         title: "Aquadest Water DM",
-        img: "/img/aquadest.png",
+        img: "/img/aquadest.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -833,7 +833,7 @@ const liquid = [
     {
         id: 76,
         title: "Polyhexamethylene Biguanide",
-        img: "/img/phmb.png",
+        img: "/img/phmb.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -842,7 +842,7 @@ const liquid = [
     {
         id: 77,
         title: "Zyme",
-        img: "/img/zyme.png",
+        img: "/img/zyme.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -851,7 +851,7 @@ const liquid = [
     {
         id: 78,
         title: "Anti Microbial Hand Wash",
-        img: "/img/handwash.png",
+        img: "/img/handwash.webp",
         kemenkes: "20309320366",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -861,7 +861,7 @@ const liquid = [
     {
         id: 79,
         title: "Povidone Iodine",
-        img: "/img/povidone.png",
+        img: "/img/povidone.webp",
         kemenkes: "20309320366",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -874,7 +874,7 @@ const bmhp = [
     {
         id: 80,
         title: "Surgical Facemask (Ear Loop)",
-        img: "/img/masker1.png",
+        img: "/img/masker1.webp",
         kemenkes: "21603910158",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -884,7 +884,7 @@ const bmhp = [
     {
         id: 81,
         title: "Korset",
-        img: "/img/korset.png",
+        img: "/img/korset.webp",
         kemenkes: "11402021032",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -894,7 +894,7 @@ const bmhp = [
     {
         id: 82,
         title: "Surgical Facemask (Head Loop)",
-        img: "/img/masker2.png",
+        img: "/img/masker2.webp",
         kemenkes: "21603021219",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -904,7 +904,7 @@ const bmhp = [
     {
         id: 83,
         title: "Alkohol Swab",
-        img: "/img/alswab.png",
+        img: "/img/alswab.webp",
         kemenkes: "20903220108",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -914,7 +914,7 @@ const bmhp = [
     {
         id: 84,
         title: "Masker Sterile KF-94 4 Ply",
-        img: "/img/masker3.png",
+        img: "/img/masker3.webp",
         kemenkes: "21603120475",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -924,7 +924,7 @@ const bmhp = [
     {
         id: 85,
         title: "N95 Particular Respirator 5 Ply",
-        img: "/img/masker4.png",
+        img: "/img/masker4.webp",
         kemenkes: "21603022296",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -934,7 +934,7 @@ const bmhp = [
     {
         id: 86,
         title: "Nitrile Examination Gloves",
-        img: "/img/gloves.png",
+        img: "/img/gloves.webp",
         kemenkes: "20501220252",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -944,7 +944,7 @@ const bmhp = [
     {
         id: 87,
         title: "Blood Lancet",
-        img: "/img/blood-lancet.png",
+        img: "/img/blood-lancet.webp",
         kemenkes: "11603122510",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -954,7 +954,7 @@ const bmhp = [
     {
         id: 88,
         title: "AC Swab",
-        img: "/img/88.png",
+        img: "/img/88.webp",
         kemenkes: "20903321959",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -964,7 +964,7 @@ const bmhp = [
     {
         id: 89,
         title: "Nasal Cannula Oksigen",
-        img: "/img/89.png",
+        img: "/img/89.webp",
         kemenkes: "10403122557",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -974,7 +974,7 @@ const bmhp = [
     {
         id: 90,
         title: "Oksigen Mask Rebreathing",
-        img: "/img/90.png",
+        img: "/img/90.webp",
         kemenkes: "10403910188",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -984,7 +984,7 @@ const bmhp = [
     {
         id: 91,
         title: "Oksigen Mask Non Rebreathing",
-        img: "/img/91.png",
+        img: "/img/91.webp",
         kemenkes: "10403910188",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -994,7 +994,7 @@ const bmhp = [
     {
         id: 92,
         title: "Nebulizer Mask",
-        img: "/img/92.png",
+        img: "/img/92.webp",
         kemenkes: "20403220846",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1004,7 +1004,7 @@ const bmhp = [
     {
         id: 93,
         title: "Suction Connecting Tube",
-        img: "/img/93.png",
+        img: "/img/93.webp",
         kemenkes: "20903020169",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1014,7 +1014,7 @@ const bmhp = [
     {
         id: 94,
         title: "Blood Transfusion Set",
-        img: "/img/94.png",
+        img: "/img/94.webp",
         kemenkes: "20902911129",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1024,7 +1024,7 @@ const bmhp = [
     {
         id: 95,
         title: "Infus Set Pediatric ( Anak-anak )",
-        img: "/img/95.png",
+        img: "/img/95.webp",
         kemenkes: "20902220592",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1034,7 +1034,7 @@ const bmhp = [
     {
         id: 96,
         title: "Infus Set Macro ( Dewasa )",
-        img: "/img/macro.png",
+        img: "/img/macro.webp",
         kemenkes: "20902810576",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1044,7 +1044,7 @@ const bmhp = [
     {
         id: 97,
         title: "IV Catheter",
-        img: "/img/IV.png",
+        img: "/img/IV.webp",
         kemenkes: "20902220086",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1054,7 +1054,7 @@ const bmhp = [
     {
         id: 98,
         title: "IV Catheter With Wing",
-        img: "/img/IVwings.png",
+        img: "/img/IVwings.webp",
         kemenkes: "20902322947",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1064,7 +1064,7 @@ const bmhp = [
     {
         id: 99,
         title: "Disposable Syringe",
-        img: "/img/dispo.png",
+        img: "/img/dispo.webp",
         kemenkes: "20902420291",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1074,7 +1074,7 @@ const bmhp = [
     {
         id: 100,
         title: "Urine Bag",
-        img: "/img/ubag.png",
+        img: "/img/ubag.webp",
         kemenkes: "10805122551",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1084,7 +1084,7 @@ const bmhp = [
     {
         id: 101,
         title: "Sample Container",
-        img: "/img/sample.png",
+        img: "/img/sample.webp",
         kemenkes: "10203020209",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1094,7 +1094,7 @@ const bmhp = [
     {
         id: 102,
         title: "Nurse Cap",
-        img: "/img/nucap.png",
+        img: "/img/nucap.webp",
         kemenkes: "11803022515",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1104,7 +1104,7 @@ const bmhp = [
     {
         id: 103,
         title: "Safety Box",
-        img: "/img/safetybox.png",
+        img: "/img/safetybox.webp",
         kemenkes: "20903020657",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1114,7 +1114,7 @@ const bmhp = [
     {
         id: 104,
         title: "Packing Bag",
-        img: "/img/pbag.png",
+        img: "/img/pbag.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1124,7 +1124,7 @@ const bmhp = [
     {
         id: 105,
         title: "Latex Examination Gloves",
-        img: "/img/latex.png",
+        img: "/img/latex.webp",
         kemenkes: "10903220211",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1134,7 +1134,7 @@ const bmhp = [
     {
         id: 106,
         title: "Supreme Examination Gloves",
-        img: "/img/supreme.png",
+        img: "/img/supreme.webp",
         kemenkes: "10903221335",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1144,7 +1144,7 @@ const bmhp = [
     {
         id: 107,
         title: "Surgical Gloves Steril",
-        img: "/img/sgs.png",
+        img: "/img/sgs.webp",
         kemenkes: "11603120881",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1154,7 +1154,7 @@ const bmhp = [
     {
         id: 108,
         title: "Gloves Obgyn",
-        img: "/img/go.png",
+        img: "/img/go.webp",
         kemenkes: "10903120672",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1164,7 +1164,7 @@ const bmhp = [
     {
         id: 109,
         title: "Apron Plastik",
-        img: "/img/ap.png",
+        img: "/img/ap.webp",
         kemenkes: "11603220138",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1174,7 +1174,7 @@ const bmhp = [
     {
         id: 110,
         title: "Surgical Gown",
-        img: "/img/ap.png",
+        img: "/img/ap.webp",
         kemenkes: "21603022374",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1184,7 +1184,7 @@ const bmhp = [
     {
         id: 111,
         title: "Coverall PP & PPL",
-        img: "/img/cp.png",
+        img: "/img/cp.webp",
         kemenkes: "21603020447",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1194,16 +1194,16 @@ const bmhp = [
     {
         id: 112,
         title: "Hemodialisis Pack",
-        img: "/img/hp.png",
+        img: "/img/hp.webp",
         kemenkes: "20805021050",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
-        spek: "/img/spek.png",
+        spek: "/img/spek.webp",
     },
     {
         id: 113,
         title: "Kasa Lipat",
-        img: "/img/kl.png",
+        img: "/img/kl.webp",
         kemenkes: "11603223067",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1212,7 +1212,7 @@ const bmhp = [
     {
         id: 114,
         title: "Kasa Hidrophyl",
-        img: "/img/kh.png",
+        img: "/img/kh.webp",
         kemenkes: "11603810931",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1221,7 +1221,7 @@ const bmhp = [
     {
         id: 115,
         title: "Kasa Perban",
-        img: "/img/kp.png",
+        img: "/img/kp.webp",
         kemenkes: "11603810931",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1230,7 +1230,7 @@ const bmhp = [
     {
         id: 116,
         title: "Razor",
-        img: "/img/razor.png",
+        img: "/img/razor.webp",
         kemenkes: "11603810931",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1242,7 +1242,7 @@ const lab = [
     {
         id: 117,
         title: "Centrifuge 12 Holes",
-        img: "/img/lab1.png",
+        img: "/img/lab1.webp",
         kemenkes: "20501220252",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1252,7 +1252,7 @@ const lab = [
     {
         id: 118,
         title: "Biological Safety Cabinet",
-        img: "/img/lab2.png",
+        img: "/img/lab2.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1262,7 +1262,7 @@ const lab = [
     {
         id: 119,
         title: "Laminar Air Flow",
-        img: "/img/lab3.png",
+        img: "/img/lab3.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1272,12 +1272,12 @@ const lab = [
     {
         id: 120,
         title: "Alat Gluco",
-        img: "/img/gluco.png",
+        img: "/img/gluco.webp",
     },
     {
         id: 121,
         title: "Otto Track Control Unit",
-        img: "/img/otto.png",
+        img: "/img/otto.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1287,7 +1287,7 @@ const lab = [
     {
         id: 122,
         title: "Electric Tens Stimulator",
-        img: "/img/lab3.png",
+        img: "/img/lab3.webp",
         kemenkes: "-",
         merk: "N3",
         lokasi: "Surakarta, Indonesia",
@@ -1348,7 +1348,7 @@ const blogs = [
             "Alkohol antiseptik IPA 5% dan BIT 6% hadir dalam ukuran 1 liter, 5 liter, 20 liter, dan 200 liter. Produk ini sangat cocok digunakan dalam industri kosmetik, sabun, parfum isi ulang, dan produk wewangian lainnya, membantu menjaga keamanan, kualitas, dan kestabilan produk.",
         description_en:
             "Antiseptic alcohol containing 5% IPA and 6% BIT is available in 1-liter, 5-liter, 20-liter, and 200-liter sizes. This product is highly suitable for use in the cosmetics, soap, refill perfume, and other fragrance industries, helping maintain product safety, quality, and stability.",
-        thumbnail: "/img/artikel/001.png",
+        thumbnail: "/img/artikel/001.webp",
         createdAt: "2025-10-01T10:00:00Z",
     },
     {
@@ -1360,7 +1360,7 @@ const blogs = [
             "Diabetes adalah penyakit kronis yang dapat merusak organ tubuh akibat kadar gula darah tinggi, dengan risiko utama meliputi penyakit jantung, stroke, gagal ginjal, kerusakan mata (kebutaan), dan penyakit saraf.",
         description_en:
             "Diabetes is a chronic disease that can damage body organs due to high blood sugar levels, with main risks including heart disease, stroke, kidney failure, eye damage (blindness), and nerve disorders.",
-        thumbnail: "/img/artikel/002.png",
+        thumbnail: "/img/artikel/002.webp",
         createdAt: "2025-10-28T15:30:00Z",
     },
 ];

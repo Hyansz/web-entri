@@ -6,8 +6,6 @@ export default function OptimizedImage({ src, alt, className = "" }) {
             className={className}
             loading="lazy"
             decoding="async"
-            width="auto"
-            height="auto"
         />
     );
 }

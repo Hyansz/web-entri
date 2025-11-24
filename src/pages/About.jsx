@@ -32,7 +32,7 @@ export default function About() {
                 <section
                     className="h-[80vh] max-h-[700px] relative flex flex-col text-white bg-cover bg-no-repeat bg-center md:bg-right"
                     style={{
-                        backgroundImage: "url('./img/about.png')",
+                        backgroundImage: "url('./img/about.webp')",
                     }}
                 >
                     {/* Overlay */}
@@ -64,7 +64,7 @@ export default function About() {
                     className="w-10/12 my-20 mx-auto relative text-white bg-cover bg-no-repeat bg-center rounded-3xl"
                     style={{
                         backgroundImage:
-                            "url('https://kitchensetentri.com/img/hero-bg.jpg')",
+                            "url('/img/since.webp')",
                     }}
                 >
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-700 via-black/50 to-black/60 rounded-3xl"></div>
@@ -109,9 +109,9 @@ export default function About() {
                             </div>
                             <div className="bg-white p-2 shadow-md shadow-slate-400 rounded-lg">
                                 <OptimizedImage
-                                    src="/img/las.jpg"
+                                    src="/img/las.webp"
                                     alt="Teknologi Mesin Modern"
-                                    className="w-full h-64 object-cover"
+                                    className="w-full h-64 object-cover rounded-sm"
                                 />
                             </div>
                         </div>
@@ -135,9 +135,9 @@ export default function About() {
                             </div>
                             <div className="bg-white p-2 shadow-md shadow-slate-400 rounded-lg">
                                 <OptimizedImage
-                                    src="/img/profesional.jpeg"
+                                    src="/img/profesional.webp"
                                     alt="Teknologi Mesin Modern"
-                                    className="w-full h-64 object-cover"
+                                    className="w-full h-64 object-cover rounded-sm"
                                 />
                             </div>
                         </div>
@@ -159,11 +159,11 @@ export default function About() {
                                     {t("about.komit5-2")}
                                 </h2>
                             </div>
-                            <div className="bg-white py-2 shadow-md shadow-slate-400 rounded-lg">
+                            <div className="bg-white p-2 shadow-md shadow-slate-400 rounded-lg">
                                 <OptimizedImage
-                                    src="/img/qc.jpg"
+                                    src="/img/qc.webp"
                                     alt="Pelayanan Profesional"
-                                    className="w-full h-64 object-cover"
+                                    className="w-full h-64 object-cover rounded-sm"
                                 />
                             </div>
                         </div>
@@ -187,9 +187,9 @@ export default function About() {
                             </div>
                             <div className="bg-white p-2 shadow-md shadow-slate-400 rounded-lg">
                                 <OptimizedImage
-                                    src="/img/inovasi.jpeg"
+                                    src="/img/inovasi.webp"
                                     alt="Harmoni Kreativitas & Teknologi"
-                                    className="w-full h-64 object-cover"
+                                    className="w-full h-64 object-cover rounded-sm"
                                 />
                             </div>
                         </div>
@@ -219,65 +219,142 @@ export default function About() {
                     >
                         <SwiperSlide className="py-5 mb-5">
                             <OptimizedImage
-                                src="/img/partner1.png"
+                                src="/img/partner-1.webp"
                                 alt="Partner 1"
-                                className="rounded-xl shadow-md"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
                             />
                         </SwiperSlide>
                         <SwiperSlide className="py-5 mb-5">
                             <OptimizedImage
-                                src="/img/partner2.png"
+                                src="/img/partner-2.webp"
                                 alt="Partner 2"
-                                className="rounded-xl shadow-md"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
                             />
                         </SwiperSlide>
                         <SwiperSlide className="py-5 mb-5">
                             <OptimizedImage
-                                src="/img/partner3.png"
+                                src="/img/partner-3.webp"
                                 alt="Partner 3"
-                                className="rounded-xl shadow-md"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
                             />
                         </SwiperSlide>
                         <SwiperSlide className="py-5 mb-5">
                             <OptimizedImage
-                                src="/img/partner4.png"
+                                src="/img/partner-4.webp"
                                 alt="Partner 4"
-                                className="rounded-xl shadow-md"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
                             />
                         </SwiperSlide>
                         <SwiperSlide className="py-5 mb-5">
                             <OptimizedImage
-                                src="/img/partner5.png"
+                                src="/img/partner-5.webp"
                                 alt="Partner 5"
-                                className="rounded-xl shadow-md"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
                             />
                         </SwiperSlide>
                         <SwiperSlide className="py-5 mb-5">
                             <OptimizedImage
-                                src="/img/partner6.png"
+                                src="/img/partner-6.webp"
                                 alt="Partner 6"
-                                className="rounded-xl shadow-md"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
                             />
                         </SwiperSlide>
                         <SwiperSlide className="py-5 mb-5">
                             <OptimizedImage
-                                src="/img/partner7.png"
+                                src="/img/partner-7.webp"
                                 alt="Partner 7"
-                                className="rounded-xl shadow-md"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
                             />
                         </SwiperSlide>
                         <SwiperSlide className="py-5 mb-5">
                             <OptimizedImage
-                                src="/img/partner8.png"
+                                src="/img/partner-8.webp"
                                 alt="Partner 8"
-                                className="rounded-xl shadow-md"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
                             />
                         </SwiperSlide>
                         <SwiperSlide className="py-5 mb-5">
                             <OptimizedImage
-                                src="/img/partner9.png"
+                                src="/img/partner-9.webp"
                                 alt="Partner 9"
-                                className="rounded-xl shadow-md"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide className="py-5 mb-5">
+                            <OptimizedImage
+                                src="/img/partner-10.webp"
+                                alt="Partner 9"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide className="py-5 mb-5">
+                            <OptimizedImage
+                                src="/img/partner-11.webp"
+                                alt="Partner 9"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide className="py-5 mb-5">
+                            <OptimizedImage
+                                src="/img/partner-12.webp"
+                                alt="Partner 9"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide className="py-5 mb-5">
+                            <OptimizedImage
+                                src="/img/partner-13.webp"
+                                alt="Partner 9"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide className="py-5 mb-5">
+                            <OptimizedImage
+                                src="/img/partner-14.webp"
+                                alt="Partner 9"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide className="py-5 mb-5">
+                            <OptimizedImage
+                                src="/img/partner-15.webp"
+                                alt="Partner 9"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide className="py-5 mb-5">
+                            <OptimizedImage
+                                src="/img/partner-16.webp"
+                                alt="Partner 9"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide className="py-5 mb-5">
+                            <OptimizedImage
+                                src="/img/partner-17.webp"
+                                alt="Partner 9"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide className="py-5 mb-5">
+                            <OptimizedImage
+                                src="/img/partner-18.webp"
+                                alt="Partner 9"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide className="py-5 mb-5">
+                            <OptimizedImage
+                                src="/img/partner-19.webp"
+                                alt="Partner 9"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
+                            />
+                        </SwiperSlide>
+                        <SwiperSlide className="py-5 mb-5">
+                            <OptimizedImage
+                                src="/img/partner-20.webp"
+                                alt="Partner 9"
+                                className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
                             />
                         </SwiperSlide>
                     </Swiper>

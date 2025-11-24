@@ -107,7 +107,7 @@ export default function Footer() {
                                     {t("nav.produk")}
                                 </Link>
                                 <Link
-                                    to="/artikel"
+                                    to="/blog"
                                     title="Blog"
                                     onClick={() =>
                                         window.scrollTo({

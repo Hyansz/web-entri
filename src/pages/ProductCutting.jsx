@@ -23,7 +23,7 @@ export default function ProductCutting() {
                 <section
                     className="h-[80vh] relative flex flex-col text-white bg-cover bg-no-repeat bg-center md:bg-right"
                     style={{
-                        backgroundImage: "url('/img/mofcut.jpg')",
+                        backgroundImage: "url('/img/mofcut.webp')",
                     }}
                 >
                     {/* Overlay */}
@@ -48,7 +48,7 @@ export default function ProductCutting() {
                     <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
                         <div className="bg-white mx-auto rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20">
                             <img
-                                src="/img/motif1.png"
+                                src="/img/motif1.webp"
                                 alt="Motif Cutting 1"
                                 className="rounded mb-3"
                             />
@@ -58,7 +58,7 @@ export default function ProductCutting() {
                         </div>
                         <div className="bg-white mx-auto rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20">
                             <img
-                                src="/img/motif2.png"
+                                src="/img/motif2.webp"
                                 alt="Motif Cutting 2"
                                 className="rounded mb-3"
                             />
@@ -68,7 +68,7 @@ export default function ProductCutting() {
                         </div>
                         <div className="bg-white mx-auto rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20">
                             <img
-                                src="/img/motif3.png"
+                                src="/img/motif3.webp"
                                 alt="Motif Cutting 3"
                                 className="rounded mb-3"
                             />
@@ -78,7 +78,7 @@ export default function ProductCutting() {
                         </div>
                         <div className="bg-white mx-auto rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20">
                             <img
-                                src="/img/motif4.png"
+                                src="/img/motif4.webp"
                                 alt="Motif Cutting 4"
                                 className="rounded mb-3"
                             />
@@ -88,7 +88,7 @@ export default function ProductCutting() {
                         </div>
                         <div className="bg-white mx-auto rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20">
                             <img
-                                src="/img/motif5.png"
+                                src="/img/motif5.webp"
                                 alt="Motif Cutting 5"
                                 className="rounded mb-3"
                             />

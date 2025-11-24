@@ -40,7 +40,7 @@ export default function ProductBmhp() {
                 <section
                     className="h-[80vh] relative flex flex-col text-white bg-cover bg-no-repeat bg-center md:bg-right"
                     style={{
-                        backgroundImage: "url('/img/bmhp.jpg')",
+                        backgroundImage: "url('/img/bmhp.webp')",
                     }}
                 >
                     {/* Overlay */}

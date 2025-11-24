@@ -51,7 +51,7 @@ export default function EducationVideo() {
             {/* Hero Section */}
             <section
                 className="h-[80vh] relative flex flex-col text-white bg-cover bg-top"
-                style={{ backgroundImage: "url('/img/education.png')" }}
+                style={{ backgroundImage: "url('/img/education.webp')" }}
             >
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-800 via-black/50 to-black/60"></div>
 

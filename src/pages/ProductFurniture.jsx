@@ -58,7 +58,7 @@ export default function ProductFurniture() {
                 <section
                     className="h-[80vh] relative flex flex-col text-white bg-cover bg-no-repeat bg-center md:bg-right"
                     style={{
-                        backgroundImage: "url('/img/hosfur.jpg')",
+                        backgroundImage: "url('/img/hosfur.webp')",
                     }}
                 >
                     <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-cyan-800 via-black/50 to-black/60"></div>

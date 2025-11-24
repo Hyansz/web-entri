@@ -15,26 +15,26 @@ export default function Mitra() {
 
     // Daftar mitra beserta nama rumah sakit
     const partners = [
-        { src: "/img/partner-1.png", name: "RSUD SUNAN KALIJAGA DEMAK" },
-        { src: "/img/partner-2.png", name: "DINAS KESEHATAN KABUPATEN OKU SELATAN" },
-        { src: "/img/partner-3.png", name: "RSUD DR. WAHIDIN SUDIRO" },
-        { src: "/img/partner-4.png", name: "RSUD BREBES" },
-        { src: "/img/partner-5.png", name: "RSU SARILA HUSADA" },
-        { src: "/img/partner-6.png", name: "RSI PURWODADI" },
-        { src: "/img/partner-7.png", name: "RSI AT-TIN HUSADA" },
-        { src: "/img/partner-8.png", name: "RS PANTI WILASA CITARUM" },
-        { src: "/img/partner-9.png", name: "RS PKU MUHAMMADIYAH GRUP" },
-        { src: "/img/partner-10.png", name: "RS MAGUAN HUSADA" },
-        { src: "/img/partner-11.png", name: "RS JAFAR MEDIKA" },
-        { src: "/img/partner-12.png", name: "RS DKT SLAMET RIYADI" },
-        { src: "/img/partner-13.png", name: "PUSKESMAS GOMBONG II SEMONDO" },
-        { src: "/img/partner-14.png", name: "RS NUR HIDAYAH" },
-        { src: "/img/partner-15.png", name: "DINAS KESEHATAN KABUPATEN SLEMAN" },
-        { src: "/img/partner-16.png", name: "DINAS KESEHATAN PPKB KOTA TANJUNGPINANG" },
-        { src: "/img/partner-17.png", name: "DINAS KESEHATA SURABAYA KOTA MOJOKERTO" },
-        { src: "/img/partner-18.png", name: "DINAS KESEHATAN SURABAYA KABUPATEN BONDOWOSO" },
-        { src: "/img/partner-19.png", name: "PT KALI REJO MAKMUR" },
-        { src: "/img/partner-20.png", name: "RSUD DR. LOEKMONO HADI" },
+        { src: "/img/partner-1.webp", name: "RSUD SUNAN KALIJAGA DEMAK" },
+        { src: "/img/partner-2.webp", name: "DINAS KESEHATAN KABUPATEN OKU SELATAN" },
+        { src: "/img/partner-3.webp", name: "RSUD DR. WAHIDIN SUDIRO" },
+        { src: "/img/partner-4.webp", name: "RSUD BREBES" },
+        { src: "/img/partner-5.webp", name: "RSU SARILA HUSADA" },
+        { src: "/img/partner-6.webp", name: "RSI PURWODADI" },
+        { src: "/img/partner-7.webp", name: "RSI AT-TIN HUSADA" },
+        { src: "/img/partner-8.webp", name: "RS PANTI WILASA CITARUM" },
+        { src: "/img/partner-9.webp", name: "RS PKU MUHAMMADIYAH GRUP" },
+        { src: "/img/partner-10.webp", name: "RS MAGUAN HUSADA" },
+        { src: "/img/partner-11.webp", name: "RS JAFAR MEDIKA" },
+        { src: "/img/partner-12.webp", name: "RS DKT SLAMET RIYADI" },
+        { src: "/img/partner-13.webp", name: "PUSKESMAS GOMBONG II SEMONDO" },
+        { src: "/img/partner-14.webp", name: "RS NUR HIDAYAH" },
+        { src: "/img/partner-15.webp", name: "DINAS KESEHATAN KABUPATEN SLEMAN" },
+        { src: "/img/partner-16.webp", name: "DINAS KESEHATAN PPKB KOTA TANJUNGPINANG" },
+        { src: "/img/partner-17.webp", name: "DINAS KESEHATA SURABAYA KOTA MOJOKERTO" },
+        { src: "/img/partner-18.webp", name: "DINAS KESEHATAN SURABAYA KABUPATEN BONDOWOSO" },
+        { src: "/img/partner-19.webp", name: "PT KALI REJO MAKMUR" },
+        { src: "/img/partner-20.webp", name: "RSUD DR. LOEKMONO HADI" },
     ];
 
     return (
@@ -55,7 +55,7 @@ export default function Mitra() {
                 <section
                     className="h-[80vh] max-h-[700px] relative flex flex-col text-white bg-cover bg-no-repeat bg-center md:bg-right"
                     style={{
-                        backgroundImage: "url('./img/mitra.png')",
+                        backgroundImage: "url('./img/mitra.webp')",
                     }}
                 >
                     {/* Overlay */}

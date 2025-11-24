@@ -33,7 +33,7 @@ export default function Home() {
                 <section
                     className="h-screen max-h-[800px] relative flex flex-col justify-center items-center text-white bg-cover bg-center"
                     style={{
-                        backgroundImage: "url('./img/bsm1.jpg')",
+                        backgroundImage: "url('./img/bsm1.webp')",
                     }}
                 >
                     {/* Overlay hitam transparan */}
@@ -125,7 +125,7 @@ export default function Home() {
                             <SwiperSlide className="py-5 mb-5">
                                 <div className="bg-white rounded-xl shadow-md hover:shadow-cyan-700/40 transition duration-300 m-2 flex justify-center">
                                     <img
-                                        src="./img/best1.png"
+                                        src="./img/best1.webp"
                                         alt="Trend 1"
                                         className="rounded-xl w-full md:h-72 object-cover"
                                     />
@@ -135,7 +135,7 @@ export default function Home() {
                             <SwiperSlide className="py-5 mb-5">
                                 <div className="bg-white rounded-xl shadow-md hover:shadow-cyan-700/40 transition duration-300 m-2 flex justify-center">
                                     <img
-                                        src="./img/best2.png"
+                                        src="./img/best2.webp"
                                         alt="Trend 2"
                                         className="rounded-xl w-full md:h-72 object-cover"
                                     />
@@ -183,32 +183,32 @@ export default function Home() {
                             {[
                                 {
                                     id: 1,
-                                    img: "./img/bed1.png",
+                                    img: "./img/bed1.webp",
                                     title: "Hospital Bed Manual (1 Crank)",
                                 },
                                 {
                                     id: 11,
-                                    img: "./img/kursi-gigi.png",
+                                    img: "./img/kursi-gigi.webp",
                                     title: "Phlebotomy Chair",
                                 },
                                 {
                                     id: 12,
-                                    img: "./img/kasur-bayi1.png",
+                                    img: "./img/kasur-bayi1.webp",
                                     title: "Hospital Children Bed",
                                 },
                                 {
                                     id: 17,
-                                    img: "./img/lemari1.png",
+                                    img: "./img/lemari1.webp",
                                     title: "Instrumen Cabinet 2 Door Type 01",
                                 },
                                 {
                                     id: 5,
-                                    img: "./img/bed5.png",
+                                    img: "./img/bed5.webp",
                                     title: "Hospital Bed ICU",
                                 },
                                 {
                                     id: 6,
-                                    img: "./img/examin1.png",
+                                    img: "./img/examin1.webp",
                                     title: "Examine Bed SS",
                                 },
                             ].map((item, i) => (
@@ -278,22 +278,22 @@ export default function Home() {
                             {[
                                 {
                                     id: 71,
-                                    img: "./img/alkohol-full.png",
+                                    img: "./img/alkohol-full.webp",
                                     title: "Alkohol Antiseptik",
                                 },
                                 {
                                     id: 72,
-                                    img: "./img/hand-sanitizer.png",
+                                    img: "./img/hand-sanitizer.webp",
                                     title: "Hand Sanitizer",
                                 },
                                 {
                                     id: 74,
-                                    img: "./img/chlorhexidine.png",
+                                    img: "./img/chlorhexidine.webp",
                                     title: "Chlorhexidine",
                                 },
                                 {
                                     id: 75,
-                                    img: "./img/aquadest.png",
+                                    img: "./img/aquadest.webp",
                                     title: "Aquadest Water DM",
                                 },
                             ].map((item, i) => (
@@ -363,22 +363,22 @@ export default function Home() {
                             {[
                                 {
                                     id: 80,
-                                    img: "./img/masker1.png",
+                                    img: "./img/masker1.webp",
                                     title: "Surgical Facemask (Ear Loop)",
                                 },
                                 {
                                     id: 81,
-                                    img: "./img/korset.png",
+                                    img: "./img/korset.webp",
                                     title: "Korset",
                                 },
                                 {
                                     id: 82,
-                                    img: "./img/masker2.png",
+                                    img: "./img/masker2.webp",
                                     title: "Surgical Facemask (Head Loop)",
                                 },
                                 {
                                     id: 83,
-                                    img: "./img/alswab.png",
+                                    img: "./img/alswab.webp",
                                     title: "Alkohol Swab",
                                 },
                             ].map((item, i) => (
@@ -445,22 +445,22 @@ export default function Home() {
                             {[
                                 {
                                     id: 117,
-                                    img: "./img/lab1.png",
+                                    img: "./img/lab1.webp",
                                     title: "Centrifuge 12 Holes",
                                 },
                                 {
                                     id: 118,
-                                    img: "./img/lab2.png",
+                                    img: "./img/lab2.webp",
                                     title: "Bio Safety Cabinet",
                                 },
                                 {
                                     id: 119,
-                                    img: "./img/lab3.png",
+                                    img: "./img/lab3.webp",
                                     title: "Laminar Air Flow",
                                 },
                                 {
                                     id: 120,
-                                    img: "./img/gluco.png",
+                                    img: "./img/gluco.webp",
                                     title: "Alat Gluco",
                                 },
                             ].map((item, i) => (
@@ -526,23 +526,23 @@ export default function Home() {
                         >
                             {[
                                 {
-                                    img: "./img/motif1.png",
+                                    img: "./img/motif1.webp",
                                     title: "Motif Cutting 1",
                                 },
                                 {
-                                    img: "./img/motif2.png",
+                                    img: "./img/motif2.webp",
                                     title: "Motif Cutting 2",
                                 },
                                 {
-                                    img: "./img/motif3.png",
+                                    img: "./img/motif3.webp",
                                     title: "Motif Cutting 3",
                                 },
                                 {
-                                    img: "./img/motif4.png",
+                                    img: "./img/motif4.webp",
                                     title: "Motif Cutting 4",
                                 },
                                 {
-                                    img: "./img/motif5.png",
+                                    img: "./img/motif5.webp",
                                     title: "Motif Cutting 5",
                                 },
                             ].map((item, i) => (
@@ -574,7 +574,7 @@ export default function Home() {
                     <div
                         className="relative flex flex-col md:flex-row items-center justify-between gap-0 md:gap-20 backdrop-blur-md bg-cyan-200/70 px-6 md:px-10 rounded-3xl bg-center bg-no-repeat bg-cover overflow-hidden pt-10 md:pt-0"
                         style={{
-                            backgroundImage: "url('./img/room.jpg')",
+                            backgroundImage: "url('./img/room.webp')",
                         }}
                     >
                         {/* Overlay */}
@@ -614,7 +614,7 @@ export default function Home() {
                         {/* Image */}
                         <div className="relative z-10 w-full md:w-1/2">
                             <img
-                                src="./img/person.png"
+                                src="./img/person.webp"
                                 alt="Person"
                                 className="w-full md:max-h-[400px] object-contain"
                             />
@@ -643,63 +643,63 @@ export default function Home() {
                         >
                             <SwiperSlide className="py-5 mb-5">
                                 <img
-                                    src="./img/partner-1.png"
+                                    src="./img/partner-1.webp"
                                     alt="Partner 1"
                                     className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
                                 />
                             </SwiperSlide>
                             <SwiperSlide className="py-5 mb-5">
                                 <img
-                                    src="./img/partner-2.png"
+                                    src="./img/partner-2.webp"
                                     alt="Partner 2"
                                     className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
                                 />
                             </SwiperSlide>
                             <SwiperSlide className="py-5 mb-5">
                                 <img
-                                    src="./img/partner-3.png"
+                                    src="./img/partner-3.webp"
                                     alt="Partner 3"
                                     className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
                                 />
                             </SwiperSlide>
                             <SwiperSlide className="py-5 mb-5">
                                 <img
-                                    src="./img/partner-4.png"
+                                    src="./img/partner-4.webp"
                                     alt="Partner 4"
                                     className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
                                 />
                             </SwiperSlide>
                             <SwiperSlide className="py-5 mb-5">
                                 <img
-                                    src="./img/partner-5.png"
+                                    src="./img/partner-5.webp"
                                     alt="Partner 5"
                                     className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
                                 />
                             </SwiperSlide>
                             <SwiperSlide className="py-5 mb-5">
                                 <img
-                                    src="./img/partner-6.png"
+                                    src="./img/partner-6.webp"
                                     alt="Partner 6"
                                     className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
                                 />
                             </SwiperSlide>
                             <SwiperSlide className="py-5 mb-5">
                                 <img
-                                    src="./img/partner-7.png"
+                                    src="./img/partner-7.webp"
                                     alt="Partner 7"
                                     className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
                                 />
                             </SwiperSlide>
                             <SwiperSlide className="py-5 mb-5">
                                 <img
-                                    src="./img/partner-8.png"
+                                    src="./img/partner-8.webp"
                                     alt="Partner 8"
                                     className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
                                 />
                             </SwiperSlide>
                             <SwiperSlide className="py-5 mb-5">
                                 <img
-                                    src="./img/partner-9.png"
+                                    src="./img/partner-9.webp"
                                     alt="Partner 8"
                                     className="rounded-xl shadow-md h-30 md:h-40 w-full object-contain p-2"
                                 />

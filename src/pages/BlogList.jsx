@@ -53,7 +53,7 @@ export default function BlogList() {
                 {/* Hero Section */}
                 <section
                     className="h-[80vh] relative flex flex-col text-white bg-cover bg-center"
-                    style={{ backgroundImage: "url('/img/bmhp.jpg')" }}
+                    style={{ backgroundImage: "url('/img/bmhp.webp')" }}
                 >
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-800 via-black/50 to-black/60"></div>
                     <div className="relative z-10 w-11/12 mx-auto flex flex-col items-center justify-center h-full text-center">
