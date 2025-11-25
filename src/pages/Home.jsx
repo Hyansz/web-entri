@@ -33,7 +33,7 @@ export default function Home() {
                 <section
                     className="h-screen max-h-[800px] relative flex flex-col justify-center items-center text-white bg-cover bg-center"
                     style={{
-                        backgroundImage: "url('./img/bsm1.webp')",
+                        backgroundImage: "url('/img/bsm1.webp')",
                     }}
                 >
                     {/* Overlay hitam transparan */}
