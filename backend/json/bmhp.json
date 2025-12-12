@@ -1,0 +1,335 @@
+[
+    {
+        "name": "Surgical Facemask (Ear Loop)",
+        "kemenkesNumber": "21603910158",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Ukuran P x L +/- 17,5cm x 9,5cm warna hijau | Standar 3 ply surgical mask, dengan lapisan tengah meltbown filter BFE 99% | Tali atau Pengait telinga 75% nylon dan 25% Spandex | Pengait hidung single dan terbuat dari metal | Bebas lateks untuk kenyamanan pemakaian yang lama",
+        "image": "/uploads/masker1.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Korset",
+        "kemenkesNumber": "11402021032",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Terbuat dari bahan yang elastis, fleksibel dan lembut dengan velcro perekat dan | tali pengait untuk mengatur kekencangan | Tersedia 2 varian : | - Korset Double Side Pull Lumbal Sacral Supporter ( Sebatas pinggang ) | - Korset Thoraco Lumbo Sacral Orthosis ( Panjang dari punggung ke pinggang ) | Tersedia bahan standar dan premium",
+        "image": "/uploads/korset.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Surgical Facemask (Head Loop)",
+        "kemenkesNumber": "21603021219",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Ukuran P x L +/- 17,5cm x 9,5cm warna hijau | Standar 3 ply surgical mask, dengan lapisan tengah meltbown filter BFE 99% | Tali atau Pengait telinga 75% nylon dan 25% Spandex | Pengait hidung single dan terbuat dari metal | Bebas lateks untuk kenyamanan pemakaian yang lama",
+        "image": "/uploads/masker2.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Alkohol Swab",
+        "kemenkesNumber": "20903220108",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Berbahan dasar kapas steril yang lembut | Bahan lebih tebal dan tidak melepaskan serabut | Komposisi Alkohol (Ethanol 70%) + Chlorhexidine gluconate 0.5%",
+        "image": "/uploads/alswab.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Masker Sterile KF-94 4 Ply",
+        "kemenkesNumber": "21603120475",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Bahan 4 lapis (spunbond-meltblown-meltblown-spunbond) | Melalui proses sterile EQ (metode sterilisasi dengan teknologi untuk membunuh mikroorganisme) | Dibuat dengan material lembut dengan tingkat filtrasi yang tinggi | Dilengkapi kawat hidung yang fleksibel dan mudah disesuaikan | Tali kait nyaman saat dikaitkan ke telinga, dilengkapi dengan S hook (pengait) tambahan yang mudah dikenakan bahkan untuk wanita berhijab | Model masker kekinian dengan tingkat keamanan ganda dan nyaman saat dipakai",
+        "image": "/uploads/masker3.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "N95 Particular Respirator 5 Ply",
+        "kemenkesNumber": "21603022296",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Terdiri dari bahan 5 layer untuk memberikan perlindungan secara maksimal | Pada bagian dalam masker terdapat busa pelindung untuk memberikan kenyamanan selama pemakaian | Pada bagian luar masker terdapat nose clip yang bisa disesuaikan mengikuti bentuk wajah • Desain masker dirancang menutupi area hidung dan mulut dengan sempurna sehingga filtrasi partikel udara menjadi lebih efisien | Telah lolos pengujian dari Nelson Labs dengan prosedur NIOSH",
+        "image": "/uploads/masker4.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Nitrile Examination Gloves",
+        "kemenkesNumber": "20501220252",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Terbuat dari bahan karet sintetis | Varian Non-Powdered ( tidak berbedak ) | Non Sterile Ambidextrous | Tersedia warna biru | Tersedia ukuran XS, S, M, L",
+        "image": "/uploads/gloves.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Blood Lancet",
+        "kemenkesNumber": "11603122510",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Ukuran jarum 28G | Dilengkapi dengan pengaman jarum yang mudah dilepas ketika akan digunakan | Compatible dengan semua needle pen | 1 Box işi 100pcs",
+        "image": "/uploads/blood-lancet.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "AC Swab",
+        "kemenkesNumber": "20903321959",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Ketebalan tissue 5 mil dengan ukuran 6cm x 3cm | Berbahan dasar kapas steril yang lembut | Komposisi Alkohol ( Ethanol 70% ) dan Chlorhexidine gluconate 2%",
+        "image": "/uploads/88.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Nasal Cannula Oksigen",
+        "kemenkesNumber": "10403122557",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Selang terbuat dari bahan PVC medical grade yang lunak sehingga nyaman selama pemakaian | Panjang selang 175cm, sangat fleksibel untuk pergerakan pasien | Nasal tip yang lunak tidak menyebabkan iritasi lubang hidung selama pemakaian | Desain selang non kinky sehingga oksigen tetap mengalir walaupun selang dalam kondisi tertekuk | Tersedia untuk dewasa, anak-anak dan bayi",
+        "image": "/uploads/89.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Oksigen Mask Rebreathing",
+        "kemenkesNumber": "10403910188",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Selang terbuat dari bahan PVC medical grade yang lunak sehingga nyaman selama pemakaian | Panjang selang 180cm, sangat fleksibel untuk pergerakan pasien | Desain non kinky sehingga oksigen tetap mengalir walaupun selang dalam kondisi tertekuk | Sungkup dengan Nose Bridge untuk mengatur posisi sungkup agar lebih pas saat dikenakan di wajah, dilengkapi dengan tali pengikat yang bisa diatur | Tersedia untuk dewasa, anak-anak dan bayi",
+        "image": "/uploads/90.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Oksigen Mask Non Rebreathing",
+        "kemenkesNumber": "10403910188",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Selang terbuat dari bahan PVC medical grade yang lunak sehingga nyaman selama pemakaian | Panjang selang 180cm, sangat fleksibel untuk pergerakan pasien | Kantong berbahan lembut dan kuat | Desain selang non kinky sehingga oksigen tetap mengalir walaupun selang dalam kondisi tertekuk | Katup satu arah yang berfungsi secara sempurna | Sungkup berbahan silicon dengan Nose Bridge untuk mengatur posisi sungkup agar lebih pas saat dikenakan di wajah, dilengkapi dengan tali pengikat yang bisa diatur | Tersedia untuk dewasa, anak-anak dan bayi",
+        "image": "/uploads/91.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Nebulizer Mask",
+        "kemenkesNumber": "20403220846",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Selang terbuat dari bahan PVC medical grade yang lunak sehingga nyaman selama pemakaian | Panjang selang 180cm, sangat fleksibel untuk pergerakan pasien | Gelas obat model segitiga ( sungkup ), yang menghasilkan uap lebih cepat dan pekat | Standar ukuran partikel 0,5 - 1 micron | Bisa dipakai pasien dalam posisi horizontal",
+        "image": "/uploads/92.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Suction Connecting Tube",
+        "kemenkesNumber": "20903020169",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Dibuat dari bahan PVC medical grade yang lunak dan tidak kaku sehingga nyaman selama pemakaian | Panjang 3 meter untuk keleluasaan pemakaian | Terdapat connector jika diperlukan untuk menyambung selang | Produk tersedia dalam kemasan steril | Terdapat pilihan dengan atau tanpa Yankauer",
+        "image": "/uploads/93.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Blood Transfusion Set",
+        "kemenkesNumber": "20902911129",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Spike tajam yang kuat dan tidak mudah patah | Panjang selang 168cm untuk keleluasaan pemakaian | Dinding tubing tebal dan fleksibel sehingga tidak mudah terlipat dan menjaga akurasi tetesan | Chamber transparan, mudah untuk memantau cairan | Filter 0,5 mikron yang terlindungi oleh chamber keras untuk patient safety | Roller clamp yang kokoh menjamin akurasi tetesan hingga akhir terapi cairan",
+        "image": "/uploads/94.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Infus Set Pediatric ( Anak-anak )",
+        "kemenkesNumber": "20902220592",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Spike tajam yang kuat dan tidak mudah patah | Panjang selang 180cm untuk keleluasaan pemakaian | Dinding tube tebal dan fleksibel sehingga tidak mudah terlipat serta menjaga akurasi tetesan | Gelembung udara mudah dikeluarkan dari tubing | Roller Clamp kokoh menjamin akurasi tetesan hingga akhir terapi cairan | Y-Injection port dengan media injection yang tebal sehingga tidak terjadi kebocoran walaupun ditusuk berulang kali | Air vent dengan filter 0,2 mikron yang berfungsi untuk menyaring bakteri/mikroorganisme pada saat pemakaian botol kaca",
+        "image": "/uploads/95.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Infus Set Macro ( Dewasa )",
+        "kemenkesNumber": "20902810576",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Spike tajam yang kuat dan tidak mudah patah | Dengan panjang selang 180cm untuk keleluasaan pemakaian | Dinding tube tebal dan fleksibel sehingga tidak mudah terlipat serta menjaga akurasi tetesan | Gelembung udara mudah dikeluarkan dari tubing | Roller Clamp kokoh menjamin akurasi tetesan hingga akhir terapi cairan | Y-Injection port dengan media injection yang tebal sehingga tidak terjadi kebocoran walaupun ditusuk berulang kali | Air vent dengan filter 0,2 mikron yang berfungsi untuk menyaring bakteri/mikroorganisme pada saat pemakaian botol kaca",
+        "image": "/uploads/macro.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "IV Catheter",
+        "kemenkesNumber": "20902220086",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Canula terbuat dari bahan thermoplastic polyurethane, aman dan nyaman | Body terbuat dari bahan MABS transparan, memudahkan saat memantau proses injeksi | Kemasan berbahan soft blister dengan tehnik sterilisasi EO | Model pen tanpa injection port | Tutup jarum yang dapat dikunci untuk safety | Tersedia ukuran 18G, 20G, 22G dan 24G",
+        "image": "/uploads/IV.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "IV Catheter With Wing",
+        "kemenkesNumber": "20902322947",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Canula terbuat dari bahan thermoplastic polyurethane, aman dan nyaman | Body terbuat dari bahan MABS transparan, memudahkan saat memantau proses injeksi | Kemasan berbahan soft blister dengan tehnik sterilisasi EO | Model pen dengan injection port | Tutup jarum yang dapat dikunci untuk safety | Tersedia ukuran 18G, 20G, 22G dan 24G",
+        "image": "/uploads/IVwings.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Disposable Syringe",
+        "kemenkesNumber": "20902420291",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Body terbuat dari bahan PP yang kuat | Material gasket terbuat dari Styrene Butadiene Rubber | Ujung Needle dibuat dengan tehnik pemotongan 3 tapper cut untuk mengurangi rasa sakit atau nyeri | Tersedia dalam scale line 1ml, 3ml, 5ml dan 10ml | Disterilisasi dengan tehnik Etylane Oxyde | Kemasan 100pcs per Inner ( 1ml, 3ml, 5ml dan 10ml )",
+        "image": "/uploads/dispo.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Urine Bag",
+        "kemenkesNumber": "10805122551",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Terbuat dari bahan berkualitas sehingga kuat dan anti bocor | Dilengkapi dengan anti reflux pada saluran masuk sehingga cairan tidak mengalir kembali | Kapasitas 2.000ml dengan skala ukur sehingga mudah untuk melakukan pemantauan | Desain pembuangan model T-Valve untuk kemudahan dan keamanan | Tersedia pilihan dengan atau tanpa Hanger ( penggantung )",
+        "image": "/uploads/ubag.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Sample Container",
+        "kemenkesNumber": "10203020209",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Body terbuat dari bahan PP yang tebal dan kuat | Tutup terbuat dari bahan HDPE dengan ulir jumlah 4 sehingga lebih aman | Dilengkapi dengan label yang tahan air | Tersedia pilihan Sterile dan Non-sterile | Kapasitas 60ml",
+        "image": "/uploads/sample.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Nurse Cap",
+        "kemenkesNumber": "11803022515",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Terbuat dari bahan spunbond yang anti air | Material lembut sehingga nyaman ketika dipakai | Karet penahan yang nyaman saat medical nurse cap dipakai | Packaging yang simpel dan rapi",
+        "image": "/uploads/nucap.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Safety Box",
+        "kemenkesNumber": "20903020657",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Terbuat dari bahan kardus tebal yang sesuai standar WHO | Terdapat pengaman tambahan didalam box, berupa kertas tebal dengan lapisan lilin sehingga anti bocor | Kuat dan aman untuk menampung limbah medis yang tajam dan berbahaya | Kapasitas 2,5Lt, 5Lt dan 12,5Lt",
+        "image": "/uploads/safetybox.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Packing Bag",
+        "kemenkesNumber": "-",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Terbuat dari bahan LDPE yang fleksibel, tahan bahan kimia dan kedap air | Bahan yang kuat dengan ketebalan 6 mil | Tersedia ukuran 60cm x 90cm dan 90cmx120cm | Warna kuning",
+        "image": "/uploads/pbag.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Latex Examination Gloves",
+        "kemenkesNumber": "10903220211",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Terbuat dari bahan latex dengan ketebalan 5 mil | Tersedia varian Powdered ( berbedak ) dan Non Powdered ( tidak berbedak ) | Non Sterile Ambidextrous | Tersedia ukuran XS, S, M, L",
+        "image": "/uploads/latex.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Supreme Examination Gloves",
+        "kemenkesNumber": "10903221335",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Sarung tangan berbahan latex premium dengan elastisitas tinggi | Hanya tersedia varian powdered ( berbedak ) | Non Sterile Ambidestrous | Sensitifitas tinggi pada jari saat dipakai",
+        "image": "/uploads/supreme.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Surgical Gloves Steril",
+        "kemenkesNumber": "11603120881",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Ketebalan bahan 6.5 mil | Sarung tangan latex dengan elastisitas tinggi | Desain curve yang membuat tangan atau jari tidak mudah lelah | Aman dari reaksi setrum saat menggunakan alat medis dengan sumber tenaga listrik | Sensitifitas tinggi pada jari saat dipakai",
+        "image": "/uploads/sgs.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Gloves Obgyn",
+        "kemenkesNumber": "10903120672",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Sarung tangan latex dengan elastisitas tinggi | Panjang +/- 56cm, melindungi tangan sampai diatas siku | Sensitifitas tinggi pada jari saat dipakai",
+        "image": "/uploads/go.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Apron Plastik",
+        "kemenkesNumber": "11603220138",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Terbuat dari bahan LDPE ( Low Density Polyethylene ) terbaik dengan ketebalan 30 micron | Bahan yang mampu melindungi badan dari percikan partikel dan cairan secara maksimal | Bisa digunakan untuk kegiatan medis dan non-medis | Panjang bawah sampai menutupi lutut | Tersedia varian lengan pendek dan panjang",
+        "image": "/uploads/ap.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Surgical Gown",
+        "kemenkesNumber": "21603022374",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Diproduksi dengan tehnik Non Woven | Bahan yang mampu melindungi badan dari percikan partikel dan cairan secara maksimal | Lengan elastis dan terdapat tali pada bagian belakang leher dan pinggang | Tersedia ukuran All Size",
+        "image": "/uploads/sg.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Coverall PP & PPL",
+        "kemenkesNumber": "21603020447",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Berbahan Polypropylene dan diproduksi dengan tehnik Non Woven | Non Woven laminasi berbentuk serat yang terikat dan tersusun secara kuat melalui proses kimiawi | Bahan yang mampu melindungi badan dari percikan partikel dan cairan secara maksimal | Ringan dan nyaman saat dipakai | Tersedia dalam ukuran All Size",
+        "image": "/uploads/cp.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+    },
+    {
+        "name": "Hemodialisis Pack",
+        "kemenkesNumber": "20805021050",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spek": "/uploads/spek.webp",
+        "image": "/uploads/hp.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+        },
+    {
+        "name": "Kasa Lipat",
+        "kemenkesNumber": "11603223067",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Varian Non Sterile | Model lipat dalam | Size 1 : 4cm x 4cm, 4cm x 11cm, 5cm x 5cm, 5cm x 7cm | Size 2 : 5cm x 12cm, 6cm x 6cm, 7cm x 13cm, 8cm x 7cm | Size 3 : 7.5cm x 7.5cm, 8cm x 10cm, 10cm x 10cm, 10cm x 12cm | 1 Pack isi 50pcs",
+        "image": "/uploads/kl.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+        },
+    {
+        "name": "Kasa Hidrophyl",
+        "kemenkesNumber": "11603810931",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Tersedia varian Non Sterile | Merah terbuat dari bahan full cotton | Biru terbuat dari bahan mix | Mempunyai ukuran 40Y x 80cm | Bisa dipotong sesuai dengan ukuran yang dibutuhkan | Minim residu dan debu",
+        "image": "/uploads/kh.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+        },
+    {
+        "name": "Kasa Perban",
+        "kemenkesNumber": "11603810931",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Tersedia varian Non Steril | Tersedia ukuran 2.5Y x 5cm, 2.5Y x 10cm, 2.5Y x 15cm | Setiap 1 pack berisi 50 roll",
+        "image": "/uploads/kp.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+        },
+    {
+        "name": "Razor",
+        "kemenkesNumber": "11603810931",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "spesifications": "Dua sisi mata pisau berbahan stainless steel yang tajam dan berkualitas | Dilengkapi dengan pelindung agar kualitas mata pisau tetap tajam | Dirancang dengan fitur pengaman agar nyaman dan aman saat dipakai | Panjang handle 88mm dan terbuat dari bahan plastik berkualitas",
+        "image": "/uploads/razor.webp",
+        "category": { "$oid": "6930def2256fb3df61f81c08" }
+        }
+]

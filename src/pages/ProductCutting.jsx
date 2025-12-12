@@ -1,6 +1,32 @@
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 export default function ProductCutting() {
+    const [products, setProducts] = useState([]);
+    const [status, setStatus] = useState("loading");
+    const [message, setMessage] = useState("");
+
+    useEffect(() => {
+        setStatus("loading");
+        fetch(`http://localhost:5000/api/products2`)
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.status === "empty") {
+                    setStatus("empty");
+                    setMessage(data.message || "Data kosong");
+                    setProducts([]);
+                } else {
+                    setStatus("success");
+                    setProducts(data.data);
+                }
+            })
+            .catch(() => {
+                setStatus("error");
+                setMessage("Gagal memuat data dari server");
+            });
+    }, []);
+
     return (
         <>
             <Helmet>
@@ -45,58 +71,53 @@ export default function ProductCutting() {
 
                 {/* Produk */}
                 <section className="w-10/12 mx-auto text-center py-16 px-6">
-                    <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-                        <div className="bg-white mx-auto rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20">
-                            <img
-                                src="/img/motif1.webp"
-                                alt="Motif Cutting 1"
-                                className="rounded mb-3"
-                            />
-                            <h3 className="text-lg font-semibold">
-                                Motif Cutting 1
-                            </h3>
-                        </div>
-                        <div className="bg-white mx-auto rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20">
-                            <img
-                                src="/img/motif2.webp"
-                                alt="Motif Cutting 2"
-                                className="rounded mb-3"
-                            />
-                            <h3 className="text-lg font-semibold">
-                                Motif Cutting 2
-                            </h3>
-                        </div>
-                        <div className="bg-white mx-auto rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20">
-                            <img
-                                src="/img/motif3.webp"
-                                alt="Motif Cutting 3"
-                                className="rounded mb-3"
-                            />
-                            <h3 className="text-lg font-semibold">
-                                Motif Cutting 3
-                            </h3>
-                        </div>
-                        <div className="bg-white mx-auto rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20">
-                            <img
-                                src="/img/motif4.webp"
-                                alt="Motif Cutting 4"
-                                className="rounded mb-3"
-                            />
-                            <h3 className="text-lg font-semibold">
-                                Motif Cutting 4
-                            </h3>
-                        </div>
-                        <div className="bg-white mx-auto rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20">
-                            <img
-                                src="/img/motif5.webp"
-                                alt="Motif Cutting 5"
-                                className="rounded mb-3"
-                            />
-                            <h3 className="text-lg font-semibold">
-                                Motif Cutting 5
-                            </h3>
-                        </div>
-                    </div>
+                    {status === "loading" && (
+                        <p className="text-cyan-600 text-lg font-semibold">
+                            Memuat data...
+                        </p>
+                    )}
+
+                    {status === "error" && (
+                        <p className="text-red-600 text-lg font-semibold">
+                            {message || "Terjadi kesalahan, coba lagi nanti."}
+                        </p>
+                    )}
+
+                    {status === "empty" && (
+                        <p className="text-gray-500 text-lg font-semibold">
+                            {message || "Belum ada Produk furniture."}
+                        </p>
+                    )}
+
+                    {status === "success" && (
+                        <>
+                            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+                                {products.map((item) => (
+                                    <div
+                                        className="bg-white rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20 flex flex-col justify-between"
+                                    >
+                                        <div>
+                                            <img
+                                                src={`http://localhost:5000${item.image}`}
+                                                alt={item.name}
+                                                className="h-[220px] w-full object-contain mx-auto mb-3"
+                                            />
+                                            <p className="font-semibold text-lg text-cyan-800">
+                                                {item.name}
+                                            </p>
+                                        </div>
+                                        <Link
+                                            to={`/products/${item._id}`}
+                                            id="button"
+                                            className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
+                                        >
+                                            Detail
+                                        </Link>
+                                    </div>
+                                ))}
+                            </div>
+                        </>
+                    )}
                 </section>
             </div>
         </>

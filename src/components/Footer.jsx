@@ -197,7 +197,7 @@ export default function Footer() {
                 </div>
             </div>
             <hr className="text-cyan-300/20" />
-            <div className="backdrop-blur-md rounded-2xl bg-gradient-to-r from-cyan-600/50 via-cyan-800/20 to-cyan-600/50 my-2">
+            <div className="backdrop-blur-md rounded-2xl bg-gradient-to-r from-cyan-600/50 via-cyan-800/20 to-cyan-600/50 mt-2">
                 <p className="text-sm py-4 text-center md:text-sm">
                     © {new Date().getFullYear()} PT Entri Jaya Makmur. All
                     rights reserved.

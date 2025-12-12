@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
+import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export default function ProductLiquid() {
@@ -8,31 +9,34 @@ export default function ProductLiquid() {
     const [total, setTotal] = useState(0);
     const [status, setStatus] = useState("loading");
     const [message, setMessage] = useState("");
+    const [search, setSearch] = useState("");
     const limit = 16;
+
+    const liquidCategoryId = "6930def8256fb3df61f81c0d";
 
     useEffect(() => {
         setStatus("loading");
-        fetch(
-            `https://web-entri.onrender.com/api/liquid?page=${page}&limit=${limit}`
-        )
+
+        const query = `http://localhost:5000/api/products2?page=${page}&limit=${limit}&search=${search}&category=${liquidCategoryId}`;
+
+        fetch(query)
             .then((res) => res.json())
             .then((data) => {
-                if (data.status === "empty") {
-                    setStatus("empty");
-                    setMessage(data.message || "Data kosong");
+                if (!data.data || data.data.length === 0) {
                     setLiquid([]);
                     setTotal(0);
+                    setStatus("empty");
                 } else {
+                    setLiquid(data.data);
+                    setTotal(data.pagination.total);
                     setStatus("success");
-                    setLiquid(data.liquid);
-                    setTotal(data.total);
                 }
             })
             .catch(() => {
                 setStatus("error");
                 setMessage("Gagal memuat data dari server");
             });
-    }, [page]);
+    }, [page, search]);
 
     const totalPages = Math.ceil(total / limit);
 
@@ -56,7 +60,7 @@ export default function ProductLiquid() {
             <div>
                 {/* Hero */}
                 <section
-                    className="h-[80vh] relative flex flex-col text-white bg-cover bg-no-repeat bg-center md:bg-right"
+                    className="h-[40vh] relative flex flex-col text-white bg-cover bg-no-repeat bg-center md:bg-right"
                     style={{
                         backgroundImage: "url('/img/liq.webp')",
                     }}
@@ -65,7 +69,7 @@ export default function ProductLiquid() {
                     <div className="md:hidden block absolute inset-0 bg-gradient-to-t from-cyan-800 via-black/50 to-black/60"></div>
 
                     <div>
-                        <div className="relative w-11/12 z-10 mx-auto flex flex-col items-start h-[80vh] justify-center text-center">
+                        <div className="relative w-11/12 z-10 mx-auto flex flex-col items-start h-[50vh] md:h-[40vh] justify-center text-center">
                             <h3 className="text-3xl w-full md:text-5xl font-bold mb-4">
                                 Produk{" "}
                                 <span className="bg-gradient-to-l from-cyan-500 via-cyan-400 to-cyan-200 bg-clip-text text-transparent">
@@ -78,6 +82,17 @@ export default function ProductLiquid() {
 
                 {/* Produk */}
                 <section className="w-10/12 mx-auto text-center py-16 px-6">
+                    <div className="mb-10 relative w-full">
+                        <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-cyan-600" />
+
+                        <input
+                            type="text"
+                            placeholder="Cari produk furniture..."
+                            onChange={(e) => setSearch(e.target.value)}
+                            className="border pl-9 w-full px-3 py-2 rounded-xl bg-white shadow-md shadow-cyan-800/40 p-4 text-cyan-800 border-cyan-500/80 focus:outline-cyan-500"
+                        />
+                    </div>
+
                     {status === "loading" && (
                         <p className="text-cyan-600 text-lg font-semibold">
                             Memuat data...
@@ -105,17 +120,17 @@ export default function ProductLiquid() {
                                         className="bg-white rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20 flex flex-col justify-between"
                                     >
                                         <img
-                                            src={p.img}
-                                            alt={p.title}
-                                            loading="lazy"
-                                            className="rounded mb-3 mx-auto"
+                                            src={`http://localhost:5000${p.image}`}
+                                            alt={p.name}
+                                            className="h-[120px] md:h-[220px] w-full object-contain mx-auto mb-3"
                                         />
                                         <h3 className="text-lg font-semibold mb-3">
-                                            {p.title}
+                                            {p.name}
                                         </h3>
 
+                                        {/* 🔹 Tombol Detail */}
                                         <Link
-                                            to={`/products/liquid/${p.id}`}
+                                            to={`/products/${p._id}`}
                                             className="inline-block mt-auto px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
                                             onClick={() =>
                                                 window.scrollTo({

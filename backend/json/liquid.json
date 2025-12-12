@@ -1,0 +1,89 @@
+[
+    {
+        "name": "Povidone Iodine",
+        "kemenkesNumber": "20309320366",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "specifications":
+        "Mengandung povidone iodine 10% | Efektif mensterilkan area pada tubuh yang akan dilakukan operasi | Bisa diencerkan untuk tujuan penggunaan yang lebih spesifik ( kumur ) | Tersedia dalam kemasan 15ml, 30ml, 60ml dan 1 Liter",
+        "image": "/uploads/povidone.webp",
+        "category": { "$oid": "6930def8256fb3df61f81c0d" }
+    },
+    {
+        "name": "Alkohol Antiseptik",
+        "kemenkesNumber": "20501220252",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "specifications":
+        "Mengandung Ethyl alcohol food grade, Isopropil , Benzalkonium Chloride | Tersedia dengan kandungan alkohol 70%, 95%, 96% | Tersedia dalam kemasan 100ml, 1L, 5L, 20L, 200L",
+        "image": "/uploads/alkohol-full.webp",
+        "category": { "$oid": "6930def8256fb3df61f81c0d" }
+    },
+    {
+        "name": "Hand Sanitizer",
+        "kemenkesNumber": "20501220386",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "specifications":
+        "Mengandung Ethyl alcohol 70%, CHG (Chlorhexidine Gluconate) 0,5% | Aman untuk permukaan kulit | Tersedia varian aroma original dan parfum lemon | Tersedia dalam kemasan 100ml, 500ml, 1L, 5L dan 20L",
+        "image": "/uploads/hand-sanitizer.webp",
+        "category": { "$oid": "6930def8256fb3df61f81c0d" }
+    },
+    {
+        "name": "Alkohol 95%, 96% ( 200 L )",
+        "kemenkesNumber": "-",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "specifications": "Alkohol 95%, 96% ( 200 L )",
+        "image": "/uploads/alkohol.webp",
+        "category": { "$oid": "6930def8256fb3df61f81c0d" }
+    },
+    {
+        "name": "Chlorhexidine 0.5%, 2%, 4% ( 5 L )",
+        "kemenkesNumber": "-",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "specifications":
+        "Mengandung Ethyl Alcohol, CHG (Chlorhexidine Gluconate) | Tersedia varian aroma original dan parfum lemon | Tersedia kadar CHG (Chlorhexidine Gluconate) 0,5%, 2% dan 4% | Tersedia dalam kemasan 1L, 5L dan 20L",
+        "image": "/uploads/chlorhexidine.webp",
+        "category": { "$oid": "6930def8256fb3df61f81c0d" }
+    },
+    {
+        "name": "Aquadest Water DM",
+        "kemenkesNumber": "-",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "specifications":
+        "pH Netral (7,0) Appearance (clear and free of visible particular) | Nilai TDS (Total Dissolved Solid) 3Mg/Liter (standar max 5) | Nilai Conductivity 8,5 μS/cm (standar max 10) | Tersedia dalam kemasan 1 Liter, 5 Liter dan 20 Liter",
+        "image": "/uploads/aquadest.webp",
+        "category": { "$oid": "6930def8256fb3df61f81c0d" }
+    },
+    {
+        "name": "Polyhexamethylene Biguanide",
+        "kemenkesNumber": "-",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "specifications": "POLIHEXAMETHYLENE BIGUANIDE",
+        "image": "/uploads/phmb.webp",
+        "category": { "$oid": "6930def8256fb3df61f81c0d" }
+    },
+    {
+        "name": "Zyme",
+        "kemenkesNumber": "-",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "specifications": "Multi Enzyme Cleanser ( 3 in 1 )",
+        "image": "/uploads/zyme.webp",
+        "category": { "$oid": "6930def8256fb3df61f81c0d" }
+    },
+    {
+        "name": "Anti Microbial Hand Wash",
+        "kemenkesNumber": "20309320366",
+        "brand": "N3",
+        "location": "Surakarta, Indonesia",
+        "specifications":
+        "Mengandung Chlorhexidine Gluconate 4% | Sebagai anti mikroba baik gram positif maupun gram negatif | Bersifat lembut di kulit | Tersedia dalam kemasan 500ml, 5 Liter dan 20 Liter",
+        "image": "/uploads/handwash.webp",
+        "category": { "$oid": "6930def8256fb3df61f81c0d" }
+    },
+]

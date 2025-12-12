@@ -5,14 +5,54 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Products() {
+    const [dbProducts, setDbProducts] = useState([]);
+    const [loadingDb, setLoadingDb] = useState(true);
+    const [errorDb, setErrorDb] = useState(false);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                setLoadingDb(true);
+                const res = await axios.get(
+                    "http://localhost:5000/api/products2/all"
+                );
+                setDbProducts(res.data.data);
+            } catch (err) {
+                console.error(err);
+                setErrorDb(true);
+            } finally {
+                setLoadingDb(false);
+            }
+        };
+
+        fetchProducts();
+    }, []);
+
+    const LoadingMessage = ({ text }) => (
+        <div className="w-full flex justify-center py-10 text-cyan-700 font-semibold animate-pulse">
+            {text}
+        </div>
+    );
+
+    const EmptyMessage = ({ text }) => (
+        <div className="w-full text-center py-10 text-gray-500">{text}</div>
+    );
+
     const handleMenuClick = (callback) => {
         if (callback) callback();
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     const { t } = useTranslation();
+
+    const filterDb = (catId) =>
+        dbProducts.filter(
+            (p) => p.category?._id === catId || p.category === catId
+        );
 
     return (
         <>
@@ -75,73 +115,59 @@ export default function Products() {
                     </div>
 
                     <div className="mt-8">
-                        <Swiper
-                            modules={[Pagination, Autoplay]}
-                            spaceBetween={20}
-                            slidesPerView={1}
-                            breakpoints={{
-                                640: { slidesPerView: 3 },
-                                1024: { slidesPerView: 4 },
-                            }}
-                            pagination={{ clickable: true }}
-                            autoplay={{ delay: 3000 }}
-                            className="cursor-grab rounded-2xl"
-                        >
-                            {[
-                                {
-                                    id: 1,
-                                    img: "./img/bed1.webp",
-                                    title: "Hospital Bed Manual (1 Crank)",
-                                },
-                                {
-                                    id: 11,
-                                    img: "./img/kursi-gigi.webp",
-                                    title: "Phlebotomy Chair",
-                                },
-                                {
-                                    id: 12,
-                                    img: "./img/kasur-bayi1.webp",
-                                    title: "Hospital Children Bed",
-                                },
-                                {
-                                    id: 17,
-                                    img: "./img/lemari1.webp",
-                                    title: "Instrumen Cabinet 2 Door Type 01",
-                                },
-                                {
-                                    id: 5,
-                                    img: "./img/bed5.webp",
-                                    title: "Hospital Bed ICU",
-                                },
-                                {
-                                    id: 6,
-                                    img: "./img/examin1.webp",
-                                    title: "Examine Bed SS",
-                                },
-                            ].map((item, i) => (
-                                <SwiperSlide key={i} className="py-5 mb-5">
-                                    <div className="bg-white rounded-xl shadow-md text-center p-4 h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
-                                        <div>
-                                            <img
-                                                src={item.img}
-                                                alt={item.title}
-                                                className="h-[220px] w-full object-contain mx-auto mb-3"
-                                            />
-                                            <p className="font-semibold text-lg text-cyan-800">
-                                                {item.title}
-                                            </p>
-                                        </div>
-
-                                        <Link
-                                            to={`/products/furniture/${item.id}`}
-                                            className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
+                        {loadingDb ? (
+                            <LoadingMessage text="Memuat produk furniture..." />
+                        ) : errorDb ? (
+                            <EmptyMessage text="Gagal memuat produk." />
+                        ) : filterDb("6930deec256fb3df61f81c03").length ===
+                          0 ? (
+                            <EmptyMessage text="Produk furniture belum tersedia." />
+                        ) : (
+                            <Swiper
+                                modules={[Pagination, Autoplay]}
+                                spaceBetween={10}
+                                slidesPerView={1}
+                                breakpoints={{
+                                    640: { slidesPerView: 3 },
+                                    1024: { slidesPerView: 4 },
+                                }}
+                                pagination={{ clickable: true }}
+                                autoplay={{ delay: 3000 }}
+                                className="cursor-grab rounded-2xl"
+                            >
+                                {filterDb("6930deec256fb3df61f81c03")
+                                    .slice(0, 4)
+                                    .map((item) => (
+                                        <SwiperSlide
+                                            key={item._id}
+                                            className="py-5 px-2 mb-5"
                                         >
-                                            Detail
-                                        </Link>
-                                    </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
+                                            <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
+                                                <img
+                                                    src={`http://localhost:5000${item.image}`}
+                                                    alt={item.name}
+                                                    className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
+                                                />
+                                                <p className="font-semibold text-lg text-cyan-800">
+                                                    {item.name}
+                                                </p>
+                                                <Link
+                                                    to={`/products/${item._id}`}
+                                                    onClick={() =>
+                                                        window.scrollTo({
+                                                            top: 0,
+                                                            behavior: "smooth",
+                                                        })
+                                                    }
+                                                    className="mt-2 inline-block px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition"
+                                                >
+                                                    Detail
+                                                </Link>
+                                            </div>
+                                        </SwiperSlide>
+                                    ))}
+                            </Swiper>
+                        )}
                     </div>
                 </section>
 
@@ -170,63 +196,59 @@ export default function Products() {
                     </div>
 
                     <div className="mt-8">
-                        <Swiper
-                            modules={[Pagination, Autoplay]}
-                            spaceBetween={20}
-                            slidesPerView={1}
-                            breakpoints={{
-                                640: { slidesPerView: 3 },
-                                1024: { slidesPerView: 4 },
-                            }}
-                            pagination={{ clickable: true }}
-                            autoplay={{ delay: 3000 }}
-                            className="cursor-grab rounded-2xl"
-                        >
-                            {[
-                                {
-                                    id: 71,
-                                    img: "./img/alkohol-full.webp",
-                                    title: "Alkohol Antiseptik",
-                                },
-                                {
-                                    id: 72,
-                                    img: "./img/hand-sanitizer.webp",
-                                    title: "Hand Sanitizer",
-                                },
-                                {
-                                    id: 74,
-                                    img: "./img/chlorhexidine.webp",
-                                    title: "Chlorhexidine",
-                                },
-                                {
-                                    id: 75,
-                                    img: "./img/aquadest.webp",
-                                    title: "Aquadest Water DM",
-                                },
-                            ].map((item, i) => (
-                                <SwiperSlide key={i} className="py-5 mb-5">
-                                    <div className="bg-white rounded-xl shadow-md text-center p-4 h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
-                                        <div>
-                                            <img
-                                                src={item.img}
-                                                alt={item.title}
-                                                className="h-[220px] w-full object-contain mx-auto mb-3"
-                                            />
-                                            <p className="font-semibold text-lg text-cyan-800">
-                                                {item.title}
-                                            </p>
-                                        </div>
-
-                                        <Link
-                                            to={`/products/liquid/${item.id}`}
-                                            className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
+                        {loadingDb ? (
+                            <LoadingMessage text="Memuat produk liquid..." />
+                        ) : errorDb ? (
+                            <EmptyMessage text="Gagal memuat produk." />
+                        ) : filterDb("6930def8256fb3df61f81c0d").length ===
+                          0 ? (
+                            <EmptyMessage text="Produk liquid belum tersedia." />
+                        ) : (
+                            <Swiper
+                                modules={[Pagination, Autoplay]}
+                                spaceBetween={10}
+                                slidesPerView={1}
+                                breakpoints={{
+                                    640: { slidesPerView: 3 },
+                                    1024: { slidesPerView: 4 },
+                                }}
+                                pagination={{ clickable: true }}
+                                autoplay={{ delay: 3000 }}
+                                className="cursor-grab rounded-2xl"
+                            >
+                                {filterDb("6930def8256fb3df61f81c0d")
+                                    .slice(0, 4)
+                                    .map((item) => (
+                                        <SwiperSlide
+                                            key={item._id}
+                                            className="py-5 px-2 mb-5"
                                         >
-                                            Detail
-                                        </Link>
-                                    </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
+                                            <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
+                                                <img
+                                                    src={`http://localhost:5000${item.image}`}
+                                                    alt={item.name}
+                                                    className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
+                                                />
+                                                <p className="font-semibold text-lg text-cyan-800">
+                                                    {item.name}
+                                                </p>
+                                                <Link
+                                                    to={`/products/${item._id}`}
+                                                    onClick={() =>
+                                                        window.scrollTo({
+                                                            top: 0,
+                                                            behavior: "smooth",
+                                                        })
+                                                    }
+                                                    className="mt-2 inline-block px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition"
+                                                >
+                                                    Detail
+                                                </Link>
+                                            </div>
+                                        </SwiperSlide>
+                                    ))}
+                            </Swiper>
+                        )}
                     </div>
                 </section>
 
@@ -255,60 +277,59 @@ export default function Products() {
                     </div>
 
                     <div className="mt-8">
-                        <Swiper
-                            modules={[Pagination, Autoplay]}
-                            spaceBetween={20}
-                            slidesPerView={1}
-                            breakpoints={{
-                                640: { slidesPerView: 3 },
-                                1024: { slidesPerView: 4 },
-                            }}
-                            pagination={{ clickable: true }}
-                            autoplay={{ delay: 3000 }}
-                            className="cursor-grab rounded-2xl"
-                        >
-                            {[
-                                {
-                                    id: 80,
-                                    img: "./img/masker1.webp",
-                                    title: "Surgical Facemask (Ear Loop)",
-                                },
-                                {
-                                    id: 81,
-                                    img: "./img/korset.webp",
-                                    title: "Korset",
-                                },
-                                {
-                                    id: 82,
-                                    img: "./img/masker2.webp",
-                                    title: "Surgical Facemask (Head Loop)",
-                                },
-                                {
-                                    id: 83,
-                                    img: "./img/alswab.webp",
-                                    title: "Alkohol Swab",
-                                },
-                            ].map((item, i) => (
-                                <SwiperSlide key={i} className="py-5 mb-5">
-                                    <div className="bg-white rounded-xl shadow-md text-center p-4 h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
-                                        <img
-                                            src={item.img}
-                                            alt={item.title}
-                                            className="h-56 w-full object-contain mx-auto"
-                                        />
-                                        <p className="font-semibold text-lg mt-3">
-                                            {item.title}
-                                        </p>
-                                        <Link
-                                            to={`/products/bmhp/${item.id}`}
-                                            className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
+                        {loadingDb ? (
+                            <LoadingMessage text="Memuat produk bmhp..." />
+                        ) : errorDb ? (
+                            <EmptyMessage text="Gagal memuat produk." />
+                        ) : filterDb("6930def2256fb3df61f81c08").length ===
+                            0 ? (
+                            <EmptyMessage text="Produk bmhp belum tersedia." />
+                        ) : (
+                            <Swiper
+                                modules={[Pagination, Autoplay]}
+                                spaceBetween={10}
+                                slidesPerView={1}
+                                breakpoints={{
+                                    640: { slidesPerView: 3 },
+                                    1024: { slidesPerView: 4 },
+                                }}
+                                pagination={{ clickable: true }}
+                                autoplay={{ delay: 3000 }}
+                                className="cursor-grab rounded-2xl"
+                            >
+                                {filterDb("6930def2256fb3df61f81c08")
+                                    .slice(0, 4)
+                                    .map((item) => (
+                                        <SwiperSlide
+                                            key={item._id}
+                                            className="py-5 px-2 mb-5"
                                         >
-                                            Detail
-                                        </Link>
-                                    </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
+                                            <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
+                                                <img
+                                                    src={`http://localhost:5000${item.image}`}
+                                                    alt={item.name}
+                                                    className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
+                                                />
+                                                <p className="font-semibold text-lg text-cyan-800">
+                                                    {item.name}
+                                                </p>
+                                                <Link
+                                                    to={`/products/${item._id}`}
+                                                    onClick={() =>
+                                                        window.scrollTo({
+                                                            top: 0,
+                                                            behavior: "smooth",
+                                                        })
+                                                    }
+                                                    className="mt-2 inline-block px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition"
+                                                >
+                                                    Detail
+                                                </Link>
+                                            </div>
+                                        </SwiperSlide>
+                                    ))}
+                            </Swiper>
+                        )}
                     </div>
                 </section>
 
@@ -337,60 +358,59 @@ export default function Products() {
                     </div>
 
                     <div className="mt-8">
-                        <Swiper
-                            modules={[Pagination, Autoplay]}
-                            spaceBetween={20}
-                            slidesPerView={1}
-                            breakpoints={{
-                                640: { slidesPerView: 4 },
-                                1024: { slidesPerView: 4 },
-                            }}
-                            pagination={{ clickable: true }}
-                            autoplay={{ delay: 3000 }}
-                            className="cursor-grab rounded-2xl"
-                        >
-                            {[
-                                {
-                                    id: 117,
-                                    img: "./img/lab1.webp",
-                                    title: "Centrifuge 12 Holes",
-                                },
-                                {
-                                    id: 118,
-                                    img: "./img/lab2.webp",
-                                    title: "Bio Safety Cabinet",
-                                },
-                                {
-                                    id: 119,
-                                    img: "./img/lab3.webp",
-                                    title: "Laminar Air Flow",
-                                },
-                                {
-                                    id: 120,
-                                    img: "./img/gluco.webp",
-                                    title: "Alat Gluco",
-                                },
-                            ].map((item, i) => (
-                                <SwiperSlide key={i} className="py-5 mb-5">
-                                    <div className="bg-white rounded-xl shadow-md text-center p-4 h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
-                                        <img
-                                            src={item.img}
-                                            alt={item.title}
-                                            className="h-60 w-full object-contain mx-auto"
-                                        />
-                                        <p className="font-semibold text-lg mt-3">
-                                            {item.title}
-                                        </p>
-                                        <Link
-                                            to={`/products/lab/${item.id}`}
-                                            className="inline-block mt-3 px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
+                        {loadingDb ? (
+                            <LoadingMessage text="Memuat produk laboratorium..." />
+                        ) : errorDb ? (
+                            <EmptyMessage text="Gagal memuat produk." />
+                        ) : filterDb("6930df06256fb3df61f81c12").length ===
+                            0 ? (
+                            <EmptyMessage text="Produk laboratorium belum tersedia." />
+                        ) : (
+                            <Swiper
+                                modules={[Pagination, Autoplay]}
+                                spaceBetween={10}
+                                slidesPerView={1}
+                                breakpoints={{
+                                    640: { slidesPerView: 3 },
+                                    1024: { slidesPerView: 4 },
+                                }}
+                                pagination={{ clickable: true }}
+                                autoplay={{ delay: 3000 }}
+                                className="cursor-grab rounded-2xl"
+                            >
+                                {filterDb("6930df06256fb3df61f81c12")
+                                    .slice(0, 4)
+                                    .map((item) => (
+                                        <SwiperSlide
+                                            key={item._id}
+                                            className="py-5 px-2 mb-5"
                                         >
-                                            Detail
-                                        </Link>
-                                    </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
+                                            <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
+                                                <img
+                                                    src={`http://localhost:5000${item.image}`}
+                                                    alt={item.name}
+                                                    className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
+                                                />
+                                                <p className="font-semibold text-lg text-cyan-800">
+                                                    {item.name}
+                                                </p>
+                                                <Link
+                                                    to={`/products/${item._id}`}
+                                                    onClick={() =>
+                                                        window.scrollTo({
+                                                            top: 0,
+                                                            behavior: "smooth",
+                                                        })
+                                                    }
+                                                    className="mt-2 inline-block px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition"
+                                                >
+                                                    Detail
+                                                </Link>
+                                            </div>
+                                        </SwiperSlide>
+                                    ))}
+                            </Swiper>
+                        )}
                     </div>
                 </section>
 
