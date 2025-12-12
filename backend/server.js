@@ -14,6 +14,7 @@ import adminRoutes from "./routes/adminRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
+import { connectDB } from "./config/db.js";
 
 dotenv.config();
 
@@ -286,17 +287,10 @@ app.get(/.*/, (req, res) => {
     res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
 
-mongoose
-    .connect(process.env.MONGO_URI)
-    .then(() => {
-        console.log("MongoDB connected");
-        app.listen(PORT, () => console.log(`Server running on ${PORT}`));
-    })
-    .catch((err) => {
-        console.error("MongoDB connection error:", err);
-    });
+connectDB();
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, "0.0.0.0", () => {
-    console.log(`✅ Server running on port ${PORT}`);
-});
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, "0.0.0.0", () => {
+//     console.log(`✅ Server running on port ${PORT}`);
+// });
+export default app;
