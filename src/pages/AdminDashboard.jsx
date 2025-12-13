@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import axios from "../api/axiosInstance";
 import AdminLayout from "../components/AdminLayout";
 import { Link } from "react-router-dom";
+import api from "../api/axiosInstance";
 
 // 🎯 Fungsi animasi angka (lebih cepat)
 function CountUp({ target }) {
@@ -38,10 +38,10 @@ export default function AdminDashboard() {
             setLoading(true);
             setErrorMsg("");
 
-            const resProducts = await axios.get("/api/products2", {
+            const resProducts = await api.get("/api/products2", {
                 params: { page: 1, limit: 1 },
             });
-            const resCategories = await axios.get("/api/categories", {
+            const resCategories = await api.get("/api/categories", {
                 params: { page: 1, limit: 1 },
             });
 

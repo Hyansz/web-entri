@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import api from "../api/axiosInstance";
 
 export default function ProductLiquid() {
     const [liquid, setLiquid] = useState([]);
@@ -14,12 +15,14 @@ export default function ProductLiquid() {
 
     const liquidCategoryId = "6930def8256fb3df61f81c0d";
 
+    const ASSET_URL = import.meta.env.VITE_ASSET_URL;
+
     useEffect(() => {
         setStatus("loading");
 
-        const query = `http://localhost:5000/api/products2?page=${page}&limit=${limit}&search=${search}&category=${liquidCategoryId}`;
+        const query = `/api/products2?page=${page}&limit=${limit}&search=${search}&category=${liquidCategoryId}`;
 
-        fetch(query)
+        api.get(query)
             .then((res) => res.json())
             .then((data) => {
                 if (!data.data || data.data.length === 0) {
@@ -120,7 +123,7 @@ export default function ProductLiquid() {
                                         className="bg-white rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20 flex flex-col justify-between"
                                     >
                                         <img
-                                            src={`http://localhost:5000${p.image}`}
+                                            src={`${ASSET_URL}${p.image}`}
                                             alt={p.name}
                                             className="h-[120px] md:h-[220px] w-full object-contain mx-auto mb-3"
                                         />

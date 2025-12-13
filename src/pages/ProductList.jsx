@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import axios from "../api/axiosInstance";
 import AdminLayout from "../components/AdminLayout";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext";
+import api from "../api/axiosInstance";
 
 export default function ProductList() {
     const { token } = useContext(AuthContext);
@@ -26,12 +26,14 @@ export default function ProductList() {
     const [showModal, setShowModal] = useState(false);
     const [deleteId, setDeleteId] = useState(null);
 
+    const ASSET_URL = import.meta.env.VITE_ASSET_URL;
+
     const load = async (page = 1) => {
         setLoading(true);
         setError("");
 
         try {
-            const res = await axios.get("/api/products2", {
+            const res = await api.get("/api/products2", {
                 params: { page, limit: pagination.limit, search, category },
             });
             setProducts(res.data.data);
@@ -45,7 +47,7 @@ export default function ProductList() {
     };
 
     useEffect(() => {
-        axios
+        api
             .get("/api/categories")
             .then((r) => setCategories(r.data.data || []))
             .catch(() => {});
@@ -62,7 +64,7 @@ export default function ProductList() {
 
     const confirmDelete = async () => {
         try {
-            await axios.delete(`/api/products2/${deleteId}`);
+            await api.delete(`/api/products2/${deleteId}`);
             load(pagination.page);
             setShowModal(false);
         } catch (err) {
@@ -163,7 +165,7 @@ export default function ProductList() {
                                         <td className="p-2">
                                             {p.image ? (
                                                 <img
-                                                    src={`http://localhost:5000${p.image}`}
+                                                    src={`${ASSET_URL}${p.image}`}
                                                     alt={p.name}
                                                     className="w-20 h-20 object-cover rounded"
                                                 />

@@ -2,7 +2,8 @@ import axios from "axios";
 import { logoutFromContext } from "../auth/logoutHelper";
 
 const api = axios.create({
-    baseURL: "http://localhost:5000",
+    baseURL: import.meta.env.VITE_API_URL,
+    withCredentials: false
 });
 
 export const setAuthToken = (token) => {

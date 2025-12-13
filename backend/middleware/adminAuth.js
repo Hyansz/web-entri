@@ -1,19 +1,20 @@
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-dotenv.config();
 
 export default function adminAuth(req, res, next) {
     try {
-        const auth = req.header("Authorization");
-        if (!auth) return res.status(401).json({ message: "No token" });
-        const token = auth.replace("Bearer ", "");
+        const auth = req.headers.authorization;
+        if (!auth?.startsWith("Bearer "))
+            return res.status(401).json({ message: "Unauthorized" });
+
+        const token = auth.split(" ")[1];
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        // optionally check role
-        if (!decoded?.id)
-            return res.status(401).json({ message: "Invalid token" });
+
+        if (decoded.role !== "admin")
+            return res.status(403).json({ message: "Forbidden" });
+
         req.admin = decoded;
         next();
-    } catch (err) {
-        return res.status(401).json({ message: "Unauthorized" });
+    } catch {
+        res.status(401).json({ message: "Invalid token" });
     }
 }

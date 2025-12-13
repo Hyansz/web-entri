@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import axios from "../api/axiosInstance";
+import api from "../api/axiosInstance";
 import { AuthContext } from "../auth/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -11,7 +11,7 @@ export default function AdminLogin() {
     const submit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("/api/admin/login", form);
+            const res = await api.post("/api/admin/login", form);
             login(res.data.token, res.data.expiresIn);
             nav("/admin/dashboard");
         } catch (err) {
@@ -29,7 +29,7 @@ export default function AdminLogin() {
                     <div className="flex items-center gap-2 mb-10">
                         <div className="w-3 h-3 rounded-full bg-cyan-600"></div>
                         <span className="font-semibold text-gray-800">
-                            PT. Entri Jaya Makmur
+                            <Link to={'/'}>PT. Entri Jaya Makmur</Link>
                         </span>
                     </div>
 

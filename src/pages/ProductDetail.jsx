@@ -2,14 +2,17 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import api from "../api/axiosInstance";
 
 export default function ProductDetail() {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const navigate = useNavigate();
 
+    const ASSET_URL = import.meta.env.VITE_ASSET_URL;
+
     useEffect(() => {
-        fetch(`http://localhost:5000/api/products2/${id}`)
+        api.get(`/api/products2/${id}`)
             .then((res) => res.json())
             .then((data) => setProduct(data))
             .catch((err) => console.error(err));
@@ -33,7 +36,7 @@ export default function ProductDetail() {
             <div className="w-10/12 mx-auto py-16 flex flex-col md:flex-row items-center justify-center gap-10">
                 <div className="md:w-1/2">
                     <img
-                        src={`http://localhost:5000${product.image}`}
+                        src={`${ASSET_URL}${product.image}`}
                         alt={product.name}
                         className="rounded-xl mb-6 w-full"
                     />

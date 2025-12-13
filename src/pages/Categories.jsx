@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import axios from "../api/axiosInstance";
+import api from "../api/axiosInstance";
 import AdminLayout from "../components/AdminLayout";
 import { AuthContext } from "../auth/AuthContext";
 
@@ -33,7 +33,7 @@ export default function Categories() {
         setError("");
 
         try {
-            const res = await axios.get("/api/categories", {
+            const res = await api.get("/api/categories", {
                 headers: { Authorization: `Bearer ${token}` },
                 params: {
                     page,
@@ -66,7 +66,7 @@ export default function Categories() {
         }
 
         try {
-            await axios.post(
+            await api.post(
                 "/api/categories",
                 { name },
                 { headers: { Authorization: `Bearer ${token}` } }
@@ -88,7 +88,7 @@ export default function Categories() {
         if (!editName.trim()) return alert("Nama kategori wajib!");
 
         try {
-            await axios.put(
+            await api.put(
                 `/api/categories/${editId}`,
                 { name: editName },
                 { headers: { Authorization: `Bearer ${token}` } }
@@ -108,7 +108,7 @@ export default function Categories() {
 
     const confirmDelete = async () => {
         try {
-            await axios.delete(`/api/categories/${deleteId}`, {
+            await api.delete(`/api/categories/${deleteId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 

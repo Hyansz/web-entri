@@ -6,19 +6,21 @@ import "swiper/css/pagination";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api/axiosInstance";
 
 export default function Products() {
     const [dbProducts, setDbProducts] = useState([]);
     const [loadingDb, setLoadingDb] = useState(true);
     const [errorDb, setErrorDb] = useState(false);
 
+    const ASSET_URL = import.meta.env.VITE_ASSET_URL;
+
     useEffect(() => {
         const fetchProducts = async () => {
             try {
                 setLoadingDb(true);
-                const res = await axios.get(
-                    "http://localhost:5000/api/products2/all"
+                const res = await api.get(
+                    "/api/products2/all"
                 );
                 setDbProducts(res.data.data);
             } catch (err) {
@@ -144,7 +146,7 @@ export default function Products() {
                                         >
                                             <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                                 <img
-                                                    src={`http://localhost:5000${item.image}`}
+                                                    src={`${ASSET_URL}${item.image}`}
                                                     alt={item.name}
                                                     className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
                                                 />
@@ -225,7 +227,7 @@ export default function Products() {
                                         >
                                             <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                                 <img
-                                                    src={`http://localhost:5000${item.image}`}
+                                                    src={`${ASSET_URL}${item.image}`}
                                                     alt={item.name}
                                                     className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
                                                 />
@@ -282,7 +284,7 @@ export default function Products() {
                         ) : errorDb ? (
                             <EmptyMessage text="Gagal memuat produk." />
                         ) : filterDb("6930def2256fb3df61f81c08").length ===
-                            0 ? (
+                          0 ? (
                             <EmptyMessage text="Produk bmhp belum tersedia." />
                         ) : (
                             <Swiper
@@ -306,7 +308,7 @@ export default function Products() {
                                         >
                                             <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                                 <img
-                                                    src={`http://localhost:5000${item.image}`}
+                                                    src={`${ASSET_URL}${item.image}`}
                                                     alt={item.name}
                                                     className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
                                                 />
@@ -363,7 +365,7 @@ export default function Products() {
                         ) : errorDb ? (
                             <EmptyMessage text="Gagal memuat produk." />
                         ) : filterDb("6930df06256fb3df61f81c12").length ===
-                            0 ? (
+                          0 ? (
                             <EmptyMessage text="Produk laboratorium belum tersedia." />
                         ) : (
                             <Swiper
@@ -387,7 +389,7 @@ export default function Products() {
                                         >
                                             <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                                 <img
-                                                    src={`http://localhost:5000${item.image}`}
+                                                    src={`${ASSET_URL}${item.image}`}
                                                     alt={item.name}
                                                     className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
                                                 />

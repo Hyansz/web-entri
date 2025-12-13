@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import axios from "../api/axiosInstance";
 import { useNavigate, useParams } from "react-router-dom";
 import AdminLayout from "../components/AdminLayout";
+import api from "../api/axiosInstance";
 
 export default function ProductForm() {
     const { id } = useParams();
@@ -19,8 +19,10 @@ export default function ProductForm() {
     const [image, setImage] = useState(null);
     const [categories, setCategories] = useState([]);
 
+    const ASSET_URL = import.meta.env.VITE_ASSET_URL;
+    
     useEffect(() => {
-        axios
+        api
             .get("/api/categories")
             .then((r) => setCategories(r.data.data || []))
             .catch(() => {});
@@ -28,7 +30,7 @@ export default function ProductForm() {
 
     useEffect(() => {
         if (id) {
-            axios.get(`/api/products2/${id}`).then((r) => {
+            api.get(`/api/products2/${id}`).then((r) => {
                 const p = r.data;
                 setForm({
                     name: p.name || "",
@@ -38,7 +40,7 @@ export default function ProductForm() {
                     specifications: p.specifications || "",
                     category: p.category?._id || "",
                     imagePreview: p.image
-                        ? `http://localhost:5000${p.image}`
+                        ? `${ASSET_URL}${p.image}`
                         : null,
                 });
             });
@@ -74,8 +76,8 @@ export default function ProductForm() {
         }
 
         try {
-            if (id) await axios.put(`/api/products2/${id}`, fd);
-            else await axios.post("/api/products2", fd);
+            if (id) await api.put(`/api/products2/${id}`, fd);
+            else await api.post("/api/products2", fd);
 
             nav("/admin/products2");
         } catch (err) {

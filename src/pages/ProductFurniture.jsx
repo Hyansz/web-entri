@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import api from "../api/axiosInstance";
 
 export default function ProductFurniture() {
     const [furniture, setFurniture] = useState([]);
@@ -14,12 +15,14 @@ export default function ProductFurniture() {
 
     const furnitureCategoryId = "6930deec256fb3df61f81c03";
 
+    const ASSET_URL = import.meta.env.VITE_ASSET_URL;
+
     useEffect(() => {
         setStatus("loading");
 
-        const query = `http://localhost:5000/api/products2?page=${page}&limit=${limit}&search=${search}&category=${furnitureCategoryId}`;
+        const query = `/api/products2?page=${page}&limit=${limit}&search=${search}&category=${furnitureCategoryId}`;
 
-        fetch(query)
+        api.get(query)
             .then((res) => res.json())
             .then((data) => {
                 if (!data.data || data.data.length === 0) {
@@ -120,7 +123,7 @@ export default function ProductFurniture() {
                                         className="bg-white rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20 flex flex-col justify-between"
                                     >
                                         <img
-                                            src={`http://localhost:5000${p.image}`}
+                                            src={`${ASSET_URL}${p.image}`}
                                             alt={p.name}
                                             className="h-[120px] md:h-[220px] w-full object-contain mx-auto mb-3"
                                         />
