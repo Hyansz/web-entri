@@ -23,8 +23,9 @@ export default function ProductLiquid() {
         const query = `/api/products2?page=${page}&limit=${limit}&search=${search}&category=${liquidCategoryId}`;
 
         api.get(query)
-            .then((res) => res.json())
-            .then((data) => {
+            .then((res) => {
+                const data = res.data;
+
                 if (!data.data || data.data.length === 0) {
                     setLiquid([]);
                     setTotal(0);
@@ -35,7 +36,8 @@ export default function ProductLiquid() {
                     setStatus("success");
                 }
             })
-            .catch(() => {
+            .catch((err) => {
+                console.error("API ERROR:", err);
                 setStatus("error");
                 setMessage("Gagal memuat data dari server");
             });
@@ -84,7 +86,7 @@ export default function ProductLiquid() {
                 </section>
 
                 {/* Produk */}
-                <section className="w-10/12 mx-auto text-center py-16 px-6">
+                <section className="w-full md:w-11/12 mx-auto text-center pt-10 pb-16 px-6">
                     <div className="mb-10 relative w-full">
                         <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-cyan-600" />
 
@@ -116,7 +118,7 @@ export default function ProductLiquid() {
 
                     {status === "success" && (
                         <>
-                            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+                            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6">
                                 {liquid.map((p, i) => (
                                     <div
                                         key={i}

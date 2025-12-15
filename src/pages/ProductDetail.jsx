@@ -6,105 +6,136 @@ import api from "../api/axiosInstance";
 
 export default function ProductDetail() {
     const { id } = useParams();
-    const [product, setProduct] = useState(null);
     const navigate = useNavigate();
+
+    const [product, setProduct] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
 
     const ASSET_URL = import.meta.env.VITE_ASSET_URL;
 
     useEffect(() => {
+        setLoading(true);
+        setError(false);
+
         api.get(`/api/products2/${id}`)
-            .then((res) => res.json())
-            .then((data) => setProduct(data))
-            .catch((err) => console.error(err));
+            .then((res) => {
+                setProduct(res.data);
+            })
+            .catch((err) => {
+                console.error("DETAIL ERROR:", err);
+                setError(true);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
     }, [id]);
 
-    if (!product)
-        return (
-            <p className="text-center font-semibold text-cyan-700 mt-50">
-                Memuat detail...
-            </p>
-        );
-
-    // 🔹 Pisahkan spesifikasi berdasarkan tanda '|'
-    const spesifikasiList = product.specifications
+    // 🔹 Pisahkan spesifikasi
+    const spesifikasiList = product?.specifications
         ? product.specifications.split("|").map((s) => s.trim())
         : [];
 
     return (
         <div>
-            <div className="h-18.5 bg-cyan-700"></div>
+            {/* 🔹 Header tetap muncul */}
+            <div className="h-[74px] bg-cyan-700"></div>
+
             <div className="w-10/12 mx-auto py-16 flex flex-col md:flex-row items-center justify-center gap-10">
-                <div className="md:w-1/2">
-                    <img
-                        src={`${ASSET_URL}${product.image}`}
-                        alt={product.name}
-                        className="rounded-xl mb-6 w-full"
-                    />
-                </div>
-                <div className="md:w-1/2">
-                    <div className="flex items-center justify-between mb-2 text-3xl">
-                        <h1 className="font-bold text-cyan-800">
-                            {product.name}
-                        </h1>
-                        <button
-                            onClick={() => {
-                                navigate(-1);
-                            }}
-                            className="transition cursor-pointer duration-300 font-bold text-cyan-800 hover:text-cyan-800 hover:scale-110"
-                        >
-                            <IoIosCloseCircleOutline size={28} />
-                        </button>
-                    </div>
-                    <table className="w-full border-separate border-spacing-y-2">
-                        <tbody>
-                            <tr>
-                                <td className="text-base w-1/2 font-medium text-black">
-                                    Kemenkes RI AKD
-                                </td>
-                                <td className="text-base font-medium w-1/2 text-cyan-800">
-                                    {product.kemenkesNumber}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="text-base w-1/2 font-medium text-black">
-                                    Merk
-                                </td>
-                                <td className="text-base font-medium w-1/2 text-cyan-800">
-                                    {product.brand}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="text-base w-1/2 font-medium text-black">
-                                    Lokasi Produksi
-                                </td>
-                                <td className="text-base font-medium w-1/2 text-cyan-800">
-                                    {product.location}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                {/* 🔹 LOADING */}
+                {loading && (
+                    <p className="text-center font-semibold text-cyan-700 w-full">
+                        Memuat detail...
+                    </p>
+                )}
 
-                    <div className="text-base font-medium text-black mt-2 mb-6">
-                        <p>Spesifikasi :</p>
-                        <ul className="list-disc text-sm ml-6 mt-2 text-cyan-800">
-                            {spesifikasiList.map((item, index) => (
-                                <li key={index}>{item}</li>
-                            ))}
-                        </ul>
-                    </div>
+                {/* 🔹 ERROR */}
+                {!loading && error && (
+                    <p className="text-center font-semibold text-red-600 w-full">
+                        Gagal memuat detail produk.
+                    </p>
+                )}
 
-                    <div>
-                        <a
-                            href="https://wa.me/6285174394123?text=Halo,%20Saya%20dari%20website%20entri."
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex w-fit items-center gap-3 bg-cyan-600 hover:bg-cyan-800 transition-all duration-300 text-white py-3 px-8 rounded-2xl font-semibold shadow-lg mx-auto md:mx-0"
-                        >
-                            <FaShoppingCart className="text-2xl" />
-                            Pesan Sekarang
-                        </a>
-                    </div>
-                </div>
+                {/* 🔹 SUCCESS */}
+                {!loading && !error && product && (
+                    <>
+                        <div className="md:w-1/2">
+                            <img
+                                src={`${ASSET_URL}${product.image}`}
+                                alt={product.name}
+                                className="rounded-xl mb-6 w-full"
+                            />
+                            <button
+                                onClick={() => navigate(-1)}
+                                className="md:hidden absolute right-4 top-30 transition duration-300 hover:scale-110 text-cyan-800 cursor-pointer"
+                            >
+                                <IoIosCloseCircleOutline size={28} />
+                            </button>
+                        </div>
+
+                        <div className="md:w-1/2">
+                            <div className="flex items-center justify-between mb-2 text-3xl">
+                                <h1 className="font-bold text-cyan-800">
+                                    {product.name}
+                                </h1>
+                                <button
+                                    onClick={() => navigate(-1)}
+                                    className="hidden md:block transition duration-300 hover:scale-110 text-cyan-800 cursor-pointer"
+                                >
+                                    <IoIosCloseCircleOutline size={28} />
+                                </button>
+                            </div>
+
+                            <table className="w-full border-separate border-spacing-y-2">
+                                <tbody>
+                                    <tr>
+                                        <td className="w-1/2 font-medium">
+                                            Kemenkes RI AKD
+                                        </td>
+                                        <td className="w-1/2 font-medium text-cyan-800">
+                                            : {product.kemenkesNumber}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="w-1/2 font-medium">
+                                            Merk
+                                        </td>
+                                        <td className="w-1/2 font-medium text-cyan-800">
+                                            : {product.brand}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td className="w-1/2 font-medium">
+                                            Lokasi Produksi
+                                        </td>
+                                        <td className="w-1/2 font-medium text-cyan-800">
+                                            : {product.location}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div className="mt-4 mb-6">
+                                <p className="font-medium">Spesifikasi :</p>
+                                <ul className="list-disc ml-6 mt-2 text-sm text-cyan-800">
+                                    {spesifikasiList.map((item, index) => (
+                                        <li key={index}>{item}</li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <a
+                                href="https://wa.me/6285174394123?text=Halo,%20Saya%20dari%20website%20entri."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex w-fit items-center gap-3 bg-cyan-600 hover:bg-cyan-800 transition-all duration-300 text-white py-3 px-8 rounded-2xl font-semibold shadow-lg"
+                            >
+                                <FaShoppingCart className="text-2xl" />
+                                Pesan Sekarang
+                            </a>
+                        </div>
+                    </>
+                )}
             </div>
         </div>
     );

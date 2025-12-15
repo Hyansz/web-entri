@@ -23,8 +23,9 @@ export default function ProductFurniture() {
         const query = `/api/products2?page=${page}&limit=${limit}&search=${search}&category=${furnitureCategoryId}`;
 
         api.get(query)
-            .then((res) => res.json())
-            .then((data) => {
+            .then((res) => {
+                const data = res.data;
+
                 if (!data.data || data.data.length === 0) {
                     setFurniture([]);
                     setTotal(0);
@@ -35,7 +36,8 @@ export default function ProductFurniture() {
                     setStatus("success");
                 }
             })
-            .catch(() => {
+            .catch((err) => {
+                console.error("API ERROR:", err);
                 setStatus("error");
                 setMessage("Gagal memuat data dari server");
             });
@@ -93,7 +95,7 @@ export default function ProductFurniture() {
                             placeholder="Cari produk furniture..."
                             onChange={(e) => setSearch(e.target.value)}
                             className="border pl-9 w-full px-3 py-2 rounded-xl bg-white shadow-md shadow-cyan-800/40 p-4 text-cyan-800 border-cyan-500/80 focus:outline-cyan-500"
-                        /> 
+                        />
                     </div>
 
                     {status === "loading" && (

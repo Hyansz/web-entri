@@ -1,21 +1,48 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
+import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import api from "../api/axiosInstance";
 
 export default function ProductBmhp() {
     const [bmhp, setBmhp] = useState([]);
     const [page, setPage] = useState(1);
     const [total, setTotal] = useState(0);
+    const [status, setStatus] = useState("loading");
+    const [message, setMessage] = useState("");
+    const [search, setSearch] = useState("");
+
     const limit = 16;
 
+    const bmhpCategoryId = "6930def2256fb3df61f81c08";
+
+    const ASSET_URL = import.meta.env.VITE_ASSET_URL;
+
     useEffect(() => {
-        fetch(`https://web-entri.onrender.com/api/bmhp?page=${page}&limit=${limit}`)
-            .then((res) => res.json())
-            .then((data) => {
-                setBmhp(data.bmhp);
-                setTotal(data.total);
+        setStatus("loading");
+
+        const query = `/api/products2?page=${page}&limit=${limit}&search=${search}&category=${bmhpCategoryId}`;
+
+        api.get(query)
+            .then((res) => {
+                const data = res.data;
+
+                if (!data.data || data.data.length === 0) {
+                    setBmhp([]);
+                    setTotal(0);
+                    setStatus("empty");
+                } else {
+                    setBmhp(data.data);
+                    setTotal(data.pagination.total);
+                    setStatus("success");
+                }
+            })
+            .catch((err) => {
+                console.error("API ERROR:", err);
+                setStatus("error");
+                setMessage("Gagal memuat data dari server");
             });
-    }, [page]);
+    }, [page, search]);
 
     const totalPages = Math.ceil(total / limit);
 
@@ -27,7 +54,7 @@ export default function ProductBmhp() {
                 </title>
                 <meta
                     name="description"
-                    content="Berbagai Bahan Medis Habis Pakai (BMHP) seperti sarung tangan, masker, dan alat medis sekali pakai tersedia untuk kebutuhan rumah sakit dan laboratorium."
+                    content="Kami menyediakan berbagai produk BMHP seperti sarung tangan, masker, dan bahan medis habis pakai."
                 />
                 <link
                     rel="canonical"
@@ -36,102 +63,134 @@ export default function ProductBmhp() {
             </Helmet>
 
             <div>
-                {/* Hero */}
+                {/* Hero (SAMA SEPERTI LIQUID) */}
                 <section
-                    className="h-[80vh] relative flex flex-col text-white bg-cover bg-no-repeat bg-center md:bg-right"
+                    className="h-[40vh] relative flex flex-col text-white bg-cover bg-no-repeat bg-center md:bg-right"
                     style={{
                         backgroundImage: "url('/img/bmhp.webp')",
                     }}
                 >
-                    {/* Overlay */}
-                    <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-cyan-800/80 via-black/50 to-black/70"></div>
-                    <div className="block md:hidden absolute inset-0 bg-black/60"></div>
+                    <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-cyan-800 via-black/50 to-black/60"></div>
+                    <div className="md:hidden block absolute inset-0 bg-gradient-to-t from-cyan-800 via-black/50 to-black/60"></div>
 
                     <div>
-                        <div className="relative w-11/12 z-10 mx-auto flex flex-col items-start h-[80vh] justify-center text-center">
+                        <div className="relative w-11/12 z-10 mx-auto flex flex-col items-start h-[50vh] md:h-[40vh] justify-center text-center">
                             <h3 className="text-3xl w-full md:text-5xl font-bold mb-4">
                                 Produk{" "}
                                 <span className="bg-gradient-to-l from-cyan-500 via-cyan-400 to-cyan-200 bg-clip-text text-transparent">
                                     BMHP
-                                </span>{" "}
+                                </span>
                             </h3>
                         </div>
                     </div>
                 </section>
 
                 {/* Produk */}
-                <section className="w-10/12 mx-auto text-center py-16 px-6">
-                    {/* Produk Grid */}
-                    <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-                        {bmhp.map((p, i) => (
-                            <div
-                                key={i}
-                                className="bg-white rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20 flex flex-col justify-between"
-                            >
-                                <img
-                                    src={p.img}
-                                    alt={p.title}
-                                    loading="lazy"
-                                    className="rounded mb-3 mx-auto"
-                                />
-                                <h3 className="text-lg font-semibold mb-3">
-                                    {p.title}
-                                </h3>
+                <section className="w-full md:w-11/12 mx-auto text-center pt-10 pb-16 px-6">
+                    {/* Search (SAMA PERSIS) */}
+                    <div className="mb-10 relative w-full">
+                        <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-cyan-600" />
 
-                                <Link
-                                    to={`/products/bmhp/${p.id}`}
-                                    className="inline-block mt-auto px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
-                                    onClick={() =>
-                                        window.scrollTo({
-                                            top: 0,
-                                            behavior: "smooth",
-                                        })
-                                    }
-                                >
-                                    Detail
-                                </Link>
+                        <input
+                            type="text"
+                            placeholder="Cari produk BMHP..."
+                            onChange={(e) => setSearch(e.target.value)}
+                            className="border pl-9 w-full px-3 py-2 rounded-xl bg-white shadow-md shadow-cyan-800/40 p-4 text-cyan-800 border-cyan-500/80 focus:outline-cyan-500"
+                        />
+                    </div>
+
+                    {status === "loading" && (
+                        <p className="text-cyan-600 text-lg font-semibold">
+                            Memuat data...
+                        </p>
+                    )}
+
+                    {status === "error" && (
+                        <p className="text-red-600 text-lg font-semibold">
+                            {message}
+                        </p>
+                    )}
+
+                    {status === "empty" && (
+                        <p className="text-gray-500 text-lg font-semibold">
+                            Belum ada produk BMHP.
+                        </p>
+                    )}
+
+                    {status === "success" && (
+                        <>
+                            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                                {bmhp.map((p, i) => (
+                                    <div
+                                        key={i}
+                                        className="bg-white rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20 flex flex-col justify-between"
+                                    >
+                                        <img
+                                            src={`${ASSET_URL}${p.image}`}
+                                            alt={p.name}
+                                            className="h-[120px] md:h-[220px] w-full object-contain mx-auto mb-3"
+                                        />
+
+                                        <h3 className="text-lg font-semibold mb-3">
+                                            {p.name}
+                                        </h3>
+
+                                        <Link
+                                            to={`/products/${p._id}`}
+                                            className="inline-block mt-auto px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
+                                            onClick={() =>
+                                                window.scrollTo({
+                                                    top: 0,
+                                                    behavior: "smooth",
+                                                })
+                                            }
+                                        >
+                                            Detail
+                                        </Link>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
 
-                    {/* Pagination */}
-                    <div className="flex justify-center flex-wrap gap-2 mt-8">
-                        <button
-                            onClick={() => setPage(page - 1)}
-                            disabled={page === 1}
-                            className="px-4 py-2 rounded bg-cyan-600 text-white disabled:bg-gray-400 disabled:cursor-not-allowed cursor-pointer"
-                        >
-                            Prev
-                        </button>
+                            {/* Pagination (SAMA PERSIS) */}
+                            <div className="flex justify-center flex-wrap gap-2 mt-8">
+                                <button
+                                    onClick={() => setPage(page - 1)}
+                                    disabled={page === 1}
+                                    className="px-4 py-2 rounded bg-cyan-600 text-white disabled:bg-gray-400 disabled:cursor-not-allowed"
+                                >
+                                    Prev
+                                </button>
 
-                        {[...Array(totalPages)].map((_, i) => (
-                            <button
-                                key={i}
-                                onClick={() => {
-                                    setPage(i + 1);
-                                    window.scrollTo({
-                                        top: 0,
-                                        behavior: "smooth",
-                                    });
-                                }}
-                                className={`px-4 py-2 cursor-pointer rounded ${
-                                    page === i + 1
-                                        ? "bg-cyan-800 text-white"
-                                        : "bg-gray-200 text-cyan-800"
-                                }`}
-                            >
-                                {i + 1}
-                            </button>
-                        ))}
+                                {[...Array(totalPages)].map((_, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => {
+                                            setPage(i + 1);
+                                            window.scrollTo({
+                                                top: 0,
+                                                behavior: "smooth",
+                                            });
+                                        }}
+                                        className={`px-4 py-2 rounded ${
+                                            page === i + 1
+                                                ? "bg-cyan-800 text-white"
+                                                : "bg-gray-200 text-cyan-800"
+                                        }`}
+                                    >
+                                        {i + 1}
+                                    </button>
+                                ))}
 
-                        <button
-                            onClick={() => setPage(page + 1)}
-                            disabled={page === totalPages}
-                            className="px-4 py-2 rounded bg-cyan-600 text-white disabled:bg-gray-400 disabled:cursor-not-allowed cursor-pointer"
-                        >
-                            Next
-                        </button>
-                    </div>
+                                <button
+                                    onClick={() => setPage(page + 1)}
+                                    disabled={page === totalPages}
+                                    className="px-4 py-2 rounded bg-cyan-600 text-white disabled:bg-gray-400 disabled:cursor-not-allowed"
+                                >
+                                    Next
+                                </button>
+                            </div>
+                        </>
+                    )}
                 </section>
             </div>
         </>
