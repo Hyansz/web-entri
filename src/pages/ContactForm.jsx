@@ -5,6 +5,7 @@ import { FaImage, FaUpload } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
 
 export default function Contact() {
+    const [showModal, setShowModal] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -29,7 +30,9 @@ export default function Contact() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setStatus("Sending...");
+
+        setStatus("⏳ Mengirim pesan...");
+        setShowModal(true);
 
         try {
             const data = new FormData();
@@ -39,16 +42,14 @@ export default function Contact() {
             data.append("message", formData.message);
             if (file) data.append("photo", file);
 
-            const res = await fetch(
-                "https://web-entri.vercel.app/send-email",
-                {
-                    method: "POST",
-                    body: data,
-                }
-            );
+            const res = await fetch("https://web-entri.vercel.app/send-email", {
+                method: "POST",
+                body: data,
+            });
 
             if (res.ok) {
                 setStatus("✅ Pesan berhasil dikirim!");
+
                 setFormData({
                     name: "",
                     email: "",
@@ -61,13 +62,17 @@ export default function Contact() {
                     fileInputRef.current.value = "";
                 }
 
-                setTimeout(() => setStatus(""), 3000);
+                // auto close modal
+                setTimeout(() => {
+                    setShowModal(false);
+                    setStatus("");
+                }, 3000);
             } else {
                 setStatus("❌ Gagal mengirim pesan.");
             }
         } catch (error) {
             console.error(error);
-            setStatus("⚠️ Terjadi error.");
+            setStatus("⚠️ Terjadi error. Silakan coba lagi.");
         }
     };
 
@@ -204,17 +209,35 @@ export default function Contact() {
                                 >
                                     Send
                                 </button>
-
-                                {status && (
-                                    <p className="text-center mt-2 text-sm font-medium">
-                                        {status}
-                                    </p>
-                                )}
                             </form>
                         </div>
                     </div>
                 </section>
             </div>
+
+            {showModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+                    <div className="bg-white rounded-2xl shadow-xl w-11/12 max-w-sm p-6 text-center animate-fade-in">
+                        <h3 className="text-lg font-semibold mb-3 text-cyan-700">
+                            Status Pengiriman
+                        </h3>
+
+                        <p className="text-gray-700 mb-6">{status}</p>
+
+                        {status !== "⏳ Mengirim pesan..." && (
+                            <button
+                                onClick={() => {
+                                    setShowModal(false);
+                                    setStatus("");
+                                }}
+                                className="px-6 py-2 bg-cyan-600 text-white rounded-xl hover:bg-cyan-700 transition"
+                            >
+                                Tutup
+                            </button>
+                        )}
+                    </div>
+                </div>
+            )}
         </>
     );
 }
