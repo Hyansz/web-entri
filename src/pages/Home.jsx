@@ -7,32 +7,43 @@ import { FaWhatsapp } from "react-icons/fa";
 import YTLazy from "../components/YTLazy";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import api from "../api/axiosInstance";
 
 export default function Home() {
-    const [dbProducts, setDbProducts] = useState([]);
-    const [loadingDb, setLoadingDb] = useState(true);
-    const [errorDb, setErrorDb] = useState(false);
-
+    const { t } = useTranslation();
     const ASSET_URL = import.meta.env.VITE_ASSET_URL;
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                setLoadingDb(true);
-                const res = await api.get("/api/products2/all");
-                setDbProducts(res.data.data);
-            } catch (err) {
-                console.error(err);
-                setErrorDb(true);
-            } finally {
-                setLoadingDb(false);
-            }
-        };
+    /* =============================
+        FETCH FUNCTION (CACHE SOURCE)
+    ============================== */
+    const fetchProducts = async () => {
+        const res = await api.get("/api/products2/all");
+        return res.data.data;
+    };
 
-        fetchProducts();
-    }, []);
+    /* =============================
+        REACT QUERY (CACHING)
+    ============================== */
+    const {
+        data: dbProducts = [],
+        isLoading: loadingDb,
+        error: errorDb,
+    } = useQuery({
+        queryKey: ["products"],
+        queryFn: fetchProducts,
+        staleTime: 1000 * 60 * 5, // 5 menit cache
+        refetchOnWindowFocus: false,
+        refetchOnReconnect: false,
+    });
+
+    /* =============================
+       HELPERS (TIDAK DIUBAH)
+    ============================== */
+    const filterDb = (catId) =>
+        dbProducts.filter(
+            (p) => p.category?._id === catId || p.category === catId
+        );
 
     const LoadingMessage = ({ text }) => (
         <div className="w-full flex justify-center py-10 text-cyan-700 font-semibold animate-pulse">
@@ -48,12 +59,6 @@ export default function Home() {
         if (callback) callback();
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
-    const { t } = useTranslation();
-
-    const filterDb = (catId) =>
-        dbProducts.filter(
-            (p) => p.category?._id === catId || p.category === catId
-        );
 
     return (
         <>
@@ -294,7 +299,7 @@ export default function Home() {
                         ) : errorDb ? (
                             <EmptyMessage text="Gagal memuat produk." />
                         ) : filterDb("6930def8256fb3df61f81c0d").length ===
-                        0 ? (
+                          0 ? (
                             <EmptyMessage text="Produk liquid belum tersedia." />
                         ) : (
                             <Swiper

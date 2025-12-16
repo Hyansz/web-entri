@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import api from "../api/axiosInstance";
 
 export default function Products() {
@@ -13,16 +13,45 @@ export default function Products() {
     const [loadingDb, setLoadingDb] = useState(true);
     const [errorDb, setErrorDb] = useState(false);
 
-    const ASSET_URL = import.meta.env.VITE_ASSET_URL;
+    const PRODUCT_CACHE_KEY = "cached_products_v1";
+    const productCache = useRef(null);
 
+    const ASSET_URL = import.meta.env.VITE_ASSET_URL;
+    const { t } = useTranslation();
+
+    /* =======================
+        FETCH + CACHE LOGIC
+    ======================= */
     useEffect(() => {
         const fetchProducts = async () => {
             try {
                 setLoadingDb(true);
-                const res = await api.get(
-                    "/api/products2/all"
-                );
-                setDbProducts(res.data.data);
+
+                // 1️⃣ cek cache memory
+                if (productCache.current) {
+                    setDbProducts(productCache.current);
+                    setLoadingDb(false);
+                    return;
+                }
+
+                // 2️⃣ cek sessionStorage
+                const cached = sessionStorage.getItem(PRODUCT_CACHE_KEY);
+                if (cached) {
+                    const parsed = JSON.parse(cached);
+                    productCache.current = parsed;
+                    setDbProducts(parsed);
+                    setLoadingDb(false);
+                    return;
+                }
+
+                // 3️⃣ fetch dari API
+                const res = await api.get("/api/products2/all");
+                const data = res.data.data || [];
+
+                productCache.current = data;
+                sessionStorage.setItem(PRODUCT_CACHE_KEY, JSON.stringify(data));
+
+                setDbProducts(data);
             } catch (err) {
                 console.error(err);
                 setErrorDb(true);
@@ -34,6 +63,9 @@ export default function Products() {
         fetchProducts();
     }, []);
 
+    /* =======================
+        HELPERS (TIDAK DIUBAH)
+    ======================= */
     const LoadingMessage = ({ text }) => (
         <div className="w-full flex justify-center py-10 text-cyan-700 font-semibold animate-pulse">
             {text}
@@ -49,8 +81,7 @@ export default function Products() {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-    const { t } = useTranslation();
-
+    // 🔒 FILTER AMAN (TIDAK BERUBAH)
     const filterDb = (catId) =>
         dbProducts.filter(
             (p) => p.category?._id === catId || p.category === catId

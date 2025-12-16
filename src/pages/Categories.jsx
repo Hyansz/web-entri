@@ -3,6 +3,46 @@ import api from "../api/axiosInstance";
 import AdminLayout from "../components/AdminLayout";
 import { AuthContext } from "../auth/AuthContext";
 
+const CATEGORY_CACHE_PREFIX = "admin_categories_cache_v1";
+const CACHE_TTL = 1000 * 60 * 5; // 5 menit
+
+const getCacheKey = ({ page, limit, search }) =>
+    `${CATEGORY_CACHE_PREFIX}:${page}:${limit}:${search}`;
+
+const getCachedData = (key) => {
+    const raw = sessionStorage.getItem(key);
+    if (!raw) return null;
+
+    try {
+        const parsed = JSON.parse(raw);
+        if (Date.now() > parsed.expiredAt) {
+            sessionStorage.removeItem(key);
+            return null;
+        }
+        return parsed.data;
+    } catch {
+        return null;
+    }
+};
+
+const setCachedData = (key, data) => {
+    sessionStorage.setItem(
+        key,
+        JSON.stringify({
+            data,
+            expiredAt: Date.now() + CACHE_TTL,
+        })
+    );
+};
+
+const clearCategoryCache = () => {
+    Object.keys(sessionStorage).forEach((key) => {
+        if (key.startsWith(CATEGORY_CACHE_PREFIX)) {
+            sessionStorage.removeItem(key);
+        }
+    });
+};
+
 export default function Categories() {
     const { token } = useContext(AuthContext);
 
@@ -28,22 +68,42 @@ export default function Categories() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
+    /* ===============================
+       LOAD WITH CACHE
+    ================================ */
     const load = async (page = 1) => {
         setLoading(true);
         setError("");
 
+        const cacheKey = getCacheKey({
+            page,
+            limit: pagination.limit,
+            search,
+        });
+
+        const cached = getCachedData(cacheKey);
+        if (cached) {
+            setCategories(cached.categories);
+            setPagination(cached.pagination);
+            setLoading(false);
+            return;
+        }
+
         try {
             const res = await api.get("/api/categories", {
                 headers: { Authorization: `Bearer ${token}` },
-                params: {
-                    page,
-                    limit: pagination.limit,
-                    search,
-                },
+                params: { page, limit: pagination.limit, search },
             });
 
-            setCategories(res.data.data || res.data);
+            const payload = {
+                categories: res.data.data || res.data,
+                pagination: res.data.pagination || pagination,
+            };
+
+            setCategories(payload.categories);
             if (res.data.pagination) setPagination(res.data.pagination);
+
+            setCachedData(cacheKey, payload);
         } catch (err) {
             setCategories([]);
             setError("Gagal memuat kategori");
@@ -56,6 +116,9 @@ export default function Categories() {
         load(1);
     }, [search]);
 
+    /* ===============================
+       CRUD (CLEAR CACHE)
+    ================================ */
     const add = async () => {
         if (!name.trim()) return alert("Nama kategori wajib diisi!");
 
@@ -71,10 +134,11 @@ export default function Categories() {
                 { name },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
+            clearCategoryCache();
             setName("");
             setIsAdding(false);
             load(1);
-        } catch (err) {
+        } catch {
             alert("Gagal menambah kategori");
         }
     };
@@ -93,10 +157,11 @@ export default function Categories() {
                 { name: editName },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
+            clearCategoryCache();
             setEditId(null);
             setEditName("");
             load(pagination.page);
-        } catch (err) {
+        } catch {
             alert("Gagal update kategori");
         }
     };
@@ -112,9 +177,10 @@ export default function Categories() {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
+            clearCategoryCache();
             load(pagination.page);
             setShowModal(false);
-        } catch (err) {
+        } catch {
             alert("Gagal hapus");
             setShowModal(false);
         }

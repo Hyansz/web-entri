@@ -19,6 +19,11 @@ router.get("/", async (req, res) => {
     try {
         await connectDB();
 
+        res.setHeader(
+            "Cache-Control",
+            "public, s-maxage=300, stale-while-revalidate=60"
+        );
+
         let { page = 1, limit = 10, search = "", category = "" } = req.query;
         page = Math.max(1, parseInt(page));
         limit = Math.max(1, parseInt(limit));
@@ -53,6 +58,11 @@ router.get("/", async (req, res) => {
 router.get("/all", async (req, res) => {
     try {
         await connectDB();
+
+        res.setHeader(
+            "Cache-Control",
+            "public, s-maxage=300, stale-while-revalidate=60"
+        );
 
         const data = await Product.find({})
             .populate("category", "name")

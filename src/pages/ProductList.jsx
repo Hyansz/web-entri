@@ -4,6 +4,38 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext";
 import api from "../api/axiosInstance";
 
+const ADMIN_PRODUCT_CACHE_PREFIX = "admin_products_cache_v1";
+const CACHE_TTL = 1000 * 60 * 5; // 5 menit
+
+const getCacheKey = ({ page, limit, search, category }) =>
+    `${ADMIN_PRODUCT_CACHE_PREFIX}:${page}:${limit}:${search}:${category}`;
+
+const getCachedData = (key) => {
+    const raw = sessionStorage.getItem(key);
+    if (!raw) return null;
+
+    try {
+        const parsed = JSON.parse(raw);
+        if (Date.now() > parsed.expiredAt) {
+            sessionStorage.removeItem(key);
+            return null;
+        }
+        return parsed.data;
+    } catch {
+        return null;
+    }
+};
+
+const setCachedData = (key, data) => {
+    sessionStorage.setItem(
+        key,
+        JSON.stringify({
+            data,
+            expiredAt: Date.now() + CACHE_TTL,
+        })
+    );
+};
+
 export default function ProductList() {
     const { token } = useContext(AuthContext);
 
@@ -32,12 +64,37 @@ export default function ProductList() {
         setLoading(true);
         setError("");
 
+        const cacheKey = getCacheKey({
+            page,
+            limit: pagination.limit,
+            search,
+            category,
+        });
+
+        // ✅ 1. Coba ambil dari cache
+        const cached = getCachedData(cacheKey);
+        if (cached) {
+            setProducts(cached.data);
+            setPagination(cached.pagination);
+            setLoading(false);
+            return;
+        }
+
         try {
             const res = await api.get("/api/products2", {
                 params: { page, limit: pagination.limit, search, category },
             });
-            setProducts(res.data.data);
-            setPagination(res.data.pagination);
+
+            const payload = {
+                data: res.data.data,
+                pagination: res.data.pagination,
+            };
+
+            // ✅ 2. Simpan ke cache
+            setCachedData(cacheKey, payload);
+
+            setProducts(payload.data);
+            setPagination(payload.pagination);
         } catch (err) {
             setProducts([]);
             setError(err?.response?.data?.message || "Gagal memuat produk");
@@ -47,8 +104,7 @@ export default function ProductList() {
     };
 
     useEffect(() => {
-        api
-            .get("/api/categories")
+        api.get("/api/categories")
             .then((r) => setCategories(r.data.data || []))
             .catch(() => {});
     }, []);
@@ -65,6 +121,14 @@ export default function ProductList() {
     const confirmDelete = async () => {
         try {
             await api.delete(`/api/products2/${deleteId}`);
+
+            // ❗ Bersihkan semua cache admin product
+            Object.keys(sessionStorage).forEach((key) => {
+                if (key.startsWith(ADMIN_PRODUCT_CACHE_PREFIX)) {
+                    sessionStorage.removeItem(key);
+                }
+            });
+
             load(pagination.page);
             setShowModal(false);
         } catch (err) {
