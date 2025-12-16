@@ -5,33 +5,20 @@ import { upload } from "../middleware/upload.js";
 import fs from "fs";
 import path from "path";
 import mongoose from "mongoose";
+import { connectDB } from "../config/db.js";
 
 const router = express.Router();
 
 /**
- * GET /api/products
+ * GET /api/products2
  * queries: page, limit, search, category
  * returns { data: [...], pagination: {...} }
  */
 
-// ✅ GET all products (NO pagination) - for homepage / swiper
-router.get("/all", async (req, res) => {
-    try {
-        const data = await Product.find({})
-            .populate("category", "name")
-            .sort({ createdAt: -1, _id: -1 });
-
-        res.json({
-            data,
-            total: data.length,
-        });
-    } catch (err) {
-        res.status(500).json({ message: err.message });
-    }
-});
-
 router.get("/", async (req, res) => {
     try {
+        await connectDB();
+
         let { page = 1, limit = 10, search = "", category = "" } = req.query;
         page = Math.max(1, parseInt(page));
         limit = Math.max(1, parseInt(limit));
@@ -63,9 +50,28 @@ router.get("/", async (req, res) => {
     }
 });
 
+router.get("/all", async (req, res) => {
+    try {
+        await connectDB();
+
+        const data = await Product.find({})
+            .populate("category", "name")
+            .sort({ createdAt: -1, _id: -1 });
+
+        res.json({
+            data,
+            total: data.length,
+        });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
 // get single
 router.get("/:id", async (req, res) => {
     try {
+        await connectDB();
+
         const p = await Product.findById(req.params.id).populate(
             "category",
             "name"
@@ -111,6 +117,8 @@ router.post("/", adminAuth, upload.single("image"), async (req, res) => {
 // update (admin)
 router.put("/:id", adminAuth, upload.single("image"), async (req, res) => {
     try {
+        await connectDB();
+
         const product = await Product.findById(req.params.id);
         if (!product) return res.status(404).json({ message: "Not found" });
 
@@ -138,6 +146,8 @@ router.put("/:id", adminAuth, upload.single("image"), async (req, res) => {
 // delete (admin)
 router.delete("/:id", adminAuth, async (req, res) => {
     try {
+        await connectDB();
+
         const product = await Product.findById(req.params.id);
         if (!product) return res.status(404).json({ message: "Not found" });
 

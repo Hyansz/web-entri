@@ -294,7 +294,7 @@ export default function Home() {
                         ) : errorDb ? (
                             <EmptyMessage text="Gagal memuat produk." />
                         ) : filterDb("6930def8256fb3df61f81c0d").length ===
-                          0 ? (
+                        0 ? (
                             <EmptyMessage text="Produk liquid belum tersedia." />
                         ) : (
                             <Swiper
