@@ -2,6 +2,7 @@ import express from "express";
 import multer from "multer";
 import { Resend } from "resend";
 import { fileTypeFromBuffer } from "file-type";
+import sanitizeHtml from "sanitize-html";
 
 const router = express.Router();
 const resend = new Resend(process.env.RESEND_API_KEY);
