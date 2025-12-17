@@ -24,35 +24,18 @@ app.use(
     })
 );
 
-const allowedOrigins = [
-    "http://localhost:5173",
-    "https://entrijayamakmur.co.id",
-    "https://www.entrijayamakmur.co.id",
-];
-
 app.use(
     cors({
-        origin(origin, cb) {
-            if (!origin) return cb(null, true);
-
-            // allow vercel preview (*.vercel.app)
-            if (origin.endsWith(".vercel.app")) {
-                return cb(null, true);
-            }
-
-            if (allowedOrigins.includes(origin)) {
-                return cb(null, true);
-            }
-
-            cb(new Error("CORS blocked: " + origin));
-        },
-        credentials: true,
+        origin: [
+            "http://localhost:5173",
+            "https://web-entri.vercel.app",
+            "https://entrijayamakmur.co.id",
+            "https://www.entrijayamakmur.co.id",
+        ],
         methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         allowedHeaders: ["Content-Type", "Authorization"],
     })
 );
-
-app.options("*", cors());
 
 app.use(express.json({ limit: "2mb" }));
 
