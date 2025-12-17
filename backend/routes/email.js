@@ -29,6 +29,11 @@ const uploadMemory = multer({
 router.post("/send-email", uploadMemory.single("photo"), async (req, res) => {
     try {
         const { name, email, subject, message } = req.body;
+        const cleanMessage = sanitizeHtml(message, {
+            allowedTags: ["br"],
+            allowedAttributes: {},
+        });
+
         const file = req.file;
 
         let attachments = [];
@@ -37,6 +42,15 @@ router.post("/send-email", uploadMemory.single("photo"), async (req, res) => {
                 VALIDASI FILE ASLI
             ========================= */
         if (file) {
+            const forbiddenExt = /\.(exe|js|php|sh|bat|cmd|svg)$/i;
+
+            if (forbiddenExt.test(file.originalname)) {
+                return res.status(400).json({
+                    success: false,
+                    message: "Invalid file extension",
+                });
+            }
+
             const type = await fileTypeFromBuffer(file.buffer);
 
             const allowedMime = ["image/jpeg", "image/png", "image/webp"];
@@ -48,8 +62,10 @@ router.post("/send-email", uploadMemory.single("photo"), async (req, res) => {
                 });
             }
 
+            const safeFilename = file.originalname.substring(0, 100);
+
             attachments.push({
-                filename: file.originalname,
+                filename: safeFilename,
                 content: file.buffer,
                 type: file.mimetype,
             });
@@ -83,7 +99,7 @@ router.post("/send-email", uploadMemory.single("photo"), async (req, res) => {
 
                         <p style="margin-top: 20px; font-weight: 600;">Message:</p>
                         <div style="background-color: #f0f9ff; border: 1px solid #bae6fd; padding: 16px; border-radius: 8px;">
-                            ${message.replace(/\n/g, "<br/>")}
+                            ${cleanMessage.replace(/\n/g, "<br/>")}
                         </div>
 
                         ${
