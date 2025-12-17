@@ -96,6 +96,8 @@ router.get("/:id", async (req, res) => {
 // create (admin) - multipart/form-data with field 'image'
 router.post("/", adminAuth, upload.single("image"), async (req, res) => {
     try {
+        await connectDB();
+
         const {
             name,
             kemenkesNumber,

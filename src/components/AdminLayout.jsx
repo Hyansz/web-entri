@@ -88,17 +88,18 @@ export default function AdminLayout({ children }) {
                 <div className="flex items-center justify-between px-4 py-4">
                     <span
                         className={`
-                            font-semibold text-gray-800 text-lg
+                            font-semibold flex items-center gap-3 text-gray-800 text-lg
                             whitespace-nowrap overflow-hidden
                             transition-all duration-300
                             ${
                                 collapsed
                                     ? "opacity-0 delay-100 max-w-0"
-                                    : "opacity-100 delay-0 max-w-[120px]"
+                                    : "opacity-100 delay-0 max-w-[220px]"
                             }
-                        `}
+                            `}
                     >
-                        Admin
+                        <img src="/img/logo1.webp" alt="" className="w-8" />
+                        Admin Panel
                     </span>
 
                     <button
