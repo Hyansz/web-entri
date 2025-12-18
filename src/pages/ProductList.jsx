@@ -81,9 +81,15 @@ export default function ProductList() {
         }
 
         try {
-            const res = await api.get("/api/products2", {
-                params: { page, limit: pagination.limit, search, category },
-            });
+            const params = {
+                page,
+                limit: pagination.limit,
+            };
+
+            if (search) params.search = search;
+            if (category) params.category = category;
+
+            const res = await api.get("/api/products2", { params });
 
             const payload = {
                 data: res.data.data,
