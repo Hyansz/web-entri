@@ -73,8 +73,15 @@ export default function ProductForm() {
         }
 
         try {
-            if (id) await api.put(`/api/products2/${id}`, fd);
-            else await api.post("/api/products2", fd);
+            const res = id
+                ? await api.put(`/api/products2/${id}`, fd)
+                : await api.post("/api/products2", fd);
+
+            // 🔥 simpan hasil terakhir
+            sessionStorage.setItem(
+                "admin_products_last_mutation",
+                JSON.stringify(res.data)
+            );
 
             // 🔥 WAJIB: bersihkan cache product list
             Object.keys(sessionStorage).forEach((key) => {

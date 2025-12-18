@@ -81,7 +81,8 @@ export default function Categories() {
             search,
         });
 
-        const cached = getCachedData(cacheKey);
+        const cached =
+            page === pagination.page ? getCachedData(cacheKey) : null;
         if (cached) {
             setCategories(cached.categories);
             setPagination(cached.pagination);

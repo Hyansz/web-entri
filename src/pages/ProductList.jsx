@@ -3,6 +3,7 @@ import AdminLayout from "../components/AdminLayout";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext";
 import api from "../api/axiosInstance";
+import { loadCache, saveCache, clearCache } from "../utils/realtimeCache";
 
 const ADMIN_PRODUCT_CACHE_PREFIX = "admin_products_cache_v1";
 const CACHE_TTL = 1000 * 60 * 5; // 5 menit
@@ -72,7 +73,8 @@ export default function ProductList() {
         });
 
         // ✅ 1. Coba ambil dari cache
-        const cached = getCachedData(cacheKey);
+        const cached =
+            page === pagination.page ? getCachedData(cacheKey) : null;
         if (cached) {
             setProducts(cached.data);
             setPagination(cached.pagination);
@@ -100,7 +102,10 @@ export default function ProductList() {
             setCachedData(cacheKey, payload);
 
             setProducts(payload.data);
-            setPagination(payload.pagination);
+            setPagination({
+                ...payload.pagination,
+                page,
+            });
         } catch (err) {
             setProducts([]);
             setError(err?.response?.data?.message || "Gagal memuat produk");
@@ -128,20 +133,50 @@ export default function ProductList() {
         try {
             await api.delete(`/api/products2/${deleteId}`);
 
-            // ❗ Bersihkan semua cache admin product
+            // ✅ 1. UPDATE STATE LANGSUNG (REALTIME)
+            setProducts((prev) => prev.filter((p) => p._id !== deleteId));
+
+            setPagination((prev) => {
+                const newTotal = Math.max(0, prev.total - 1);
+                return {
+                    ...prev,
+                    total: newTotal,
+                    totalPages: Math.max(1, Math.ceil(newTotal / prev.limit)),
+                };
+            });
+
+            // ✅ 2. HAPUS CACHE TERKAIT
             Object.keys(sessionStorage).forEach((key) => {
                 if (key.startsWith(ADMIN_PRODUCT_CACHE_PREFIX)) {
                     sessionStorage.removeItem(key);
                 }
             });
 
-            load(pagination.page);
             setShowModal(false);
         } catch (err) {
             setShowModal(false);
             alert("Failed to delete");
         }
     };
+
+    useEffect(() => {
+        const raw = sessionStorage.getItem("admin_products_last_mutation");
+        if (!raw) return;
+
+        const item = JSON.parse(raw);
+
+        setProducts((prev) => {
+            const exists = prev.find((p) => p._id === item._id);
+            if (exists) {
+                // UPDATE
+                return prev.map((p) => (p._id === item._id ? item : p));
+            }
+            // CREATE
+            return [item, ...prev];
+        });
+
+        sessionStorage.removeItem("admin_products_last_mutation");
+    }, []);
 
     return (
         <AdminLayout>
