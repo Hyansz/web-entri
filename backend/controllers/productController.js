@@ -10,7 +10,8 @@ export const getProducts = async (req, res, next) => {
             "public, s-maxage=300, stale-while-revalidate=60"
         );
 
-        let { page = 1, limit = 10, search = "", category = "" } = req.query;
+        const query = req.cleanedQuery || req.query;
+        let { page = 1, limit = 10, search = "", category = "" } = query;
         page = Math.max(1, parseInt(page));
         limit = Math.max(1, parseInt(limit));
 

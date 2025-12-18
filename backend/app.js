@@ -49,9 +49,18 @@ app.use((req, res, next) => {
 app.use(express.json({ limit: "2mb" }));
 
 app.use((req, res, next) => {
-    req.body = mongoSanitize(req.body);
-    req.query = mongoSanitize(req.query);
-    req.params = mongoSanitize(req.params);
+    if (req.body) {
+        req.body = mongoSanitize(req.body);
+    }
+
+    if (req.params) {
+        req.params = mongoSanitize(req.params);
+    }
+
+    if (req.query) {
+        req.cleanedQuery = mongoSanitize(req.query);
+    }
+
     next();
 });
 
