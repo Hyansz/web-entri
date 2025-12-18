@@ -56,7 +56,7 @@ app.use((req, res, next) => {
     }
 
     if (req.query) {
-        req.query = mongoSanitize(req.query);
+        req.cleanedQuery = mongoSanitize(req.query);
     }
 
     next();

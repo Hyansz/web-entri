@@ -142,7 +142,12 @@ export const deleteProduct = async (req, res, next) => {
         if (!product) return res.status(404).json({ message: "Not found" });
 
         if (product.image) {
-            const imagePath = path.join(process.cwd(), "public", product.image);
+            const imagePath = path.join(
+                process.cwd(),
+                "public",
+                product.image.replace(/^\/+/, "")
+            );
+
             if (fs.existsSync(imagePath)) {
                 fs.unlinkSync(imagePath);
             }
