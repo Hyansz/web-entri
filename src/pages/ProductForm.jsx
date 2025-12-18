@@ -20,10 +20,9 @@ export default function ProductForm() {
     const [categories, setCategories] = useState([]);
 
     const ASSET_URL = import.meta.env.VITE_ASSET_URL;
-    
+
     useEffect(() => {
-        api
-            .get("/api/categories")
+        api.get("/api/categories")
             .then((r) => setCategories(r.data.data || []))
             .catch(() => {});
     }, []);
@@ -39,9 +38,7 @@ export default function ProductForm() {
                     location: p.location || "",
                     specifications: p.specifications || "",
                     category: p.category?._id || "",
-                    imagePreview: p.image
-                        ? `${ASSET_URL}${p.image}`
-                        : null,
+                    imagePreview: p.image ? `${ASSET_URL}${p.image}` : null,
                 });
             });
         }
@@ -78,6 +75,13 @@ export default function ProductForm() {
         try {
             if (id) await api.put(`/api/products2/${id}`, fd);
             else await api.post("/api/products2", fd);
+
+            // 🔥 WAJIB: bersihkan cache product list
+            Object.keys(sessionStorage).forEach((key) => {
+                if (key.startsWith("admin_products_cache_v1")) {
+                    sessionStorage.removeItem(key);
+                }
+            });
 
             nav("/admin/products2");
         } catch (err) {

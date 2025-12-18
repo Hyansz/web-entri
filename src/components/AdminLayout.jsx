@@ -107,7 +107,7 @@ export default function AdminLayout({ children }) {
                             setAllowTransition(true);
                             setCollapsed(!collapsed);
                         }}
-                        className="text-gray-600 hover:text-teal-600 transition"
+                        className="text-gray-600 hover:text-teal-600 transition cursor-pointer"
                     >
                         <FiMenu className="text-2xl my-1" />
                     </button>
