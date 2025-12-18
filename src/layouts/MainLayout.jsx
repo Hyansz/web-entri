@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import { Outlet } from "react-router-dom";
 import ToTop from "../components/ToTop";
 import WaPhone from "../components/WaPhone";
+import Footer2 from "../components/Footer2";
 
 export default function MainLayout() {
     return (
@@ -15,7 +16,7 @@ export default function MainLayout() {
                 <ToTop />
                 <WaPhone />
             </main>
-            <Footer />
+            <Footer2 />
         </>
     );
 }

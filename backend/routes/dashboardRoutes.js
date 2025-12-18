@@ -4,12 +4,13 @@ import Category from "../models/Category.js";
 
 const router = Router();
 
-router.get("/dashboard-counts", async (req, res) => {
+router.get("/dashboard-counts", async (req, res, next) => {
     try {
         const categoryCount = await Category.countDocuments({
             deletedAt: null,
         });
-        const productCount = await Product.countDocuments({}); // Sesuaikan jika ada soft delete juga
+
+        const productCount = await Product.estimatedDocumentCount();
 
         res.json({
             success: true,
@@ -17,11 +18,7 @@ router.get("/dashboard-counts", async (req, res) => {
             categoryCount,
         });
     } catch (err) {
-        console.error(err);
-        res.status(500).json({
-            success: false,
-            message: "Failed to fetch dashboard data",
-        });
+        next(err);
     }
 });
 
