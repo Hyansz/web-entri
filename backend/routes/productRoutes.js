@@ -5,7 +5,6 @@ import { upload } from "../middleware/upload.js";
 import fs from "fs";
 import path from "path";
 import mongoose from "mongoose";
-import { connectDB } from "../config/db.js";
 
 const router = express.Router();
 
@@ -17,8 +16,6 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
     try {
-        await connectDB();
-
         res.setHeader(
             "Cache-Control",
             "public, s-maxage=300, stale-while-revalidate=60"
@@ -57,8 +54,6 @@ router.get("/", async (req, res) => {
 
 router.get("/all", async (req, res) => {
     try {
-        await connectDB();
-
         res.setHeader(
             "Cache-Control",
             "public, s-maxage=300, stale-while-revalidate=60"
@@ -80,8 +75,6 @@ router.get("/all", async (req, res) => {
 // get single
 router.get("/:id", async (req, res) => {
     try {
-        await connectDB();
-
         const p = await Product.findById(req.params.id).populate(
             "category",
             "name"
@@ -96,8 +89,6 @@ router.get("/:id", async (req, res) => {
 // create (admin) - multipart/form-data with field 'image'
 router.post("/", adminAuth, upload.single("image"), async (req, res) => {
     try {
-        await connectDB();
-
         const {
             name,
             kemenkesNumber,
@@ -129,8 +120,6 @@ router.post("/", adminAuth, upload.single("image"), async (req, res) => {
 // update (admin)
 router.put("/:id", adminAuth, upload.single("image"), async (req, res) => {
     try {
-        await connectDB();
-
         const product = await Product.findById(req.params.id);
         if (!product) return res.status(404).json({ message: "Not found" });
 
@@ -158,8 +147,6 @@ router.put("/:id", adminAuth, upload.single("image"), async (req, res) => {
 // delete (admin)
 router.delete("/:id", adminAuth, async (req, res) => {
     try {
-        await connectDB();
-
         const product = await Product.findById(req.params.id);
         if (!product) return res.status(404).json({ message: "Not found" });
 

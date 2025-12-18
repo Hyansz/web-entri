@@ -12,7 +12,7 @@ import productRoutes from "./routes/productRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
 import emailRoutes from "./routes/email.js";
-// import { connectDB } from "./config/db.js";
+import { connectDB } from "./config/db.js";
 
 dotenv.config();
 
@@ -208,7 +208,7 @@ app.get(/.*/, (req, res) => {
     res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
 
-// connectDB();
+connectDB();
 
 // const PORT = process.env.PORT || 5000;
 // app.listen(PORT, "0.0.0.0", () => {

@@ -1,23 +1,14 @@
 import mongoose from "mongoose";
 
-let cached = global.mongoose;
-
-if (!cached) {
-    cached = global.mongoose = { conn: null, promise: null };
-}
+let isConnected = false;
 
 export async function connectDB() {
-    if (cached.conn) return cached.conn;
+    if (isConnected) return;
 
-    if (!cached.promise) {
-        cached.promise = mongoose
-            .connect(process.env.MONGO_URI, {
-                bufferCommands: false,
-                maxPoolSize: 10,
-            })
-            .then((mongoose) => mongoose);
-    }
+    await mongoose.connect(process.env.MONGO_URI, {
+        maxPoolSize: 10,
+    });
 
-    cached.conn = await cached.promise;
-    return cached.conn;
+    isConnected = true;
+    console.log("✅ MongoDB connected");
 }
