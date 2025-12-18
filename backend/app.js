@@ -37,8 +37,6 @@ app.use(
     })
 );
 
-app.options("*", cors());
-
 app.use((req, res, next) => {
     res.setHeader("Referrer-Policy", "no-referrer");
     res.setHeader("X-Frame-Options", "DENY");
@@ -58,7 +56,7 @@ app.use((req, res, next) => {
     }
 
     if (req.query) {
-        req.cleanedQuery = mongoSanitize(req.query);
+        req.query = mongoSanitize(req.query);
     }
 
     next();
