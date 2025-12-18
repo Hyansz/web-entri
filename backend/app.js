@@ -2,7 +2,6 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import helmet from "helmet";
-import rateLimit from "express-rate-limit";
 import fs from "fs";
 import { fileURLToPath } from "url";
 import path from "path";
@@ -13,7 +12,6 @@ import categoryRoutes from "./routes/categoryRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
 import emailRoutes from "./routes/email.js";
 import mongoSanitize from "mongo-sanitize";
-import xss from "xss-clean";
 import { publicLimiter, adminLimiter } from "./middleware/rateLimiters.js";
 
 dotenv.config();
@@ -63,8 +61,6 @@ app.use((req, res, next) => {
 
     next();
 });
-
-app.use(xss());
 
 app.use("/api", publicLimiter);
 app.use("/api/admin", adminLimiter);
