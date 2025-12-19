@@ -5,10 +5,18 @@ import path from "path";
 
 export const getProducts = async (req, res, next) => {
     try {
-        res.setHeader(
-            "Cache-Control",
-            "public, s-maxage=300, stale-while-revalidate=60"
-        );
+        const isAdmin = !!req.admin;
+
+        if (isAdmin) {
+            // ADMIN → REALTIME
+            res.setHeader("Cache-Control", "no-store");
+        } else {
+            // PUBLIK → BOLEH CACHE
+            res.setHeader(
+                "Cache-Control",
+                "public, s-maxage=300, stale-while-revalidate=60"
+            );
+        }
 
         const query = req.cleanedQuery || req.query;
         let { page = 1, limit = 10, search = "", category = "" } = query;
@@ -44,9 +52,13 @@ export const getProducts = async (req, res, next) => {
 
 export const getAllProducts = async (req, res, next) => {
     try {
+        const isAdmin = !!req.admin;
+
         res.setHeader(
             "Cache-Control",
-            "public, s-maxage=300, stale-while-revalidate=60"
+            isAdmin
+                ? "no-store"
+                : "public, s-maxage=300, stale-while-revalidate=60"
         );
 
         const data = await Product.find({})
@@ -62,13 +74,20 @@ export const getAllProducts = async (req, res, next) => {
     }
 };
 
+
 export const getProductById = async (req, res, next) => {
     try {
+        const isAdmin = !!req.admin;
+        if (isAdmin) {
+            res.setHeader("Cache-Control", "no-store");
+        }
+
         const p = await Product.findById(req.params.id).populate(
             "category",
             "name"
         );
         if (!p) return res.status(404).json({ message: "Not found" });
+
         res.json(p);
     } catch (err) {
         next(err);

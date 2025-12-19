@@ -17,7 +17,9 @@ export default function adminAuth(req, res, next) {
             return res.status(403).json({ message: "Forbidden" });
         }
 
-        req.admin = decoded;
+        // 🔥 PENTING
+        req.user = decoded;
+
         next();
     } catch {
         res.status(401).json({ message: "Invalid token" });
