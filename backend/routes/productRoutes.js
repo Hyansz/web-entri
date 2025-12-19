@@ -8,6 +8,7 @@ import {
     createProduct,
     updateProduct,
     deleteProduct,
+    getProductVersion,
 } from "../controllers/productController.js";
 import { sanitizeImage } from "../middleware/imageSanitizer.js";
 import {
