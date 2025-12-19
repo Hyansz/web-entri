@@ -62,8 +62,24 @@ export default function ProductList() {
     const ASSET_URL = import.meta.env.VITE_ASSET_URL;
 
     const load = async (page = 1) => {
+        const serverVersion = await api.get("/api/products2/version");
+        const localVersion = sessionStorage.getItem("products_version");
         setLoading(true);
         setError("");
+
+        if (localVersion !== String(serverVersion.data.version)) {
+            // 🔥 INVALIDATE SEMUA CACHE
+            Object.keys(sessionStorage).forEach((key) => {
+                if (key.startsWith("admin_products_cache_v1")) {
+                    sessionStorage.removeItem(key);
+                }
+            });
+
+            sessionStorage.setItem(
+                "products_version",
+                String(serverVersion.data.version)
+            );
+        }
 
         const cacheKey = getCacheKey({
             page,

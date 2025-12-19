@@ -178,3 +178,13 @@ export const deleteProduct = async (req, res, next) => {
         next(err);
     }
 };
+
+export const getProductVersion = async (req, res) => {
+    const latest = await Product.findOne({})
+        .sort({ updatedAt: -1 })
+        .select("updatedAt");
+
+    res.json({
+        version: latest?.updatedAt?.getTime() || 0
+    });
+};
