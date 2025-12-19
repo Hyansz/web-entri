@@ -1,23 +1,17 @@
 import Product from "../models/Product.js";
-import ProductVersion from "../models/ProductVersion.js";
 import mongoose from "mongoose";
 import fs from "fs";
 import path from "path";
+import ProductVersion from "../models/ProductVersion.js";
 
-/* =======================
-   VERSION HELPER
-======================= */
 const bumpVersion = async () => {
     await ProductVersion.findOneAndUpdate(
         { key: "products" },
         { version: Date.now() },
-        { upsert: true }
+        { upsert: true, new: true }
     );
 };
 
-/* =======================
-   GET PRODUCTS
-======================= */
 export const getProducts = async (req, res, next) => {
     try {
         const isAdmin = !!req.admin;
@@ -62,9 +56,30 @@ export const getProducts = async (req, res, next) => {
     }
 };
 
-/* =======================
-   GET BY ID
-======================= */
+export const getAllProducts = async (req, res, next) => {
+    try {
+        const isAdmin = !!req.admin;
+
+        res.setHeader(
+            "Cache-Control",
+            isAdmin
+                ? "no-store"
+                : "public, s-maxage=300, stale-while-revalidate=60"
+        );
+
+        const data = await Product.find({})
+            .populate("category", "name")
+            .sort({ createdAt: -1, _id: -1 });
+
+        res.json({
+            data,
+            total: data.length,
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
 export const getProductById = async (req, res, next) => {
     try {
         res.setHeader("Cache-Control", "no-store");
