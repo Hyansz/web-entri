@@ -4,38 +4,6 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext";
 import api from "../api/axiosInstance";
 
-const ADMIN_PRODUCT_CACHE_PREFIX = "admin_products_cache_v1";
-const CACHE_TTL = 1000 * 60 * 5; // 5 menit
-
-const getCacheKey = ({ page, limit, search, category }) =>
-    `${ADMIN_PRODUCT_CACHE_PREFIX}:${page}:${limit}:${search}:${category}`;
-
-const getCachedData = (key) => {
-    const raw = sessionStorage.getItem(key);
-    if (!raw) return null;
-
-    try {
-        const parsed = JSON.parse(raw);
-        if (Date.now() > parsed.expiredAt) {
-            sessionStorage.removeItem(key);
-            return null;
-        }
-        return parsed.data;
-    } catch {
-        return null;
-    }
-};
-
-const setCachedData = (key, data) => {
-    sessionStorage.setItem(
-        key,
-        JSON.stringify({
-            data,
-            expiredAt: Date.now() + CACHE_TTL,
-        })
-    );
-};
-
 export default function ProductList() {
     const { token } = useContext(AuthContext);
 
@@ -61,42 +29,6 @@ export default function ProductList() {
     const ASSET_URL = import.meta.env.VITE_ASSET_URL;
 
     const load = async (page = 1) => {
-        const serverVersion = await api.get("/api/products2/version");
-        const localVersion = sessionStorage.getItem("products_version");
-        setLoading(true);
-        setError("");
-
-        if (localVersion !== String(serverVersion.data.version)) {
-            // 🔥 INVALIDATE SEMUA CACHE
-            Object.keys(sessionStorage).forEach((key) => {
-                if (key.startsWith("admin_products_cache_v1")) {
-                    sessionStorage.removeItem(key);
-                }
-            });
-
-            sessionStorage.setItem(
-                "products_version",
-                String(serverVersion.data.version)
-            );
-        }
-
-        const cacheKey = getCacheKey({
-            page,
-            limit: pagination.limit,
-            search,
-            category,
-        });
-
-        // ✅ 1. Coba ambil dari cache
-        const cached =
-            page === pagination.page ? getCachedData(cacheKey) : null;
-        if (cached) {
-            setProducts(cached.data);
-            setPagination(cached.pagination);
-            setLoading(false);
-            return;
-        }
-
         try {
             const params = {
                 page,
@@ -112,9 +44,6 @@ export default function ProductList() {
                 data: res.data.data,
                 pagination: res.data.pagination,
             };
-
-            // ✅ 2. Simpan ke cache
-            setCachedData(cacheKey, payload);
 
             setProducts(payload.data);
             setPagination({
@@ -160,36 +89,13 @@ export default function ProductList() {
                 };
             });
 
-            // ✅ 2. HAPUS CACHE TERKAIT
-            Object.keys(sessionStorage).forEach((key) => {
-                if (key.startsWith(ADMIN_PRODUCT_CACHE_PREFIX)) {
-                    sessionStorage.removeItem(key);
-                }
-            });
-
             setShowModal(false);
         } catch (err) {
             setShowModal(false);
             alert("Failed to delete");
         }
     };
-
-    useEffect(() => {
-        const onFocus = () => {
-            const raw = sessionStorage.getItem("admin_products_mutation");
-            if (!raw) return;
-
-            // 🔥 mutation terdeteksi
-            sessionStorage.removeItem("admin_products_mutation");
-
-            // 🔥 reload data dari server
-            load(1);
-        };
-
-        window.addEventListener("focus", onFocus);
-        return () => window.removeEventListener("focus", onFocus);
-    }, []);
-
+    
     return (
         <AdminLayout>
             <h2 className="font-semibold text-lg mb-2">Produk</h2>

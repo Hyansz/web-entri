@@ -69,28 +69,17 @@ export default function ProductForm() {
         fd.append("category", form.category);
 
         if (image) {
-            fd.append("image", image); // hanya kirim jika ada gambar baru
+            fd.append("image", image);
         }
 
         try {
-            const res = id
-                ? await api.put(`/api/products2/${id}`, fd)
-                : await api.post("/api/products2", fd);
+            if (id) {
+                await api.put(`/api/products2/${id}`, fd);
+            } else {
+                await api.post("/api/products2", fd);
+            }
 
-            sessionStorage.setItem(
-                "admin_products_mutation",
-                JSON.stringify({
-                    type: id ? "update" : "create",
-                    at: Date.now(),
-                })
-            );
-
-            Object.keys(sessionStorage).forEach((key) => {
-                if (key.startsWith("admin_products_cache_v1")) {
-                    sessionStorage.removeItem(key);
-                }
-            });
-
+            // 🔥 LANGSUNG PINDAH
             nav("/admin/products2");
         } catch (err) {
             alert(err.response?.data?.message || "Failed");
