@@ -77,9 +77,14 @@ export default function ProductForm() {
                 ? await api.put(`/api/products2/${id}`, fd)
                 : await api.post("/api/products2", fd);
 
-            sessionStorage.setItem("products_version", Date.now().toString());
+            sessionStorage.setItem(
+                "admin_products_mutation",
+                JSON.stringify({
+                    type: id ? "update" : "create",
+                    at: Date.now(),
+                })
+            );
 
-            // 🔥 WAJIB: bersihkan cache product list
             Object.keys(sessionStorage).forEach((key) => {
                 if (key.startsWith("admin_products_cache_v1")) {
                     sessionStorage.removeItem(key);

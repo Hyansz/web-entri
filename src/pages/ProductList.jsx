@@ -3,7 +3,6 @@ import AdminLayout from "../components/AdminLayout";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext";
 import api from "../api/axiosInstance";
-import { loadCache, saveCache, clearCache } from "../utils/realtimeCache";
 
 const ADMIN_PRODUCT_CACHE_PREFIX = "admin_products_cache_v1";
 const CACHE_TTL = 1000 * 60 * 5; // 5 menit
@@ -176,22 +175,19 @@ export default function ProductList() {
     };
 
     useEffect(() => {
-        const raw = sessionStorage.getItem("admin_products_last_mutation");
-        if (!raw) return;
+        const onFocus = () => {
+            const raw = sessionStorage.getItem("admin_products_mutation");
+            if (!raw) return;
 
-        const item = JSON.parse(raw);
+            // 🔥 mutation terdeteksi
+            sessionStorage.removeItem("admin_products_mutation");
 
-        setProducts((prev) => {
-            const exists = prev.find((p) => p._id === item._id);
-            if (exists) {
-                // UPDATE
-                return prev.map((p) => (p._id === item._id ? item : p));
-            }
-            // CREATE
-            return [item, ...prev];
-        });
+            // 🔥 reload data dari server
+            load(1);
+        };
 
-        sessionStorage.removeItem("admin_products_last_mutation");
+        window.addEventListener("focus", onFocus);
+        return () => window.removeEventListener("focus", onFocus);
     }, []);
 
     return (
