@@ -21,10 +21,11 @@ import { uploadLimiter } from "../middleware/rateLimiters.js";
 
 const router = express.Router();
 
+router.get("/version", getProductVersion);
+
 router.get("/", validateGetProducts, validate, getProducts);
 router.get("/all", getAllProducts);
 router.get("/:id", validateProductId, validate, getProductById);
-router.get("/version", getProductVersion);
 
 router.post(
     "/",

@@ -144,9 +144,7 @@ export const createProduct = async (req, res, next) => {
 export const updateProduct = async (req, res, next) => {
     try {
         const product = await Product.findById(req.params.id);
-        if (!product) {
-            return res.status(404).json({ message: "Not found" });
-        }
+        if (!product) return res.status(404).json({ message: "Not found" });
 
         const fields = [
             "name",
@@ -158,14 +156,10 @@ export const updateProduct = async (req, res, next) => {
         ];
 
         fields.forEach((f) => {
-            if (req.body[f] !== undefined) {
-                product[f] = req.body[f];
-            }
+            if (req.body[f] !== undefined) product[f] = req.body[f];
         });
 
-        if (req.file) {
-            product.image = `/uploads/${req.file.filename}`;
-        }
+        if (req.file) product.image = `/uploads/${req.file.filename}`;
 
         await product.save();
         await bumpVersion();
@@ -182,9 +176,7 @@ export const updateProduct = async (req, res, next) => {
 export const deleteProduct = async (req, res, next) => {
     try {
         const product = await Product.findById(req.params.id);
-        if (!product) {
-            return res.status(404).json({ message: "Not found" });
-        }
+        if (!product) return res.status(404).json({ message: "Not found" });
 
         if (product.image) {
             const imagePath = path.join(
@@ -211,6 +203,11 @@ export const deleteProduct = async (req, res, next) => {
    VERSION ENDPOINT
 ======================= */
 export const getProductVersion = async (req, res) => {
-    const v = await ProductVersion.findOne({ key: "products" });
-    res.json({ version: v?.version || 0 });
+    const latest = await Product.findOne({})
+        .sort({ updatedAt: -1 })
+        .select("updatedAt");
+
+    res.json({
+        version: latest?.updatedAt?.getTime() || 0,
+    });
 };
