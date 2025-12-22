@@ -12,16 +12,16 @@ export default function Products() {
     const ASSET_URL = import.meta.env.VITE_ASSET_URL;
     const { t } = useTranslation();
 
-    const fetcher = (url) => api.get(url).then((res) => res.data);
+    const fetcher = (url) => api.get(url).then((res) => res.data.data);
 
-    const { data, error, isLoading } = useSWR("/api/products2/all", fetcher, {
-        refreshInterval: 3000, // 🔥 realtime-like
+    const {
+        data: dbProducts = [],
+        error: errorDb,
+        isLoading: loadingDb,
+    } = useSWR("/api/products2/all", fetcher, {
+        refreshInterval: 3000,
         revalidateOnFocus: true,
     });
-
-    const dbProducts = data?.data || [];
-    const loadingDb = isLoading;
-    const errorDb = error;
 
     /* =======================
         HELPERS (TIDAK DIUBAH)
