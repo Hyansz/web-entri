@@ -7,34 +7,21 @@ import { FaWhatsapp } from "react-icons/fa";
 import YTLazy from "../components/YTLazy";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
-import { useQuery } from "@tanstack/react-query";
+import useSWR from "swr";
 import api from "../api/axiosInstance";
 
 export default function Home() {
     const { t } = useTranslation();
     const ASSET_URL = import.meta.env.VITE_ASSET_URL;
 
-    /* =============================
-        FETCH FUNCTION (CACHE SOURCE)
-    ============================== */
-    const fetchProducts = async () => {
-        const res = await api.get("/api/products2/all");
-        return res.data.data;
-    };
-
-    /* =============================
-        REACT QUERY (CACHING)
-    ============================== */
+    const fetcher = (url) => api.get(url).then((res) => res.data.data);
     const {
         data: dbProducts = [],
-        isLoading: loadingDb,
         error: errorDb,
-    } = useQuery({
-        queryKey: ["products"],
-        queryFn: fetchProducts,
-        staleTime: 1000 * 60 * 5, // 5 menit cache
-        refetchOnWindowFocus: false,
-        refetchOnReconnect: false,
+        isLoading: loadingDb,
+    } = useSWR("/api/products2/all", fetcher, {
+        refreshInterval: 3000, // realtime polling
+        revalidateOnFocus: true,
     });
 
     /* =============================
