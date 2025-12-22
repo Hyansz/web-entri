@@ -8,7 +8,6 @@ import {
     createProduct,
     updateProduct,
     deleteProduct,
-    getProductVersion,
 } from "../controllers/productController.js";
 import { sanitizeImage } from "../middleware/imageSanitizer.js";
 import {
@@ -20,8 +19,6 @@ import { validate } from "../middleware/validate.js";
 import { uploadLimiter } from "../middleware/rateLimiters.js";
 
 const router = express.Router();
-
-router.get("/version", getProductVersion);
 
 router.get("/", validateGetProducts, validate, getProducts);
 router.get("/all", getAllProducts);
