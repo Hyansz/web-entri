@@ -1,11 +1,8 @@
 import Product from "../models/Product.js";
 import mongoose from "mongoose";
-import fs from "fs";
-import path from "path";
 
 export const getProducts = async (req, res, next) => {
     try {
-
         const query = req.cleanedQuery || req.query;
         let { page = 1, limit = 10, search = "", category = "" } = query;
 
@@ -41,7 +38,6 @@ export const getProducts = async (req, res, next) => {
 
 export const getAllProducts = async (req, res, next) => {
     try {
-
         const data = await Product.find({})
             .populate("category", "name")
             .sort({ createdAt: -1, _id: -1 });
@@ -57,7 +53,6 @@ export const getAllProducts = async (req, res, next) => {
 
 export const getProductById = async (req, res, next) => {
     try {
-
         const product = await Product.findById(req.params.id).populate(
             "category",
             "name"
@@ -91,7 +86,8 @@ export const createProduct = async (req, res, next) => {
             return res.status(400).json({ message: "Name required" });
         }
 
-        const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
+        // 🔥 Cloudinary URL
+        const image = req.file ? req.file.path : null;
 
         const product = new Product({
             name,
@@ -100,7 +96,7 @@ export const createProduct = async (req, res, next) => {
             location,
             specifications,
             category: category || null,
-            image: imagePath,
+            image,
         });
 
         await product.save();
@@ -117,7 +113,9 @@ export const createProduct = async (req, res, next) => {
 export const updateProduct = async (req, res, next) => {
     try {
         const product = await Product.findById(req.params.id);
-        if (!product) return res.status(404).json({ message: "Not found" });
+        if (!product) {
+            return res.status(404).json({ message: "Not found" });
+        }
 
         const fields = [
             "name",
@@ -128,11 +126,16 @@ export const updateProduct = async (req, res, next) => {
             "category",
         ];
 
-        fields.forEach((f) => {
-            if (req.body[f] !== undefined) product[f] = req.body[f];
+        fields.forEach((field) => {
+            if (req.body[field] !== undefined) {
+                product[field] = req.body[field];
+            }
         });
 
-        if (req.file) product.image = `/uploads/${req.file.filename}`;
+        // 🔥 replace image if new uploaded
+        if (req.file) {
+            product.image = req.file.path;
+        }
 
         await product.save();
 
@@ -148,19 +151,12 @@ export const updateProduct = async (req, res, next) => {
 export const deleteProduct = async (req, res, next) => {
     try {
         const product = await Product.findById(req.params.id);
-        if (!product) return res.status(404).json({ message: "Not found" });
-
-        if (product.image) {
-            const imagePath = path.join(
-                process.cwd(),
-                "public",
-                product.image.replace(/^\/+/, "")
-            );
-
-            if (fs.existsSync(imagePath)) {
-                fs.unlinkSync(imagePath);
-            }
+        if (!product) {
+            return res.status(404).json({ message: "Not found" });
         }
+
+        // ❌ TIDAK ADA fs.unlink
+        // Cloudinary file tetap aman (bisa dihapus nanti via API jika mau)
 
         await product.deleteOne();
 
