@@ -2,26 +2,9 @@ import Product from "../models/Product.js";
 import mongoose from "mongoose";
 import fs from "fs";
 import path from "path";
-import ProductVersion from "../models/ProductVersion.js";
-
-const bumpVersion = async () => {
-    await ProductVersion.findOneAndUpdate(
-        { key: "products" },
-        { version: Date.now() },
-        { upsert: true, new: true }
-    );
-};
 
 export const getProducts = async (req, res, next) => {
     try {
-        const isAdmin = !!req.admin;
-
-        res.setHeader(
-            "Cache-Control",
-            isAdmin
-                ? "no-store"
-                : "public, s-maxage=300, stale-while-revalidate=60"
-        );
 
         const query = req.cleanedQuery || req.query;
         let { page = 1, limit = 10, search = "", category = "" } = query;
@@ -58,14 +41,6 @@ export const getProducts = async (req, res, next) => {
 
 export const getAllProducts = async (req, res, next) => {
     try {
-        const isAdmin = !!req.admin;
-
-        res.setHeader(
-            "Cache-Control",
-            isAdmin
-                ? "no-store"
-                : "public, s-maxage=300, stale-while-revalidate=60"
-        );
 
         const data = await Product.find({})
             .populate("category", "name")
@@ -82,7 +57,6 @@ export const getAllProducts = async (req, res, next) => {
 
 export const getProductById = async (req, res, next) => {
     try {
-        res.setHeader("Cache-Control", "no-store");
 
         const product = await Product.findById(req.params.id).populate(
             "category",
@@ -130,7 +104,6 @@ export const createProduct = async (req, res, next) => {
         });
 
         await product.save();
-        await bumpVersion();
 
         res.status(201).json(product);
     } catch (err) {
@@ -162,7 +135,6 @@ export const updateProduct = async (req, res, next) => {
         if (req.file) product.image = `/uploads/${req.file.filename}`;
 
         await product.save();
-        await bumpVersion();
 
         res.json(product);
     } catch (err) {
@@ -191,23 +163,9 @@ export const deleteProduct = async (req, res, next) => {
         }
 
         await product.deleteOne();
-        await bumpVersion();
 
         res.json({ message: "Deleted successfully" });
     } catch (err) {
         next(err);
     }
-};
-
-/* =======================
-   VERSION ENDPOINT
-======================= */
-export const getProductVersion = async (req, res) => {
-    const latest = await Product.findOne({})
-        .sort({ updatedAt: -1 })
-        .select("updatedAt");
-
-    res.json({
-        version: latest?.updatedAt?.getTime() || 0,
-    });
 };
