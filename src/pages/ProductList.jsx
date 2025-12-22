@@ -3,6 +3,7 @@ import AdminLayout from "../components/AdminLayout";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext";
 import api from "../api/axiosInstance";
+import { mutate } from "swr";
 
 export default function ProductList() {
     const { token } = useContext(AuthContext);
@@ -77,7 +78,10 @@ export default function ProductList() {
         try {
             await api.delete(`/api/products2/${deleteId}`);
 
-            // ✅ 1. UPDATE STATE LANGSUNG (REALTIME)
+            // 🔥 UPDATE USER PAGE (REALTIME)
+            mutate("/api/products2/all");
+
+            // update state admin (TIDAK DIUBAH)
             setProducts((prev) => prev.filter((p) => p._id !== deleteId));
 
             setPagination((prev) => {
@@ -95,7 +99,7 @@ export default function ProductList() {
             alert("Failed to delete");
         }
     };
-    
+
     return (
         <AdminLayout>
             <h2 className="font-semibold text-lg mb-2">Produk</h2>

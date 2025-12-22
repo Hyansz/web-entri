@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import AdminLayout from "../components/AdminLayout";
 import api from "../api/axiosInstance";
+import { mutate } from "swr";
 
 export default function ProductForm() {
     const { id } = useParams();
@@ -79,7 +80,10 @@ export default function ProductForm() {
                 await api.post("/api/products2", fd);
             }
 
-            // 🔥 LANGSUNG PINDAH
+            // 🔥 TRIGGER REALTIME KE USER PAGE
+            mutate("/api/products2/all");
+
+            // 🔥 LANGSUNG PINDAH (UI TETAP)
             nav("/admin/products2");
         } catch (err) {
             alert(err.response?.data?.message || "Failed");

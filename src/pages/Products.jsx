@@ -5,59 +5,23 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
-import { useEffect, useState } from "react";
+import useSWR from "swr";
 import api from "../api/axiosInstance";
 
 export default function Products() {
-    const [dbProducts, setDbProducts] = useState([]);
-    const [loadingDb, setLoadingDb] = useState(true);
-    const [errorDb, setErrorDb] = useState(false);
-
-    const PRODUCT_CACHE_KEY = "cached_products_v1";
-
     const ASSET_URL = import.meta.env.VITE_ASSET_URL;
     const { t } = useTranslation();
 
-    /* =======================
-        FETCH + CACHE LOGIC
-    ======================= */
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                setLoadingDb(true);
+    const fetcher = (url) => api.get(url).then((res) => res.data);
 
-                const serverVersion = await api.get("/api/products2/version");
-                const localVersion = sessionStorage.getItem("products_version");
+    const { data, error, isLoading } = useSWR("/api/products2/all", fetcher, {
+        refreshInterval: 3000, // 🔥 realtime-like
+        revalidateOnFocus: true,
+    });
 
-                if (localVersion !== String(serverVersion.data.version)) {
-                    sessionStorage.removeItem(PRODUCT_CACHE_KEY);
-                    sessionStorage.setItem(
-                        "products_version",
-                        String(serverVersion.data.version)
-                    );
-                }
-
-                const cached = sessionStorage.getItem(PRODUCT_CACHE_KEY);
-                if (cached) {
-                    setDbProducts(JSON.parse(cached));
-                    return;
-                }
-
-                const res = await api.get("/api/products2/all");
-                setDbProducts(res.data.data || []);
-                sessionStorage.setItem(
-                    PRODUCT_CACHE_KEY,
-                    JSON.stringify(res.data.data || [])
-                );
-            } catch {
-                setErrorDb(true);
-            } finally {
-                setLoadingDb(false);
-            }
-        };
-
-        fetchProducts();
-    }, []);
+    const dbProducts = data?.data || [];
+    const loadingDb = isLoading;
+    const errorDb = error;
 
     /* =======================
         HELPERS (TIDAK DIUBAH)
