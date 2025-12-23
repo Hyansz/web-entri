@@ -21,7 +21,7 @@ export default function ProductList() {
     const [search, setSearch] = useState("");
     const [category, setCategory] = useState("");
 
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
     const [showModal, setShowModal] = useState(false);
@@ -188,7 +188,7 @@ export default function ProductList() {
                                         colSpan="7"
                                         className="p-4 text-center text-gray-500"
                                     >
-                                        Tidak ada produk ditemukan
+                                        Tidak ada produk
                                     </td>
                                 </tr>
                             )}
