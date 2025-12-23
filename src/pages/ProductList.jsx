@@ -100,6 +100,12 @@ export default function ProductList() {
         }
     };
 
+    const resolveImage = (img) => {
+        if (!img) return "/img/no-image.png";
+        if (img.startsWith("http")) return img;
+        return `${ASSET_URL}${img}`;
+    };
+
     return (
         <AdminLayout>
             <h2 className="font-semibold text-lg mb-2">Produk</h2>
@@ -192,7 +198,7 @@ export default function ProductList() {
                                         <td className="p-2">
                                             {p.image ? (
                                                 <img
-                                                    src={`${ASSET_URL}${p.image}`}
+                                                    src={resolveImage(p.image)}
                                                     alt={p.name}
                                                     className="w-20 h-20 object-cover rounded"
                                                 />

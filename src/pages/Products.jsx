@@ -47,6 +47,12 @@ export default function Products() {
             (p) => p.category?._id === catId || p.category === catId
         );
 
+    const resolveImage = (img) => {
+        if (!img) return "/img/no-image.png";
+        if (img.startsWith("http")) return img; // Cloudinary
+        return `${ASSET_URL}${img}`; // data lama
+    };
+
     return (
         <>
             <Helmet>
@@ -137,7 +143,9 @@ export default function Products() {
                                         >
                                             <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                                 <img
-                                                    src={`${ASSET_URL}${item.image}`}
+                                                    src={resolveImage(
+                                                        item.image
+                                                    )}
                                                     alt={item.name}
                                                     className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
                                                 />
@@ -218,7 +226,9 @@ export default function Products() {
                                         >
                                             <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                                 <img
-                                                    src={`${ASSET_URL}${item.image}`}
+                                                    src={resolveImage(
+                                                        item.image
+                                                    )}
                                                     alt={item.name}
                                                     className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
                                                 />
@@ -299,7 +309,9 @@ export default function Products() {
                                         >
                                             <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                                 <img
-                                                    src={`${ASSET_URL}${item.image}`}
+                                                    src={resolveImage(
+                                                        item.image
+                                                    )}
                                                     alt={item.name}
                                                     className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
                                                 />
@@ -380,7 +392,9 @@ export default function Products() {
                                         >
                                             <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                                 <img
-                                                    src={`${ASSET_URL}${item.image}`}
+                                                    src={resolveImage(
+                                                        item.image
+                                                    )}
                                                     alt={item.name}
                                                     className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
                                                 />
