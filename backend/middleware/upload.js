@@ -1,19 +1,17 @@
 import multer from "multer";
 import { CloudinaryStorage } from "multer-storage-cloudinary";
-import { v2 as cloudinary } from "cloudinary";
-
-cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_NAME,
-    api_key: process.env.CLOUDINARY_KEY,
-    api_secret: process.env.CLOUDINARY_SECRET,
-});
+import cloudinary from "../config/cloudinary.js";
 
 const storage = new CloudinaryStorage({
     cloudinary,
     params: {
         folder: "products",
         allowed_formats: ["jpg", "jpeg", "png", "webp"],
-        transformation: [{ width: 1200, crop: "limit" }],
+        transformation: [
+            { width: 1200, crop: "limit" },
+            { quality: "auto" },
+            { fetch_format: "auto" },
+        ],
     },
 });
 

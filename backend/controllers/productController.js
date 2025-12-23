@@ -102,6 +102,7 @@ export const createProduct = async (req, res, next) => {
         await product.save();
 
         res.status(201).json(product);
+        console.log("FILE:", req.file);
     } catch (err) {
         next(err);
     }
