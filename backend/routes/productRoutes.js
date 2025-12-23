@@ -9,7 +9,6 @@ import {
     updateProduct,
     deleteProduct,
 } from "../controllers/productController.js";
-import { sanitizeImage } from "../middleware/imageSanitizer.js";
 import {
     validateCreateProduct,
     validateGetProducts,
@@ -29,7 +28,6 @@ router.post(
     adminAuth,
     uploadLimiter,
     upload.single("image"),
-    sanitizeImage,
     validateCreateProduct,
     validate,
     createProduct
@@ -40,7 +38,6 @@ router.put(
     adminAuth,
     uploadLimiter,
     upload.single("image"),
-    sanitizeImage,
     validateProductId,
     validate,
     updateProduct
