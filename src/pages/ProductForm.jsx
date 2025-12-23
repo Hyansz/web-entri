@@ -5,6 +5,7 @@ import api from "../api/axiosInstance";
 import { mutate } from "swr";
 
 export default function ProductForm() {
+    const [submitting, setSubmitting] = useState(false);
     const { id } = useParams();
     const nav = useNavigate();
 
@@ -70,6 +71,9 @@ export default function ProductForm() {
     ======================= */
     const submit = async (e) => {
         e.preventDefault();
+
+        if (submitting) return;
+        setSubmitting(true);
 
         const fd = new FormData();
         fd.append("name", form.name);
@@ -219,10 +223,12 @@ export default function ProductForm() {
                     <div className="flex gap-2">
                         <button
                             type="submit"
-                            className="bg-green-600 text-white px-4 py-2 rounded cursor-pointer"
+                            disabled={submitting}
+                            className="bg-green-600 text-white px-4 py-2 rounded cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                         >
-                            Simpan
+                            {submitting ? "Menyimpan..." : "Tambahkan"}
                         </button>
+
                         <button
                             type="button"
                             onClick={() => nav("/admin/products2")}

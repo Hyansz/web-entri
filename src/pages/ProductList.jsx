@@ -26,6 +26,7 @@ export default function ProductList() {
 
     const [showModal, setShowModal] = useState(false);
     const [deleteId, setDeleteId] = useState(null);
+    const [deletingId, setDeletingId] = useState(null);
 
     const ASSET_URL = import.meta.env.VITE_ASSET_URL;
 
@@ -78,15 +79,17 @@ export default function ProductList() {
     };
 
     const confirmDelete = async () => {
+        if (!deleteId || deletingId === deleteId) return;
+
+        setDeletingId(deleteId);
+
         try {
             await api.delete(`/api/products2/${deleteId}`);
 
-            // 🔥 UPDATE USER PAGE (REALTIME)
-            mutate("/api/products2/all");
-
-            // update state admin (TIDAK DIUBAH)
+            // update admin table
             setProducts((prev) => prev.filter((p) => p._id !== deleteId));
 
+            // update pagination
             setPagination((prev) => {
                 const newTotal = Math.max(0, prev.total - 1);
                 return {
@@ -96,10 +99,16 @@ export default function ProductList() {
                 };
             });
 
+            // update user page
+            mutate("/api/products2/all");
+
+            // tutup modal
             setShowModal(false);
+            setDeleteId(null);
         } catch (err) {
-            setShowModal(false);
-            alert("Failed to delete");
+            alert(err?.response?.data?.message || "Gagal menghapus produk");
+        } finally {
+            setDeletingId(null); // 🔥 buka kembali tombol
         }
     };
 
@@ -201,7 +210,9 @@ export default function ProductList() {
                                         <td className="p-2">
                                             {p.image ? (
                                                 <img
-                                                    src={resolveImage(p.image)}
+                                                    src={resolveImage(
+                                                        p.image?.url
+                                                    )}
                                                     alt={p.name}
                                                     className="w-20 h-20 object-cover rounded"
                                                 />
@@ -228,6 +239,9 @@ export default function ProductList() {
                                                 </Link>
 
                                                 <button
+                                                    disabled={
+                                                        deletingId !== null
+                                                    }
                                                     onClick={() =>
                                                         openDeleteModal(p._id)
                                                     }
@@ -299,10 +313,13 @@ export default function ProductList() {
                             </button>
 
                             <button
-                                className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition cursor-pointer"
+                                disabled={deletingId === deleteId}
                                 onClick={confirmDelete}
+                                className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
                             >
-                                Delete
+                                {deletingId === deleteId
+                                    ? "Menghapus..."
+                                    : "Delete"}
                             </button>
                         </div>
                     </div>

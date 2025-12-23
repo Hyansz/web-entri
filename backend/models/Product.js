@@ -7,7 +7,10 @@ const ProductSchema = new mongoose.Schema(
         brand: { type: String },
         location: { type: String },
         specifications: { type: String },
-        image: { type: String }, // "/uploads/filename.jpg"
+        image: {
+            url: String,
+            public_id: String,
+        }, // "/uploads/filename.jpg"
         category: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Category",

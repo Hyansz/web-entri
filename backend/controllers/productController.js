@@ -1,5 +1,6 @@
 import Product from "../models/Product.js";
 import mongoose from "mongoose";
+import cloudinary from "../config/cloudinary.js";
 
 export const getProducts = async (req, res, next) => {
     try {
@@ -86,8 +87,12 @@ export const createProduct = async (req, res, next) => {
             return res.status(400).json({ message: "Name required" });
         }
 
-        // 🔥 Cloudinary URL
-        const image = req.file ? req.file.path : null;
+        const image = req.file
+            ? {
+                    url: req.file.path,
+                    public_id: req.file.filename,
+                }
+            : null;
 
         const product = new Product({
             name,
@@ -102,7 +107,6 @@ export const createProduct = async (req, res, next) => {
         await product.save();
 
         res.status(201).json(product);
-        console.log("FILE:", req.file);
     } catch (err) {
         next(err);
     }
@@ -133,9 +137,20 @@ export const updateProduct = async (req, res, next) => {
             }
         });
 
-        // 🔥 replace image if new uploaded
+        // 🔥 JIKA ADA IMAGE BARU
         if (req.file) {
-            product.image = req.file.path;
+            // 1️⃣ hapus image lama
+            if (product.image?.public_id) {
+                await cloudinary.uploader.destroy(
+                    product.image.public_id
+                );
+            }
+
+            // 2️⃣ set image baru
+            product.image = {
+                url: req.file.path,
+                public_id: req.file.filename,
+            };
         }
 
         await product.save();
@@ -156,8 +171,11 @@ export const deleteProduct = async (req, res, next) => {
             return res.status(404).json({ message: "Not found" });
         }
 
-        // ❌ TIDAK ADA fs.unlink
-        // Cloudinary file tetap aman (bisa dihapus nanti via API jika mau)
+        if (product.image?.public_id) {
+            await cloudinary.uploader.destroy(
+                product.image.public_id
+            );
+        }
 
         await product.deleteOne();
 
