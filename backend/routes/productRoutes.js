@@ -11,7 +11,7 @@ import {
 } from "../controllers/productController.js";
 import { sanitizeImage } from "../middleware/imageSanitizer.js";
 import {
-    // validateCreateProduct,
+    validateCreateProduct,
     validateGetProducts,
     validateProductId,
 } from "../middleware/validators/productValidator.js";
@@ -27,11 +27,11 @@ router.get("/:id", validateProductId, validate, getProductById);
 router.post(
     "/",
     adminAuth,
-    // uploadLimiter,
+    uploadLimiter,
     upload.single("image"),
-    // sanitizeImage,
-    // validateCreateProduct,
-    // validate,
+    sanitizeImage,
+    validateCreateProduct,
+    validate,
     createProduct
 );
 
