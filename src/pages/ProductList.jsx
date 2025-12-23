@@ -30,6 +30,9 @@ export default function ProductList() {
     const ASSET_URL = import.meta.env.VITE_ASSET_URL;
 
     const load = async (page = 1) => {
+        setLoading(true);
+        setError("");
+
         try {
             const params = {
                 page,
