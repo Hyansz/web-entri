@@ -89,9 +89,9 @@ export const createProduct = async (req, res, next) => {
 
         const image = req.file
             ? {
-                    url: req.file.path,
-                    public_id: req.file.filename,
-                }
+                  url: req.file.path,
+                  public_id: req.file.filename,
+              }
             : null;
 
         const product = new Product({
@@ -137,16 +137,26 @@ export const updateProduct = async (req, res, next) => {
             }
         });
 
-        // 🔥 JIKA ADA IMAGE BARU
-        if (req.file) {
-            // 1️⃣ hapus image lama
+        /* ===============================
+           ❌ REMOVE IMAGE (DARI FRONTEND)
+        =============================== */
+        if (req.body.removeImage === "true") {
             if (product.image?.public_id) {
-                await cloudinary.uploader.destroy(
-                    product.image.public_id
-                );
+                await cloudinary.uploader.destroy(product.image.public_id);
             }
 
-            // 2️⃣ set image baru
+            product.image = null;
+        }
+
+        /* ===============================
+           🔥 JIKA ADA IMAGE BARU
+        =============================== */
+        if (req.file) {
+            // hapus image lama dulu
+            if (product.image?.public_id) {
+                await cloudinary.uploader.destroy(product.image.public_id);
+            }
+
             product.image = {
                 url: req.file.path,
                 public_id: req.file.filename,
@@ -172,9 +182,7 @@ export const deleteProduct = async (req, res, next) => {
         }
 
         if (product.image?.public_id) {
-            await cloudinary.uploader.destroy(
-                product.image.public_id
-            );
+            await cloudinary.uploader.destroy(product.image.public_id);
         }
 
         await product.deleteOne();

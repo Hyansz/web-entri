@@ -112,10 +112,21 @@ export default function ProductList() {
         }
     };
 
-    const resolveImage = (img) => {
-        if (!img) return "/img/no-image.png";
-        if (img.startsWith("http")) return img;
-        return `${ASSET_URL}${img}`;
+    const resolveImage = (image) => {
+        if (!image) return "/img/no-image.png";
+
+        // 🔹 jika format BARU (Cloudinary)
+        if (typeof image === "object" && image.url) {
+            return image.url;
+        }
+
+        // 🔹 jika format LAMA (string)
+        if (typeof image === "string") {
+            if (image.startsWith("http")) return image;
+            return `${ASSET_URL}${image}`;
+        }
+
+        return "/img/no-image.png";
     };
 
     return (
@@ -210,9 +221,7 @@ export default function ProductList() {
                                         <td className="p-2">
                                             {p.image ? (
                                                 <img
-                                                    src={resolveImage(
-                                                        p.image?.url
-                                                    )}
+                                                    src={resolveImage(p.image)}
                                                     alt={p.name}
                                                     className="w-20 h-20 object-cover rounded"
                                                 />
