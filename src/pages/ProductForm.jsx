@@ -23,7 +23,7 @@ export default function ProductForm() {
         location: "",
         specifications: "",
         category: "",
-        imagePreview: "", // WAJIB STRING
+        imagePreview: "", // ⚠️ HARUS STRING
     });
 
     /* =======================
@@ -87,7 +87,7 @@ export default function ProductForm() {
         setFileError("");
         setRemoveImageFlag(false);
 
-        if (form.imagePreview.startsWith("blob:")) {
+        if (form.imagePreview?.startsWith("blob:")) {
             URL.revokeObjectURL(form.imagePreview);
         }
 
@@ -104,7 +104,7 @@ export default function ProductForm() {
        REMOVE IMAGE (❌)
     ======================= */
     const removeImage = () => {
-        if (form.imagePreview.startsWith("blob:")) {
+        if (form.imagePreview?.startsWith("blob:")) {
             URL.revokeObjectURL(form.imagePreview);
         }
 
@@ -135,6 +135,7 @@ export default function ProductForm() {
         fd.append("specifications", form.specifications);
         fd.append("category", form.category);
 
+        // 🔥 INI KUNCI UTAMA
         fd.append("removeImage", removeImageFlag ? "true" : "false");
 
         if (image) {
@@ -158,7 +159,7 @@ export default function ProductForm() {
     };
 
     const previewName =
-        form.imagePreview && typeof form.imagePreview === "string"
+        typeof form.imagePreview === "string" && form.imagePreview
             ? form.imagePreview.split("/").pop()
             : "";
 
@@ -251,7 +252,7 @@ export default function ProductForm() {
                                 <button
                                     type="button"
                                     onClick={removeImage}
-                                    className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm hover:bg-red-700"
+                                    className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm"
                                 >
                                     ✕
                                 </button>
@@ -294,7 +295,7 @@ export default function ProductForm() {
                         <button
                             type="submit"
                             disabled={submitting || !!fileError}
-                            className="bg-green-600 text-white px-4 py-2 rounded disabled:opacity-60 disabled:cursor-not-allowed"
+                            className="bg-green-600 text-white px-4 py-2 rounded disabled:opacity-60 disabled:cursor-progress"
                         >
                             {submitting ? "Menyimpan..." : "Simpan"}
                         </button>

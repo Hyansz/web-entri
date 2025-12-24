@@ -47,6 +47,23 @@ export default function Home() {
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
+    const resolveImage = (image) => {
+        if (!image) return "/img/no-image.png";
+
+        // 🔹 jika format BARU (Cloudinary)
+        if (typeof image === "object" && image.url) {
+            return image.url;
+        }
+
+        // 🔹 jika format LAMA (string)
+        if (typeof image === "string") {
+            if (image.startsWith("http")) return image;
+            return `${ASSET_URL}${image}`;
+        }
+
+        return "/img/no-image.png";
+    };
+
     return (
         <>
             <Helmet>
@@ -229,7 +246,9 @@ export default function Home() {
                                         >
                                             <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                                 <img
-                                                    src={`${ASSET_URL}${item.image}`}
+                                                    src={resolveImage(
+                                                        item.image
+                                                    )}
                                                     alt={item.name}
                                                     className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
                                                 />
@@ -310,7 +329,9 @@ export default function Home() {
                                         >
                                             <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                                 <img
-                                                    src={`${ASSET_URL}${item.image}`}
+                                                    src={resolveImage(
+                                                        item.image
+                                                    )}
                                                     alt={item.name}
                                                     className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
                                                 />
@@ -391,7 +412,9 @@ export default function Home() {
                                         >
                                             <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                                 <img
-                                                    src={`${ASSET_URL}${item.image}`}
+                                                    src={resolveImage(
+                                                        item.image
+                                                    )}
                                                     alt={item.name}
                                                     className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
                                                 />
@@ -472,7 +495,9 @@ export default function Home() {
                                         >
                                             <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                                 <img
-                                                    src={`${ASSET_URL}${item.image}`}
+                                                    src={resolveImage(
+                                                        item.image
+                                                    )}
                                                     alt={item.name}
                                                     className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
                                                 />
