@@ -22,6 +22,9 @@ import Categories from "./pages/Categories";
 import MainLayout from "./layouts/MainLayout";
 import DashboardLayout from "./layouts/DashboardLayout";
 import ProductDetail from "./pages/ProductDetail";
+import ArticleForm from "./pages/ArticleForm";
+import ArticleDetail from "./pages/ArticleDetail";
+import UserArticleList from "./pages/UserArticleList";
 
 AOS.init();
 
@@ -40,10 +43,18 @@ export default function App() {
                     <Route path="/contact" element={<ContactForm />} />
                     <Route path="/products" element={<Products />} />
                     <Route path="/products/:id" element={<ProductDetail />} />
-                    <Route path="/products/furniture" element={<ProductFurniture />} />
-                    <Route path="/products/liquid" element={<ProductLiquid />} />
+                    <Route
+                        path="/products/furniture"
+                        element={<ProductFurniture />}
+                    />
+                    <Route
+                        path="/products/liquid"
+                        element={<ProductLiquid />}
+                    />
                     <Route path="/products/bmhp" element={<ProductBmhp />} />
                     <Route path="/products/lab" element={<ProductLab />} />
+                    <Route path="/article" element={<UserArticleList />} />
+                    <Route path="/article/:slug" element={<ArticleDetail />} />
                 </Route>
 
                 {/* Admin Area */}
@@ -87,6 +98,22 @@ export default function App() {
                         element={
                             <ProtectedAdmin>
                                 <Categories />
+                            </ProtectedAdmin>
+                        }
+                    />
+                    <Route
+                        path="/admin/article/add"
+                        element={
+                            <ProtectedAdmin>
+                                <ArticleForm />
+                            </ProtectedAdmin>
+                        }
+                    />
+                    <Route
+                        path="/admin/article/edit/:id"
+                        element={
+                            <ProtectedAdmin>
+                                <ArticleForm />
                             </ProtectedAdmin>
                         }
                     />
