@@ -5,7 +5,7 @@ import api from "../api/axiosInstance";
 export default function UserArticleList() {
     const [articles, setArticles] = useState([]);
     useEffect(() => {
-        api.get("/articles").then((res) => setArticles(res.data));
+        api.get("/api/articles").then((res) => setArticles(res.data));
     }, []);
 
     return (
