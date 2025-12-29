@@ -6,7 +6,7 @@ import {
     updateArticle,
     deleteArticle,
 } from "../controllers/articleController.js";
-import { protect } from "../middleware/authMiddleware.js";
+import adminAuth from "../middleware/adminAuth.js"; 
 
 const router = express.Router();
 
@@ -15,8 +15,8 @@ router.get("/", getArticles);
 router.get("/:slug", getArticle);
 
 // Admin (protected)
-router.post("/", protect, createArticle);
-router.put("/:id", protect, updateArticle);
-router.delete("/:id", protect, deleteArticle);
+router.post("/", adminAuth, createArticle);
+router.put("/:id", adminAuth, updateArticle);
+router.delete("/:id", adminAuth, deleteArticle);
 
 export default router;
