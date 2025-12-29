@@ -9,7 +9,7 @@ import path from "path";
 import adminRoutes from "./routes/adminRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
-import articleRoutes from "./routes/articlesRoutes.js";
+import articleRoutes from "./routes/articleRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
 import emailRoutes from "./routes/email.js";
 import mongoSanitize from "mongo-sanitize";
