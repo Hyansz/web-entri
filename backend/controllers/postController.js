@@ -26,7 +26,7 @@ export const createPost = async (req, res) => {
 // READ + SEARCH + PAGINATION
 export const getPosts = async (req, res) => {
     const page = Number(req.query.page) || 1;
-    const limit = 5;
+    const limit = 6;
     const search = req.query.search || "";
 
     const query = {
