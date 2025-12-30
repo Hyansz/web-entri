@@ -1,8 +1,24 @@
+import cloudinary from "../config/cloudinary.js";
 import Post from "../models/Post.js";
 
 // CREATE
 export const createPost = async (req, res) => {
-    const post = await Post.create(req.body);
+    let imageUrl = "";
+
+    if (req.file) {
+        const result = await cloudinary.uploader.upload(
+            `data:image/png;base64,${req.file.buffer.toString("base64")}`
+        );
+        imageUrl = result.secure_url;
+    }
+
+    const post = await Post.create({
+        title: req.body.title,
+        excerpt: req.body.excerpt,
+        content: req.body.content,
+        image: imageUrl,
+    });
+
     res.status(201).json(post);
 };
 
