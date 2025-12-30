@@ -12,12 +12,20 @@ export default function BlogForm() {
         excerpt: "",
         content: "",
         image: null,
+        currentImage: "", // untuk menampilkan image lama saat edit
     });
 
+    // ambil data post jika edit
     useEffect(() => {
         if (id) {
             api.get(`/api/posts/${id}`).then((res) => {
-                setForm({ ...res.data, image: null });
+                setForm({
+                    title: res.data.title || "",
+                    excerpt: res.data.excerpt || "",
+                    content: res.data.content || "",
+                    image: null,
+                    currentImage: res.data.image || "",
+                });
             });
         }
     }, [id]);
@@ -25,17 +33,24 @@ export default function BlogForm() {
     const submit = async (e) => {
         e.preventDefault();
 
-        const data = new FormData();
-        data.append("title", form.title);
-        data.append("excerpt", form.excerpt);
-        data.append("content", form.content);
-        if (form.image) data.append("image", form.image);
+        try {
+            const data = new FormData();
+            data.append("title", form.title);
+            data.append("excerpt", form.excerpt);
+            data.append("content", form.content);
+            if (form.image) data.append("image", form.image); // hanya kalau user upload baru
 
-        id
-            ? await api.put(`/api/posts/${id}`, data)
-            : await api.post("/api/posts", data);
+            if (id) {
+                await api.put(`/api/posts/${id}`, data);
+            } else {
+                await api.post("/api/posts", data);
+            }
 
-        navigate("/");
+            navigate("/");
+        } catch (err) {
+            console.error("Error submit:", err);
+            alert("Gagal menyimpan post. Cek console untuk detail error.");
+        }
     };
 
     return (
@@ -106,6 +121,15 @@ export default function BlogForm() {
                     <label className="block text-sm font-medium text-gray-600 mb-1">
                         Gambar Header
                     </label>
+                    {form.currentImage && !form.image && (
+                        <div className="mb-2">
+                            <img
+                                src={form.currentImage}
+                                alt="Current"
+                                className="w-48 rounded-md border"
+                            />
+                        </div>
+                    )}
                     <input
                         type="file"
                         accept="image/*"
