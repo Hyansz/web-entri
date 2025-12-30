@@ -22,9 +22,8 @@ import Categories from "./pages/Categories";
 import MainLayout from "./layouts/MainLayout";
 import DashboardLayout from "./layouts/DashboardLayout";
 import ProductDetail from "./pages/ProductDetail";
-import ArticleForm from "./pages/ArticleForm";
-import ArticleDetail from "./pages/ArticleDetail";
-import UserArticleList from "./pages/UserArticleList";
+import BlogForm from "./pages/BlogForm";
+import BlogList2 from "./pages/BlogList2";
 
 AOS.init();
 
@@ -53,8 +52,9 @@ export default function App() {
                     />
                     <Route path="/products/bmhp" element={<ProductBmhp />} />
                     <Route path="/products/lab" element={<ProductLab />} />
-                    <Route path="/article" element={<UserArticleList />} />
-                    <Route path="/article/:slug" element={<ArticleDetail />} />
+                    <Route path="/posts" element={<BlogList2 />} />
+                    <Route path="/posts/create" element={<BlogForm />} />
+                    <Route path="/posts/edit/:id" element={<BlogForm />} />
                 </Route>
 
                 {/* Admin Area */}
@@ -98,22 +98,6 @@ export default function App() {
                         element={
                             <ProtectedAdmin>
                                 <Categories />
-                            </ProtectedAdmin>
-                        }
-                    />
-                    <Route
-                        path="/admin/article/add"
-                        element={
-                            <ProtectedAdmin>
-                                <ArticleForm />
-                            </ProtectedAdmin>
-                        }
-                    />
-                    <Route
-                        path="/admin/article/edit/:id"
-                        element={
-                            <ProtectedAdmin>
-                                <ArticleForm />
                             </ProtectedAdmin>
                         }
                     />

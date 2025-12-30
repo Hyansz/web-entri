@@ -9,7 +9,7 @@ import path from "path";
 import adminRoutes from "./routes/adminRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
-import articleRoutes from "./routes/articleRoutes.js";
+import postRoutes from "./routes/postRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
 import emailRoutes from "./routes/email.js";
 import mongoSanitize from "mongo-sanitize";
@@ -92,7 +92,7 @@ app.use(
 app.use("/api/admin", adminRoutes);
 app.use("/api/products2", productRoutes);
 app.use("/api/categories", categoryRoutes);
-app.use("/api/articles", articleRoutes);
+app.use("/api/posts", postRoutes);
 app.use("/api", dashboardRoutes);
 app.use("/", emailRoutes);
 
