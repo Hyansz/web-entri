@@ -22,8 +22,10 @@ import Categories from "./pages/Categories";
 import MainLayout from "./layouts/MainLayout";
 import DashboardLayout from "./layouts/DashboardLayout";
 import ProductDetail from "./pages/ProductDetail";
-import BlogForm from "./pages/BlogForm";
-import BlogList2 from "./pages/BlogList2";
+import Posts from "./pages/Posts";
+import PostList from "./pages/PostList";
+import PostForm from "./pages/PostForm";
+import PostDetail from "./pages/PostDetail";
 
 AOS.init();
 
@@ -52,9 +54,10 @@ export default function App() {
                     />
                     <Route path="/products/bmhp" element={<ProductBmhp />} />
                     <Route path="/products/lab" element={<ProductLab />} />
-                    <Route path="/posts" element={<BlogList2 />} />
-                    <Route path="/posts/create" element={<BlogForm />} />
-                    <Route path="/posts/edit/:id" element={<BlogForm />} />
+                    <Route path="/posts" element={<Posts />} />
+                    <Route path="/posts/:id" element={<PostDetail />} />
+                    <Route path="/posts/create" element={<PostForm />} />
+                    <Route path="/posts/edit/:id" element={<PostForm />} />
                 </Route>
 
                 {/* Admin Area */}
@@ -98,6 +101,22 @@ export default function App() {
                         element={
                             <ProtectedAdmin>
                                 <Categories />
+                            </ProtectedAdmin>
+                        }
+                    />
+                    <Route
+                        path="/admin/posts"
+                        element={
+                            <ProtectedAdmin>
+                                <PostList />
+                            </ProtectedAdmin>
+                        }
+                    />
+                    <Route
+                        path="/admin/posts/edit/:id"
+                        element={
+                            <ProtectedAdmin>
+                                <PostForm />
                             </ProtectedAdmin>
                         }
                     />

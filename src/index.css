@@ -19,3 +19,54 @@
 .animate-fade-in {
     animation: fade-in 0.25s ease-out;
 }
+
+.content-html {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #1f2937; /* gray-800 */
+}
+
+.content-html p {
+    margin: 0 0 1em;
+}
+
+.content-html ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1em;
+}
+
+.content-html ol {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 1em;
+}
+
+.content-html li {
+    margin-bottom: 0.5em;
+}
+
+.content-html em {
+    font-style: italic;
+}
+
+.content-html table td {
+    padding: 5px 10px;
+}
+
+.content-html strong {
+    font-weight: 600;
+}
+
+.content-html a {
+    color: #0891b2;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.content-html img {
+    border-radius: 0.75rem;
+    margin: 1rem 0;
+    max-width: 100%;
+}

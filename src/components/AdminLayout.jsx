@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext";
 import { FiMenu, FiHome, FiBox, FiGrid, FiLogOut } from "react-icons/fi";
+import { FaRegFile } from "react-icons/fa";
 
 export default function AdminLayout({ children }) {
     const { logout } = useContext(AuthContext);
@@ -129,6 +130,11 @@ export default function AdminLayout({ children }) {
                         to="/admin/categories"
                         icon={<FiGrid />}
                         label="Categories"
+                    />
+                    <NavItem
+                        to="/admin/posts"
+                        icon={<FaRegFile />}
+                        label="Artikel"
                     />
                 </nav>
 

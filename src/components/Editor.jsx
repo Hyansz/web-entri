@@ -1,38 +1,41 @@
-import { useEffect, useRef } from "react";
-import Quill from "quill";
-import "quill/dist/quill.snow.css";
+import { Editor as TinyEditor } from "@tinymce/tinymce-react";
 
-export default function RichEditor({ value, onChange }) {
-    const editorRef = useRef(null);
-    const quillRef = useRef(null);
+export default function Editor({ value, onChange }) {
+    return (
+        <TinyEditor
+            apiKey="tn57x6l28t7z7usy0et7fhicwy9aurdulwsl7ax5f896wfk9" // aman tanpa key untuk local & dev
+            value={value}
+            init={{
+                height: 420,
+                menubar: false,
 
-    useEffect(() => {
-        if (!editorRef.current || quillRef.current) return;
-
-        quillRef.current = new Quill(editorRef.current, {
-            theme: "snow",
-            placeholder: "Tulis isi blog...",
-            modules: {
-                toolbar: [
-                    [{ header: [1, 2, false] }],
-                    ["bold", "italic", "underline"],
-                    [{ list: "ordered" }, { list: "bullet" }],
-                    ["link", "image"],
-                    ["clean"],
+                plugins: [
+                    "lists",
+                    "link",
+                    "image",
+                    "table",
+                    "code",
+                    "media",
+                    "searchreplace",
+                    "wordcount",
                 ],
-            },
-        });
 
-        quillRef.current.on("text-change", () => {
-            onChange(quillRef.current.root.innerHTML);
-        });
-    }, []);
-
-    useEffect(() => {
-        if (quillRef.current && value !== quillRef.current.root.innerHTML) {
-            quillRef.current.root.innerHTML = value || "";
-        }
-    }, [value]);
-
-    return <div ref={editorRef} />;
+                toolbar:
+                    "undo redo | blocks | bold italic underline | " +
+                    "bullist numlist | link image table | removeformat | code",
+                content_style: `
+                    body {
+                        font-family: sans-serif;
+                        font-size: 16px;
+                    }
+                `,
+                ai_request: (request, respondWith) =>
+                    respondWith.string(() =>
+                        Promise.reject("See docs to implement AI Assistant")
+                    ),
+                uploadcare_public_key: "17d13a028f71f0aa508a",
+            }}
+            onEditorChange={(content) => onChange(content)}
+        />
+    );
 }
