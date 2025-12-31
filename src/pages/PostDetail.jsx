@@ -74,17 +74,7 @@ export default function PostDetail() {
                         className="content-html max-w-none text-gray-800 leading-relaxed"
                         dangerouslySetInnerHTML={{ __html: post.content }}
                     ></div>
-                </div>
-
-                <section class="bg-white shadow-md rounded-lg p-8 text-center">
-                    <h2 class="text-2xl font-semibold mb-4">Kesimpulan</h2>
-                    <p class="text-gray-700 leading-relaxed mb-6">
-                        Alkohol antiseptik IPA 5 & BIT 6 adalah solusi efektif
-                        untuk menjaga kualitas, keamanan, dan kestabilan produk
-                        kosmetik, sabun, dan parfum. Dengan berbagai ukuran
-                        kemasan, produk ini siap mendukung kebutuhan produksi
-                        skala kecil hingga besar.
-                    </p>
+                <section class="bg-white/30 shadow-md backdrop-blur-sm rounded-lg p-8 mt-10 text-center">
                     <a
                         href="https://wa.me/6285174394123?text=Halo,%20Saya%20dari%20website%20entri."
                         target="_blank"
@@ -93,6 +83,8 @@ export default function PostDetail() {
                         Hubungi Kami untuk Pemesanan
                     </a>
                 </section>
+                </div>
+
 
                 <Link
                     to="/posts"

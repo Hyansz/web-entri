@@ -56,8 +56,6 @@ export default function App() {
                     <Route path="/products/lab" element={<ProductLab />} />
                     <Route path="/posts" element={<Posts />} />
                     <Route path="/posts/:id" element={<PostDetail />} />
-                    <Route path="/posts/create" element={<PostForm />} />
-                    <Route path="/posts/edit/:id" element={<PostForm />} />
                 </Route>
 
                 {/* Admin Area */}
@@ -109,6 +107,14 @@ export default function App() {
                         element={
                             <ProtectedAdmin>
                                 <PostList />
+                            </ProtectedAdmin>
+                        }
+                    />
+                    <Route
+                        path="/admin/posts/create"
+                        element={
+                            <ProtectedAdmin>
+                                <PostForm />
                             </ProtectedAdmin>
                         }
                     />
