@@ -67,6 +67,9 @@ export default function PostDetail() {
                     <h1 className="text-3xl font-bold text-cyan-800 mb-4">
                         {post.title}
                     </h1>
+                    <h4 className="text-lg text-slate-600 mb-4">
+                        {post.excerpt}
+                    </h4>
                 </div>
 
                 <div className="bg-white shadow-md rounded-lg p-8 mb-5">

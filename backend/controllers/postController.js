@@ -51,10 +51,29 @@ export const getPostById = async (req, res) => {
 
 // UPDATE
 export const updatePost = async (req, res) => {
-    const post = await Post.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
-    });
-    res.json(post);
+    try {
+        const updateData = {
+            title: req.body.title,
+            excerpt: req.body.excerpt,
+            content: req.body.content,
+        };
+
+        // kalau upload gambar baru
+        if (req.file) {
+            updateData.image = req.file.path; // Cloudinary URL
+        }
+
+        const post = await Post.findByIdAndUpdate(
+            req.params.id,
+            updateData,
+            { new: true }
+        );
+
+        res.json(post);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: err.message });
+    }
 };
 
 // DELETE
