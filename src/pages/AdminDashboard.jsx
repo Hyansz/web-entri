@@ -3,7 +3,6 @@ import AdminLayout from "../components/AdminLayout";
 import { Link } from "react-router-dom";
 import api from "../api/axiosInstance";
 
-// 🎯 Fungsi animasi angka (lebih cepat)
 function CountUp({ target }) {
     const [value, setValue] = useState(0);
 
@@ -28,8 +27,9 @@ function CountUp({ target }) {
 }
 
 export default function AdminDashboard() {
-    const [productCount, setProductCount] = useState(null);
-    const [categoryCount, setCategoryCount] = useState(null);
+    const [productCount, setProductCount] = useState(0);
+    const [categoryCount, setCategoryCount] = useState(0);
+    const [articleCount, setArticleCount] = useState(0);
     const [loading, setLoading] = useState(true);
     const [errorMsg, setErrorMsg] = useState("");
 
@@ -44,9 +44,20 @@ export default function AdminDashboard() {
             const resCategories = await api.get("/api/categories", {
                 params: { page: 1, limit: 1 },
             });
+            const resArticle = await api.get("/api/posts", {
+                params: { page: 1, limit: 1 },
+            });
 
             setProductCount(resProducts.data.pagination.total);
             setCategoryCount(resCategories.data.pagination.total);
+            const articleTotal =
+                resArticle.data?.pagination?.total ??
+                resArticle.data?.meta?.total ??
+                resArticle.data?.total ??
+                resArticle.data?.data?.length ??
+                0;
+
+            setArticleCount(articleTotal);
         } catch (err) {
             setErrorMsg(err.message || "Error mengambil data!");
         } finally {
@@ -74,46 +85,78 @@ export default function AdminDashboard() {
                 </div>
             )}
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div
+                className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            >
                 {/* Card Kategori */}
-                <div className="bg-white rounded-xl shadow p-6 flex flex-col items-center gap-1">
-                    <div className="text-4xl">🏷️</div>
-                    <p className="text-gray-600">Jumlah Kategori</p>
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 flex flex-col items-center gap-1 transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl hover:shadow-blue-300/40">
+                    <div className="text-4xl text-blue-600 drop-shadow-sm">
+                        🏷️
+                    </div>
+
+                    <p className="text-gray-700">Jumlah Kategori</p>
 
                     {loading ? (
-                        <div className="mt-3 border-4 border-blue-200 border-t-blue-600 rounded-full w-8 h-8 animate-spin"></div>
+                        <div className="mt-3 w-8 h-8 rounded-full border-4 border-blue-200 border-t-blue-600 animate-spin"></div>
                     ) : (
-                        <p className="text-3xl font-bold text-blue-600 mt-2">
+                        <p className="text-3xl font-bold text-blue-700 mt-2">
                             <CountUp target={categoryCount} />
                         </p>
                     )}
 
                     <Link
                         to="/admin/categories"
-                        className="text-sm underline text-blue-600 mt-1"
+                        className="relative mt-2 text-sm font-medium text-blue-700 transition-all duration-300 hover:text-blue-800 hover:-translate-y-0.5 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-current after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-0"
                     >
                         Lihat kategori →
                     </Link>
                 </div>
 
                 {/* Card Produk */}
-                <div className="bg-white rounded-xl shadow p-6 flex flex-col items-center gap-1">
-                    <div className="text-4xl">📦</div>
-                    <p className="text-gray-600">Jumlah Produk</p>
+                <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-6 flex flex-col items-center gap-1 transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl hover:shadow-emerald-300/40">
+                    <div className="text-4xl text-emerald-600 drop-shadow-sm">
+                        📦
+                    </div>
+
+                    <p className="text-gray-700">Jumlah Produk</p>
 
                     {loading ? (
-                        <div className="mt-3 border-4 border-green-200 border-t-green-600 rounded-full w-8 h-8 animate-spin"></div>
+                        <div className="mt-3 w-8 h-8 rounded-full border-4 border-emerald-200 border-t-emerald-600 animate-spin"></div>
                     ) : (
-                        <p className="text-3xl font-bold text-green-600 mt-2">
+                        <p className="text-3xl font-bold text-emerald-700 mt-2">
                             <CountUp target={productCount} />
                         </p>
                     )}
 
                     <Link
                         to="/admin/products2"
-                        className="text-sm underline text-green-600 mt-1"
+                        className="relative mt-2 text-sm font-medium text-emerald-700 transition-all duration-300 hover:text-emerald-800 hover:-translate-y-0.5 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-current after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-0"
                     >
                         Lihat produk →
+                    </Link>
+                </div>
+
+                {/* Card Artikel */}
+                <div className="bg-gradient-to-br from-violet-50 to-violet-100 rounded-2xl p-6 flex flex-col items-center gap-1 transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl hover:shadow-violet-300/40">
+                    <div className="text-4xl text-violet-600 drop-shadow-sm">
+                        📰
+                    </div>
+
+                    <p className="text-gray-700">Jumlah Artikel</p>
+
+                    {loading ? (
+                        <div className="mt-3 w-8 h-8 rounded-full border-4 border-violet-200 border-t-violet-600 animate-spin"></div>
+                    ) : (
+                        <p className="text-3xl font-bold text-violet-700 mt-2">
+                            <CountUp target={articleCount} />
+                        </p>
+                    )}
+
+                    <Link
+                        to="/admin/posts"
+                        className="relative mt-2 text-sm font-medium text-violet-700 transition-all duration-300 hover:text-violet-800 hover:-translate-y-0.5 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-current after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-0"
+                    >
+                        Lihat artikel →
                     </Link>
                 </div>
             </div>

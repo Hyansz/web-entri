@@ -225,11 +225,11 @@ export default function Navbar() {
                     </div>
 
                     <Link
-                        to="/blog"
+                        to="/posts"
                         onClick={() => handleMenuClick()}
                         className="transition duration-300 hover:text-yellow-400 hover:scale-110"
                     >
-                        Artikel
+                        {t("nav.blog")}
                     </Link>
 
                     <Link
@@ -333,7 +333,7 @@ export default function Navbar() {
                         [t("nav.home"), "/"],
                         [t("nav.tentang"), "/about"],
                         [t("hero.mitra"), "/mitra"],
-                        [t("nav.blog"), "/blog"],
+                        [t("nav.blog"), "/posts"],
                         [t("nav.edu"), "/edu"],
                         [t("nav.kontak"), "/contact"],
                     ].map(([label, path]) => (

@@ -110,8 +110,8 @@ export default function Footer2() {
                                         {t("nav.tentang")}
                                     </Link>
                                     <Link
-                                        to="/blog"
-                                        title="Blog"
+                                        to="/posts"
+                                        title="Atikel"
                                         onClick={() =>
                                             window.scrollTo({
                                                 top: 0,

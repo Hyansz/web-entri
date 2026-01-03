@@ -5,6 +5,10 @@
     font-family: "Poppins", sans-serif;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -51,8 +55,31 @@
     font-style: italic;
 }
 
+.content-html table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+.content-html table th,
 .content-html table td {
-    padding: 5px 10px;
+    border: 1px solid #d1d5db; /* gray-300 */
+    padding: 8px 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.content-html table th {
+    background-color: #f9fafb; /* gray-50 */
+    font-weight: 600;
+}
+
+.content-html table tbody tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+.content-html table tbody tr:hover {
+    background-color: #eef2ff;
 }
 
 .content-html strong {
@@ -69,4 +96,50 @@
     border-radius: 0.75rem;
     margin: 1rem 0;
     max-width: 100%;
+}
+
+.content-html h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: 2rem 0 1rem;
+}
+
+.content-html h2 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    margin: 1.75rem 0 1rem;
+}
+
+.content-html h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.75rem;
+}
+
+.content-html h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1.25rem 0 0.5rem;
+}
+
+@media (max-width: 640px) {
+    .content-html table {
+        display: block;
+        width: max-content;
+        max-width: none;
+    }
+
+    .content-html {
+        overflow-x: hidden;
+    }
+
+    .content-html table {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .content-html table col {
+        width: auto !important;
+    }
 }
