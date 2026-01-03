@@ -124,22 +124,17 @@ html, body {
 
 @media (max-width: 640px) {
     .content-html table {
-        display: block;
-        width: max-content;
-        max-width: none;
-    }
-
-    .content-html {
-        overflow-x: hidden;
-    }
-
-    .content-html table {
+        display: block;                 /* wajib agar bisa scroll */
+        width: max-content !important;  /* cegah kolom gepeng */
+        max-width: 100%;
         overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
+        overflow-y: visible;
+        white-space: nowrap;
     }
 
-    .content-html table col {
-        width: auto !important;
+    .content-html table th,
+    .content-html table td {
+        white-space: normal;
+        min-width: 140px;               /* aman untuk teks panjang */
     }
 }

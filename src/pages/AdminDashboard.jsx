@@ -72,6 +72,27 @@ export default function AdminDashboard() {
     return (
         <AdminLayout>
             <h1 className="text-xl font-bold mb-6">Dashboard</h1>
+            <div className="mb-8">
+                <div
+                    className="relative overflow-hidden bg-gradient-to-r from-cyan-600 to-teal-600 rounded-2xl p-6 sm:p-8 text-white shadow-lg"
+                >
+                    {/* pattern background */}
+                    <div className="absolute inset-0 opacity-80 bg-[linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:24px_24px]" />
+
+                    <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+                        <div>
+                            <h2 className="text-2xl font-semibold">
+                                Selamat Datang, Admin 👋
+                            </h2>
+                            <p className="mt-2 text-white max-w-md text-sm">
+                                Semoga harimu menyenangkan. Kelola artikel,
+                                produk, dan kategori website kamu dengan mudah
+                                dari dashboard ini.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             {errorMsg && (
                 <div className="bg-red-100 text-red-600 p-3 rounded mb-4 flex justify-between">
@@ -85,9 +106,7 @@ export default function AdminDashboard() {
                 </div>
             )}
 
-            <div
-                className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-            >
+            <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 {/* Card Kategori */}
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 flex flex-col items-center gap-1 transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl hover:shadow-blue-300/40">
                     <div className="text-4xl text-blue-600 drop-shadow-sm">
