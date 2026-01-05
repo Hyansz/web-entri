@@ -5,7 +5,8 @@
     font-family: "Poppins", sans-serif;
 }
 
-html, body {
+html,
+body {
     overflow-x: hidden;
 }
 
@@ -122,10 +123,22 @@ html, body {
     margin: 1.25rem 0 0.5rem;
 }
 
+/* ===== HISTATS FIX FINAL ===== */
+#histats_counter {
+    position: static !important;
+    display: inline-block !important;
+    max-width: 100%;
+}
+
+#histats_counter iframe,
+#histats_counter img {
+    position: static !important;
+}
+
 @media (max-width: 640px) {
     .content-html table {
-        display: block;                 /* wajib agar bisa scroll */
-        width: max-content !important;  /* cegah kolom gepeng */
+        display: block; /* wajib agar bisa scroll */
+        width: max-content !important; /* cegah kolom gepeng */
         max-width: 100%;
         overflow-x: auto;
         overflow-y: visible;
@@ -135,6 +148,6 @@ html, body {
     .content-html table th,
     .content-html table td {
         white-space: normal;
-        min-width: 140px;               /* aman untuk teks panjang */
+        min-width: 140px; /* aman untuk teks panjang */
     }
 }

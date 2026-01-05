@@ -41,6 +41,18 @@ export default function Footer2() {
                             </li>
                         </ul>
                     </div>
+                    <div id="histats_counter" className="mt-4 flex justify-center xl:justify-start">
+                        <a href="/" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src="//sstatic1.histats.com/0.gif?5000269&101"
+                                alt="Histats Counter"
+                                style={{ border: 0 }}
+                            />
+                        </a>
+                        <div className="text-red-500 font-bold">
+                            HISTATS TEST MUNCUL
+                        </div>
+                    </div>
                 </div>
                 <div className="flex flex-col md:flex-row gap-10 w-full xl:w-1/2 text-center md:text-left">
                     <div className="flex flex-col justify-center md:justify-between gap-10">

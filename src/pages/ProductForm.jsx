@@ -295,7 +295,7 @@ export default function ProductForm() {
                         <button
                             type="submit"
                             disabled={submitting || !!fileError}
-                            className="bg-green-600 text-white px-4 py-2 rounded disabled:opacity-60 disabled:cursor-progress"
+                            className="bg-green-600 text-white px-4 py-2 rounded disabled:opacity-60 cursor-pointer disabled:cursor-progress"
                         >
                             {submitting ? "Menyimpan..." : "Simpan"}
                         </button>
@@ -303,7 +303,7 @@ export default function ProductForm() {
                         <button
                             type="button"
                             onClick={() => nav("/admin/products2")}
-                            className="bg-gray-200 px-4 py-2 rounded"
+                            className="bg-gray-200 px-4 py-2 rounded cursor-pointer"
                         >
                             Batal
                         </button>
