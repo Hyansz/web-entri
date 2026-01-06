@@ -123,18 +123,6 @@ body {
     margin: 1.25rem 0 0.5rem;
 }
 
-/* ===== HISTATS FIX FINAL ===== */
-#histats_counter {
-    position: static !important;
-    display: inline-block !important;
-    max-width: 100%;
-}
-
-#histats_counter iframe,
-#histats_counter img {
-    position: static !important;
-}
-
 @media (max-width: 640px) {
     .content-html table {
         display: block; /* wajib agar bisa scroll */

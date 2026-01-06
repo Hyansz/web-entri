@@ -2,6 +2,7 @@ import { BiLogoGmail } from "react-icons/bi";
 import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import HistatsCounter from "../HistatsCounter";
 
 export default function Footer2() {
     const { t } = useTranslation();
@@ -13,44 +14,40 @@ export default function Footer2() {
                     <div className="mb-4 xl:mb-0">
                         <p>{t("footer.h1")}</p>
                     </div>
-                    <div>
-                        <ul className="flex gap-4">
-                            <li className="text-xl hover:scale-110 duration-400 cursor-pointer hover:backdrop-blur-md hover:bg-pink-400/80 p-1 rounded-lg hover:shadow-xl hover:shadow-pink-500/40">
-                                <a
-                                    href="https://www.instagram.com/pt.entrijayamakmur/"
-                                    target="_blank"
-                                >
-                                    <FaInstagram />
-                                </a>
-                            </li>
-                            <li className="text-xl hover:scale-110 duration-400 cursor-pointer hover:backdrop-blur-md hover:bg-blue-400/80 p-1 rounded-lg hover:shadow-xl hover:shadow-blue-500">
-                                <a
-                                    href="https://web.facebook.com/pt.entrijayamakmur"
-                                    target="_blank"
-                                >
-                                    <FaFacebookF />
-                                </a>
-                            </li>
-                            <li className="text-xl hover:scale-110 duration-400 cursor-pointer hover:backdrop-blur-md hover:bg-black/80 p-1 rounded-lg hover:shadow-xl hover:shadow-black/40">
-                                <a
-                                    href="https://www.tiktok.com/@pt.entrijayamakmur"
-                                    target="_blank"
-                                >
-                                    <FaTiktok />
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="histats_counter" className="mt-4 flex justify-center xl:justify-start">
-                        <a href="/" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="//sstatic1.histats.com/0.gif?5000269&101"
-                                alt="Histats Counter"
-                                style={{ border: 0 }}
-                            />
-                        </a>
-                        <div className="text-red-500 font-bold">
-                            HISTATS TEST MUNCUL
+                    <div className="flex justify-between w-full items-center">
+                        <div>
+                            <ul className="flex gap-4">
+                                <li className="text-xl hover:scale-110 duration-400 cursor-pointer hover:backdrop-blur-md hover:bg-pink-400/80 p-1 rounded-lg hover:shadow-xl hover:shadow-pink-500/40">
+                                    <a
+                                        href="https://www.instagram.com/pt.entrijayamakmur/"
+                                        target="_blank"
+                                    >
+                                        <FaInstagram />
+                                    </a>
+                                </li>
+                                <li className="text-xl hover:scale-110 duration-400 cursor-pointer hover:backdrop-blur-md hover:bg-blue-400/80 p-1 rounded-lg hover:shadow-xl hover:shadow-blue-500">
+                                    <a
+                                        href="https://web.facebook.com/pt.entrijayamakmur"
+                                        target="_blank"
+                                    >
+                                        <FaFacebookF />
+                                    </a>
+                                </li>
+                                <li className="text-xl hover:scale-110 duration-400 cursor-pointer hover:backdrop-blur-md hover:bg-black/80 p-1 rounded-lg hover:shadow-xl hover:shadow-black/40">
+                                    <a
+                                        href="https://www.tiktok.com/@pt.entrijayamakmur"
+                                        target="_blank"
+                                    >
+                                        <FaTiktok />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div
+                            id="histats_counter"
+                            className="flex justify-center xl:justify-start"
+                        >
+                            <HistatsCounter />
                         </div>
                     </div>
                 </div>

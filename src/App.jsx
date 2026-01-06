@@ -26,12 +26,14 @@ import Posts from "./pages/Posts";
 import PostList from "./pages/PostList";
 import PostForm from "./pages/PostForm";
 import PostDetail from "./pages/PostDetail";
+import HistatsTracker from "./components/HistatsTracker";
 
 AOS.init();
 
 export default function App() {
     return (
         <div className="min-h-screen bg-white">
+            <HistatsTracker />
             <Routes>
                 {/* Public Area */}
                 <Route element={<MainLayout />}>
