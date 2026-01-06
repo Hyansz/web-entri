@@ -176,7 +176,7 @@ export default function Home() {
                                     <img
                                         src="./img/best1.webp"
                                         alt="Trend 1"
-                                        className="rounded-xl w-full md:h-72 object-cover"
+                                        className="rounded-xl w-full lg:h-72 object-cover"
                                     />
                                 </div>
                             </SwiperSlide>
@@ -186,7 +186,7 @@ export default function Home() {
                                     <img
                                         src="./img/best2.webp"
                                         alt="Trend 2"
-                                        className="rounded-xl w-full md:h-72 object-cover"
+                                        className="rounded-xl w-full lg:h-72 object-cover"
                                     />
                                 </div>
                             </SwiperSlide>
@@ -607,7 +607,7 @@ export default function Home() {
                 </section> */}
 
                 {/* Contact Us */}
-                <section className="w-11/12 md:w-10/12 py-12 md:py-20 mx-auto">
+                <section className="w-11/12 md:w-10/12 py-12 lg:py-20 mx-auto">
                     <div
                         className="relative flex flex-col md:flex-row items-center justify-between gap-0 md:gap-20 backdrop-blur-md bg-cyan-200/70 px-6 md:px-10 rounded-3xl bg-center bg-no-repeat bg-cover overflow-hidden pt-10 md:pt-0"
                         style={{
@@ -620,7 +620,7 @@ export default function Home() {
 
                         {/* Content */}
                         <div className="relative z-10 w-full md:w-2/3 text-center md:text-left">
-                            <h1 className="text-2xl md:text-4xl leading-snug md:leading-tight font-semibold text-white mb-6 md:mb-8 max-w-2xl mx-auto md:mx-0 drop-shadow-lg">
+                            <h1 className="text-2xl md:text-xl lg:text-4xl leading-snug lg:leading-tight font-semibold text-white mb-6 lg:mb-8 max-w-2xl mx-auto md:mx-0 drop-shadow-lg">
                                 {t("hero.hub")}
                             </h1>
 

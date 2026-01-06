@@ -14,7 +14,7 @@ export default function Footer2() {
                     <div className="mb-4 xl:mb-0">
                         <p>{t("footer.h1")}</p>
                     </div>
-                    <div className="flex justify-between w-full items-center">
+                    <div className="flex flex-col md:flex-row gap-5 justify-between w-full items-center">
                         <div>
                             <ul className="flex gap-4">
                                 <li className="text-xl hover:scale-110 duration-400 cursor-pointer hover:backdrop-blur-md hover:bg-pink-400/80 p-1 rounded-lg hover:shadow-xl hover:shadow-pink-500/40">
