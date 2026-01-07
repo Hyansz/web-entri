@@ -651,7 +651,7 @@ export default function Home() {
                         {/* Image */}
                         <div className="relative z-10 w-full md:w-1/2">
                             <img
-                                src="./img/person.webp"
+                                src="./img/person.png"
                                 alt="Person"
                                 className="w-full md:max-h-[400px] object-contain"
                             />
