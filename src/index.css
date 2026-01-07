@@ -34,6 +34,7 @@ body {
 
 .content-html p {
     margin: 0 0 1em;
+    text-align: left !important;
 }
 
 .content-html ul {
@@ -137,5 +138,10 @@ body {
     .content-html table td {
         white-space: normal;
         min-width: 140px; /* aman untuk teks panjang */
+    }
+
+    .content-html h2 {
+        text-align: center;
+        font-size: 1.5rem;
     }
 }

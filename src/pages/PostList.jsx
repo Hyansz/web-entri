@@ -8,6 +8,9 @@ export default function PostList() {
     const [search, setSearch] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const [deleteId, setDeleteId] = useState(null);
+    const [deletingId, setDeletingId] = useState(null);
+    const [showModal, setShowModal] = useState(false);
 
     const [pagination, setPagination] = useState({
         page: 1,
@@ -43,11 +46,29 @@ export default function PostList() {
     useEffect(() => {
         load(1);
     }, [search]);
+    const openDeleteModal = (id) => {
+        setDeleteId(id);
+        setShowModal(true);
+    };
 
-    const handleDelete = async (id) => {
-        if (!confirm("Yakin hapus artikel ini?")) return;
-        await api.delete(`/api/posts/${id}`);
-        load(pagination.page);
+    const confirmDelete = async () => {
+        if (!deleteId || deletingId === deleteId) return;
+
+        setDeletingId(deleteId);
+
+        try {
+            await api.delete(`/api/posts/${deleteId}`);
+
+            // update table
+            setPosts((prev) => prev.filter((p) => p._id !== deleteId));
+
+            setShowModal(false);
+            setDeleteId(null);
+        } catch (err) {
+            console.error(err);
+        } finally {
+            setDeletingId(null);
+        }
     };
 
     return (
@@ -183,12 +204,11 @@ export default function PostList() {
                                             >
                                                 Edit
                                             </Link>
-
                                             <button
                                                 onClick={() =>
-                                                    handleDelete(post._id)
+                                                    openDeleteModal(post._id)
                                                 }
-                                                className="text-red-700 border border-red-600 py-1 px-2 rounded-xl hover:bg-red-600 hover:text-white transition"
+                                                className="text-red-700 border border-red-600 py-1 px-2 rounded-xl hover:bg-red-600 hover:text-white transition cursor-pointer"
                                             >
                                                 Delete
                                             </button>
@@ -209,21 +229,16 @@ export default function PostList() {
                         <div className="flex gap-2">
                             <button
                                 disabled={pagination.page <= 1}
-                                onClick={() =>
-                                    load(pagination.page - 1)
-                                }
+                                onClick={() => load(pagination.page - 1)}
                                 className="px-3 py-1 border rounded cursor-pointer disabled:opacity-50"
                             >
                                 Prev
                             </button>
                             <button
                                 disabled={
-                                    pagination.page >=
-                                    pagination.totalPages
+                                    pagination.page >= pagination.totalPages
                                 }
-                                onClick={() =>
-                                    load(pagination.page + 1)
-                                }
+                                onClick={() => load(pagination.page + 1)}
                                 className="px-3 py-1 border rounded cursor-pointer disabled:opacity-50"
                             >
                                 Next
@@ -232,6 +247,38 @@ export default function PostList() {
                     </div>
                 )}
             </div>
+
+            {showModal && (
+                <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+                    <div className="bg-white p-6 rounded-xl shadow-xl w-80 text-center">
+                        <h3 className="text-lg font-semibold mb-2">
+                            Hapus Artikel?
+                        </h3>
+                        <p className="text-gray-600 mb-4 text-sm">
+                            Apakah Anda yakin ingin menghapus artikel ini?
+                        </p>
+
+                        <div className="flex justify-center gap-3">
+                            <button
+                                className="px-4 py-2 rounded-lg bg-gray-300 hover:bg-gray-400 transition cursor-pointer"
+                                onClick={() => setShowModal(false)}
+                            >
+                                Cancel
+                            </button>
+
+                            <button
+                                disabled={deletingId === deleteId}
+                                onClick={confirmDelete}
+                                className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+                            >
+                                {deletingId === deleteId
+                                    ? "Menghapus..."
+                                    : "Delete"}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </AdminLayout>
     );
 }

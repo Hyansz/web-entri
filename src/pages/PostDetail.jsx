@@ -72,22 +72,21 @@ export default function PostDetail() {
                     </h4>
                 </div>
 
-                <div className="bg-white shadow-md rounded-lg p-8 mb-5">
+                <div className="bg-white shadow-md rounded-lg p-8 mb-5" lang="id">
                     <div
                         className="content-html max-w-none text-gray-800 leading-relaxed"
                         dangerouslySetInnerHTML={{ __html: post.content }}
                     ></div>
-                <section class="bg-white/30 shadow-md backdrop-blur-sm rounded-lg p-8 mt-10 text-center">
-                    <a
-                        href="https://wa.me/6285174394123?text=Halo,%20Saya%20dari%20website%20entri."
-                        target="_blank"
-                        class="inline-block bg-cyan-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-cyan-700 transition duration-500 hover:scale-105"
-                    >
-                        Hubungi Kami untuk Pemesanan
-                    </a>
-                </section>
+                    <section class="bg-white/30 shadow-md backdrop-blur-sm rounded-lg pt-8 px-8 pb-10 md:pb-15 text-center">
+                        <a
+                            href="https://wa.me/6285174394123?text=Halo,%20Saya%20dari%20website%20entri."
+                            target="_blank"
+                            class="inline-block bg-cyan-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-cyan-700 transition duration-500 hover:scale-105"
+                        >
+                            Hubungi Kami untuk Pemesanan
+                        </a>
+                    </section>
                 </div>
-
 
                 <Link
                     to="/posts"
