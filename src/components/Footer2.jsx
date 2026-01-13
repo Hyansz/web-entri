@@ -12,6 +12,11 @@ export default function Footer2() {
             <div className="mb-10 flex flex-col xl:flex-row justify-between py-6 w-11/12 mx-auto">
                 <div className="xl:w-1/3 flex flex-col justify-center xl:justify-between items-center lg:items-start text-center lg:text-left mb-10 xl:mb-0">
                     <div className="mb-4 xl:mb-0">
+                        <img
+                            src="/img/logo2.webp"
+                            alt=""
+                            className="mb-4 w-11/12 md:w-2/4 xl:w-2/3 mx-auto xl:mx-0"
+                        />
                         <p>{t("footer.h1")}</p>
                     </div>
                     <div className="flex flex-col md:flex-row gap-5 justify-between w-full items-center">
