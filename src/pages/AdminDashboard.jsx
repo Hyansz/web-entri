@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import AdminLayout from "../components/AdminLayout";
 import { Link } from "react-router-dom";
 import api from "../api/axiosInstance";
-import VisitorsToday from "../components/analytics/VisitorsToday";
-import TopCountries from "../components/analytics/TopCountries";
-import DailyChart from "../components/analytics/DailyChart";
+import DailyChart from "../components/DailyChart";
+import TopCountries from "../components/TopCountries";
 
 function CountUp({ target }) {
     const [value, setValue] = useState(0);
@@ -189,14 +188,10 @@ export default function AdminDashboard() {
             </div>
             {/* === UMAMI ANALYTICS === */}
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-                    <VisitorsToday />
-                    <TopCountries />
-                </div>
-
-                <div className="mt-6">
-                    <DailyChart />
-                </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+                <DailyChart />
+                <TopCountries />
+            </div>
         </AdminLayout>
     );
 }
