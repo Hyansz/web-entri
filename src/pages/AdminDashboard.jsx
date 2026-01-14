@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import AdminLayout from "../components/AdminLayout";
 import { Link } from "react-router-dom";
 import api from "../api/axiosInstance";
-import DailyChart from "../components/DailyChart";
-import TopCountries from "../components/TopCountries";
+import DailyChart from "../components/analytics/DailyChart";
+import TopCountries from "../components/analytics/TopCountries";
 
 function CountUp({ target }) {
     const [value, setValue] = useState(0);
