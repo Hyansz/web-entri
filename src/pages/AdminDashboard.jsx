@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import AdminLayout from "../components/AdminLayout";
 import { Link } from "react-router-dom";
 import api from "../api/axiosInstance";
+import VisitorsToday from "../components/analytics/VisitorsToday";
+import TopCountries from "../components/analytics/TopCountries";
+import DailyChart from "../components/analytics/DailyChart";
 
 function CountUp({ target }) {
     const [value, setValue] = useState(0);
@@ -73,9 +76,7 @@ export default function AdminDashboard() {
         <AdminLayout>
             <h1 className="text-xl font-bold mb-6">Dashboard</h1>
             <div className="mb-8">
-                <div
-                    className="relative overflow-hidden bg-gradient-to-r from-cyan-600 to-teal-600 rounded-2xl p-6 sm:p-8 text-white shadow-lg"
-                >
+                <div className="relative overflow-visible bg-gradient-to-r from-cyan-600 to-teal-600 rounded-2xl p-6 sm:p-8 text-white shadow-lg">
                     {/* pattern background */}
                     <div className="absolute inset-0 opacity-80 bg-[linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:24px_24px]" />
 
@@ -84,16 +85,24 @@ export default function AdminDashboard() {
                             <h2 className="text-2xl font-semibold">
                                 Selamat Datang, Admin 👋
                             </h2>
-                            <p className="mt-2 text-white max-w-md text-sm">
+                            <p className="mt-2 max-w-md text-sm">
                                 Semoga harimu menyenangkan. Kelola artikel,
                                 produk, dan kategori website kamu dengan mudah
                                 dari dashboard ini.
                             </p>
                         </div>
+
+                        {/* Image */}
+                        <div className="absolute right-0 translate-y-[-16.5%] hidden sm:block">
+                            <img
+                                src="/public/img/profile.png"
+                                alt="Admin"
+                                className="h-54"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-
             {errorMsg && (
                 <div className="bg-red-100 text-red-600 p-3 rounded mb-4 flex justify-between">
                     {errorMsg}
@@ -105,7 +114,6 @@ export default function AdminDashboard() {
                     </button>
                 </div>
             )}
-
             <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 {/* Card Kategori */}
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 flex flex-col items-center gap-1 transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl hover:shadow-blue-300/40">
@@ -179,6 +187,16 @@ export default function AdminDashboard() {
                     </Link>
                 </div>
             </div>
+            {/* === UMAMI ANALYTICS === */}
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+                    <VisitorsToday />
+                    <TopCountries />
+                </div>
+
+                <div className="mt-6">
+                    <DailyChart />
+                </div>
         </AdminLayout>
     );
 }

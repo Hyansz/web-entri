@@ -1,0 +1,16 @@
+import express from "express";
+import {
+    getSummary,
+    getDaily,
+    getCountries,
+    getPages,
+} from "../controllers/umamiController.js";
+
+const router = express.Router();
+
+router.get("/summary", getSummary);
+router.get("/daily", getDaily);
+router.get("/countries", getCountries);
+router.get("/pages", getPages);
+
+export default router;
