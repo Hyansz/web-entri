@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getDaily } from "../api/analytics";
+import { getDaily } from "../../api/analytics";
 
 export default function DailyChart() {
     const [data, setData] = useState([]);

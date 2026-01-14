@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getCountries } from "../api/analytics";
+import { getCountries } from "../../api/analytics";
 
 export default function TopCountries() {
     const [countries, setCountries] = useState([]);
