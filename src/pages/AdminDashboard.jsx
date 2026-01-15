@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import AdminLayout from "../components/AdminLayout";
 import { Link } from "react-router-dom";
 import api from "../api/axiosInstance";
-import DailyChart from "../components/analytics/DailyChart";
-import TopCountries from "../components/analytics/TopCountries";
+import VisitorsToday from "../components/stats/VisitorsToday";
+import PageViewsToday from "../components/stats/PageViewsToday";
+import SessionsToday from "../components/stats/SessionsToday";
+import BounceRate from "../components/stats/BounceRate";
+import DailyVisitorsChart from "../components/DailyVisitorsChart";
 
 function CountUp({ target }) {
     const [value, setValue] = useState(0);
@@ -186,11 +189,20 @@ export default function AdminDashboard() {
                     </Link>
                 </div>
             </div>
-            {/* === UMAMI ANALYTICS === */}
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
-                <DailyChart />
-                <TopCountries />
+            {/* === UMAMI ANALYTICS === */}
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                <VisitorsToday />
+                <PageViewsToday />
+                <SessionsToday />
+                <BounceRate />
+            </div>
+
+            {/* CHART */}
+            <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+                <div className="xl:col-span-2">
+                    <DailyVisitorsChart />
+                </div>
             </div>
         </AdminLayout>
     );
