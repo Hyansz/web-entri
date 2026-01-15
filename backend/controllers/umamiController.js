@@ -105,3 +105,43 @@ export const getPages = async (req, res) => {
         res.status(500).json({ message: "Gagal ambil data halaman" });
     }
 };
+
+export const getBounceRate = async (req, res) => {
+    try {
+        const { startAt, endAt } = getRange();
+
+        const { data } = await axios.get(
+            `${UMAMI_URL}/websites/${WEBSITE_ID}/metrics`,
+            {
+                headers,
+                params: {
+                    startAt,
+                    endAt,
+                    type: "pageviews",
+                },
+            }
+        );
+
+        // total sessions
+        const sessionsRes = await axios.get(
+            `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
+            { headers, params: { startAt, endAt } }
+        );
+
+        const visits =
+            sessionsRes.data?.visits?.value ?? sessionsRes.data?.visits ?? 0;
+
+        // pageview == 1 → bounce
+        const singlePageSessions = data.filter((i) => i.y === 1).length;
+
+        const bounceRate =
+            visits === 0 ? 0 : (singlePageSessions / visits) * 100;
+
+        res.json({
+            bounceRate: Number(bounceRate.toFixed(2)),
+        });
+    } catch (err) {
+        console.error(err.response?.data || err.message);
+        res.status(500).json({ bounceRate: 0 });
+    }
+};

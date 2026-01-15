@@ -4,6 +4,7 @@ import {
     getDaily,
     getCountries,
     getPages,
+    getBounceRate,
 } from "../controllers/umamiController.js";
 
 const router = express.Router();
@@ -12,5 +13,6 @@ router.get("/summary", getSummary);
 router.get("/daily", getDaily);
 router.get("/countries", getCountries);
 router.get("/pages", getPages);
+router.get("/bounce-rate", getBounceRate);
 
 export default router;
