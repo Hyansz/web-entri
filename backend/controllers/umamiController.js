@@ -108,40 +108,31 @@ export const getPages = async (req, res) => {
 
 export const getBounceRate = async (req, res) => {
     try {
-        const { startAt, endAt } = getRange();
+        const endAt = Date.now();
+        const startAt = endAt - 7 * 24 * 60 * 60 * 1000; // 7 hari
 
         const { data } = await axios.get(
-            `${UMAMI_URL}/websites/${WEBSITE_ID}/metrics`,
+            `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
             {
-                headers,
-                params: {
-                    startAt,
-                    endAt,
-                    type: "pageviews",
+                headers: {
+                    Authorization: `Bearer ${API_KEY}`,
                 },
+                params: { startAt, endAt },
             }
         );
 
-        // total sessions
-        const sessionsRes = await axios.get(
-            `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
-            { headers, params: { startAt, endAt } }
-        );
+        const visits = data.visits ?? 0;
+        const bounces = data.bounces ?? 0;
 
-        const visits =
-            sessionsRes.data?.visits?.value ?? sessionsRes.data?.visits ?? 0;
-
-        // pageview == 1 → bounce
-        const singlePageSessions = data.filter((i) => i.y === 1).length;
-
-        const bounceRate =
-            visits === 0 ? 0 : (singlePageSessions / visits) * 100;
+        const bounceRate = visits > 0 ? (bounces / visits) * 100 : 0;
 
         res.json({
             bounceRate: Number(bounceRate.toFixed(2)),
+            visits,
+            bounces,
         });
     } catch (err) {
         console.error(err.response?.data || err.message);
-        res.status(500).json({ bounceRate: 0 });
+        res.status(500).json({ message: "Gagal hitung bounce rate" });
     }
 };
