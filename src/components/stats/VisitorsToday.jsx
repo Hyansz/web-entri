@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
-import { getSummaryCompare } from "../../api/analytics";
+import { getSummary } from "../../api/analytics";
 import StatCard from "../StatCard";
 
 export default function VisitorsToday() {
-    const [data, setData] = useState(0);
+    const [value, setValue] = useState(0);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getSummaryCompare()
-            .then((res) => setData(res.data.visitors ?? 0))
-            .catch(() => setData(0))
+        getSummary()
+            .then((res) => setValue(res.data.visitors ?? 0))
+            .catch(() => setValue(0))
+            .finally(() => setLoading(false));
     }, []);
 
     return (
         <StatCard
             title="Visitors"
-            value={data?.value ?? "—"}
-            change={data?.change}
+            value={value}
             sub="Pengunjung unik"
-            loading={!data}
+            loading={loading}
         />
     );
 }

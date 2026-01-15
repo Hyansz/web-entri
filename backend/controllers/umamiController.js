@@ -13,31 +13,14 @@ const getRange = () => {
 
     const endAt = now.getTime();
 
-    // current 7 days
-    const currentStart = new Date(now);
-    currentStart.setDate(currentStart.getDate() - 7);
-    currentStart.setHours(0, 0, 0, 0);
-
-    // previous 7 days
-    const prevEnd = new Date(currentStart);
-    const prevStart = new Date(prevEnd);
-    prevStart.setDate(prevStart.getDate() - 7);
+    const start = new Date(now);
+    start.setDate(start.getDate() - 7);
+    start.setHours(0, 0, 0, 0);
 
     return {
-        current: {
-            startAt: currentStart.getTime(),
-            endAt,
-        },
-        previous: {
-            startAt: prevStart.getTime(),
-            endAt: prevEnd.getTime(),
-        },
+        startAt: start.getTime(),
+        endAt,
     };
-};
-
-const calcChange = (current, previous) => {
-    if (!previous || previous === 0) return 0;
-    return Number((((current - previous) / previous) * 100).toFixed(2));
 };
 
 // ✅ SUMMARY
@@ -160,52 +143,5 @@ export const getBounceRate = async (req, res) => {
     } catch (err) {
         console.error(err.response?.data || err.message);
         res.status(500).json({ message: "Gagal hitung bounce rate" });
-    }
-};
-
-export const getSummaryCompare = async (req, res) => {
-    try {
-        const { current, previous } = getRange();
-
-        const [currentRes, previousRes] = await Promise.all([
-            axios.get(`${UMAMI_URL}/websites/${WEBSITE_ID}/stats`, {
-                headers,
-                params: current,
-            }),
-            axios.get(`${UMAMI_URL}/websites/${WEBSITE_ID}/stats`, {
-                headers,
-                params: previous,
-            }),
-        ]);
-
-        const cur = currentRes.data;
-        const prev = previousRes.data;
-
-        const bounceRateCur =
-            cur.visits > 0 ? (cur.bounces / cur.visits) * 100 : 0;
-        const bounceRatePrev =
-            prev.visits > 0 ? (prev.bounces / prev.visits) * 100 : 0;
-
-        res.json({
-            visitors: {
-                value: cur.visitors,
-                change: calcChange(cur.visitors, prev.visitors),
-            },
-            pageviews: {
-                value: cur.pageviews,
-                change: calcChange(cur.pageviews, prev.pageviews),
-            },
-            sessions: {
-                value: cur.visits,
-                change: calcChange(cur.visits, prev.visits),
-            },
-            bounceRate: {
-                value: Number(bounceRateCur.toFixed(2)),
-                change: calcChange(bounceRateCur, bounceRatePrev),
-            },
-        });
-    } catch (err) {
-        console.error(err.response?.data || err.message);
-        res.status(500).json({ message: "Gagal ambil perbandingan statistik" });
     }
 };
