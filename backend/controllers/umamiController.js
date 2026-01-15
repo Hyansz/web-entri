@@ -8,15 +8,27 @@ const headers = {
     Authorization: `Bearer ${API_KEY}`,
 };
 
+const now = Date.now();
+const startAt = now - 7 * 24 * 60 * 60 * 1000; // 7 hari
+
 export const getSummary = async (req, res) => {
     try {
         const { data } = await axios.get(
             `${UMAMI_URL}/api/websites/${WEBSITE_ID}/stats`,
-            { headers }
+            {
+                headers,
+                params: {
+                    startAt,
+                    endAt: now,
+                },
+            }
         );
         res.json(data);
     } catch (err) {
-        res.status(500).json({ message: "Gagal ambil summary Umami" });
+        res.status(500).json({
+            message: "Gagal ambil summary Umami",
+            error: err.response?.data,
+        });
     }
 };
 
@@ -24,11 +36,21 @@ export const getDaily = async (req, res) => {
     try {
         const { data } = await axios.get(
             `${UMAMI_URL}/api/websites/${WEBSITE_ID}/pageviews`,
-            { headers }
+            {
+                headers,
+                params: {
+                    startAt,
+                    endAt: now,
+                    unit: "day",
+                },
+            }
         );
         res.json(data);
-    } catch {
-        res.status(500).json({ message: "Gagal ambil data harian" });
+    } catch (err) {
+        res.status(500).json({
+            message: "Gagal ambil data harian",
+            error: err.response?.data,
+        });
     }
 };
 
@@ -36,11 +58,20 @@ export const getCountries = async (req, res) => {
     try {
         const { data } = await axios.get(
             `${UMAMI_URL}/api/websites/${WEBSITE_ID}/countries`,
-            { headers }
+            {
+                headers,
+                params: {
+                    startAt,
+                    endAt: now,
+                },
+            }
         );
         res.json(data);
-    } catch {
-        res.status(500).json({ message: "Gagal ambil data negara" });
+    } catch (err) {
+        res.status(500).json({
+            message: "Gagal ambil data negara",
+            error: err.response?.data,
+        });
     }
 };
 
@@ -48,10 +79,19 @@ export const getPages = async (req, res) => {
     try {
         const { data } = await axios.get(
             `${UMAMI_URL}/api/websites/${WEBSITE_ID}/pages`,
-            { headers }
+            {
+                headers,
+                params: {
+                    startAt,
+                    endAt: now,
+                },
+            }
         );
         res.json(data);
-    } catch {
-        res.status(500).json({ message: "Gagal ambil data halaman" });
+    } catch (err) {
+        res.status(500).json({
+            message: "Gagal ambil data halaman",
+            error: err.response?.data,
+        });
     }
 };
