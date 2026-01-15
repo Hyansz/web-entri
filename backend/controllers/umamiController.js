@@ -9,9 +9,18 @@ const headers = {
 };
 
 const getRange = () => {
-    const endAt = Date.now();
-    const startAt = endAt - 7 * 24 * 60 * 60 * 1000; // 7 hari
-    return { startAt, endAt };
+    const now = new Date();
+
+    const endAt = now.getTime();
+
+    const start = new Date(now);
+    start.setDate(start.getDate() - 7);
+    start.setHours(0, 0, 0, 0);
+
+    return {
+        startAt: start.getTime(),
+        endAt,
+    };
 };
 
 // ✅ SUMMARY

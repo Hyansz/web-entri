@@ -191,19 +191,18 @@ export default function AdminDashboard() {
             </div>
 
             {/* === UMAMI ANALYTICS === */}
-            <div>
-                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+            <div className="mt-8 grid grid-cols-1 xl:grid-cols-4 gap-6 items-stretch">
+                {/* CHART BESAR */}
+                <div className="xl:col-span-2 bg-white dark:bg-[#0b0b0b] rounded-2xl shadow p-4">
+                    <DailyVisitorsChart />
+                </div>
+
+                {/* STAT CARDS */}
+                <div className="xl:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <VisitorsToday />
                     <PageViewsToday />
                     <SessionsToday />
                     <BounceRate />
-                </div>
-
-                {/* CHART */}
-                <div className="grid grid-cols-1 xl:grid-cols-4 gap-6">
-                    <div className="xl:col-span-2">
-                        <DailyVisitorsChart />
-                    </div>
                 </div>
             </div>
         </AdminLayout>
