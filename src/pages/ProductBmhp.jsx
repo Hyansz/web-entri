@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import api from "../api/axiosInstance";
+import { imageUrl } from "../utils/image";
 
 export default function ProductBmhp() {
     const [bmhp, setBmhp] = useState([]);
@@ -126,9 +127,14 @@ export default function ProductBmhp() {
                                         className="bg-white rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20 flex flex-col justify-between"
                                     >
                                         <img
-                                            src={`${ASSET_URL}${p.image}`}
+                                            src={imageUrl(p.image, ASSET_URL)}
                                             alt={p.name}
                                             className="h-[120px] md:h-[220px] w-full object-contain mx-auto mb-3"
+                                            loading="lazy"
+                                            onError={(e) =>
+                                                (e.target.src =
+                                                    "/img/no-image.png")
+                                            }
                                         />
 
                                         <h3 className="text-lg font-semibold mb-3">

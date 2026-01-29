@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import api from "../api/axiosInstance";
+import { imageUrl } from "../utils/image";
 
 export default function ProductDetail() {
     const { id } = useParams();
@@ -61,9 +62,13 @@ export default function ProductDetail() {
                     <>
                         <div className="md:w-1/2">
                             <img
-                                src={`${ASSET_URL}${product.image}`}
+                                src={imageUrl(product.image, ASSET_URL)}
                                 alt={product.name}
-                                className="rounded-xl mb-6 w-full"
+                                className="rounded-xl mb-6 w-full object-contain"
+                                loading="lazy"
+                                onError={(e) =>
+                                    (e.target.src = "/img/no-image.png")
+                                }
                             />
                             <button
                                 onClick={() => navigate(-1)}
