@@ -36,8 +36,9 @@ export default function ProductDetail() {
     const spesifikasiList = product?.specifications
         ? product.specifications.split("|").map((s) => s.trim())
         : [];
-
-    console.log("ASSET_URL PROD:", import.meta.env.VITE_ASSET_URL);
+        
+    console.log("IMAGE RAW:", product?.image);
+    console.log("IMAGE FIXED:", imageUrl(product?.image, ASSET_URL));
 
     return (
         <div>
