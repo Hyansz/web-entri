@@ -17,8 +17,6 @@ export default function ProductBmhp() {
 
     const bmhpCategoryId = "6930def2256fb3df61f81c08";
 
-    const ASSET_URL = import.meta.env.VITE_ASSET_URL;
-
     useEffect(() => {
         setStatus("loading");
 
@@ -127,7 +125,7 @@ export default function ProductBmhp() {
                                         className="bg-white rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20 flex flex-col justify-between"
                                     >
                                         <img
-                                            src={imageUrl(p.image, ASSET_URL)}
+                                            src={imageUrl(p.image)}
                                             alt={p.name}
                                             className="h-[120px] md:h-[220px] w-full object-contain mx-auto mb-3"
                                             loading="lazy"
