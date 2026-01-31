@@ -37,6 +37,8 @@ export default function ProductDetail() {
         ? product.specifications.split("|").map((s) => s.trim())
         : [];
 
+    console.log("IMAGE:", product.image);
+
     return (
         <div>
             {/* 🔹 Header tetap muncul */}
