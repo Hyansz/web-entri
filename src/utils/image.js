@@ -1,18 +1,20 @@
 export const imageUrl = (image, base) => {
     if (!image) return "/img/no-image.png";
 
-    if (typeof image === "object" && image.url) {
-        return image.url;
+    // 🔹 Cloudinary object
+    if (typeof image === "object") {
+        if (image.url) return image.url;
+        if (image.secure_url) return image.secure_url;
+        if (image.path) return image.path;
     }
 
+    // 🔹 String URL
     if (typeof image === "string") {
-        // external (Cloudinary, CDN, dll)
         if (image.startsWith("http")) return image;
 
-        // normalize slash
-        if (image.startsWith("/")) {
-            return `${base}${image}`;
-        }
+        if (!base) return image;
+
+        if (image.startsWith("/")) return `${base}${image}`;
 
         return `${base}/${image}`;
     }
