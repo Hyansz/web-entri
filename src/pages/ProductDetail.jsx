@@ -37,6 +37,8 @@ export default function ProductDetail() {
         ? product.specifications.split("|").map((s) => s.trim())
         : [];
 
+    console.log("ASSET_URL PROD:", import.meta.env.VITE_ASSET_URL);
+
     return (
         <div>
             {/* 🔹 Header tetap muncul */}
