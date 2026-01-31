@@ -37,8 +37,6 @@ export default function ProductDetail() {
         ? product.specifications.split("|").map((s) => s.trim())
         : [];
 
-    console.log("IMAGE:", product.image);
-
     return (
         <div>
             {/* 🔹 Header tetap muncul */}
@@ -64,8 +62,8 @@ export default function ProductDetail() {
                     <>
                         <div className="md:w-1/2">
                             <img
-                                src={imageUrl(product.image, ASSET_URL)}
-                                alt={product.name}
+                                src={imageUrl(product?.image, ASSET_URL)}
+                                alt={product?.name}
                                 className="rounded-xl mb-6 w-full object-contain"
                                 loading="lazy"
                                 onError={(e) =>
