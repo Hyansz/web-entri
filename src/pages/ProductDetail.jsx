@@ -33,10 +33,10 @@ export default function ProductDetail() {
     }, [id]);
 
     // 🔹 Pisahkan spesifikasi
-    const spesifikasiList = product?.specifications
-        ? product.specifications.split("|").map((s) => s.trim())
+    const spesifikasiList = product?.spesifications
+        ? product.spesifications.split("|").map((s) => s.trim())
         : [];
-        
+
     console.log("IMAGE RAW:", product?.image);
     console.log("IMAGE FIXED:", imageUrl(product?.image, ASSET_URL));
 
@@ -64,15 +64,18 @@ export default function ProductDetail() {
                 {!loading && !error && product && (
                     <>
                         <div className="md:w-1/2">
-                            <img
-                                src={imageUrl(product?.image, ASSET_URL)}
-                                alt={product?.name}
-                                className="rounded-xl mb-6 w-full object-contain"
-                                loading="lazy"
-                                onError={(e) =>
-                                    (e.target.src = "/img/no-image.png")
-                                }
-                            />
+                            {product?.image && (
+                                <img
+                                    src={imageUrl(product.image, ASSET_URL)}
+                                    alt={product.name}
+                                    className="rounded-xl mb-6 w-full object-contain"
+                                    loading="lazy"
+                                    onError={(e) =>
+                                        (e.currentTarget.src =
+                                            "/img/no-image.png")
+                                    }
+                                />
+                            )}
                             <button
                                 onClick={() => navigate(-1)}
                                 className="md:hidden absolute right-4 top-30 transition duration-300 hover:scale-110 text-cyan-800 cursor-pointer"
