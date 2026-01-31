@@ -37,9 +37,6 @@ export default function ProductDetail() {
         ? product.spesifications.split("|").map((s) => s.trim())
         : [];
 
-    console.log("IMAGE RAW:", product?.image);
-    console.log("IMAGE FIXED:", imageUrl(product?.image, ASSET_URL));
-
     return (
         <div>
             {/* 🔹 Header tetap muncul */}

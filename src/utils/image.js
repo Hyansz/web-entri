@@ -1,28 +1,35 @@
-export const imageUrl = (image, base) => {
-    console.log("IMAGE RAW:", image);
+const API_BASE = import.meta.env.VITE_API_URL;
 
+export const imageUrl = (image) => {
     if (!image) return "/img/no-image.png";
 
-    // kalau API ngirim string tapi isinya [object Object]
-    if (typeof image === "string" && image === "[object Object]") {
-        return "/img/no-image.png";
-    }
-
-    // kalau object cloudinary
+    // Cloudinary object
     if (typeof image === "object") {
         if (image.secure_url) return image.secure_url;
         if (image.url) return image.url;
         return "/img/no-image.png";
     }
 
-    // kalau string URL
+    // String
     if (typeof image === "string") {
-        if (image.startsWith("http")) return image;
+        if (image === "[object Object]") {
+            return "/img/no-image.png";
+        }
 
-        // lokal upload
-        return image.startsWith("/")
-            ? `${base}${image}`
-            : `${base}/${image}`;
+        // Cloudinary URL
+        if (image.startsWith("http")) {
+            return image;
+        }
+
+        // uploads lokal
+        if (image.startsWith("/uploads")) {
+            return `${API_BASE}${image}`;
+        }
+
+        // uploads tanpa slash
+        if (image.startsWith("uploads")) {
+            return `${API_BASE}/${image}`;
+        }
     }
 
     return "/img/no-image.png";

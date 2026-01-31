@@ -129,10 +129,6 @@ export default function ProductBmhp() {
                                             alt={p.name}
                                             className="h-[120px] md:h-[220px] w-full object-contain mx-auto mb-3"
                                             loading="lazy"
-                                            onError={(e) =>
-                                                (e.target.src =
-                                                    "/img/no-image.png")
-                                            }
                                         />
 
                                         <h3 className="text-lg font-semibold mb-3">
