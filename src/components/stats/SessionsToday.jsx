@@ -1,23 +1,30 @@
 import { useEffect, useState } from "react";
-import { getSummary } from "../../api/analytics";
+import { getSummaryCompare } from "../../api/analytics";
 import StatCard from "../StatCard";
 
 export default function SessionsToday() {
-    const [value, setValue] = useState(0);
+    const [today, setToday] = useState(0);
+    const [yesterday, setYesterday] = useState(0);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getSummary()
-            .then((res) => setValue(res.data.visits ?? 0))
-            .catch(() => setValue(0))
+        getSummaryCompare()
+            .then((res) => {
+                setToday(res.data.today.visits ?? 0);
+                setYesterday(res.data.yesterday.visits ?? 0);
+            })
+            .catch(() => {
+                setToday(0);
+                setYesterday(0);
+            })
             .finally(() => setLoading(false));
     }, []);
 
     return (
         <StatCard
             title="Sessions"
-            value={value}
-            sub="Jumlah sesi kunjungan"
+            today={today}
+            yesterday={yesterday}
             loading={loading}
         />
     );

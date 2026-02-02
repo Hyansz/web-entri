@@ -3,23 +3,28 @@ import { getBounceRate } from "../../api/analytics";
 import StatCard from "../StatCard";
 
 export default function BounceRate() {
-    const [value, setValue] = useState("0.00");
+    const [today, setToday] = useState(0);
+    const [yesterday, setYesterday] = useState(0);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         getBounceRate()
             .then((res) => {
-                setValue(res.data.bounceRate);
+                setToday(res.data.today ?? 0);
+                setYesterday(res.data.yesterday ?? 0);
             })
-            .catch(() => setValue("0.00"))
+            .catch(() => {
+                setToday(0);
+                setYesterday(0);
+            })
             .finally(() => setLoading(false));
     }, []);
 
     return (
         <StatCard
             title="Bounce Rate"
-            value={`${value}%`}
-            sub="Session 1 halaman saja"
+            today={`${today}%`}
+            yesterday={`${yesterday}%`}
             loading={loading}
         />
     );

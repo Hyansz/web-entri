@@ -26,39 +26,48 @@ const getRange = () => {
 // ✅ SUMMARY
 export const getSummaryCompare = async (req, res) => {
     try {
-        const today = getTodayRange();
-        const yesterday = getYesterdayRange();
+        const now = new Date();
 
-        const [todayRes, yesterdayRes] = await Promise.all([
-            axios.get(
-                `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
-                { headers, params: today }
-            ),
-            axios.get(
-                `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
-                { headers, params: yesterday }
-            ),
-        ]);
+        // today
+        const todayStart = new Date(now);
+        todayStart.setHours(0, 0, 0, 0);
+
+        // yesterday
+        const yesterdayStart = new Date(todayStart);
+        yesterdayStart.setDate(todayStart.getDate() - 1);
+
+        const todayRes = await axios.get(
+            `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
+            {
+                headers,
+                params: {
+                    startAt: todayStart.getTime(),
+                    endAt: now.getTime(),
+                },
+            }
+        );
+
+        const yesterdayRes = await axios.get(
+            `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
+            {
+                headers,
+                params: {
+                    startAt: yesterdayStart.getTime(),
+                    endAt: todayStart.getTime(),
+                },
+            }
+        );
 
         res.json({
-            visitors: {
-                current: todayRes.data.visitors ?? 0,
-                previous: yesterdayRes.data.visitors ?? 0,
-            },
-            pageviews: {
-                current: todayRes.data.pageviews ?? 0,
-                previous: yesterdayRes.data.pageviews ?? 0,
-            },
-            sessions: {
-                current: todayRes.data.sessions ?? 0,
-                previous: yesterdayRes.data.sessions ?? 0,
-            },
+            today: todayRes.data,
+            yesterday: yesterdayRes.data,
         });
     } catch (err) {
         console.error(err.response?.data || err.message);
-        res.status(500).json({ message: "Gagal bandingkan analytics" });
+        res.status(500).json({ message: "Compare gagal" });
     }
 };
+
 
 // ✅ DAILY PAGEVIEWS
 export const getDaily = async (req, res) => {

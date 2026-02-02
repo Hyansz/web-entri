@@ -60,7 +60,7 @@ export default function DailyVisitorsChart() {
         ),
         datasets: [
             {
-                label: "Visitors",
+                label: "Sessions",
                 data: rows.map((r) => r.y),
                 tension: 0.4,
             },
@@ -70,7 +70,7 @@ export default function DailyVisitorsChart() {
     return (
         <div className="bg-white p-4 rounded-2xl shadow">
             <h3 className="font-semibold mb-3 text-gray-700">
-                Visitors Harian
+                Sessions Harian
             </h3>
 
             <Line data={chartData} />
