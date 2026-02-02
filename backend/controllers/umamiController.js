@@ -24,22 +24,39 @@ const getRange = () => {
 };
 
 // ✅ SUMMARY
-export const getSummary = async (req, res) => {
+export const getSummaryCompare = async (req, res) => {
     try {
-        const { startAt, endAt } = getRange();
+        const today = getTodayRange();
+        const yesterday = getYesterdayRange();
 
-        const { data } = await axios.get(
-            `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
-            {
-                headers,
-                params: { startAt, endAt },
-            }
-        );
+        const [todayRes, yesterdayRes] = await Promise.all([
+            axios.get(
+                `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
+                { headers, params: today }
+            ),
+            axios.get(
+                `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
+                { headers, params: yesterday }
+            ),
+        ]);
 
-        res.json(data);
+        res.json({
+            visitors: {
+                current: todayRes.data.visitors ?? 0,
+                previous: yesterdayRes.data.visitors ?? 0,
+            },
+            pageviews: {
+                current: todayRes.data.pageviews ?? 0,
+                previous: yesterdayRes.data.pageviews ?? 0,
+            },
+            sessions: {
+                current: todayRes.data.sessions ?? 0,
+                previous: yesterdayRes.data.sessions ?? 0,
+            },
+        });
     } catch (err) {
         console.error(err.response?.data || err.message);
-        res.status(500).json({ message: "Gagal ambil summary Umami" });
+        res.status(500).json({ message: "Gagal bandingkan analytics" });
     }
 };
 
@@ -144,4 +161,38 @@ export const getBounceRate = async (req, res) => {
         console.error(err.response?.data || err.message);
         res.status(500).json({ message: "Gagal hitung bounce rate" });
     }
+};
+
+const getTodayRange = () => {
+    const now = new Date();
+
+    const start = new Date(now);
+    start.setHours(0, 0, 0, 0);
+
+    return {
+        startAt: start.getTime(),
+        endAt: now.getTime(),
+    };
+};
+
+const getYesterdayRange = () => {
+    const now = new Date();
+
+    const end = new Date(now);
+    end.setDate(end.getDate() - 1);
+
+    const start = new Date(end);
+    start.setHours(0, 0, 0, 0);
+
+    end.setHours(
+        now.getHours(),
+        now.getMinutes(),
+        now.getSeconds(),
+        0
+    );
+
+    return {
+        startAt: start.getTime(),
+        endAt: end.getTime(),
+    };
 };
