@@ -97,7 +97,7 @@ export default function AdminDashboard() {
                         {/* Image */}
                         <div className="absolute right-0 translate-y-[-16.5%] hidden sm:block">
                             <img
-                                src="/public/img/profile.png"
+                                src="/img/profile.png"
                                 alt="Admin"
                                 className="h-54"
                             />
