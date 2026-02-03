@@ -182,22 +182,31 @@ export const getPages = async (req, res) => {
 // =====================
 export const getBounceRate = async (req, res) => {
     try {
-        const { startAt, endAt } = getRange7Days();
+        const todayRange = getTodayRange();
+        const yesterdayRange = getYesterdayRange();
 
-        const { data } = await axios.get(
-            `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
-            { headers, params: { startAt, endAt } }
-        );
+        const [todayRes, yesterdayRes] = await Promise.all([
+            axios.get(
+                `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
+                { headers, params: todayRange }
+            ),
+            axios.get(
+                `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
+                { headers, params: yesterdayRange }
+            ),
+        ]);
 
-        const visits = data.visits ?? 0;
-        const bounces = data.bounces ?? 0;
-        const bounceRate =
-            visits > 0 ? (bounces / visits) * 100 : 0;
+        const calc = (data) => {
+            const visits = data.visits ?? 0;
+            const bounces = data.bounces ?? 0;
+            return visits > 0
+                ? Number(((bounces / visits) * 100).toFixed(2))
+                : 0;
+        };
 
         res.json({
-            bounceRate: Number(bounceRate.toFixed(2)),
-            visits,
-            bounces,
+            today: calc(todayRes.data),
+            yesterday: calc(yesterdayRes.data),
         });
     } catch (err) {
         console.error(err.response?.data || err.message);
