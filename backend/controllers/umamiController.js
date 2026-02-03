@@ -43,12 +43,7 @@ const getYesterdayRange = () => {
     start.setHours(0, 0, 0, 0);
 
     const end = new Date(start);
-    end.setHours(
-        now.getHours(),
-        now.getMinutes(),
-        now.getSeconds(),
-        0
-    );
+    end.setHours(now.getHours(), now.getMinutes(), now.getSeconds(), 0);
 
     return {
         startAt: start.getTime(),
@@ -68,7 +63,7 @@ export const getSummary = async (req, res) => {
             {
                 headers,
                 params: { startAt, endAt },
-            }
+            },
         );
 
         res.json(data);
@@ -87,14 +82,14 @@ export const getSummaryCompare = async (req, res) => {
         const yesterdayRange = getYesterdayRange();
 
         const [today, yesterday] = await Promise.all([
-            axios.get(
-                `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
-                { headers, params: todayRange }
-            ),
-            axios.get(
-                `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
-                { headers, params: yesterdayRange }
-            ),
+            axios.get(`${UMAMI_URL}/websites/${WEBSITE_ID}/stats`, {
+                headers,
+                params: todayRange,
+            }),
+            axios.get(`${UMAMI_URL}/websites/${WEBSITE_ID}/stats`, {
+                headers,
+                params: yesterdayRange,
+            }),
         ]);
 
         res.json({
@@ -123,7 +118,7 @@ export const getDaily = async (req, res) => {
             {
                 headers,
                 params: { startAt, endAt, unit: "day" },
-            }
+            },
         );
 
         res.json(data);
@@ -145,7 +140,7 @@ export const getCountries = async (req, res) => {
             {
                 headers,
                 params: { startAt, endAt, type: "country" },
-            }
+            },
         );
 
         res.json(data);
@@ -167,7 +162,7 @@ export const getPages = async (req, res) => {
             {
                 headers,
                 params: { startAt, endAt, type: "page" },
-            }
+            },
         );
 
         res.json(data);
@@ -186,22 +181,25 @@ export const getBounceRate = async (req, res) => {
         const yesterdayRange = getYesterdayRange();
 
         const [todayRes, yesterdayRes] = await Promise.all([
-            axios.get(
-                `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
-                { headers, params: todayRange }
-            ),
-            axios.get(
-                `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
-                { headers, params: yesterdayRange }
-            ),
+            axios.get(`${UMAMI_URL}/websites/${WEBSITE_ID}/stats`, {
+                headers,
+                params: todayRange,
+            }),
+            axios.get(`${UMAMI_URL}/websites/${WEBSITE_ID}/stats`, {
+                headers,
+                params: yesterdayRange,
+            }),
         ]);
 
         const calc = (data) => {
             const visits = data.visits ?? 0;
-            const bounces = data.bounces ?? 0;
-            return visits > 0
-                ? Number(((bounces / visits) * 100).toFixed(2))
-                : 0;
+            const pageviews = data.pageviews ?? 0;
+
+            if (visits === 0) return 0;
+
+            const estimatedBounces = Math.max(visits - pageviews, 0);
+
+            return Number(((estimatedBounces / visits) * 100).toFixed(2));
         };
 
         res.json({
