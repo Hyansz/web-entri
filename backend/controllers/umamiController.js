@@ -8,10 +8,11 @@ const headers = {
     Authorization: `Bearer ${API_KEY}`,
 };
 
-const getRange = () => {
+// =====================
+// RANGE HELPERS
+// =====================
+const getRange7Days = () => {
     const now = new Date();
-
-    const endAt = now.getTime();
 
     const start = new Date(now);
     start.setDate(start.getDate() - 7);
@@ -19,162 +20,12 @@ const getRange = () => {
 
     return {
         startAt: start.getTime(),
-        endAt,
+        endAt: now.getTime(),
     };
-};
-
-// ✅ SUMMARY
-export const getSummaryCompare = async (req, res) => {
-    try {
-        const now = new Date();
-
-        // today
-        const todayStart = new Date(now);
-        todayStart.setHours(0, 0, 0, 0);
-
-        // yesterday
-        const yesterdayStart = new Date(todayStart);
-        yesterdayStart.setDate(todayStart.getDate() - 1);
-
-        const todayRes = await axios.get(
-            `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
-            {
-                headers,
-                params: {
-                    startAt: todayStart.getTime(),
-                    endAt: now.getTime(),
-                },
-            }
-        );
-
-        const yesterdayRes = await axios.get(
-            `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
-            {
-                headers,
-                params: {
-                    startAt: yesterdayStart.getTime(),
-                    endAt: todayStart.getTime(),
-                },
-            }
-        );
-
-        res.json({
-            today: todayRes.data,
-            yesterday: yesterdayRes.data,
-        });
-    } catch (err) {
-        console.error(err.response?.data || err.message);
-        res.status(500).json({ message: "Compare gagal" });
-    }
-};
-
-
-// ✅ DAILY PAGEVIEWS
-export const getDaily = async (req, res) => {
-    try {
-        const { startAt, endAt } = getRange();
-
-        const { data } = await axios.get(
-            `${UMAMI_URL}/websites/${WEBSITE_ID}/pageviews`,
-            {
-                headers,
-                params: {
-                    startAt,
-                    endAt,
-                    unit: "day",
-                },
-            }
-        );
-
-        res.json(data);
-    } catch (err) {
-        console.error(err.response?.data || err.message);
-        res.status(500).json({ message: "Gagal ambil data harian" });
-    }
-};
-
-// ✅ COUNTRIES
-export const getCountries = async (req, res) => {
-    try {
-        const { startAt, endAt } = getRange();
-
-        const { data } = await axios.get(
-            `${UMAMI_URL}/websites/${WEBSITE_ID}/metrics`,
-            {
-                headers,
-                params: {
-                    startAt,
-                    endAt,
-                    type: "country",
-                },
-            }
-        );
-
-        res.json(data);
-    } catch (err) {
-        console.error(err.response?.data || err.message);
-        res.status(500).json({ message: "Gagal ambil data negara" });
-    }
-};
-
-// ✅ PAGES
-export const getPages = async (req, res) => {
-    try {
-        const { startAt, endAt } = getRange();
-
-        const { data } = await axios.get(
-            `${UMAMI_URL}/websites/${WEBSITE_ID}/metrics`,
-            {
-                headers,
-                params: {
-                    startAt,
-                    endAt,
-                    type: "page",
-                },
-            }
-        );
-
-        res.json(data);
-    } catch (err) {
-        console.error(err.response?.data || err.message);
-        res.status(500).json({ message: "Gagal ambil data halaman" });
-    }
-};
-
-export const getBounceRate = async (req, res) => {
-    try {
-        const endAt = Date.now();
-        const startAt = endAt - 7 * 24 * 60 * 60 * 1000; // 7 hari
-
-        const { data } = await axios.get(
-            `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
-            {
-                headers: {
-                    Authorization: `Bearer ${API_KEY}`,
-                },
-                params: { startAt, endAt },
-            }
-        );
-
-        const visits = data.visits ?? 0;
-        const bounces = data.bounces ?? 0;
-
-        const bounceRate = visits > 0 ? (bounces / visits) * 100 : 0;
-
-        res.json({
-            bounceRate: Number(bounceRate.toFixed(2)),
-            visits,
-            bounces,
-        });
-    } catch (err) {
-        console.error(err.response?.data || err.message);
-        res.status(500).json({ message: "Gagal hitung bounce rate" });
-    }
 };
 
 const getTodayRange = () => {
     const now = new Date();
-
     const start = new Date(now);
     start.setHours(0, 0, 0, 0);
 
@@ -187,12 +38,11 @@ const getTodayRange = () => {
 const getYesterdayRange = () => {
     const now = new Date();
 
-    const end = new Date(now);
-    end.setDate(end.getDate() - 1);
-
-    const start = new Date(end);
+    const start = new Date(now);
+    start.setDate(start.getDate() - 1);
     start.setHours(0, 0, 0, 0);
 
+    const end = new Date(start);
     end.setHours(
         now.getHours(),
         now.getMinutes(),
@@ -204,4 +54,153 @@ const getYesterdayRange = () => {
         startAt: start.getTime(),
         endAt: end.getTime(),
     };
+};
+
+// =====================
+// SUMMARY
+// =====================
+export const getSummary = async (req, res) => {
+    try {
+        const { startAt, endAt } = getRange7Days();
+
+        const { data } = await axios.get(
+            `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
+            {
+                headers,
+                params: { startAt, endAt },
+            }
+        );
+
+        res.json(data);
+    } catch (err) {
+        console.error(err.response?.data || err.message);
+        res.status(500).json({ message: "Gagal ambil summary Umami" });
+    }
+};
+
+// =====================
+// SUMMARY COMPARE (TODAY vs YESTERDAY)
+// =====================
+export const getSummaryCompare = async (req, res) => {
+    try {
+        const todayRange = getTodayRange();
+        const yesterdayRange = getYesterdayRange();
+
+        const [today, yesterday] = await Promise.all([
+            axios.get(
+                `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
+                { headers, params: todayRange }
+            ),
+            axios.get(
+                `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
+                { headers, params: yesterdayRange }
+            ),
+        ]);
+
+        res.json({
+            today: today.data,
+            yesterday: yesterday.data,
+        });
+    } catch (err) {
+        console.error("SUMMARY COMPARE ERROR:");
+        console.error(err.response?.data || err.message);
+
+        res.status(500).json({
+            message: "Umami summary-compare error",
+        });
+    }
+};
+
+// =====================
+// DAILY
+// =====================
+export const getDaily = async (req, res) => {
+    try {
+        const { startAt, endAt } = getRange7Days();
+
+        const { data } = await axios.get(
+            `${UMAMI_URL}/websites/${WEBSITE_ID}/pageviews`,
+            {
+                headers,
+                params: { startAt, endAt, unit: "day" },
+            }
+        );
+
+        res.json(data);
+    } catch (err) {
+        console.error(err.response?.data || err.message);
+        res.status(500).json({ message: "Gagal ambil data harian" });
+    }
+};
+
+// =====================
+// COUNTRIES
+// =====================
+export const getCountries = async (req, res) => {
+    try {
+        const { startAt, endAt } = getRange7Days();
+
+        const { data } = await axios.get(
+            `${UMAMI_URL}/websites/${WEBSITE_ID}/metrics`,
+            {
+                headers,
+                params: { startAt, endAt, type: "country" },
+            }
+        );
+
+        res.json(data);
+    } catch (err) {
+        console.error(err.response?.data || err.message);
+        res.status(500).json({ message: "Gagal ambil data negara" });
+    }
+};
+
+// =====================
+// PAGES
+// =====================
+export const getPages = async (req, res) => {
+    try {
+        const { startAt, endAt } = getRange7Days();
+
+        const { data } = await axios.get(
+            `${UMAMI_URL}/websites/${WEBSITE_ID}/metrics`,
+            {
+                headers,
+                params: { startAt, endAt, type: "page" },
+            }
+        );
+
+        res.json(data);
+    } catch (err) {
+        console.error(err.response?.data || err.message);
+        res.status(500).json({ message: "Gagal ambil data halaman" });
+    }
+};
+
+// =====================
+// BOUNCE RATE
+// =====================
+export const getBounceRate = async (req, res) => {
+    try {
+        const { startAt, endAt } = getRange7Days();
+
+        const { data } = await axios.get(
+            `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
+            { headers, params: { startAt, endAt } }
+        );
+
+        const visits = data.visits ?? 0;
+        const bounces = data.bounces ?? 0;
+        const bounceRate =
+            visits > 0 ? (bounces / visits) * 100 : 0;
+
+        res.json({
+            bounceRate: Number(bounceRate.toFixed(2)),
+            visits,
+            bounces,
+        });
+    } catch (err) {
+        console.error(err.response?.data || err.message);
+        res.status(500).json({ message: "Gagal hitung bounce rate" });
+    }
 };

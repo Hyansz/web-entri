@@ -10,8 +10,8 @@ export default function VisitorsToday() {
     useEffect(() => {
         getSummaryCompare()
             .then((res) => {
-                setToday(res.data.today.visitors ?? 0);
-                setYesterday(res.data.yesterday.visitors ?? 0);
+                setToday(res.data?.today?.visits ?? 0);
+                setYesterday(res.data?.yesterday?.visits ?? 0);
             })
             .catch(() => {
                 setToday(0);
