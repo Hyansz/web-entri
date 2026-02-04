@@ -99,19 +99,17 @@ export const getDaily = async (req, res) => {
     try {
         const rangeKey = req.query.range ?? "7d";
         const range = getRangeFromQuery(rangeKey);
-
         const unit = rangeKey === "24h" ? "hour" : "day";
 
         const { data } = await axios.get(
             `${UMAMI_URL}/websites/${WEBSITE_ID}/pageviews`,
             {
                 headers,
-                params: {
-                    ...range,
-                    unit,
-                },
-            },
+                params: { ...range, unit },
+            }
         );
+
+        console.log("UMAMI PAGEVIEWS RESPONSE:", data);
 
         res.json({
             range: rangeKey,
