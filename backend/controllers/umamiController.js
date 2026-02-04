@@ -8,138 +8,127 @@ const headers = {
     Authorization: `Bearer ${API_KEY}`,
 };
 
-// =====================
-// RANGE HELPERS
-// =====================
-const getRange7Days = () => {
-    const now = new Date();
+/* =====================
+   RANGE UTILITIES
+===================== */
+const getRangeFromQuery = (range = "7d") => {
+    const now = Date.now();
 
-    const start = new Date(now);
-    start.setDate(start.getDate() - 7);
-    start.setHours(0, 0, 0, 0);
-
-    return {
-        startAt: start.getTime(),
-        endAt: now.getTime(),
-    };
+    switch (range) {
+        case "24h":
+            return {
+                startAt: now - 24 * 60 * 60 * 1000,
+                endAt: now,
+            };
+        case "30d":
+            return {
+                startAt: now - 30 * 24 * 60 * 60 * 1000,
+                endAt: now,
+            };
+        case "7d":
+        default:
+            return {
+                startAt: now - 7 * 24 * 60 * 60 * 1000,
+                endAt: now,
+            };
+    }
 };
 
-const getTodayRange = () => {
-    const now = new Date();
-    const start = new Date(now);
-    start.setHours(0, 0, 0, 0);
-
-    return {
-        startAt: start.getTime(),
-        endAt: now.getTime(),
-    };
-};
-
-const getYesterdayRange = () => {
-    const now = new Date();
-
-    const start = new Date(now);
-    start.setDate(start.getDate() - 1);
-    start.setHours(0, 0, 0, 0);
-
-    const end = new Date(start);
-    end.setHours(now.getHours(), now.getMinutes(), now.getSeconds(), 0);
-
-    return {
-        startAt: start.getTime(),
-        endAt: end.getTime(),
-    };
-};
-
-// =====================
-// SUMMARY
-// =====================
+/* =====================
+   SUMMARY
+===================== */
 export const getSummary = async (req, res) => {
     try {
-        const { startAt, endAt } = getRange7Days();
+        const range = getRangeFromQuery(req.query.range);
 
         const { data } = await axios.get(
             `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
-            {
-                headers,
-                params: { startAt, endAt },
-            },
+            { headers, params: range },
         );
 
-        res.json(data);
+        res.json({
+            range: req.query.range ?? "7d",
+            ...data,
+        });
     } catch (err) {
         console.error(err.response?.data || err.message);
         res.status(500).json({ message: "Gagal ambil summary Umami" });
     }
 };
 
-// =====================
-// SUMMARY COMPARE (TODAY vs YESTERDAY)
-// =====================
+/* =====================
+   SUMMARY COMPARE
+===================== */
 export const getSummaryCompare = async (req, res) => {
     try {
-        const todayRange = getTodayRange();
-        const yesterdayRange = getYesterdayRange();
+        const currentRange = getRangeFromQuery(req.query.range);
+        const previousRange = (() => {
+            const diff = currentRange.endAt - currentRange.startAt;
+            return {
+                startAt: currentRange.startAt - diff,
+                endAt: currentRange.startAt,
+            };
+        })();
 
-        const [today, yesterday] = await Promise.all([
+        const [current, previous] = await Promise.all([
             axios.get(`${UMAMI_URL}/websites/${WEBSITE_ID}/stats`, {
                 headers,
-                params: todayRange,
+                params: currentRange,
             }),
             axios.get(`${UMAMI_URL}/websites/${WEBSITE_ID}/stats`, {
                 headers,
-                params: yesterdayRange,
+                params: previousRange,
             }),
         ]);
 
         res.json({
-            today: today.data,
-            yesterday: yesterday.data,
+            range: req.query.range ?? "7d",
+            current: current.data,
+            previous: previous.data,
         });
     } catch (err) {
-        console.error("SUMMARY COMPARE ERROR:");
         console.error(err.response?.data || err.message);
-
-        res.status(500).json({
-            message: "Umami summary-compare error",
-        });
+        res.status(500).json({ message: "Gagal compare summary" });
     }
 };
 
-// =====================
-// DAILY
-// =====================
+/* =====================
+   DAILY PAGEVIEWS
+===================== */
 export const getDaily = async (req, res) => {
     try {
-        const { startAt, endAt } = getRange7Days();
+        const range = getRangeFromQuery(req.query.range);
 
         const { data } = await axios.get(
             `${UMAMI_URL}/websites/${WEBSITE_ID}/pageviews`,
             {
                 headers,
-                params: { startAt, endAt, unit: "day" },
+                params: { ...range, unit: "day" },
             },
         );
 
-        res.json(data);
+        res.json({
+            range: req.query.range ?? "7d",
+            data,
+        });
     } catch (err) {
         console.error(err.response?.data || err.message);
         res.status(500).json({ message: "Gagal ambil data harian" });
     }
 };
 
-// =====================
-// COUNTRIES
-// =====================
+/* =====================
+   COUNTRIES
+===================== */
 export const getCountries = async (req, res) => {
     try {
-        const { startAt, endAt } = getRange7Days();
+        const range = getRangeFromQuery(req.query.range);
 
         const { data } = await axios.get(
             `${UMAMI_URL}/websites/${WEBSITE_ID}/metrics`,
             {
                 headers,
-                params: { startAt, endAt, type: "country" },
+                params: { ...range, type: "country" },
             },
         );
 
@@ -150,18 +139,18 @@ export const getCountries = async (req, res) => {
     }
 };
 
-// =====================
-// PAGES
-// =====================
+/* =====================
+   PAGES
+===================== */
 export const getPages = async (req, res) => {
     try {
-        const { startAt, endAt } = getRange7Days();
+        const range = getRangeFromQuery(req.query.range);
 
         const { data } = await axios.get(
             `${UMAMI_URL}/websites/${WEBSITE_ID}/metrics`,
             {
                 headers,
-                params: { startAt, endAt, type: "page" },
+                params: { ...range, type: "page" },
             },
         );
 
@@ -172,59 +161,44 @@ export const getPages = async (req, res) => {
     }
 };
 
-// =====================
-// BOUNCE RATE
-// =====================
-export const getBounceRate = async (req, res) => {
+/* =====================
+   ENGAGEMENT & BOUNCE
+===================== */
+export const getEngagement = async (req, res) => {
     try {
-        const todayRange = getTodayRange();
-        const yesterdayRange = getYesterdayRange();
+        const range = getRangeFromQuery(req.query.range);
 
-        const [todayRes, yesterdayRes] = await Promise.all([
-            axios.get(`${UMAMI_URL}/websites/${WEBSITE_ID}/stats`, {
-                headers,
-                params: todayRange,
-            }),
-            axios.get(`${UMAMI_URL}/websites/${WEBSITE_ID}/stats`, {
-                headers,
-                params: yesterdayRange,
-            }),
-        ]);
+        const { data } = await axios.get(
+            `${UMAMI_URL}/websites/${WEBSITE_ID}/stats`,
+            { headers, params: range },
+        );
 
-        const calc = (data) => {
-            const visits = data.visits ?? 0;
-            const pageviews = data.pageviews ?? 0;
+        const visits = data.visits ?? 0;
+        const pageviews = data.pageviews ?? 0;
 
-            if (visits === 0) {
-                return {
-                    engagement: 0,
-                    bounce: 0,
-                };
-            }
+        let engagementRate = 0;
+        let bounceRate = 0;
 
-            const avgPageviews = pageviews / visits;
+        if (visits > 0) {
+            const avgPagesPerVisit = pageviews / visits;
 
-            const engagement = Math.min(
+            engagementRate = Math.min(
                 100,
-                Number(((avgPageviews / 2) * 100).toFixed(2)),
+                Number(((avgPagesPerVisit / 2) * 100).toFixed(2)),
             );
 
-            const bounce = Number((100 - engagement).toFixed(2));
-
-            return {
-                engagement,
-                bounce,
-            };
-        };
+            bounceRate = Number((100 - engagementRate).toFixed(2));
+        }
 
         res.json({
-            today: calc(todayRes.data),
-            yesterday: calc(yesterdayRes.data),
+            range: req.query.range ?? "7d",
+            visits,
+            pageviews,
+            engagementRate,
+            bounceRate,
         });
     } catch (err) {
         console.error(err.response?.data || err.message);
-        res.status(500).json({
-            message: "Gagal hitung engagement & bounce rate",
-        });
+        res.status(500).json({ message: "Gagal hitung engagement" });
     }
 };

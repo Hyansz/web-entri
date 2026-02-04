@@ -195,6 +195,7 @@ export default function AdminDashboard() {
                     <VisitorsToday />
                     <PageViewsToday />
                     <SessionsToday />
+                    <BounceRate />
             </div>
         </AdminLayout>
     );
