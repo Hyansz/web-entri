@@ -97,18 +97,25 @@ export const getSummaryCompare = async (req, res) => {
 ===================== */
 export const getDaily = async (req, res) => {
     try {
-        const range = getRangeFromQuery(req.query.range);
+        const rangeKey = req.query.range ?? "7d";
+        const range = getRangeFromQuery(rangeKey);
+
+        const unit = rangeKey === "24h" ? "hour" : "day";
 
         const { data } = await axios.get(
             `${UMAMI_URL}/websites/${WEBSITE_ID}/pageviews`,
             {
                 headers,
-                params: { ...range, unit: "day" },
+                params: {
+                    ...range,
+                    unit,
+                },
             },
         );
 
         res.json({
-            range: req.query.range ?? "7d",
+            range: rangeKey,
+            unit,
             data,
         });
     } catch (err) {

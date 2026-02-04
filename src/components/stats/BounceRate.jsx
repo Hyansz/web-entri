@@ -1,30 +1,25 @@
 import { useEffect, useState } from "react";
-import { getBounceRate } from "../../api/analytics";
+import { getEngagement } from "../../api/analytics";
 import StatCard from "../StatCard";
 
 export default function BounceRate() {
-    const [today, setToday] = useState(0);
-    const [yesterday, setYesterday] = useState(0);
+    const [value, setValue] = useState(0);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getBounceRate()
+        getEngagement("24h")
             .then((res) => {
-                setToday(res.data.today?.bounce ?? 0);
-                setYesterday(res.data.yesterday?.bounce ?? 0);
+                setValue(res.data.bounceRate ?? 0);
             })
-            .catch(() => {
-                setToday(0);
-                setYesterday(0);
-            })
+            .catch(() => setValue(0))
             .finally(() => setLoading(false));
     }, []);
 
     return (
         <StatCard
             title="Bounce Rate"
-            today={`${today}%`}
-            yesterday={`${yesterday}%`}
+            value={value}
+            suffix="%"
             loading={loading}
         />
     );

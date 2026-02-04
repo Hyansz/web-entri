@@ -20,59 +20,53 @@ ChartJS.register(
     Legend
 );
 
-export default function DailyVisitorsChart() {
+export default function DailyVisitorsChart({ range = "7d" }) {
     const [rows, setRows] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getDaily()
-            .then((res) => {
-                /**
-                 * 🔒 RESPONSE UMAMI:
-                 * {
-                 *   pageviews: [{ x, y }],
-                 *   sessions: [{ x, y }]
-                 * }
-                 */
-                const safeRows = Array.isArray(res.data?.sessions)
-                    ? res.data.sessions
-                    : [];
+        setLoading(true);
 
-                setRows(safeRows);
+        getDaily(range)
+            .then((res) => {
+                setRows(Array.isArray(res.data?.data) ? res.data.data : []);
             })
             .finally(() => setLoading(false));
-    }, []);
+    }, [range]);
 
     if (loading) {
         return (
-            <div className="h-40 flex items-center justify-center text-sm text-gray-400">
+            <div className="h-[300px] flex items-center justify-center text-sm text-gray-400">
                 Memuat grafik…
             </div>
         );
     }
 
+    const labels = rows.map((r) => {
+        const d = new Date(r.x);
+        return range === "24h"
+            ? d.toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" })
+            : d.toLocaleDateString("id-ID", { day: "2-digit", month: "short" });
+    });
+
     const chartData = {
-        labels: rows.map((r) =>
-            new Date(r.x).toLocaleDateString("id-ID", {
-                day: "2-digit",
-                month: "short",
-            })
-        ),
+        labels,
         datasets: [
             {
-                label: "Sessions",
+                label: "Page Views",
                 data: rows.map((r) => r.y),
                 tension: 0.4,
+                borderWidth: 2,
+                pointRadius: 0,
             },
         ],
     };
 
     return (
-        <div className="bg-white p-4 rounded-2xl shadow">
-            <h3 className="font-semibold mb-3 text-gray-700">
-                Sessions Harian
+        <div className="h-[320px] rounded-2xl bg-gradient-to-b from-[#111] to-[#0b0b0b] p-5 border border-white/5">
+            <h3 className="mb-4 text-sm font-medium text-gray-300">
+                Page Views ({range})
             </h3>
-
             <Line data={chartData} />
         </div>
     );

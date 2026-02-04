@@ -3,19 +3,19 @@ import { getSummaryCompare } from "../../api/analytics";
 import StatCard from "../StatCard";
 
 export default function VisitorsToday() {
-    const [today, setToday] = useState(0);
-    const [yesterday, setYesterday] = useState(0);
+    const [current, setCurrent] = useState(0);
+    const [previous, setPrevious] = useState(0);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getSummaryCompare()
+        getSummaryCompare("24h")
             .then((res) => {
-                setToday(res.data?.today?.visits ?? 0);
-                setYesterday(res.data?.yesterday?.visits ?? 0);
+                setCurrent(res.data.current?.visits ?? 0);
+                setPrevious(res.data.previous?.visits ?? 0);
             })
             .catch(() => {
-                setToday(0);
-                setYesterday(0);
+                setCurrent(0);
+                setPrevious(0);
             })
             .finally(() => setLoading(false));
     }, []);
@@ -23,8 +23,8 @@ export default function VisitorsToday() {
     return (
         <StatCard
             title="Visitors"
-            today={today}
-            yesterday={yesterday}
+            value={current}
+            previous={previous}
             loading={loading}
         />
     );
