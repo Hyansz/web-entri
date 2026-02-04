@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext";
 import { FiMenu, FiHome, FiBox, FiGrid, FiLogOut } from "react-icons/fi";
+import { FaChartSimple } from "react-icons/fa6";
 import { FaRegFile } from "react-icons/fa";
 
 export default function AdminLayout({ children }) {
@@ -124,17 +125,22 @@ export default function AdminLayout({ children }) {
                     <NavItem
                         to="/admin/products2"
                         icon={<FiBox />}
-                        label="Products"
+                        label="Produk"
                     />
                     <NavItem
                         to="/admin/categories"
                         icon={<FiGrid />}
-                        label="Categories"
+                        label="Kategori"
                     />
                     <NavItem
                         to="/admin/posts"
                         icon={<FaRegFile />}
                         label="Artikel"
+                    />
+                    <NavItem
+                        to="/admin/analytics"
+                        icon={<FaChartSimple />}
+                        label="Analisis"
                     />
                 </nav>
 

@@ -27,6 +27,7 @@ import PostList from "./pages/PostList";
 import PostForm from "./pages/PostForm";
 import PostDetail from "./pages/PostDetail";
 import HistatsTracker from "./components/HistatsTracker";
+import Analytics from "./pages/Analytics";
 
 AOS.init();
 
@@ -125,6 +126,14 @@ export default function App() {
                         element={
                             <ProtectedAdmin>
                                 <PostForm />
+                            </ProtectedAdmin>
+                        }
+                    />
+                    <Route
+                        path="/admin/analytics"
+                        element={
+                            <ProtectedAdmin>
+                                <Analytics />
                             </ProtectedAdmin>
                         }
                     />

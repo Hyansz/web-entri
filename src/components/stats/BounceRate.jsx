@@ -10,8 +10,8 @@ export default function BounceRate() {
     useEffect(() => {
         getBounceRate()
             .then((res) => {
-                setToday(res.data.today ?? 0);
-                setYesterday(res.data.yesterday ?? 0);
+                setToday(res.data.today?.bounce ?? 0);
+                setYesterday(res.data.yesterday?.bounce ?? 0);
             })
             .catch(() => {
                 setToday(0);

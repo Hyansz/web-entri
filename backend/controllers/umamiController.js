@@ -195,11 +195,26 @@ export const getBounceRate = async (req, res) => {
             const visits = data.visits ?? 0;
             const pageviews = data.pageviews ?? 0;
 
-            if (visits === 0) return 0;
+            if (visits === 0) {
+                return {
+                    engagement: 0,
+                    bounce: 0,
+                };
+            }
 
-            const estimatedBounces = Math.max(visits - pageviews, 0);
+            const avgPageviews = pageviews / visits;
 
-            return Number(((estimatedBounces / visits) * 100).toFixed(2));
+            const engagement = Math.min(
+                100,
+                Number(((avgPageviews / 2) * 100).toFixed(2)),
+            );
+
+            const bounce = Number((100 - engagement).toFixed(2));
+
+            return {
+                engagement,
+                bounce,
+            };
         };
 
         res.json({
@@ -208,6 +223,8 @@ export const getBounceRate = async (req, res) => {
         });
     } catch (err) {
         console.error(err.response?.data || err.message);
-        res.status(500).json({ message: "Gagal hitung bounce rate" });
+        res.status(500).json({
+            message: "Gagal hitung engagement & bounce rate",
+        });
     }
 };
