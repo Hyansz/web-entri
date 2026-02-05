@@ -112,11 +112,13 @@ export default function DailyVisitorsChart({ range = "7d" }) {
             rounded-2xl
             bg-white
             p-6
-            border border-gray-200
+            border border-cyan-600/20
             shadow-sm
+            shadow-cyan-500/30
             transition-all duration-300
             hover:-translate-y-1
             hover:shadow-xl
+            hover:shadow-cyan-500/10
             pb-14
         ">
             <div className="flex items-center justify-between mb-4">

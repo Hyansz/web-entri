@@ -106,7 +106,7 @@ export const getDaily = async (req, res) => {
             {
                 headers,
                 params: { ...range, unit },
-            }
+            },
         );
 
         console.log("UMAMI PAGEVIEWS RESPONSE:", data);
@@ -185,12 +185,12 @@ export const getEngagement = async (req, res) => {
         let bounceRate = 0;
 
         if (visits > 0) {
-            const avgPagesPerVisit = pageviews / visits;
+            const engagedVisits = Math.max(pageviews - visits, 0);
 
-            engagementRate = Math.min(
-                100,
-                Number(((avgPagesPerVisit / 2) * 100).toFixed(2)),
-            );
+            engagementRate =
+                visits > 0
+                    ? Number(((engagedVisits / visits) * 100).toFixed(2))
+                    : 0;
 
             bounceRate = Number((100 - engagementRate).toFixed(2));
         }

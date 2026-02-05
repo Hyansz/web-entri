@@ -14,7 +14,7 @@ export default function Analytics() {
             <div className="space-y-6">
                 {/* HEADER */}
                 <div className="flex items-center justify-between">
-                    <h1 className="text-xl font-semibold text-white">
+                    <h1 className="text-xl font-semibold">
                         Analytics Overview
                     </h1>
                     <RangeSwitcher value={range} onChange={setRange} />

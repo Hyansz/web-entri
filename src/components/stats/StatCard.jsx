@@ -26,15 +26,15 @@ export default function StatCard({
             rounded-2xl
             bg-white
             p-5
-            border border-gray-200
+            border
             shadow-sm
+            shadow-cyan-500/30
+            border-cyan-600/20
             transition-all duration-300
             hover:-translate-y-1
             hover:shadow-lg
+            hover:shadow-cyan-500/20
         ">
-            {/* Accent bar */}
-            <div className="absolute inset-x-0 top-0 h-1 rounded-t-2xl bg-cyan-500" />
-
             <p className="text-sm text-gray-500">{title}</p>
 
             <div className="mt-2 h-[44px] flex items-center">
@@ -55,7 +55,7 @@ export default function StatCard({
                     <span
                         className={`inline-flex items-center gap-1 font-medium ${
                             isUp
-                                ? "text-cyan-600"
+                                ? "text-green-600"
                                 : isDown
                                 ? "text-red-500"
                                 : "text-gray-400"

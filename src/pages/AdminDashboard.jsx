@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import AdminLayout from "../components/AdminLayout";
 import { Link } from "react-router-dom";
 import api from "../api/axiosInstance";
-import VisitorsToday from "../components/stats/VisitorsToday";
 import PageViewsToday from "../components/stats/PageViewsToday";
 import SessionsToday from "../components/stats/SessionsToday";
 import BounceRate from "../components/stats/BounceRate";
@@ -191,8 +190,7 @@ export default function AdminDashboard() {
             </div>
 
             {/* === UMAMI ANALYTICS === */}
-            <div className="mt-8 grid grid-cols-1 xl:grid-cols-4 gap-6 items-stretch">
-                    <VisitorsToday />
+            <div className="mt-8 grid grid-cols-1 xl:grid-cols-3 gap-6 items-stretch">
                     <PageViewsToday />
                     <SessionsToday />
                     <BounceRate />
