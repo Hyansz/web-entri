@@ -1,24 +1,21 @@
 import { useEffect, useState } from "react";
-import { getSummaryCompare } from "../../api/analytics";
-import StatCard from "../StatCard";
+import { getSummary } from "../../api/analytics";
+import StatCard from "./StatCard";
 
-export default function PageViewsToday() {
+export default function PageViewsToday({ range }) {
     const [current, setCurrent] = useState(0);
-    const [previous, setPrevious] = useState(0);
+    const [previous, setPrevious] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getSummaryCompare("24h")
+        setLoading(true);
+        getSummary(range)
             .then((res) => {
-                setCurrent(res.data.current?.pageviews ?? 0);
-                setPrevious(res.data.previous?.pageviews ?? 0);
-            })
-            .catch(() => {
-                setCurrent(0);
-                setPrevious(0);
+                setCurrent(res.pageviews ?? 0);
+                setPrevious(res.comparison?.pageviews ?? null);
             })
             .finally(() => setLoading(false));
-    }, []);
+    }, [range]);
 
     return (
         <StatCard

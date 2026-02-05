@@ -1,31 +1,37 @@
 import { useEffect, useState } from "react";
 import { getSummaryCompare } from "../../api/analytics";
-import StatCard from "../StatCard";
 
 export default function VisitorsToday() {
-    const [current, setCurrent] = useState(0);
-    const [previous, setPrevious] = useState(0);
-    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState(null);
 
     useEffect(() => {
-        getSummaryCompare("24h")
-            .then((res) => {
-                setCurrent(res.data.current?.visits ?? 0);
-                setPrevious(res.data.previous?.visits ?? 0);
-            })
-            .catch(() => {
-                setCurrent(0);
-                setPrevious(0);
-            })
-            .finally(() => setLoading(false));
+        const fetchData = async () => {
+            try {
+                const res = await getSummaryCompare();
+                setData(res);
+            } catch (err) {
+                console.error("Summary compare error:", err);
+            }
+        };
+
+        fetchData();
     }, []);
 
+    if (!data) return <p>Loading...</p>;
+
     return (
-        <StatCard
-            title="Visitors"
-            value={current}
-            previous={previous}
-            loading={loading}
-        />
+        <div className="bg-white p-4 rounded shadow">
+            <p className="text-sm text-gray-500">Visitors Today</p>
+            <h2 className="text-2xl font-bold">{data.today}</h2>
+            <p
+                className={`text-sm ${
+                    data.percentage >= 0
+                        ? "text-green-600"
+                        : "text-red-600"
+                }`}
+            >
+                {data.percentage}% vs yesterday
+            </p>
+        </div>
     );
 }

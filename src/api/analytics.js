@@ -1,19 +1,74 @@
 import api from "./axiosInstance";
 
-export const getSummary = (range = "7d") =>
-    api.get(`/api/analytics/summary?range=${range}`);
+/**
+ * Helper normalizer
+ */
+const unwrapArray = (res) => {
+    if (Array.isArray(res.data)) return res.data;
+    if (Array.isArray(res.data?.data)) return res.data.data;
+    if (Array.isArray(res.data?.rows)) return res.data.rows;
+    return [];
+};
 
-export const getSummaryCompare = (range = "7d") =>
-    api.get(`/api/analytics/summary-compare?range=${range}`);
+const unwrapObject = (res) => {
+    if (res.data && typeof res.data === "object") return res.data;
+    return {};
+};
 
-export const getDaily = (range = "7d") =>
-    api.get(`/api/analytics/daily?range=${range}`);
+// ================= SUMMARY =================
+export const getSummary = async (range = "7d") => {
+    const res = await api.get(`/api/analytics/summary`, {
+        params: { range },
+    });
+    return unwrapObject(res);
+};
 
-export const getCountries = (range = "7d") =>
-    api.get(`/api/analytics/countries?range=${range}`);
+export const getSummaryCompare = async (range = "7d") => {
+    const res = await api.get(`/api/analytics/summary-compare`, {
+        params: { range },
+    });
+    return unwrapObject(res);
+};
 
-export const getPages = (range = "7d") =>
-    api.get(`/api/analytics/pages?range=${range}`);
+// // ================= DAILY =================
+// export const getDaily = async (range = "7d") => {
+//     const res = await api.get(`/api/analytics/daily`, {
+//         params: { range },
+//     });
+//     return unwrapArray(res);
+// };
 
-export const getEngagement = (range = "24h") =>
-    api.get(`/api/analytics/engagement?range=${range}`);
+// ================= ENGAGEMENT =================
+export const getEngagement = async (range = "24h") => {
+    const res = await api.get(`/api/analytics/engagement`, {
+        params: { range },
+    });
+    return unwrapObject(res);
+};
+
+// ================= OTHER =================
+export const getCountries = async (range = "7d") => {
+    const res = await api.get(`/api/analytics/countries`, {
+        params: { range },
+    });
+    return unwrapArray(res);
+};
+
+export const getPages = async (range = "7d") => {
+    const res = await api.get("/api/analytics/pages", {
+        params: { range }, // ✔️ frontend → backend OK
+    });
+
+    // backend wajib balikin array langsung
+    return Array.isArray(res.data) ? res.data : [];
+};
+
+export const getDaily = async (range = "7d") => {
+    const res = await api.get("/api/analytics/daily", {
+        params: { range },
+    });
+
+    // 🔥 PASTI SESUAI RESPONSE UMAMI
+    return res.data?.data?.pageviews || [];
+};
+

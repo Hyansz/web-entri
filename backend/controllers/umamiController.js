@@ -155,7 +155,7 @@ export const getPages = async (req, res) => {
             `${UMAMI_URL}/websites/${WEBSITE_ID}/metrics`,
             {
                 headers,
-                params: { ...range, type: "page" },
+                params: { ...range, type: "url" },
             },
         );
 

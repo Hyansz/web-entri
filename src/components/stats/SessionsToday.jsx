@@ -1,24 +1,21 @@
 import { useEffect, useState } from "react";
-import { getSummaryCompare } from "../../api/analytics";
-import StatCard from "../StatCard";
+import { getSummary } from "../../api/analytics";
+import StatCard from "./StatCard";
 
-export default function SessionsToday() {
+export default function SessionsToday({ range }) {
     const [current, setCurrent] = useState(0);
-    const [previous, setPrevious] = useState(0);
+    const [previous, setPrevious] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getSummaryCompare("24h")
+        setLoading(true);
+        getSummary(range)
             .then((res) => {
-                setCurrent(res.data.current?.sessions ?? 0);
-                setPrevious(res.data.previous?.sessions ?? 0);
-            })
-            .catch(() => {
-                setCurrent(0);
-                setPrevious(0);
+                setCurrent(res.visits ?? 0);
+                setPrevious(res.comparison?.visits ?? null);
             })
             .finally(() => setLoading(false));
-    }, []);
+    }, [range]);
 
     return (
         <StatCard

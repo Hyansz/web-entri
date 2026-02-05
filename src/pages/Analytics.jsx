@@ -1,28 +1,37 @@
 import { useState } from "react";
-import AdminLayout from "../components/AdminLayout";
+import RangeSwitcher from "../components/analytics/RangeSwitcher";
+import StatsGrid from "../components/analytics/StatsGrid";
 import DailyVisitorsChart from "../components/DailyVisitorsChart";
-import BounceRate from "../components/stats/BounceRate";
-import PageViewsToday from "../components/stats/PageViewsToday";
-import SessionsToday from "../components/stats/SessionsToday";
-import VisitorsToday from "../components/stats/VisitorsToday";
-import RangeSelector from "../components/RangeSelector";
+import TopPages from "../components/analytics/TopPages";
+import TopCountries from "../components/analytics/TopCountries";
+import AdminLayout from "../components/AdminLayout";
 
 export default function Analytics() {
     const [range, setRange] = useState("7d");
 
     return (
         <AdminLayout>
-            <h1>Analytics</h1>
-            <div className="flex items-center justify-between">
-                <h2 className="text-lg font-semibold text-white">
-                    Analytics Overview
-                </h2>
+            <div className="space-y-6">
+                {/* HEADER */}
+                <div className="flex items-center justify-between">
+                    <h1 className="text-xl font-semibold text-white">
+                        Analytics Overview
+                    </h1>
+                    <RangeSwitcher value={range} onChange={setRange} />
+                </div>
 
-                <RangeSelector value={range} onChange={setRange} />
+                {/* STATS */}
+                <StatsGrid range={range} />
+
+                {/* CHART */}
+                <DailyVisitorsChart range={range} />
+
+                {/* TABLES */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <TopPages range={range} />
+                    <TopCountries range={range} />
+                </div>
             </div>
-
-            {/* CHART */}
-            <DailyVisitorsChart range={range} />
         </AdminLayout>
     );
 }
