@@ -199,7 +199,7 @@ export default function Categories() {
             <div className="mb-4 flex items-center gap-2">
                 <button
                     onClick={() => setIsAdding(true)}
-                    className="bg-blue-600 text-white px-3 py-2 rounded cursor-pointer"
+                    className="bg-cyan-600 text-white px-3 py-2 rounded cursor-pointer"
                 >
                     Add Category
                 </button>

@@ -79,7 +79,7 @@ export default function PostList() {
             <div className="mb-4 flex items-center gap-2">
                 <Link
                     to="/admin/posts/create"
-                    className="bg-blue-600 text-white px-3 py-2 rounded cursor-pointer"
+                    className="bg-cyan-600 text-white px-3 py-2 rounded cursor-pointer"
                 >
                     Add Article
                 </Link>

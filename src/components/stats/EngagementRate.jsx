@@ -3,8 +3,8 @@ import { getEngagement } from "../../api/analytics";
 import StatCard from "./StatCard";
 
 export default function EngagementRate({ range }) {
-    const [value, setValue] = useState(0);
-    const [loading, setLoading] = useState(true);
+    const [current, setCurrent] = useState(0);
+    const [previous, setPrevious] = useState(null);
 
     useEffect(() => {
         setLoading(true);
@@ -18,9 +18,9 @@ export default function EngagementRate({ range }) {
     return (
         <StatCard
             title="Engagement"
-            value={value}
+            value={current}
+            previous={previous}
             suffix="%"
-            loading={loading}
         />
     );
 }

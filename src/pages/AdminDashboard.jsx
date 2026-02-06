@@ -115,6 +115,12 @@ export default function AdminDashboard() {
                     </button>
                 </div>
             )}
+            {/* === UMAMI ANALYTICS === */}
+            <div className="my-8 grid grid-cols-1 xl:grid-cols-3 gap-6 items-stretch">
+                <PageViewsToday />
+                <SessionsToday />
+                <BounceRate />
+            </div>
             <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 {/* Card Kategori */}
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 flex flex-col items-center gap-1 transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl hover:shadow-blue-300/40">
@@ -187,13 +193,6 @@ export default function AdminDashboard() {
                         Lihat artikel →
                     </Link>
                 </div>
-            </div>
-
-            {/* === UMAMI ANALYTICS === */}
-            <div className="mt-8 grid grid-cols-1 xl:grid-cols-3 gap-6 items-stretch">
-                    <PageViewsToday />
-                    <SessionsToday />
-                    <BounceRate />
             </div>
         </AdminLayout>
     );

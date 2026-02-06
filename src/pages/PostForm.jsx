@@ -218,7 +218,7 @@ export default function PostForm() {
                         </button>
                         <button
                             type="submit"
-                            className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 cursor-pointer"
+                            className="px-6 py-2 bg-cyan-600 text-white rounded-lg hover:bg-blue-700 cursor-pointer"
                         >
                             Simpan
                         </button>

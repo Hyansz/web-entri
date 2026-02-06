@@ -207,3 +207,40 @@ export const getEngagement = async (req, res) => {
         res.status(500).json({ message: "Gagal hitung engagement" });
     }
 };
+
+export const getEngagementCompare = async (req, res) => {
+    try {
+        const current = getRangeFromQuery(req.query.range);
+        const diff = current.endAt - current.startAt;
+
+        const previous = {
+            startAt: current.startAt - diff,
+            endAt: current.startAt,
+        };
+
+        const [currRes, prevRes] = await Promise.all([
+            axios.get(`${UMAMI_URL}/websites/${WEBSITE_ID}/stats`, {
+                headers,
+                params: current,
+            }),
+            axios.get(`${UMAMI_URL}/websites/${WEBSITE_ID}/stats`, {
+                headers,
+                params: previous,
+            }),
+        ]);
+
+        const calcEngagement = (data) => {
+            const visits = data.visits ?? 0;
+            const pageviews = data.pageviews ?? 0;
+            if (!visits) return 0;
+            return Math.min(100, (pageviews / visits / 2) * 100);
+        };
+
+        res.json({
+            current: Number(calcEngagement(currRes.data).toFixed(2)),
+            previous: Number(calcEngagement(prevRes.data).toFixed(2)),
+        });
+    } catch (err) {
+        res.status(500).json({ message: "Gagal hitung engagement compare" });
+    }
+};
