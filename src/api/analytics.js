@@ -46,6 +46,13 @@ export const getEngagement = async (range = "24h") => {
     return unwrapObject(res);
 };
 
+export const getEngagementCompare = async (range = "7d") => {
+    const res = await api.get("/api/analytics/engagement-compare", {
+        params: { range },
+    });
+    return res.data ?? {};
+};
+
 // ================= OTHER =================
 export const getCountries = async (range = "7d") => {
     const res = await api.get(`/api/analytics/countries`, {

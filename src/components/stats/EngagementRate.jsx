@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
-import { getEngagement } from "../../api/analytics";
+import { getEngagementCompare } from "../../api/analytics";
 import StatCard from "./StatCard";
 
 export default function EngagementRate({ range }) {
     const [current, setCurrent] = useState(0);
     const [previous, setPrevious] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         setLoading(true);
-        getEngagement(range)
+
+        getEngagementCompare(range)
             .then((res) => {
-                setValue(res.engagementRate ?? 0);
+                setCurrent(res.current ?? 0);
+                setPrevious(res.previous ?? null);
+            })
+            .catch(() => {
+                setCurrent(0);
+                setPrevious(null);
             })
             .finally(() => setLoading(false));
     }, [range]);
@@ -21,6 +28,7 @@ export default function EngagementRate({ range }) {
             value={current}
             previous={previous}
             suffix="%"
+            loading={loading}
         />
     );
 }

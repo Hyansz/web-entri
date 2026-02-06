@@ -6,6 +6,7 @@ import {
     getCountries,
     getPages,
     getEngagement,
+    getEngagementCompare,
 } from "../controllers/umamiController.js";
 
 const router = express.Router();
@@ -16,5 +17,6 @@ router.get("/daily", getDaily);
 router.get("/countries", getCountries);
 router.get("/pages", getPages);
 router.get("/engagement", getEngagement);
+router.get("/engagement-compare", getEngagementCompare);
 
 export default router;
