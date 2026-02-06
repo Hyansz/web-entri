@@ -233,7 +233,11 @@ export const getEngagementCompare = async (req, res) => {
             const visits = data.visits ?? 0;
             const pageviews = data.pageviews ?? 0;
             if (!visits) return 0;
-            return Math.min(100, (pageviews / visits / 2) * 100);
+
+            const avgPages = pageviews / visits;
+
+            // batas realistis: 1–3 halaman
+            return Number(Math.min(100, (avgPages / 3) * 100).toFixed(2));
         };
 
         res.json({
