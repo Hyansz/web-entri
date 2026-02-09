@@ -179,26 +179,20 @@ export const getEngagement = async (req, res) => {
         );
 
         const visits = data.visits ?? 0;
-        const pageviews = data.pageviews ?? 0;
+        const bounces = data.bounces ?? 0;
 
         let engagementRate = 0;
         let bounceRate = 0;
 
         if (visits > 0) {
-            const engagedVisits = Math.max(pageviews - visits, 0);
-
-            engagementRate =
-                visits > 0
-                    ? Number(((engagedVisits / visits) * 100).toFixed(2))
-                    : 0;
-
-            bounceRate = Number((100 - engagementRate).toFixed(2));
+            bounceRate = Number(((bounces / visits) * 100).toFixed(2));
+            engagementRate = Number((100 - bounceRate).toFixed(2));
         }
 
         res.json({
             range: req.query.range ?? "7d",
             visits,
-            pageviews,
+            bounces,
             engagementRate,
             bounceRate,
         });
@@ -231,13 +225,10 @@ export const getEngagementCompare = async (req, res) => {
 
         const calcEngagement = (data) => {
             const visits = data.visits ?? 0;
-            const pageviews = data.pageviews ?? 0;
+            const bounces = data.bounces ?? 0;
             if (!visits) return 0;
 
-            const avgPages = pageviews / visits;
-
-            // batas realistis: 1–3 halaman
-            return Number(Math.min(100, (avgPages / 3) * 100).toFixed(2));
+            return Number((100 - (bounces / visits) * 100).toFixed(2));
         };
 
         res.json({
