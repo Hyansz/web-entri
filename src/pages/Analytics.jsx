@@ -5,6 +5,7 @@ import DailyVisitorsChart from "../components/DailyVisitorsChart";
 import TopPages from "../components/analytics/TopPages";
 import TopCountries from "../components/analytics/TopCountries";
 import AdminLayout from "../components/AdminLayout";
+import TopPagesDonut from "../components/TopPagesDonut";
 
 export default function Analytics() {
     const [range, setRange] = useState("7d");
@@ -25,6 +26,11 @@ export default function Analytics() {
 
                 {/* CHART */}
                 <DailyVisitorsChart range={range} />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <TopPagesDonut range={range} />
+                    <TopPagesDonut range={range} />
+                </div>
 
                 {/* TABLES */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

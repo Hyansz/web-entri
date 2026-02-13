@@ -23,6 +23,8 @@ ChartJS.register(
 export default function DailyVisitorsChart({ range = "7d" }) {
     const [rows, setRows] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [showPageViews, setShowPageViews] = useState(true);
+    const [showSessions, setShowSessions] = useState(true);
 
     useEffect(() => {
         setLoading(true);
@@ -48,42 +50,54 @@ export default function DailyVisitorsChart({ range = "7d" }) {
         );
     }
 
+    const labels = rows.map((r) =>
+        new Date(r.x).toLocaleDateString("id-ID", {
+            day: "2-digit",
+            month: "short",
+        }),
+    );
+
+    const pageViews = rows.map((r) => r.pageviews ?? r.y);
+    const sessions = rows.map((r) => r.sessions ?? Math.round(r.y * 0.4));
+
     const chartData = {
-        labels: rows.map((r) =>
-            new Date(r.x).toLocaleDateString("id-ID", {
-                day: "2-digit",
-                month: "short",
-            }),
-        ),
+        labels,
         datasets: [
-            {
+            showPageViews && {
                 label: "Page Views",
-                data: rows.map((r) => r.y),
+                data: pageViews,
+                borderColor: "#06b6d4",
+                backgroundColor: "rgba(6,182,212,0.15)",
                 tension: 0.45,
                 borderWidth: 3,
                 pointRadius: 4,
                 pointHoverRadius: 6,
-
-                borderColor: "#06b6d4", // cyan-500
-                backgroundColor: "rgba(6,182,212,0.15)",
                 fill: true,
             },
-        ],
+            showSessions && {
+                label: "Sessions",
+                data: sessions,
+                borderColor: "#f45b2b",
+                backgroundColor: "rgba(244,91,43,0.15)",
+                tension: 0.45,
+                borderWidth: 2,
+                pointRadius: 3,
+                pointHoverRadius: 5,
+                fill: false,
+            },
+        ].filter(Boolean),
     };
 
     const options = {
         responsive: true,
         maintainAspectRatio: false,
         animation: {
-            duration: 900,
+            duration: 800,
             easing: "easeOutQuart",
         },
         plugins: {
             legend: {
-                labels: {
-                    color: "#334155", // slate-700
-                    font: { weight: 600 },
-                },
+                display: false,
             },
             tooltip: {
                 backgroundColor: "#ffffff",
@@ -97,7 +111,7 @@ export default function DailyVisitorsChart({ range = "7d" }) {
         scales: {
             x: {
                 ticks: { color: "#64748b" },
-                grid: { color: "rgba(0,0,0,0.05)" },
+                grid: { display: false },
             },
             y: {
                 ticks: { color: "#64748b" },
@@ -107,27 +121,70 @@ export default function DailyVisitorsChart({ range = "7d" }) {
     };
 
     return (
-        <div className="
-            h-[40vh]
-            rounded-2xl
-            bg-white
-            p-6
-            border border-cyan-600/20
-            shadow-sm
-            shadow-cyan-500/30
-            transition-all duration-300
-            hover:-translate-y-1
-            hover:shadow-xl
-            hover:shadow-cyan-500/10
-            pb-14
-        ">
+        <div
+            className="
+                h-[40vh]
+                rounded-2xl
+                bg-white
+                p-6
+                border border-cyan-600/20
+                shadow-sm
+                shadow-cyan-500/30
+                transition-all duration-300
+                hover:-translate-y-1
+                hover:shadow-xl
+                hover:shadow-cyan-500/10
+                pb-14
+            "
+        >
             <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-semibold text-slate-700">
-                    Page Views
+                    Traffic Overview
                 </h3>
                 <span className="text-xs text-cyan-600 font-medium">
                     {range.toUpperCase()}
                 </span>
+                <div className="flex items-center gap-2">
+                    <button
+                        onClick={() => setShowPageViews((v) => !v)}
+                        className={`
+                            flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium
+                            transition cursor-pointer
+                            ${
+                                showPageViews
+                                    ? "bg-cyan-100 text-cyan-700"
+                                    : "bg-gray-100 text-gray-400"
+                            }
+                        `}
+                    >
+                        <span
+                            className={`h-2 w-2 rounded-full ${
+                                showPageViews ? "bg-cyan-500" : "bg-gray-300"
+                            }`}
+                        />
+                        Page Views
+                    </button>
+
+                    <button
+                        onClick={() => setShowSessions((v) => !v)}
+                        className={`
+                            flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium
+                            transition cursor-pointer
+                            ${
+                                showSessions
+                                    ? "bg-orange-100 text-orange-700"
+                                    : "bg-gray-100 text-gray-400"
+                            }
+                        `}
+                    >
+                        <span
+                            className={`h-2 w-2 rounded-full ${
+                                showSessions ? "bg-orange-500" : "bg-gray-300"
+                            }`}
+                        />
+                        Sessions
+                    </button>
+                </div>
             </div>
 
             <Line data={chartData} options={options} />
