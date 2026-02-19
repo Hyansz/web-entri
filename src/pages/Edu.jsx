@@ -11,7 +11,6 @@ export default function EducationVideo() {
     const limit = 9;
     const { t, i18n } = useTranslation();
 
-    // Gunakan base URL dinamis agar bisa otomatis menyesuaikan saat deploy
     const API_BASE =
         import.meta.env.VITE_API_URL || "https://web-entri.onrender.com";
 
@@ -50,12 +49,12 @@ export default function EducationVideo() {
         <div>
             {/* Hero Section */}
             <section
-                className="h-[80vh] relative flex flex-col text-white bg-cover bg-top"
+                className="min-h-[80svh] relative flex flex-col text-white bg-cover bg-top"
                 style={{ backgroundImage: "url('/img/education.webp')" }}
             >
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-800 via-black/50 to-black/60"></div>
 
-                <div className="relative z-10 w-11/12 mx-auto flex flex-col items-center h-[80vh] justify-center text-center">
+                <div className="relative z-10 w-11/12 mx-auto flex flex-col items-center min-h-[80svh] justify-center text-center">
                     <h3 className="text-3xl md:text-5xl font-bold mb-4">
                         {t("edu.h1")}{" "}
                         <span className="bg-gradient-to-l from-cyan-400 via-cyan-300 to-cyan-100 bg-clip-text text-transparent">
@@ -83,23 +82,29 @@ export default function EducationVideo() {
                 ) : (
                     <>
                         {/* Grid Video */}
-                        <div className="grid sm:grid-cols-3 md:grid-cols-4 gap-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-8">
                             {videos.map((v) => (
                                 <article
                                     key={v._id || v.id}
-                                    className="bg-white rounded-xl shadow-md shadow-cyan-800/30 p-3 hover:scale-[1.03] transition-transform duration-300 text-cyan-800 border border-cyan-500/20"
+                                    className="bg-white rounded-xl shadow-md shadow-cyan-800/30 p-3 hover:scale-[1.03] transition-transform duration-300 transform-gpu text-cyan-800 border border-cyan-500/20"
                                 >
-                                    <div className="aspect-[9/16] rounded-lg overflow-hidden mb-3">
-                                        <YTLazy
-                                            videoId={`${v.videoId}`}
-                                            className="shadow-xl w-full h-full object-cover scale-[1.02]"
-                                        />
+                                    {/* iOS SAFE aspect ratio */}
+                                    <div className="relative w-full rounded-lg overflow-hidden mb-3">
+                                        <div className="pt-[177.77%]"></div>
+                                        <div className="absolute inset-0">
+                                            <YTLazy
+                                                videoId={`${v.videoId}`}
+                                                className="w-full h-full"
+                                            />
+                                        </div>
                                     </div>
+
                                     <h3 className="text-lg font-semibold">
                                         {i18n.language === "id"
                                             ? v.title_id
                                             : v.title_en}
                                     </h3>
+
                                     {i18n.language === "id" ? (
                                         <p className="text-sm text-gray-600 mt-1">
                                             {v.description_id}
@@ -109,6 +114,7 @@ export default function EducationVideo() {
                                             {v.description_en}
                                         </p>
                                     )}
+
                                     {v.description && (
                                         <p className="text-sm text-gray-600 mt-1">
                                             {i18n.language === "id"
