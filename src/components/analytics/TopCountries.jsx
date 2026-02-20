@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
 import { getCountries } from "../../api/analytics";
 
+// 🔥 Auto convert ISO → Full Name (GLOBAL SUPPORT)
+const regionNames = new Intl.DisplayNames(["en"], {
+    type: "region",
+});
+
 export default function TopCountries({ range }) {
     const [rows, setRows] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         setLoading(true);
-
         getCountries(range)
             .then((data) => {
-                console.log("✅ TOP COUNTRIES RAW:", data);
                 setRows(Array.isArray(data) ? data : []);
             })
-            .catch((err) => {
-                console.error("❌ TOP COUNTRIES ERROR:", err);
-                setRows([]);
-            })
+            .catch(() => setRows([]))
             .finally(() => setLoading(false));
     }, [range]);
 
@@ -32,20 +32,46 @@ export default function TopCountries({ range }) {
                 <p className="text-sm text-gray-500">No data</p>
             ) : (
                 <ul className="space-y-2 text-sm">
-                    {rows.slice(0, 6).map((r, i) => (
-                        <div>
-                            <li
-                                key={i}
-                                className="flex justify-between rounded-lg px-3 py-2 hover:bg-cyan-50"
-                            >
-                                <span className="text-slate-600">{r.x}</span>
-                                <span className="font-semibold text-slate-900">
-                                    {r.y}
-                                </span>
-                            </li>
-                            <hr className="text-cyan-800/20 w-[98%] mx-auto" />
-                        </div>
-                    ))}
+                    {rows.slice(0, 6).map((r, i) => {
+                        const code = r.x?.toUpperCase();
+                        const fullName =
+                            regionNames.of(code) || code;
+
+                        return (
+                            <div key={i}>
+                                <li className="group relative flex justify-between items-center rounded-lg px-3 py-2 hover:bg-cyan-50 transition cursor-pointer">
+                                    
+                                    <span className="flex items-center gap-3 text-slate-700 font-medium">
+                                        <img
+                                            src={`https://flagcdn.com/w40/${code.toLowerCase()}.png`}
+                                            alt={code}
+                                            className="w-6 h-4 object-cover rounded-sm shadow-sm"
+                                        />
+                                        {code}
+                                    </span>
+
+                                    <span className="font-semibold text-slate-900">
+                                        {r.y}
+                                    </span>
+
+                                    {/* 🔥 Tooltip Auto */}
+                                    <div className="
+                                        absolute left-3 -top-8
+                                        opacity-0 group-hover:opacity-100
+                                        transition duration-200
+                                        bg-slate-800 text-white text-xs
+                                        px-2 py-1 rounded-md shadow-md
+                                        whitespace-nowrap
+                                        pointer-events-none
+                                    ">
+                                        {fullName}
+                                    </div>
+                                </li>
+
+                                <hr className="text-cyan-800/20 w-[98%] mx-auto" />
+                            </div>
+                        );
+                    })}
                 </ul>
             )}
         </div>

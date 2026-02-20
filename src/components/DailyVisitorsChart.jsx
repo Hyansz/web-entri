@@ -17,7 +17,7 @@ ChartJS.register(
     LineElement,
     PointElement,
     Tooltip,
-    Legend,
+    Legend
 );
 
 export default function DailyVisitorsChart({ range = "7d" }) {
@@ -54,7 +54,7 @@ export default function DailyVisitorsChart({ range = "7d" }) {
         new Date(r.x).toLocaleDateString("id-ID", {
             day: "2-digit",
             month: "short",
-        }),
+        })
     );
 
     const pageViews = rows.map((r) => r.pageviews ?? r.y);
@@ -70,8 +70,10 @@ export default function DailyVisitorsChart({ range = "7d" }) {
                 backgroundColor: "rgba(6,182,212,0.15)",
                 tension: 0.45,
                 borderWidth: 3,
-                pointRadius: 4,
+                pointRadius: 3,
                 pointHoverRadius: 6,
+                pointBorderWidth: 0, // 🔥 tidak ada lubang
+                pointBackgroundColor: "#06b6d4",
                 fill: true,
             },
             showSessions && {
@@ -82,7 +84,9 @@ export default function DailyVisitorsChart({ range = "7d" }) {
                 tension: 0.45,
                 borderWidth: 2,
                 pointRadius: 3,
-                pointHoverRadius: 5,
+                pointHoverRadius: 6,
+                pointBorderWidth: 0, // 🔥 tidak ada lubang
+                pointBackgroundColor: "#f45b2b",
                 fill: false,
             },
         ].filter(Boolean),
@@ -106,6 +110,9 @@ export default function DailyVisitorsChart({ range = "7d" }) {
                 titleColor: "#0f172a",
                 bodyColor: "#334155",
                 padding: 12,
+            },
+            datalabels: {
+                display: false, // 🔥 pastikan tidak ada angka di titik
             },
         },
         scales: {
@@ -144,6 +151,7 @@ export default function DailyVisitorsChart({ range = "7d" }) {
                 <span className="text-xs text-cyan-600 font-medium">
                     {range.toUpperCase()}
                 </span>
+
                 <div className="flex items-center gap-2">
                     <button
                         onClick={() => setShowPageViews((v) => !v)}

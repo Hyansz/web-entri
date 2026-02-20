@@ -6,6 +6,7 @@ import TopPages from "../components/analytics/TopPages";
 import TopCountries from "../components/analytics/TopCountries";
 import AdminLayout from "../components/AdminLayout";
 import TopPagesDonut from "../components/TopPagesDonut";
+import TopCountriesDonut from "../components/TopCountriesDonut";
 
 export default function Analytics() {
     const [range, setRange] = useState("7d");
@@ -29,7 +30,7 @@ export default function Analytics() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <TopPagesDonut range={range} />
-                    <TopPagesDonut range={range} />
+                    <TopCountriesDonut range={range} />
                 </div>
 
                 {/* TABLES */}
