@@ -20,20 +20,24 @@ export default function ProductLiquid() {
     useEffect(() => {
         setStatus("loading");
 
-        const query = `/api/products2?page=${page}&limit=${limit}&search=${search}&category=${liquidCategoryId}`;
+        let query = `/api/products2?page=${page}&limit=${limit}&category=${liquidCategoryId.trim()}`;
+
+        if (typeof search === "string" && search.trim() !== "") {
+            query += `&search=${search.trim()}`;
+        }
 
         api.get(query)
             .then((res) => {
                 const data = res.data;
 
-                if (!data.data || data.data.length === 0) {
+                if (data?.data?.length > 0) {
+                    setLiquid(data.data);
+                    setTotal(data.pagination?.total || 0);
+                    setStatus("success");
+                } else {
                     setLiquid([]);
                     setTotal(0);
                     setStatus("empty");
-                } else {
-                    setLiquid(data.data);
-                    setTotal(data.pagination.total);
-                    setStatus("success");
                 }
             })
             .catch((err) => {
@@ -49,7 +53,8 @@ export default function ProductLiquid() {
         <>
             <Helmet>
                 <title>
-                    Produk Liquid - Cairan Pembersih & Desinfektan | PT Entri Jaya Makmur
+                    Produk Liquid - Cairan Pembersih & Desinfektan | PT Entri
+                    Jaya Makmur
                 </title>
                 <meta
                     name="description"
@@ -86,7 +91,6 @@ export default function ProductLiquid() {
 
                 {/* Produk */}
                 <section className="w-full md:w-11/12 mx-auto text-center pt-10 pb-16 px-6">
-
                     {/* Search (SAMA PERSIS DENGAN BMHP) */}
                     <div className="mb-10 relative w-full">
                         <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-cyan-600" />
