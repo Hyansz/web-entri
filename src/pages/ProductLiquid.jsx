@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import api from "../api/axiosInstance";
+import { imageUrl } from "../utils/image";
 
 export default function ProductLiquid() {
     const [liquid, setLiquid] = useState([]);
@@ -10,12 +11,11 @@ export default function ProductLiquid() {
     const [total, setTotal] = useState(0);
     const [status, setStatus] = useState("loading");
     const [message, setMessage] = useState("");
-    const [search, setSearch] = useState("");
+    const [search, setSearch] = "";
+
     const limit = 16;
 
     const liquidCategoryId = "6930def8256fb3df61f81c0d";
-
-    const ASSET_URL = import.meta.env.VITE_ASSET_URL;
 
     useEffect(() => {
         setStatus("loading");
@@ -49,8 +49,7 @@ export default function ProductLiquid() {
         <>
             <Helmet>
                 <title>
-                    Produk Liquid - Cairan Pembersih & Desinfektan | PT Entri
-                    Jaya Makmur
+                    Produk Liquid - Cairan Pembersih & Desinfektan | PT Entri Jaya Makmur
                 </title>
                 <meta
                     name="description"
@@ -63,7 +62,7 @@ export default function ProductLiquid() {
             </Helmet>
 
             <div>
-                {/* Hero */}
+                {/* Hero (SAMA STRUKTUR DENGAN BMHP) */}
                 <section
                     className="h-[40vh] relative flex flex-col text-white bg-cover bg-no-repeat bg-center md:bg-right"
                     style={{
@@ -79,7 +78,7 @@ export default function ProductLiquid() {
                                 Produk{" "}
                                 <span className="bg-gradient-to-l from-cyan-500 via-cyan-400 to-cyan-200 bg-clip-text text-transparent">
                                     Liquid
-                                </span>{" "}
+                                </span>
                             </h3>
                         </div>
                     </div>
@@ -87,12 +86,14 @@ export default function ProductLiquid() {
 
                 {/* Produk */}
                 <section className="w-full md:w-11/12 mx-auto text-center pt-10 pb-16 px-6">
+
+                    {/* Search (SAMA PERSIS DENGAN BMHP) */}
                     <div className="mb-10 relative w-full">
                         <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-cyan-600" />
 
                         <input
                             type="text"
-                            placeholder="Cari produk furniture..."
+                            placeholder="Cari produk Liquid..."
                             onChange={(e) => setSearch(e.target.value)}
                             className="border pl-9 w-full px-3 py-2 rounded-xl bg-white shadow-md shadow-cyan-800/40 p-4 text-cyan-800 border-cyan-500/80 focus:outline-cyan-500"
                         />
@@ -106,13 +107,13 @@ export default function ProductLiquid() {
 
                     {status === "error" && (
                         <p className="text-red-600 text-lg font-semibold">
-                            {message || "Terjadi kesalahan, coba lagi nanti."}
+                            {message}
                         </p>
                     )}
 
                     {status === "empty" && (
                         <p className="text-gray-500 text-lg font-semibold">
-                            {message || "Belum ada produk liquid."}
+                            Belum ada produk Liquid.
                         </p>
                     )}
 
@@ -125,15 +126,16 @@ export default function ProductLiquid() {
                                         className="bg-white rounded-xl shadow-md shadow-cyan-800/40 p-4 hover:scale-105 duration-500 text-cyan-800 border border-cyan-500/20 flex flex-col justify-between"
                                     >
                                         <img
-                                            src={`${ASSET_URL}${p.image}`}
+                                            src={imageUrl(p.image)}
                                             alt={p.name}
                                             className="h-[120px] md:h-[220px] w-full object-contain mx-auto mb-3"
+                                            loading="lazy"
                                         />
+
                                         <h3 className="text-lg font-semibold mb-3">
                                             {p.name}
                                         </h3>
 
-                                        {/* 🔹 Tombol Detail */}
                                         <Link
                                             to={`/products/${p._id}`}
                                             className="inline-block mt-auto px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
@@ -150,7 +152,7 @@ export default function ProductLiquid() {
                                 ))}
                             </div>
 
-                            {/* Pagination */}
+                            {/* Pagination (SAMA PERSIS) */}
                             <div className="flex justify-center flex-wrap gap-2 mt-8">
                                 <button
                                     onClick={() => setPage(page - 1)}
@@ -170,7 +172,7 @@ export default function ProductLiquid() {
                                                 behavior: "smooth",
                                             });
                                         }}
-                                        className={`px-4 py-2 rounded cursor-pointer ${
+                                        className={`px-4 py-2 rounded ${
                                             page === i + 1
                                                 ? "bg-cyan-800 text-white"
                                                 : "bg-gray-200 text-cyan-800"

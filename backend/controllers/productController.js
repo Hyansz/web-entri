@@ -11,9 +11,16 @@ export const getProducts = async (req, res, next) => {
         limit = Math.max(1, parseInt(limit));
 
         const filter = {};
-        if (search) filter.name = { $regex: search, $options: "i" };
-        if (category && mongoose.Types.ObjectId.isValid(category)) {
-            filter.category = new mongoose.Types.ObjectId(category);
+
+        if (category?.trim() && mongoose.Types.ObjectId.isValid(category)) {
+            filter.category = new mongoose.Types.ObjectId(category.trim());
+        }
+
+        if (search?.trim()) {
+            filter.name = {
+                $regex: search.trim(),
+                $options: "i",
+            };
         }
 
         const total = await Product.countDocuments(filter);
@@ -56,7 +63,7 @@ export const getProductById = async (req, res, next) => {
     try {
         const product = await Product.findById(req.params.id).populate(
             "category",
-            "name"
+            "name",
         );
 
         if (!product) {
