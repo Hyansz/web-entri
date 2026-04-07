@@ -184,6 +184,9 @@ export default function Contact() {
                                         <span className="text-sm text-gray-500">
                                             (Format: JPG, PNG, WebP)
                                         </span>
+                                        <span className="text-sm text-gray-500">
+                                            max. 5MB
+                                        </span>
                                     </label>
                                     <input
                                         type="file"
