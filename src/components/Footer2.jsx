@@ -91,6 +91,19 @@ export default function Footer2() {
                                         {t("hero.mitra")}
                                     </Link>
                                     <Link
+                                        to="/sertifikasi"
+                                        title="Sertifikasi"
+                                        onClick={() =>
+                                            window.scrollTo({
+                                                top: 0,
+                                                behavior: "smooth",
+                                            })
+                                        }
+                                        className="transition duration-300 w-full md:w-fit hover:scale-110"
+                                    >
+                                        {t("hero.sertif")}
+                                    </Link>
+                                    <Link
                                         to="/products"
                                         title="Semua Produk"
                                         onClick={() =>
@@ -125,7 +138,7 @@ export default function Footer2() {
                                     </Link>
                                     <Link
                                         to="/posts"
-                                        title="Atikel"
+                                        title="Artikel"
                                         onClick={() =>
                                             window.scrollTo({
                                                 top: 0,

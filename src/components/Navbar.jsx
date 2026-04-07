@@ -151,6 +151,15 @@ export default function Navbar() {
                         {t("hero.mitra")}
                     </Link>
 
+                    <Link
+                        to="/sertifikasi"
+                        title="Sertifikasi Kami"
+                        onClick={() => handleMenuClick()}
+                        className="transition duration-300 hover:text-yellow-400 hover:scale-110"
+                    >
+                        {t("hero.sertif")}
+                    </Link>
+
                     {/* Products Dropdown - Desktop */}
                     <div className="relative" ref={desktopDropdownRef}>
                         <button
@@ -333,6 +342,7 @@ export default function Navbar() {
                         [t("nav.home"), "/"],
                         [t("nav.tentang"), "/about"],
                         [t("hero.mitra"), "/mitra"],
+                        [t("hero.sertif"), "/sertifikasi"],
                         [t("nav.blog"), "/posts"],
                         [t("nav.edu"), "/edu"],
                         [t("nav.kontak"), "/contact"],

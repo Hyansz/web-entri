@@ -1,14 +1,8 @@
-import { HiOutlineCpuChip } from "react-icons/hi2";
-import { MdOutlineVerified } from "react-icons/md";
-import { RiCustomerService2Fill } from "react-icons/ri";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import OptimizedImage from "../components/OptimizedImage";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
-import { FaUserGroup } from "react-icons/fa6";
 
 export default function Mitra() {
     const { t } = useTranslation();

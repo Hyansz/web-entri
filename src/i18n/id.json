@@ -21,6 +21,7 @@
         "op2": "Berkualitas",
         "sc3": "PT Entri Jaya Makmur merupakan produsen alat kesehatan berskala global dengan kualitas terjamin dan mengutamakan kepuasan pelanggan.",
         "mitra": "Mitra",
+        "sertif": "Sertifikasi",
         "more": "Selengkapnya",
         "sc4": "Aneka perabot dan perlengkapan  khusus untuk menunjang fasilitas kesehatan.",
         "sc5": "Produk",
@@ -46,6 +47,12 @@
         "h2": "Diseluruh Indonesia",
         "klien1": "Mari Bergabung Menjadi",
         "klien2": "Mitra Kami"
+    },
+    "sertif": {
+        "h1": "Komitmen pada Standar Tinggi",
+        "h2": "Sertifikasi Resmi & Terpercaya",
+        "klien1": "Bukti Nyata",
+        "klien2": "Kualitas dan Profesionalisme Kami"
     },
     "about": {
         "h1": "Cari Suppliyer",

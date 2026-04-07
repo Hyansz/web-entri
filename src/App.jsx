@@ -28,6 +28,7 @@ import PostForm from "./pages/PostForm";
 import PostDetail from "./pages/PostDetail";
 import HistatsTracker from "./components/HistatsTracker";
 import Analytics from "./pages/Analytics";
+import Sertifikasi from "./pages/Sertifikasi";
 
 AOS.init();
 
@@ -41,6 +42,7 @@ export default function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/mitra" element={<Mitra />} />
+                    <Route path="/sertifikasi" element={<Sertifikasi />} />
                     <Route path="/blog" element={<BlogList />} />
                     <Route path="/blog/:slug" element={<BlogDetail />} />
                     <Route path="/edu" element={<EducationVideo />} />

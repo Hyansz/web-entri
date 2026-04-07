@@ -21,6 +21,7 @@
         "op2": "High Quality",
         "sc3": "PT Entri Jaya Makmur is a global-scale medical equipment manufacturer with guaranteed quality and a strong commitment to customer satisfaction.",
         "mitra": "Partnership",
+        "sertif": "Certification",
         "more": "More",
         "sc4": "A variety of furniture and specialized equipment to support healthcare facilities.",
         "sc5": "Liquid",
@@ -46,6 +47,12 @@
         "h2": "Across Indonesia",
         "klien1": "Join Us as",
         "klien2": "Our Partner"
+    },
+    "sertif": {
+        "h1": "Committed to High Standards",
+        "h2": "Certified & Trusted",
+        "klien1": "Proof of",
+        "klien2": "Our Quality and Professionalism"
     },
     "about": {
         "h1": "Looking for a trusted",
