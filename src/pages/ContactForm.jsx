@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaImage, FaUpload } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
-import Turnstile from "@marsidev/react-turnstile";
+import { Turnstile } from "@marsidev/react-turnstile";
 
 export default function Contact() {
     const [captchaToken, setCaptchaToken] = useState("");
