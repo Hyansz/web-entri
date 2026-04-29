@@ -4,9 +4,56 @@ import { Resend } from "resend";
 import { fileTypeFromBuffer } from "file-type";
 import sanitizeHtml from "sanitize-html";
 
-const router = express.Router();
 /* =========================
-   RESEND LAZY INIT (ANTI ERROR ESM)
+   TURNSTILE VERIFY
+========================= */
+async function verifyTurnstile(token) {
+    const secret = process.env.TURNSTILE_SECRET_KEY;
+
+    const res = await fetch(
+        "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `secret=${secret}&response=${token}`,
+        },
+    );
+
+    const data = await res.json();
+    return data.success;
+}
+
+/* =========================
+   VALIDATION HELPERS
+========================= */
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function containsSpam(text) {
+    const spamKeywords = [
+        "http://",
+        "https://",
+        "www.",
+        "viagra",
+        "casino",
+        "slot",
+        "porn",
+        "sex",
+        "loan",
+        "free money",
+    ];
+
+    const lower = text.toLowerCase();
+    return spamKeywords.some((k) => lower.includes(k));
+}
+
+const router = express.Router();
+
+/* =========================
+   RESEND LAZY INIT
 ========================= */
 let resend;
 
@@ -53,19 +100,93 @@ router.post("/send-email", uploadMemory.single("photo"), async (req, res) => {
 
         const resendClient = getResend();
 
-        const { name, email, subject, message } = req.body;
+        const {
+            name,
+            email,
+            subject,
+            message,
+            captchaToken,
+            website,
+            company_code,
+        } = req.body;
+
+        /* =========================
+            HONEYPOT (ANTI BOT)
+        ========================= */
+        if (website || company_code) {
+            return res.status(400).json({
+                success: false,
+                message: "Spam detected",
+            });
+        }
+
+        /* =========================
+            CAPTCHA VALIDATION
+        ========================= */
+        if (!captchaToken) {
+            return res.status(400).json({
+                success: false,
+                message: "Captcha required",
+            });
+        }
+
+        const isValidCaptcha = await verifyTurnstile(captchaToken);
+
+        if (!isValidCaptcha) {
+            return res.status(403).json({
+                success: false,
+                message: "Invalid captcha",
+            });
+        }
+
+        /* =========================
+            INPUT VALIDATION
+        ========================= */
+        if (!name || name.length < 2) {
+            return res.status(400).json({
+                success: false,
+                message: "Nama tidak valid",
+            });
+        }
+
+        if (!email || !isValidEmail(email)) {
+            return res.status(400).json({
+                success: false,
+                message: "Email tidak valid",
+            });
+        }
+
+        if (!message || message.length < 10) {
+            return res.status(400).json({
+                success: false,
+                message: "Pesan terlalu pendek",
+            });
+        }
+
+        /* =========================
+            ANTI SPAM TEXT
+        ========================= */
+        if (containsSpam(message) || containsSpam(subject || "")) {
+            return res.status(403).json({
+                success: false,
+                message: "Spam terdeteksi",
+            });
+        }
+
+        /* =========================
+            SANITIZE MESSAGE
+        ========================= */
         const cleanMessage = sanitizeHtml(message, {
             allowedTags: ["br"],
             allowedAttributes: {},
         });
 
         const file = req.file;
-
         let attachments = [];
 
         /* =========================
-                VALIDASI FILE ASLI
-            ========================= */
+            VALIDASI FILE
+        ========================= */
         if (file) {
             const forbiddenExt = /\.(exe|js|php|sh|bat|cmd|svg)$/i;
 
@@ -97,8 +218,8 @@ router.post("/send-email", uploadMemory.single("photo"), async (req, res) => {
         }
 
         /* =========================
-                SEND EMAIL
-            ========================= */
+            SEND EMAIL (UNCHANGED)
+        ========================= */
         const data = await resendClient.emails.send({
             from: "onboarding@resend.dev",
             to: [process.env.TARGET_EMAIL],
@@ -149,7 +270,7 @@ router.post("/send-email", uploadMemory.single("photo"), async (req, res) => {
 
                     </div>
                 </div>
-                `,
+            `,
             attachments,
         });
 
