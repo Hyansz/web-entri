@@ -49,6 +49,8 @@ export default function Contact() {
             data.append("subject", formData.subject);
             data.append("message", formData.message);
             data.append("captchaToken", captchaToken);
+            data.append("website", "");
+            data.append("company_code", "");
             if (file) data.append("photo", file);
 
             const res = await fetch(
@@ -58,6 +60,10 @@ export default function Contact() {
                     body: data,
                 },
             );
+
+            const result = await res.json();
+
+            console.log("RESPONSE:", result);
 
             if (res.ok) {
                 setStatus("✅ Pesan berhasil dikirim!");
@@ -81,7 +87,7 @@ export default function Contact() {
                     setCaptchaToken("");
                 }, 3000);
             } else {
-                setStatus("❌ Gagal mengirim pesan.");
+                setStatus(`❌ ${result.message || "Gagal mengirim pesan."}`);
             }
         } catch (error) {
             console.error(error);
@@ -146,7 +152,12 @@ export default function Contact() {
                                 <input
                                     type="text"
                                     name="website"
-                                    style={{ display: "none" }}
+                                    autoComplete="off"
+                                    tabIndex="-1"
+                                    style={{
+                                        position: "absolute",
+                                        left: "-9999px",
+                                    }}
                                 />
                                 <input
                                     type="text"
@@ -160,7 +171,12 @@ export default function Contact() {
                                 <input
                                     type="text"
                                     name="company_code"
-                                    style={{ display: "none" }}
+                                    autoComplete="off"
+                                    tabIndex="-1"
+                                    style={{
+                                        position: "absolute",
+                                        left: "-9999px",
+                                    }}
                                 />
                                 <input
                                     type="email"
@@ -236,6 +252,8 @@ export default function Contact() {
                                     onSuccess={(token) =>
                                         setCaptchaToken(token)
                                     }
+                                    onExpire={() => setCaptchaToken("")}
+                                    onError={() => setCaptchaToken("")}
                                 />
 
                                 <button
