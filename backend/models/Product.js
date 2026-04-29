@@ -3,6 +3,11 @@ import mongoose from "mongoose";
 const ProductSchema = new mongoose.Schema(
     {
         name: { type: String, required: true },
+        kemenkesType: {
+            type: String,
+            enum: ["AKD", "PKD"],
+            default: "AKD",
+        },
         kemenkesNumber: { type: String },
         brand: { type: String },
         location: { type: String },
@@ -17,7 +22,7 @@ const ProductSchema = new mongoose.Schema(
             required: false,
         },
     },
-    { timestamps: true }
+    { timestamps: true },
 );
 
 ProductSchema.index({ createdAt: -1 });

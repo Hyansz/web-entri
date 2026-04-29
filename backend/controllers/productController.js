@@ -83,6 +83,7 @@ export const createProduct = async (req, res, next) => {
     try {
         const {
             name,
+            kemenkesType,
             kemenkesNumber,
             brand,
             location,
@@ -103,6 +104,7 @@ export const createProduct = async (req, res, next) => {
 
         const product = new Product({
             name,
+            kemenkesType,
             kemenkesNumber,
             brand,
             location,
@@ -131,6 +133,7 @@ export const updateProduct = async (req, res, next) => {
 
         const fields = [
             "name",
+            "kemenkesType",
             "kemenkesNumber",
             "brand",
             "location",

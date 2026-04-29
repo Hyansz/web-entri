@@ -5,7 +5,22 @@ import { fileTypeFromBuffer } from "file-type";
 import sanitizeHtml from "sanitize-html";
 
 const router = express.Router();
-const resend = new Resend(process.env.RESEND_API_KEY);
+/* =========================
+   RESEND LAZY INIT (ANTI ERROR ESM)
+========================= */
+let resend;
+
+function getResend() {
+    if (!process.env.RESEND_API_KEY) {
+        throw new Error("RESEND_API_KEY not set");
+    }
+
+    if (!resend) {
+        resend = new Resend(process.env.RESEND_API_KEY);
+    }
+
+    return resend;
+}
 
 /* =========================
     MULTER MEMORY STORAGE
@@ -29,6 +44,15 @@ const uploadMemory = multer({
 ========================= */
 router.post("/send-email", uploadMemory.single("photo"), async (req, res) => {
     try {
+        if (!process.env.RESEND_API_KEY) {
+            return res.status(500).json({
+                success: false,
+                message: "Email service not configured",
+            });
+        }
+
+        const resendClient = getResend();
+
         const { name, email, subject, message } = req.body;
         const cleanMessage = sanitizeHtml(message, {
             allowedTags: ["br"],
@@ -75,7 +99,7 @@ router.post("/send-email", uploadMemory.single("photo"), async (req, res) => {
         /* =========================
                 SEND EMAIL
             ========================= */
-        const data = await resend.emails.send({
+        const data = await resendClient.emails.send({
             from: "onboarding@resend.dev",
             to: [process.env.TARGET_EMAIL],
             subject: `New Message from ${name}`,

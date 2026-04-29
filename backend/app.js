@@ -1,6 +1,8 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 import helmet from "helmet";
 import { fileURLToPath } from "url";
 import path from "path";
@@ -14,8 +16,6 @@ import umamiRoutes from "./routes/umami.js";
 import emailRoutes from "./routes/email.js";
 import mongoSanitize from "mongo-sanitize";
 import { publicLimiter, adminLimiter } from "./middleware/rateLimiters.js";
-
-dotenv.config();
 
 const app = express();
 
