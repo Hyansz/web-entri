@@ -3,8 +3,10 @@ import { Helmet } from "react-helmet";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaImage, FaUpload } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
+import Turnstile from "@marsidev/react-turnstile";
 
 export default function Contact() {
+    const [captchaToken, setCaptchaToken] = useState("");
     const [showModal, setShowModal] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
@@ -31,6 +33,12 @@ export default function Contact() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if (!captchaToken) {
+            setStatus("⚠️ Verifikasi captcha dulu ya");
+            setShowModal(true);
+            return;
+        }
+
         setStatus("⏳ Mengirim pesan...");
         setShowModal(true);
 
@@ -40,12 +48,16 @@ export default function Contact() {
             data.append("email", formData.email);
             data.append("subject", formData.subject);
             data.append("message", formData.message);
+            data.append("captchaToken", captchaToken);
             if (file) data.append("photo", file);
 
-            const res = await fetch("https://web-entri.vercel.app/send-email", {
-                method: "POST",
-                body: data,
-            });
+            const res = await fetch(
+                `${import.meta.env.VITE_API_URL}/send-email`,
+                {
+                    method: "POST",
+                    body: data,
+                },
+            );
 
             if (res.ok) {
                 setStatus("✅ Pesan berhasil dikirim!");
@@ -66,6 +78,7 @@ export default function Contact() {
                 setTimeout(() => {
                     setShowModal(false);
                     setStatus("");
+                    setCaptchaToken("");
                 }, 3000);
             } else {
                 setStatus("❌ Gagal mengirim pesan.");
@@ -132,12 +145,22 @@ export default function Contact() {
                             >
                                 <input
                                     type="text"
+                                    name="website"
+                                    style={{ display: "none" }}
+                                />
+                                <input
+                                    type="text"
                                     name="name"
                                     placeholder={t("kontak.placeholder.name")}
                                     value={formData.name}
                                     onChange={handleChange}
                                     className="w-full p-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     required
+                                />
+                                <input
+                                    type="text"
+                                    name="company_code"
+                                    style={{ display: "none" }}
                                 />
                                 <input
                                     type="email"
@@ -152,7 +175,7 @@ export default function Contact() {
                                     type="text"
                                     name="subject"
                                     placeholder={t(
-                                        "kontak.placeholder.subject"
+                                        "kontak.placeholder.subject",
                                     )}
                                     value={formData.subject}
                                     onChange={handleChange}
@@ -161,7 +184,7 @@ export default function Contact() {
                                 <textarea
                                     name="message"
                                     placeholder={t(
-                                        "kontak.placeholder.message"
+                                        "kontak.placeholder.message",
                                     )}
                                     value={formData.message}
                                     onChange={handleChange}
@@ -205,6 +228,15 @@ export default function Contact() {
                                         </p>
                                     )}
                                 </div>
+
+                                <Turnstile
+                                    siteKey={
+                                        import.meta.env.VITE_TURNSTILE_SITE_KEY
+                                    }
+                                    onSuccess={(token) =>
+                                        setCaptchaToken(token)
+                                    }
+                                />
 
                                 <button
                                     type="submit"
