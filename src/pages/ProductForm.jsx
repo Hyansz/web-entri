@@ -18,6 +18,7 @@ export default function ProductForm() {
 
     const [form, setForm] = useState({
         name: "",
+        kemenkesType: "AKD",
         kemenkesNumber: "",
         brand: "",
         location: "",
@@ -46,6 +47,7 @@ export default function ProductForm() {
 
             setForm({
                 name: p.name || "",
+                kemenkesType: p.kemenkesType || "AKD",
                 kemenkesNumber: p.kemenkesNumber || "",
                 brand: p.brand || "",
                 location: p.location || "",
@@ -55,8 +57,8 @@ export default function ProductForm() {
                     typeof p.image === "object"
                         ? p.image?.url || ""
                         : typeof p.image === "string"
-                        ? p.image
-                        : "",
+                          ? p.image
+                          : "",
             });
 
             setImage(null);
@@ -129,6 +131,7 @@ export default function ProductForm() {
 
         const fd = new FormData();
         fd.append("name", form.name);
+        fd.append("kemenkesType", form.kemenkesType);
         fd.append("kemenkesNumber", form.kemenkesNumber);
         fd.append("brand", form.brand);
         fd.append("location", form.location);
@@ -181,18 +184,39 @@ export default function ProductForm() {
                         required
                     />
 
-                    <input
-                        value={form.kemenkesNumber}
-                        onChange={(e) =>
-                            setForm({
-                                ...form,
-                                kemenkesNumber: e.target.value,
-                            })
-                        }
-                        type="number"
-                        placeholder="Nomor Kemenkes"
-                        className="w-full border p-2 rounded"
-                    />
+                    <div className="space-y-1">
+                        <label className="text-sm font-medium">
+                            Kemenkes RI
+                        </label>
+
+                        <div className="flex gap-2">
+                            <select
+                                value={form.kemenkesType}
+                                onChange={(e) =>
+                                    setForm({
+                                        ...form,
+                                        kemenkesType: e.target.value,
+                                    })
+                                }
+                                className="border p-2 rounded"
+                            >
+                                <option value="AKD">AKD</option>
+                                <option value="PKD">PKD</option>
+                            </select>
+
+                            <input
+                                value={form.kemenkesNumber}
+                                onChange={(e) =>
+                                    setForm({
+                                        ...form,
+                                        kemenkesNumber: e.target.value,
+                                    })
+                                }
+                                placeholder={`Nomor ${form.kemenkesType}`}
+                                className="w-full border p-2 rounded"
+                            />
+                        </div>
+                    </div>
 
                     <input
                         value={form.brand}

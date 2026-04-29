@@ -33,8 +33,8 @@ export default function ProductDetail() {
     }, [id]);
 
     // 🔹 Pisahkan spesifikasi
-    const spesifikasiList = product?.spesifications
-        ? product.spesifications.split("|").map((s) => s.trim())
+    const spesifikasiList = product?.specifications
+        ? product.specifications.split("|").map((s) => s.trim())
         : [];
 
     return (
@@ -98,7 +98,7 @@ export default function ProductDetail() {
                                 <tbody>
                                     <tr>
                                         <td className="w-1/2 font-medium">
-                                            Kemenkes RI AKD
+                                            Kemenkes RI {product.kemenkesType}
                                         </td>
                                         <td className="w-1/2 font-medium text-cyan-800">
                                             : {product.kemenkesNumber}
