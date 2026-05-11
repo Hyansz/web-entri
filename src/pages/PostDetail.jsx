@@ -80,7 +80,7 @@ export default function PostDetail() {
                         className="content-html max-w-none text-gray-800 leading-relaxed"
                         dangerouslySetInnerHTML={{ __html: post.content }}
                     ></div>
-                    <div className="mt-10 pt-6 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6 text-center">
+                    <div className="mt-10 pt-6 pb-2 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6 text-center">
                         <span className="text-[11px] md:text-xs text-cyan-700 bg-cyan-50 px-4 py-1 rounded-full border border-cyan-200 tracking-wide">
                             PT ENTRI JAYA MAKMUR Pabrik Alkohol Antiseptik
                         </span>
