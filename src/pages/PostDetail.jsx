@@ -72,11 +72,23 @@ export default function PostDetail() {
                     </h4>
                 </div>
 
-                <div className="bg-white shadow-md rounded-lg p-8 mb-5" lang="id">
+                <div
+                    className="bg-white shadow-md rounded-lg p-8 mb-5"
+                    lang="id"
+                >
                     <div
                         className="content-html max-w-none text-gray-800 leading-relaxed"
                         dangerouslySetInnerHTML={{ __html: post.content }}
                     ></div>
+                    <div className="mt-10 pt-6 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6 text-center">
+                        <span className="text-[11px] md:text-xs text-cyan-700 bg-cyan-50 px-4 py-1 rounded-full border border-cyan-200 tracking-wide">
+                            PT ENTRI JAYA MAKMUR Pabrik Alkohol Antiseptik
+                        </span>
+
+                        <span className="text-[11px] md:text-xs text-cyan-700 bg-cyan-50 px-4 py-1 rounded-full border border-cyan-200 tracking-wide">
+                            PT ENTRI JAYA MAKMUR Pabrik Alkohol Etanol
+                        </span>
+                    </div>
                     <section class="bg-white/30 shadow-md backdrop-blur-sm rounded-lg pt-8 px-8 pb-10 md:pb-15 text-center">
                         <a
                             href="https://wa.me/6285174394123?text=Halo,%20Saya%20dari%20website%20entri."
