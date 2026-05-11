@@ -24,21 +24,33 @@ app.set("trust proxy", 1);
 app.use(
     helmet({
         crossOriginResourcePolicy: { policy: "cross-origin" },
-    })
+    }),
 );
+
+const allowedOrigins = [
+    "http://localhost:5173",
+    "http://localhost:4173",
+    "https://web-entri.vercel.app",
+    "https://entrijayamakmur.co.id",
+    "https://www.entrijayamakmur.co.id",
+];
 
 app.use(
     cors({
-        origin: [
-            "http://localhost:5173",
-            "http://localhost:4173",
-            "https://web-entri.vercel.app",
-            "https://entrijayamakmur.co.id",
-            "https://www.entrijayamakmur.co.id",
-        ],
+        origin: function (origin, callback) {
+            // allow requests with no origin
+            if (!origin) return callback(null, true);
+
+            if (allowedOrigins.includes(origin)) {
+                callback(null, true);
+            } else {
+                callback(new Error("Not allowed by CORS"));
+            }
+        },
         methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         allowedHeaders: ["Content-Type", "Authorization"],
-    })
+        credentials: true,
+    }),
 );
 
 app.use((req, res, next) => {
@@ -87,7 +99,7 @@ app.use(
         res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
         next();
     },
-    express.static(path.join(__dirname, "public/uploads"))
+    express.static(path.join(__dirname, "public/uploads")),
 );
 
 app.use("/api/admin", adminRoutes);
