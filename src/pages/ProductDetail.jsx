@@ -6,7 +6,7 @@ import api from "../api/axiosInstance";
 import { imageUrl } from "../utils/image";
 
 export default function ProductDetail() {
-    const { id } = useParams();
+    const { slug } = useParams();
     const navigate = useNavigate();
 
     const [product, setProduct] = useState(null);
@@ -19,7 +19,7 @@ export default function ProductDetail() {
         setLoading(true);
         setError(false);
 
-        api.get(`/api/products2/${id}`)
+        api.get(`/api/products2/${slug}`)
             .then((res) => {
                 setProduct(res.data);
             })
@@ -30,7 +30,7 @@ export default function ProductDetail() {
             .finally(() => {
                 setLoading(false);
             });
-    }, [id]);
+    }, [slug]);
 
     // 🔹 Pisahkan spesifikasi
     const spesifikasiList = product?.specifications

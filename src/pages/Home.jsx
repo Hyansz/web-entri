@@ -64,6 +64,14 @@ export default function Home() {
         return "/img/no-image.png";
     };
 
+    const slugify = (text) =>
+        text
+            .toLowerCase()
+            .trim()
+            .replace(/[^a-z0-9\s-]/g, "")
+            .replace(/\s+/g, "-")
+            .replace(/-+/g, "-");
+
     return (
         <>
             <Helmet>
@@ -256,7 +264,7 @@ export default function Home() {
                                                     {item.name}
                                                 </p>
                                                 <Link
-                                                    to={`/products/${item._id}`}
+                                                    to={`/products/${slugify(item.name)}`}
                                                     onClick={() =>
                                                         window.scrollTo({
                                                             top: 0,
@@ -339,7 +347,7 @@ export default function Home() {
                                                     {item.name}
                                                 </p>
                                                 <Link
-                                                    to={`/products/${item._id}`}
+                                                    to={`/products/${slugify(item.name)}`}
                                                     onClick={() =>
                                                         window.scrollTo({
                                                             top: 0,
@@ -422,7 +430,7 @@ export default function Home() {
                                                     {item.name}
                                                 </p>
                                                 <Link
-                                                    to={`/products/${item._id}`}
+                                                    to={`/products/${slugify(item.name)}`}
                                                     onClick={() =>
                                                         window.scrollTo({
                                                             top: 0,
@@ -505,7 +513,7 @@ export default function Home() {
                                                     {item.name}
                                                 </p>
                                                 <Link
-                                                    to={`/products/${item._id}`}
+                                                    to={`/products/${slugify(item.name)}`}
                                                     onClick={() =>
                                                         window.scrollTo({
                                                             top: 0,

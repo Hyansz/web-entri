@@ -44,7 +44,7 @@ export default function Products() {
     // 🔒 FILTER AMAN (TIDAK BERUBAH)
     const filterDb = (catId) =>
         dbProducts.filter(
-            (p) => p.category?._id === catId || p.category === catId
+            (p) => p.category?._id === catId || p.category === catId,
         );
 
     const resolveImage = (image) => {
@@ -63,6 +63,14 @@ export default function Products() {
 
         return "/img/no-image.png";
     };
+
+    const slugify = (text) =>
+        text
+            .toLowerCase()
+            .trim()
+            .replace(/[^a-z0-9\s-]/g, "")
+            .replace(/\s+/g, "-")
+            .replace(/-+/g, "-");
 
     return (
         <>
@@ -155,7 +163,7 @@ export default function Products() {
                                             <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                                 <img
                                                     src={resolveImage(
-                                                        item.image
+                                                        item.image,
                                                     )}
                                                     alt={item.name}
                                                     className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
@@ -164,7 +172,7 @@ export default function Products() {
                                                     {item.name}
                                                 </p>
                                                 <Link
-                                                    to={`/products/${item._id}`}
+                                                    to={`/products/${slugify(item.name)}`}
                                                     onClick={() =>
                                                         window.scrollTo({
                                                             top: 0,
@@ -238,7 +246,7 @@ export default function Products() {
                                             <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                                 <img
                                                     src={resolveImage(
-                                                        item.image
+                                                        item.image,
                                                     )}
                                                     alt={item.name}
                                                     className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
@@ -247,7 +255,7 @@ export default function Products() {
                                                     {item.name}
                                                 </p>
                                                 <Link
-                                                    to={`/products/${item._id}`}
+                                                    to={`/products/${slugify(item.name)}`}
                                                     onClick={() =>
                                                         window.scrollTo({
                                                             top: 0,
@@ -321,7 +329,7 @@ export default function Products() {
                                             <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                                 <img
                                                     src={resolveImage(
-                                                        item.image
+                                                        item.image,
                                                     )}
                                                     alt={item.name}
                                                     className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
@@ -330,7 +338,7 @@ export default function Products() {
                                                     {item.name}
                                                 </p>
                                                 <Link
-                                                    to={`/products/${item._id}`}
+                                                    to={`/products/${slugify(item.name)}`}
                                                     onClick={() =>
                                                         window.scrollTo({
                                                             top: 0,
@@ -404,7 +412,7 @@ export default function Products() {
                                             <div className="bg-white rounded-xl shadow-md text-center p-4 md:h-[380px] flex flex-col justify-between border border-cyan-500/20 hover:scale-105 duration-300">
                                                 <img
                                                     src={resolveImage(
-                                                        item.image
+                                                        item.image,
                                                     )}
                                                     alt={item.name}
                                                     className="h-[240px] md:h-[220px] w-full object-contain mx-auto mb-3"
@@ -413,7 +421,7 @@ export default function Products() {
                                                     {item.name}
                                                 </p>
                                                 <Link
-                                                    to={`/products/${item._id}`}
+                                                    to={`/products/${slugify(item.name)}`}
                                                     onClick={() =>
                                                         window.scrollTo({
                                                             top: 0,

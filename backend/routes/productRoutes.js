@@ -4,10 +4,11 @@ import { upload } from "../middleware/upload.js";
 import {
     getProducts,
     getAllProducts,
-    getProductById,
     createProduct,
     updateProduct,
     deleteProduct,
+    getProductBySlug,
+    getProductById,
 } from "../controllers/productController.js";
 import {
     validateCreateProduct,
@@ -21,6 +22,11 @@ const router = express.Router();
 
 router.get("/", validateGetProducts, validate, getProducts);
 router.get("/all", getAllProducts);
+
+// slug route (SEO)
+router.get("/slug/:slug", getProductBySlug);
+
+// id route (admin/internal)
 router.get("/:id", validateProductId, validate, getProductById);
 
 router.post(

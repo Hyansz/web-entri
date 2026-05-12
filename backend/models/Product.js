@@ -3,6 +3,11 @@ import mongoose from "mongoose";
 const ProductSchema = new mongoose.Schema(
     {
         name: { type: String, required: true },
+        slug: {
+            type: String,
+            unique: true,
+            index: true,
+        },
         kemenkesType: {
             type: String,
             enum: ["AKD", "PKD"],
@@ -15,7 +20,7 @@ const ProductSchema = new mongoose.Schema(
         image: {
             url: String,
             public_id: String,
-        }, // "/uploads/filename.jpg"
+        },
         category: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Category",
@@ -24,6 +29,33 @@ const ProductSchema = new mongoose.Schema(
     },
     { timestamps: true },
 );
+
+function slugify(text) {
+    return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9\s-]/g, "")
+        .replace(/\s+/g, "-")
+        .replace(/-+/g, "-");
+}
+
+ProductSchema.pre("save", function (next) {
+    if (this.name && !this.slug) {
+        this.slug = slugify(this.name);
+    }
+    next();
+});
+
+ProductSchema.pre("findOneAndUpdate", function (next) {
+    const update = this.getUpdate();
+
+    if (update.name) {
+        update.slug = slugify(update.name);
+    }
+
+    next();
+});
 
 ProductSchema.index({ createdAt: -1 });
 ProductSchema.index({ name: "text" });
