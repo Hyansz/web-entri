@@ -8,6 +8,7 @@ import {
     getEngagement,
     getEngagementCompare,
 } from "../controllers/umamiController.js";
+import axios from "axios";
 
 const router = express.Router();
 
