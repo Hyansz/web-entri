@@ -24,19 +24,9 @@ const CertificationSchema = new mongoose.Schema(
             index: true,
         },
 
-        description: {
-            type: String,
-            default: "",
-        },
-
         image: {
             url: String,
             public_id: String,
-        },
-
-        order: {
-            type: Number,
-            default: 0,
         },
 
         active: {
@@ -59,6 +49,5 @@ CertificationSchema.pre("save", async function () {
 CertificationSchema.index({ createdAt: -1 });
 CertificationSchema.index({ title: "text" });
 CertificationSchema.index({ active: 1 });
-CertificationSchema.index({ order: 1 });
 
 export default mongoose.model("Certification", CertificationSchema);

@@ -30,7 +30,7 @@ export const getCertifications = async (req, res, next) => {
         const total = await Certification.countDocuments(filter);
 
         const data = await Certification.find(filter)
-            .sort({ order: 1, createdAt: -1, _id: -1 })
+            .sort({ createdAt: -1, _id: -1 })
             .skip((page - 1) * limit)
             .limit(limit);
 
@@ -54,7 +54,6 @@ GET ALL (UNTUK FRONTEND GRID)
 export const getAllCertifications = async (req, res, next) => {
     try {
         const data = await Certification.find({ active: true }).sort({
-            order: 1,
             createdAt: -1,
         });
 
@@ -91,7 +90,7 @@ CREATE
 ======================= */
 export const createCertification = async (req, res, next) => {
     try {
-        const { title, description, order, active } = req.body;
+        const { title, active } = req.body;
 
         if (!title?.trim()) {
             return res.status(400).json({
@@ -108,8 +107,6 @@ export const createCertification = async (req, res, next) => {
 
         const certification = new Certification({
             title,
-            description,
-            order: order || 0,
             active: active !== undefined ? active === "true" : true,
             image,
         });
@@ -135,7 +132,7 @@ export const updateCertification = async (req, res, next) => {
             });
         }
 
-        const fields = ["title", "description", "order", "active"];
+        const fields = ["title", "active"];
 
         fields.forEach((field) => {
             if (req.body[field] !== undefined) {

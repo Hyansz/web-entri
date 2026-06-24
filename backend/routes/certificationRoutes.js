@@ -22,12 +22,11 @@ import { uploadLimiter } from "../middleware/rateLimiters.js";
 
 const router = express.Router();
 
-// ✅ IMPORTANT: letakkan sebelum /
 router.get("/all", getAllCertifications);
 
 router.get("/", validateGetCertifications, validate, getCertifications);
 
-router.get("/", validateCertificationId, validate, getCertificationById);
+router.get("/:id", validateCertificationId, validate, getCertificationById);
 
 router.post(
     "/",
@@ -40,7 +39,7 @@ router.post(
 );
 
 router.put(
-    "/",
+    "/:id",
     adminAuth,
     uploadLimiter,
     upload.single("image"),
@@ -50,7 +49,7 @@ router.put(
 );
 
 router.delete(
-    "/",
+    "/:id",
     adminAuth,
     validateCertificationId,
     validate,
