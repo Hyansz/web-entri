@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { HiOutlineCpuChip } from "react-icons/hi2";
 import { MdOutlineVerified } from "react-icons/md";
 import { RiCustomerService2Fill } from "react-icons/ri";
@@ -10,6 +10,7 @@ import OptimizedImage from "../components/OptimizedImage";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 import { FaUserGroup } from "react-icons/fa6";
+import api from "../api/axiosInstance";
 
 // ✅ LIGHTBOX
 import Lightbox from "yet-another-react-lightbox";
@@ -21,20 +22,43 @@ import "yet-another-react-lightbox/plugins/thumbnails.css";
 export default function Sertifikasi() {
     const { t } = useTranslation();
     const [index, setIndex] = useState(-1);
+    const [sertif, setSertif] = useState([]);
 
-    const sertif = [
-        { src: "/img/sertif1.webp", title: "ISO 9001 PT ENTRI JAYA MAKMUR" },
-        { src: "/img/sertif2.webp", title: "ISO 14001 PT ENTRI JAYA MAKMUR" },
-        { src: "/img/sertif3.webp", title: "ISO 45001 PT ENTRI JAYA MAKMUR" },
-        { src: "/img/sertif4.png", title: "CPAKB ENTRI 21015-1" },
-        { src: "/img/sertif5.png", title: "CPAKB ENTRI 22194-1" },
-        { src: "/img/sertif6.png", title: "CPAKB ENTRI 26602-1" },
-        { src: "/img/sertif7.png", title: "CPAKB ENTRI 32509-1" },
-        { src: "/img/sertif8.png", title: "CPAKB ENTRI 32501-1" },
-        { src: "/img/sertif-halal-1.webp", title: "SH-PT ENTRI JAYA MAKMUR-LIQUID-01" },
-        { src: "/img/sertif-halal-2.webp", title: "SH-PT ENTRI JAYA MAKMUR-LIQUID-02" },
-        { src: "/img/sertif-halal-3.webp", title: "SH-PT ENTRI JAYA MAKMUR-LIQUID-03" },
-    ];
+    // const sertif = [
+    //     { src: "/img/sertif1.webp", title: "ISO 9001 PT ENTRI JAYA MAKMUR" },
+    //     { src: "/img/sertif2.webp", title: "ISO 14001 PT ENTRI JAYA MAKMUR" },
+    //     { src: "/img/sertif3.webp", title: "ISO 45001 PT ENTRI JAYA MAKMUR" },
+    //     { src: "/img/sertif4.png", title: "CPAKB ENTRI 21015-1" },
+    //     { src: "/img/sertif5.png", title: "CPAKB ENTRI 22194-1" },
+    //     { src: "/img/sertif6.png", title: "CPAKB ENTRI 26602-1" },
+    //     { src: "/img/sertif7.png", title: "CPAKB ENTRI 32509-1" },
+    //     { src: "/img/sertif8.png", title: "CPAKB ENTRI 32501-1" },
+    //     {
+    //         src: "/img/sertif-halal-1.webp",
+    //         title: "SH-PT ENTRI JAYA MAKMUR-LIQUID-01",
+    //     },
+    //     {
+    //         src: "/img/sertif-halal-2.webp",
+    //         title: "SH-PT ENTRI JAYA MAKMUR-LIQUID-02",
+    //     },
+    //     {
+    //         src: "/img/sertif-halal-3.webp",
+    //         title: "SH-PT ENTRI JAYA MAKMUR-LIQUID-03",
+    //     },
+    // ];
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await api.get("/api/certifications/all");
+                setSertif(res.data.data);
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     const openLightbox = useCallback((i) => setIndex(i), []);
 
@@ -95,7 +119,7 @@ export default function Sertifikasi() {
                                 className="flex flex-col items-center justify-center bg-white rounded-2xl shadow-md hover:shadow-cyan-700/40 transition duration-300 p-6 cursor-pointer focus:outline-none"
                             >
                                 <OptimizedImage
-                                    src={item.src}
+                                    src={item.image?.url || "/placeholder.png"}
                                     alt={item.title}
                                     className="w-full h-auto object-contain max-h-56 mb-4"
                                 />
@@ -113,7 +137,12 @@ export default function Sertifikasi() {
                 open={index >= 0}
                 close={() => setIndex(-1)}
                 index={index}
-                slides={sertif}
+                slides={sertif
+                    .filter((item) => item.image?.url)
+                    .map((item) => ({
+                        src: item.image.url,
+                        title: item.title,
+                    }))}
                 plugins={[Thumbnails, Zoom]}
                 thumbnails={{ border: 0, padding: 8 }}
                 zoom={{ maxZoomPixelRatio: 3, doubleTapDelay: 300 }}

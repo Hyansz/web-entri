@@ -19,7 +19,7 @@ export default function ProductDetail() {
         setLoading(true);
         setError(false);
 
-        api.get(`/api/products2/${slug}`)
+        api.get(`/api/products2/slug/${slug}`)
             .then((res) => {
                 setProduct(res.data);
             })

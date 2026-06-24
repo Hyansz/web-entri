@@ -29,6 +29,9 @@ import PostDetail from "./pages/PostDetail";
 import HistatsTracker from "./components/HistatsTracker";
 import Analytics from "./pages/Analytics";
 import Sertifikasi from "./pages/Sertifikasi";
+import Certifications from "./pages/Certifications";
+import CertificationCreate from "./pages/CertificationCreate";
+import CertificationEdit from "./pages/CertificationEdit";
 
 AOS.init();
 
@@ -136,6 +139,30 @@ export default function App() {
                         element={
                             <ProtectedAdmin>
                                 <Analytics />
+                            </ProtectedAdmin>
+                        }
+                    />
+                    <Route
+                        path="/admin/certifications"
+                        element={
+                            <ProtectedAdmin>
+                                <Certifications />
+                            </ProtectedAdmin>
+                        }
+                    />
+                    <Route
+                        path="/admin/certifications/add"
+                        element={
+                            <ProtectedAdmin>
+                                <CertificationCreate />
+                            </ProtectedAdmin>
+                        }
+                    />
+                    <Route
+                        path="/admin/certifications/edit/:id"
+                        element={
+                            <ProtectedAdmin>
+                                <CertificationEdit />
                             </ProtectedAdmin>
                         }
                     />
