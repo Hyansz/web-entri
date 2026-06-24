@@ -86,7 +86,6 @@ export default function Certifications() {
                         <tr>
                             <th className="p-3 text-left">Image</th>
                             <th className="p-3 text-left">Title</th>
-                            <th className="p-3 text-left">Order</th>
                             <th className="p-3 text-left">Active</th>
                             <th className="p-3 text-left">Actions</th>
                         </tr>
@@ -114,7 +113,6 @@ export default function Certifications() {
                                         )}
                                     </td>
                                     <td className="p-2">{item.title}</td>
-                                    <td className="p-2">{item.order}</td>
                                     <td className="p-2">
                                         {item.active ? "Yes" : "No"}
                                     </td>

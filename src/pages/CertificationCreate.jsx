@@ -8,7 +8,6 @@ export default function CertificationCreate() {
 
     const [form, setForm] = useState({
         title: "",
-        description: "",
         order: 0,
         active: true,
     });
@@ -36,32 +35,7 @@ export default function CertificationCreate() {
             <h2 className="text-lg font-semibold mb-4">Tambah Sertifikasi</h2>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-                <input
-                    className="border p-2 w-full"
-                    placeholder="Title"
-                    value={form.title}
-                    onChange={(e) =>
-                        setForm({ ...form, title: e.target.value })
-                    }
-                />
-
-                <textarea
-                    className="border p-2 w-full"
-                    placeholder="Description"
-                    value={form.description}
-                    onChange={(e) =>
-                        setForm({ ...form, description: e.target.value })
-                    }
-                />
-
-                <input
-                    type="number"
-                    className="border p-2 w-full"
-                    value={form.order}
-                    onChange={(e) =>
-                        setForm({ ...form, order: e.target.value })
-                    }
-                />
+                {preview && <img src={preview} className="w-32 mt-2 rounded" />}
 
                 <input
                     type="file"
@@ -71,7 +45,14 @@ export default function CertificationCreate() {
                     }}
                 />
 
-                {preview && <img src={preview} className="w-32 mt-2 rounded" />}
+                <input
+                    className="border p-2 w-full"
+                    placeholder="Title"
+                    value={form.title}
+                    onChange={(e) =>
+                        setForm({ ...form, title: e.target.value })
+                    }
+                />
 
                 <button className="bg-cyan-600 text-white px-4 py-2 rounded">
                     Save

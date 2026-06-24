@@ -24,29 +24,6 @@ export default function Sertifikasi() {
     const [index, setIndex] = useState(-1);
     const [sertif, setSertif] = useState([]);
 
-    // const sertif = [
-    //     { src: "/img/sertif1.webp", title: "ISO 9001 PT ENTRI JAYA MAKMUR" },
-    //     { src: "/img/sertif2.webp", title: "ISO 14001 PT ENTRI JAYA MAKMUR" },
-    //     { src: "/img/sertif3.webp", title: "ISO 45001 PT ENTRI JAYA MAKMUR" },
-    //     { src: "/img/sertif4.png", title: "CPAKB ENTRI 21015-1" },
-    //     { src: "/img/sertif5.png", title: "CPAKB ENTRI 22194-1" },
-    //     { src: "/img/sertif6.png", title: "CPAKB ENTRI 26602-1" },
-    //     { src: "/img/sertif7.png", title: "CPAKB ENTRI 32509-1" },
-    //     { src: "/img/sertif8.png", title: "CPAKB ENTRI 32501-1" },
-    //     {
-    //         src: "/img/sertif-halal-1.webp",
-    //         title: "SH-PT ENTRI JAYA MAKMUR-LIQUID-01",
-    //     },
-    //     {
-    //         src: "/img/sertif-halal-2.webp",
-    //         title: "SH-PT ENTRI JAYA MAKMUR-LIQUID-02",
-    //     },
-    //     {
-    //         src: "/img/sertif-halal-3.webp",
-    //         title: "SH-PT ENTRI JAYA MAKMUR-LIQUID-03",
-    //     },
-    // ];
-
     useEffect(() => {
         const fetchData = async () => {
             try {
