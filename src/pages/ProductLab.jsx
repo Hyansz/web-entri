@@ -45,6 +45,14 @@ export default function ProductLab() {
 
     const totalPages = Math.ceil(total / limit);
 
+    const slugify = (text) =>
+        text
+            .toLowerCase()
+            .trim()
+            .replace(/[^a-z0-9\s-]/g, "")
+            .replace(/\s+/g, "-")
+            .replace(/-+/g, "-");
+
     return (
         <>
             <Helmet>
@@ -134,7 +142,7 @@ export default function ProductLab() {
 
                                         {/* 🔹 Tombol Detail */}
                                         <Link
-                                            to={`/products/${p._id}`}
+                                            to={`/products/${slugify(p.name)}`}
                                             className="inline-block mt-auto px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
                                             onClick={() =>
                                                 window.scrollTo({
