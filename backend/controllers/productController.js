@@ -80,7 +80,7 @@ export const getProductBySlug = async (req, res) => {
     try {
         const product = await Product.findOne({
             slug: req.params.slug,
-        });
+        }).populate("category", "name");
 
         if (!product) {
             return res.status(404).json({

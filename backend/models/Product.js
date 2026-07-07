@@ -40,21 +40,18 @@ function slugify(text) {
         .replace(/-+/g, "-");
 }
 
-ProductSchema.pre("save", function (next) {
+ProductSchema.pre("save", function () {
     if (this.name && !this.slug) {
         this.slug = slugify(this.name);
     }
-    next();
 });
 
-ProductSchema.pre("findOneAndUpdate", function (next) {
+ProductSchema.pre("findOneAndUpdate", function () {
     const update = this.getUpdate();
 
     if (update.name) {
         update.slug = slugify(update.name);
     }
-
-    next();
 });
 
 ProductSchema.index({ createdAt: -1 });

@@ -1,5 +1,4 @@
-import dotenv from "dotenv";
-dotenv.config();
+import "dotenv/config";
 
 import express from "express";
 import cors from "cors";
@@ -31,6 +30,7 @@ app.use(
 const allowedOrigins = [
     "http://localhost:5173",
     "http://localhost:4173",
+    "http://localhost:5000",
     "https://web-entri.vercel.app",
     "https://entrijayamakmur.co.id",
     "https://www.entrijayamakmur.co.id",

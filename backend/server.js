@@ -1,10 +1,9 @@
-import dotenv from "dotenv";
+import "dotenv/config"; // ✅ WAJIB baris import PERTAMA, sebelum import lain apapun
+
 import app from "./app.js";
 import { connectDB } from "./config/db.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import Product from "./models/Product.js";
-
-dotenv.config();
 
 await connectDB();
 
