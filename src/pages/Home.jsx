@@ -264,7 +264,7 @@ export default function Home() {
                                                     {item.name}
                                                 </p>
                                                 <Link
-                                                    to={`/products/${slugify(item.name)}`}
+                                                    to={`/products/${item.slug}`}
                                                     onClick={() =>
                                                         window.scrollTo({
                                                             top: 0,
@@ -347,7 +347,7 @@ export default function Home() {
                                                     {item.name}
                                                 </p>
                                                 <Link
-                                                    to={`/products/${slugify(item.name)}`}
+                                                    to={`/products/${item.slug}`}
                                                     onClick={() =>
                                                         window.scrollTo({
                                                             top: 0,
@@ -430,7 +430,7 @@ export default function Home() {
                                                     {item.name}
                                                 </p>
                                                 <Link
-                                                    to={`/products/${slugify(item.name)}`}
+                                                    to={`/products/${item.slug}`}
                                                     onClick={() =>
                                                         window.scrollTo({
                                                             top: 0,
@@ -513,7 +513,7 @@ export default function Home() {
                                                     {item.name}
                                                 </p>
                                                 <Link
-                                                    to={`/products/${slugify(item.name)}`}
+                                                    to={`/products/${item.slug}`}
                                                     onClick={() =>
                                                         window.scrollTo({
                                                             top: 0,

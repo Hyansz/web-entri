@@ -1,6 +1,7 @@
 import Product from "../models/Product.js";
 import mongoose from "mongoose";
 import cloudinary from "../config/cloudinary.js";
+import slugify from "slugify"; // npm install slugify
 
 export const getProducts = async (req, res, next) => {
     try {
@@ -122,6 +123,7 @@ export const createProduct = async (req, res, next) => {
 
         const product = new Product({
             name,
+            slug: slugify(name, { lower: true, strict: true }),
             kemenkesType,
             kemenkesNumber,
             brand,
@@ -164,6 +166,13 @@ export const updateProduct = async (req, res, next) => {
                 product[field] = req.body[field];
             }
         });
+
+        if (req.body.name !== undefined) {
+            product.slug = slugify(req.body.name, {
+                lower: true,
+                strict: true,
+            });
+        }
 
         /* ===============================
            ❌ REMOVE IMAGE (DARI FRONTEND)

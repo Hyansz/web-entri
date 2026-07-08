@@ -149,7 +149,7 @@ export default function ProductLiquid() {
                                         </h3>
 
                                         <Link
-                                            to={`/products/${slugify(p.name)}`}
+                                            to={`/products/${p.slug}`}
                                             className="inline-block mt-auto px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition duration-300"
                                             onClick={() =>
                                                 window.scrollTo({
