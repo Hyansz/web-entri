@@ -12,7 +12,6 @@ import categoryRoutes from "./routes/categoryRoutes.js";
 import postRoutes from "./routes/postRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
 import certificationRoutes from "./routes/certificationRoutes.js";
-import umamiRoutes from "./routes/umami.js";
 import emailRoutes from "./routes/email.js";
 import mongoSanitize from "mongo-sanitize";
 import { publicLimiter, adminLimiter } from "./middleware/rateLimiters.js";
@@ -108,7 +107,6 @@ app.use("/api/products2", productRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api", dashboardRoutes);
-app.use("/api/analytics", umamiRoutes);
 app.use("/", emailRoutes);
 app.use("/api/certifications", certificationRoutes);
 

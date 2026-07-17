@@ -2,10 +2,6 @@ import { useEffect, useState } from "react";
 import AdminLayout from "../components/AdminLayout";
 import { Link } from "react-router-dom";
 import api from "../api/axiosInstance";
-import PageViewsToday from "../components/stats/PageViewsToday";
-import SessionsToday from "../components/stats/SessionsToday";
-import BounceRate from "../components/stats/BounceRate";
-import DailyVisitorsChart from "../components/DailyVisitorsChart";
 
 function CountUp({ target }) {
     const [value, setValue] = useState(0);
@@ -115,12 +111,6 @@ export default function AdminDashboard() {
                     </button>
                 </div>
             )}
-            {/* === UMAMI ANALYTICS === */}
-            <div className="my-8 grid grid-cols-1 xl:grid-cols-3 gap-6 items-stretch">
-                <PageViewsToday />
-                <SessionsToday />
-                <BounceRate />
-            </div>
             <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 {/* Card Kategori */}
                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 flex flex-col items-center gap-1 transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl hover:shadow-blue-300/40">

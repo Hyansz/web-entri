@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext";
 import { FiMenu, FiHome, FiBox, FiGrid, FiLogOut } from "react-icons/fi";
-import { FaChartSimple } from "react-icons/fa6";
 import { FaRegFile } from "react-icons/fa";
 import { MdVerified } from "react-icons/md";
 
@@ -142,11 +141,6 @@ export default function AdminLayout({ children }) {
                         to="/admin/certifications"
                         icon={<MdVerified />}
                         label="Sertifikasi"
-                    />
-                    <NavItem
-                        to="/admin/analytics"
-                        icon={<FaChartSimple />}
-                        label="Analisis"
                     />
                 </nav>
 

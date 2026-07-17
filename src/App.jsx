@@ -27,7 +27,6 @@ import PostList from "./pages/PostList";
 import PostForm from "./pages/PostForm";
 import PostDetail from "./pages/PostDetail";
 import HistatsTracker from "./components/HistatsTracker";
-import Analytics from "./pages/Analytics";
 import Sertifikasi from "./pages/Sertifikasi";
 import Certifications from "./pages/Certifications";
 import CertificationCreate from "./pages/CertificationCreate";
@@ -131,14 +130,6 @@ export default function App() {
                         element={
                             <ProtectedAdmin>
                                 <PostForm />
-                            </ProtectedAdmin>
-                        }
-                    />
-                    <Route
-                        path="/admin/analytics"
-                        element={
-                            <ProtectedAdmin>
-                                <Analytics />
                             </ProtectedAdmin>
                         }
                     />
